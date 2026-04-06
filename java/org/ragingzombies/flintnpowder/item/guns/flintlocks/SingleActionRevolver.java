@@ -13,6 +13,7 @@ import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
 import org.ragingzombies.flintnpowder.core.guns.BlazelockBase;
 import org.ragingzombies.flintnpowder.item.ammo.CastIronRoundshot;
+import org.ragingzombies.flintnpowder.item.ammo.ShotgunShell;
 
 import javax.annotation.Nullable;
 import java.awt.*;
@@ -53,17 +54,20 @@ public class SingleActionRevolver extends BlazelockBase {
         if (ammo instanceof CastIronRoundshot) {
             return true;
         }
+        if (ammo instanceof ShotgunShell) {
+            return true;
+        }
 
         return false;
     }
 
     @Override
     public void appendHoverText(ItemStack pStack, @Nullable Level pLevel, List<Component> pTooltipComponents, TooltipFlag pIsAdvanced) {
+        pTooltipComponents.add(Component.translatable("item.flintnpowder.single_action_revolver.description_4"));
         pTooltipComponents.add(Component.translatable("item.flintnpowder.single_action_revolver.description_0"));
         pTooltipComponents.add(Component.translatable("item.flintnpowder.single_action_revolver.description_1"));
         pTooltipComponents.add(Component.translatable("item.flintnpowder.single_action_revolver.description_2"));
         pTooltipComponents.add(Component.translatable("item.flintnpowder.single_action_revolver.description_3"));
-        pTooltipComponents.add(Component.translatable("item.flintnpowder.single_action_revolver.description_4"));
 
         super.appendHoverText(pStack, pLevel, pTooltipComponents, pIsAdvanced);
     }
