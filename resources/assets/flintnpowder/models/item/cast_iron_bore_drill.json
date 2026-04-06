@@ -1,0 +1,6 @@
+{
+  "parent": "item/handheld",
+  "textures": {
+    "layer0": "flintnpowder:item/cast_iron_bore_drill"
+  }
+}

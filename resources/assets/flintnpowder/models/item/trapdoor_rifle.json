@@ -1,0 +1,65 @@
+{
+  "loader": "forge:separate_transforms",
+  "gui_light": "front",
+  "base": {
+	  "parent": "item/generated",
+	  "textures": {
+	    "layer0": "flintnpowder:item/trapdoorrifle"
+	  },
+	  "display": {
+        "ground": {
+            "rotation": [ 0, 0, 0 ],
+            "translation": [ 0, 3, 0],
+            "scale":[ 1, 1, 1 ]
+        },
+        "fixed": {
+            "rotation": [ 0, 0, 0 ],
+            "translation": [ 0, 0, 0],
+            "scale":[ 1, 1, 1 ]
+        },
+        "thirdperson_righthand": {
+            "rotation": [ 0, -90, 25 ],
+            "translation": [ 0, 2.75, -2.75 ],
+            "scale": [ 1.7, 1.7, 1 ]
+        },
+                "thirdperson_lefthand": {
+            "rotation": [ 0, 90, -25 ],
+            "translation": [ 0, 2.75, 1 ],
+            "scale": [ 1.7, 1.7, 1 ]
+        },
+        "firstperson_righthand": {
+            "rotation": [ 5, -90, 25 ],
+            "translation": [ 0, 3.75, -0.75 ],
+            "scale": [ 1.7, 1.7, 1 ]
+        },
+        "firstperson_lefthand": {
+            "rotation": [ 5, 90, -25 ],
+            "translation": [ 0, 3.75, -0.75 ],
+            "scale": [ 1.7, 1.7, 1 ]
+        }
+	}
+  },
+  "perspectives": {
+    "gui": {
+      "parent": "item/handheld",
+      "textures": {
+        "layer0": "flintnpowder:item/trapdoorriflegui"
+      },
+      "gui_light": "front"
+    }
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "flintnpowder:trapdoor_rifle_opened": 1
+      },
+      "model": "flintnpowder:item/trapdoor_rifle_0"
+    },
+    {
+      "predicate": {
+        "flintnpowder:trapdoor_rifle_primed": 1
+      },
+      "model": "flintnpowder:item/trapdoor_rifle_1"
+    }
+  ]
+}

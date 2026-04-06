@@ -1,0 +1,59 @@
+{
+  "loader": "forge:separate_transforms",
+  "gui_light": "front",
+  "base": {
+	  "parent": "item/generated",
+	  "textures": {
+	    "layer0": "flintnpowder:item/musketbayonet"
+	  },
+	  "display": {
+        "ground": {
+            "rotation": [ 0, 0, 0 ],
+            "translation": [ 0, 3, 0],
+            "scale":[ 1, 1, 1 ]
+        },
+        "fixed": {
+            "rotation": [ 0, 0, 0 ],
+            "translation": [ 0, 0, 0],
+            "scale":[ 1, 1, 1 ]
+        },
+        "thirdperson_righthand": {
+            "rotation": [ 90, -90, 45 ],
+            "translation": [ 0, 13, 1 ],
+            "scale": [ 2.55, 2.55, 1 ]
+        },
+                "thirdperson_lefthand": {
+            "rotation": [ 90, 90, -45 ],
+            "translation": [ 0, 13, 1 ],
+            "scale": [ 2.55, 2.55, 1 ]
+        },
+        "firstperson_righthand": {
+            "rotation": [ 0, -90, 5 ],
+            "translation": [ 0, 8.5, -5.25 ],
+            "scale": [ 2.55, 2.55, 1 ]
+        },
+        "firstperson_lefthand": {
+            "rotation": [ 0, 90, -5 ],
+            "translation": [ 0, 8.5, -5.25 ],
+            "scale": [ 2.55, 2.55, 1 ]
+        }
+	}
+  },
+  "perspectives": {
+    "gui": {
+      "parent": "item/handheld",
+      "textures": {
+        "layer0": "flintnpowder:item/bayonetmusketgui"
+      },
+      "gui_light": "front"
+    }
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "flintnpowder:bayonet_musket_primed": 1
+      },
+      "model": "flintnpowder:item/bayonet_musket_0"
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"gunholdr": {
+        	"isLoop": "true",
+        	"degrees":true,
+			"animation_length": 0.1,
+			"bones": {
+				"right_arm": {
+					"rotation": {
+						"0.0": [-87.5, 0, 0],
+						"0.1": [-87.5, 0, 0]
+					}
+				},
+				"left_arm": {
+					"rotation": {
+						"0.0": [-90, 47.5, 0],
+						"0.1": [-90, 47.5, 0]
+					}
+				}
+			}
+		}
+	}
+}

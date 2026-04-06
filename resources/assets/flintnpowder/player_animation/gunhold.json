@@ -1,0 +1,21 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"gunhold": {
+			"loop": true,
+			"bones": {
+				"right_arm": {
+					"rotation": [-40.73074, -13.35981, -15.02126],
+					"position": [0, 1, 1]
+				},
+				"left_arm": {
+					"rotation": [-31.88034, -6.6782, -10.59061],
+					"position": [-0.5, -0.5, -0.25]
+				},
+				"rightItem": {
+					"rotation": [5, 0, -57.5]
+				}
+			}
+		}
+	}
+}

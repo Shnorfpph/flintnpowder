@@ -1,0 +1,16 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"pistolholdr": {
+			"animation_length": 0.0417,
+			"bones": {
+				"right_arm": {
+					"rotation": {
+						"0.0": [-75, 0, 0],
+						"0.0417": [-75, 0, 0]
+					}
+				}
+			}
+		}
+	}
+}

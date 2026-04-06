@@ -1,0 +1,21 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"gunaim": {
+			"loop": true,
+			"bones": {
+				"torso": {
+					"rotation": [0, 32.5, 0]
+				},
+				"right_arm": {
+					"rotation": [-90, 0, 0],
+					"position": [1, 0, 4]
+				},
+				"left_arm": {
+					"rotation": [-82.2492, 49.74086, 5.92994],
+					"position": [-1, 0.06, -2]
+				}
+			}
+		}
+	}
+}
