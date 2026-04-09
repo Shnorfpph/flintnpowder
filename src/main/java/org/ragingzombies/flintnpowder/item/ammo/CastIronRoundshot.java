@@ -40,4 +40,11 @@ public class CastIronRoundshot extends BaseAmmo {
 
         level.addFreshEntity(proj);
     }
+    @Override
+    public void appendHoverText(ItemStack pStack, @Nullable Level pLevel, List<Component> pTooltipComponents, TooltipFlag pIsAdvanced) {
+        pTooltipComponents.add(Component.literal(""));
+        pTooltipComponents.add(Component.translatable("flintnpowder.bullet_description"));
+
+        super.appendHoverText(pStack, pLevel, pTooltipComponents, pIsAdvanced);
+    }
 }
