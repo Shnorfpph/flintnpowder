@@ -5,7 +5,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 
 public class AttachmentBase extends Item {
-    private String type = "Misc";
+    protected String type = "Misc";
 
     public AttachmentBase(Properties pProperties) {
         super(pProperties);
@@ -15,6 +15,6 @@ public class AttachmentBase extends Item {
         return type;
     }
 
-    public void onAttach(LivingEntity player, ItemStack gun) {}
-    public void onDetach(LivingEntity player, ItemStack gun) {}
+    public void onAttach(LivingEntity player, ItemStack attachment, ItemStack gun) {}
+    public void onDetach(LivingEntity player, ItemStack attachment, ItemStack gun) {}
 }

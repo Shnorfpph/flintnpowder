@@ -41,6 +41,7 @@ public class ModCreativeModTabs {
                         pOutput.accept(ModItems.SINGLEACTIONREVOLVER.get());
                         pOutput.accept(ModItems.PUMPACTIONSHOTGUN.get());
                         pOutput.accept(ModItems.RAMROD.get());
+                        pOutput.accept(ModItems.SILENCER.get());
                     }))
                     .build());
 

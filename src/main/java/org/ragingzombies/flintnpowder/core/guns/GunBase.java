@@ -1,21 +1,20 @@
 package org.ragingzombies.flintnpowder.core.guns;
 
 import net.minecraft.client.model.HumanoidModel;
-import net.minecraft.sounds.SoundEvents;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
-import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.HumanoidArm;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.UseAnim;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.client.extensions.common.IClientItemExtensions;
 import org.ragingzombies.flintnpowder.core.attachments.AttachmentBase;
 import org.ragingzombies.flintnpowder.sound.ModSounds;
-import org.spongepowered.asm.mixin.injection.At;
 
 import java.util.function.Consumer;
 
@@ -101,13 +100,70 @@ public class GunBase extends Item {
     }
 
     // Attachments
-    public boolean checkAttachment(ItemStack gun, Item attachment) {
+    public boolean checkAttachmentComparability(Player ply, ItemStack gun, Item attachment) {
         return false;
     }
 
-    public void setAttachment(ItemStack gun, AttachmentBase attachment) {
+    public void setAttachment(Player ply, ItemStack gun, ItemStack attachment) {
+        CompoundTag attachmentData = gun.getTag().getCompound("Attachments");
+        String attachType = ((AttachmentBase) attachment.getItem()).getType();
 
+        // Return old attachment
+        if (isAttachmentValidAndEnabled(gun, attachType)) {
+            detachAttachment(ply, gun, attachType);
+            onAttachmentDetach(ply, gun, attachType);
+        }
+
+        CompoundTag newAttachments = new CompoundTag();
+        newAttachments.putBoolean("enabled", true);
+
+        CompoundTag attachItem = attachment.serializeNBT();
+        newAttachments.put("item", attachItem);
+        attachmentData.put(attachType, newAttachments);
+
+        ((AttachmentBase) attachment.getItem()).onAttach(ply, attachment, gun);
+
+        onAttachmentAttach(ply, gun, attachment);
+
+        gun.getTag().put("Attachments", attachmentData);
     }
+
+    public void detachAttachment(Player ply, ItemStack gun, String type) {
+        ItemStack detached = getAttachmentStack(gun, type);
+        ((AttachmentBase) detached.getItem()).onDetach(ply, detached, gun);
+        ply.getInventory().add(detached);
+        gun.getOrCreateTag().getCompound("Attachments").getCompound(type).putBoolean("enabled", false);
+    }
+
+    public ItemStack getAttachmentStack(ItemStack gun, String type) {
+        CompoundTag attachmentsData = gun.getOrCreateTag().getCompound("Attachments");
+
+        if (!attachmentsData.getCompound(type).getBoolean("enabled")) {
+            return new ItemStack(Items.AIR);
+        }
+
+        CompoundTag item = attachmentsData.getCompound(type).getCompound("item");
+        ItemStack deserializedAttachment = ItemStack.of( item );
+        deserializedAttachment.deserializeNBT(attachmentsData.getCompound(type).getCompound("item"));
+
+        return deserializedAttachment;
+    }
+
+    public boolean isAttachmentValidAndEnabled(ItemStack gun, String type) {
+        return (getAttachmentStack(gun, type).getItem() != Items.AIR);
+    }
+
+    public Item getAttachmentItem(ItemStack gun, String type) {
+        return getAttachmentStack(gun, type).getItem();
+    }
+
+    public String getAttachmentName(ItemStack gun, String type) {
+        return getAttachmentStack(gun, type).getDisplayName().getString();
+    }
+
+    public void onAttachmentAttach(Player ply, ItemStack gun, ItemStack attachment) {}
+    public void onAttachmentDetach(Player ply, ItemStack gun, String type) {}
+    //
 
 
     public boolean allowPressingTrigger(Level pLevel, LivingEntity pPlayer, ItemStack gun, InteractionHand pUsedHand) {

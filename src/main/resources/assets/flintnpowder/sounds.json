@@ -440,6 +440,15 @@
       }
     ]
   },
+  "silencedshotgun": {
+    "subtitle": "subtitles.silencedshotgun",
+    "sounds": [
+      {
+        "name": "flintnpowder:silenced_shotgun",
+        "stream": false
+      }
+    ]
+  },
   "autoshotgun": {
     "subtitle": "subtitles.autoshotgun",
     "sounds": [

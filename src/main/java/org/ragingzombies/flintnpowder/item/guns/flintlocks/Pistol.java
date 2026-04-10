@@ -36,9 +36,6 @@ public class Pistol extends FlintlockBase {
         return 2;
     }
 
-
-
-
     @Override
     public void onShoot(Level pLevel, LivingEntity shooter, ItemStack gunStack) {
         pLevel.playSeededSound(null, shooter.getBlockX(), shooter.getBlockY(), shooter.getBlockZ(),

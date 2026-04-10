@@ -91,6 +91,12 @@ public class FlintlockBase extends GunBase {
         if (!pLevel.isClientSide()) {
             if (!gunStack.hasTag()) gunStack.setTag(new CompoundTag());
 
+            // Attachment
+            if (checkAttachmentComparability(pPlayer, gunStack, secondItemStack.getItem())) {
+                this.setAttachment(pPlayer, gunStack, secondItemStack);
+                return InteractionResultHolder.success(pPlayer.getItemInHand(pUsedHand));
+            }
+
             // If everything is done - shoot
             if (gunStack.getTag().getBoolean("IsCocked")) {
                 if (allowPressingTrigger(pLevel, pPlayer, gunStack, pUsedHand)) {

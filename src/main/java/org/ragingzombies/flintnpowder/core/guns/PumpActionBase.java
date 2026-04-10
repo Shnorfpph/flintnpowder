@@ -96,6 +96,12 @@ public class PumpActionBase extends GunBase {
         if (!pLevel.isClientSide()) {
             if (!gunStack.hasTag()) gunStack.setTag(new CompoundTag());
 
+            // Attachment
+            if (checkAttachmentComparability(pPlayer, gunStack, secondItemStack.getItem())) {
+                this.setAttachment(pPlayer, gunStack, secondItemStack);
+                return InteractionResultHolder.success(pPlayer.getItemInHand(pUsedHand));
+            }
+
             if (!gunStack.getTag().getBoolean("IsUncocked")) {
                 if (gunStack.getTag().getBoolean("ReadyToShoot")) {
                     if (allowPressingTrigger(pLevel, pPlayer, gunStack, pUsedHand)) {
