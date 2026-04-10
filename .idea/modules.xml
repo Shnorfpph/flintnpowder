@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/flintnpowder.iml" filepath="$PROJECT_DIR$/.idea/modules/flintnpowder.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/flintnpowder.main.iml" filepath="$PROJECT_DIR$/.idea/modules/flintnpowder.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/flintnpowder.test.iml" filepath="$PROJECT_DIR$/.idea/modules/flintnpowder.test.iml" />
     </modules>

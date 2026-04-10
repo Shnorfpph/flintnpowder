@@ -31,6 +31,7 @@ public class ModCreativeModTabs {
                         pOutput.accept(ModItemsAmmo.SHOTGUNSHELLSLUG.get());
                         pOutput.accept(ModItemsAmmo.SHOTGUNSHELLDRAGON.get());
                         pOutput.accept(ModItemsAmmo.PISTOLROUND.get());
+                        pOutput.accept(ModItemsAmmo.HANDGUNMAG.get());
                         // Empty
                     }))
                     .build());
@@ -44,6 +45,7 @@ public class ModCreativeModTabs {
                         pOutput.accept(ModItemsGuns.FLINTER.get());
                         pOutput.accept(ModItemsGuns.SINGLEACTIONREVOLVER.get());
                         pOutput.accept(ModItemsGuns.PUMPACTIONSHOTGUN.get());
+                        pOutput.accept(ModItemsGuns.SEMIAUTOPISTOL.get());
                         pOutput.accept(ModItems.RAMROD.get());
                         pOutput.accept(ModItemsAttachments.SILENCER.get());
                         pOutput.accept(ModItemsAttachments.BAYONET.get());

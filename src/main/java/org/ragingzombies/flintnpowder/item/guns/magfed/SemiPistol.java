@@ -1,0 +1,152 @@
+package org.ragingzombies.flintnpowder.item.guns.magfed;
+
+import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.network.chat.Component;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.SoundSource;
+import net.minecraft.util.Mth;
+import net.minecraft.util.RandomSource;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.level.Level;
+import org.ragingzombies.flintnpowder.core.guns.FlintlockBase;
+import org.ragingzombies.flintnpowder.core.guns.MagfedBase;
+import org.ragingzombies.flintnpowder.item.ammo.CastIronRoundshot;
+import org.ragingzombies.flintnpowder.item.ammo.CopperRoundshot;
+import org.ragingzombies.flintnpowder.item.ammo.magazines.HandgunMag;
+import org.ragingzombies.flintnpowder.item.attachments.ModItemsAttachments;
+import org.ragingzombies.flintnpowder.sound.ModSounds;
+
+import javax.annotation.Nullable;
+import java.util.List;
+
+public class SemiPistol extends MagfedBase {
+    public SemiPistol(Properties pProperties) {
+        super(pProperties);
+        shootCooldownTicks = 10;
+    }
+
+    @Override
+    public boolean checkMagazine(ItemStack mag) {
+        if (mag.getItem() instanceof HandgunMag) return true;
+
+        return false;
+    }
+
+    @Override
+    public boolean checkAttachmentComparability(Player ply, ItemStack gun, Item attachment) {
+        return (attachment == ModItemsAttachments.SILENCER.get());
+    }
+
+    @Override
+    public float accuracyModifier() {
+        return 1;
+    }
+
+    @Override
+    public void onSlideStart(Level pLevel, LivingEntity shooter, ItemStack gun) {
+        pLevel.playSeededSound(null, shooter.getBlockX(), shooter.getBlockY(), shooter.getBlockZ(),
+                ModSounds.PISTOLCOCKBACKWARD.get(), SoundSource.NEUTRAL, 1.0F, 1.0F, 0);
+
+        if (shooter instanceof Player ply) {
+            ply.getCooldowns().addCooldown(this, 10);
+        }
+    }
+
+    @Override
+    public void onSlideEnd(Level pLevel, LivingEntity shooter, ItemStack gun) {
+        pLevel.playSeededSound(null, shooter.getBlockX(), shooter.getBlockY(), shooter.getBlockZ(),
+                ModSounds.PISTOLCOCKFORWARD.get(), SoundSource.NEUTRAL, 1.0F, 1.0F, 0);
+
+        setAimAnimation(gun);
+
+        if (shooter instanceof Player ply) {
+            ply.getCooldowns().addCooldown(this, 15);
+        }
+    }
+
+    @Override
+    public void onMagExtract(Level pLevel, LivingEntity shooter, ItemStack gun) {
+        pLevel.playSeededSound(null, shooter.getBlockX(), shooter.getBlockY(), shooter.getBlockZ(),
+                ModSounds.PISTOLMAGIN.get(), SoundSource.NEUTRAL, 1.0F, 1.0F, 0);
+
+        setReloadAnimation(gun);
+
+        if (shooter instanceof Player ply) {
+            ply.getCooldowns().addCooldown(this, 15);
+        }
+    }
+
+    @Override
+    public void onMagInsert(Level pLevel, LivingEntity shooter, ItemStack gun) {
+        pLevel.playSeededSound(null, shooter.getBlockX(), shooter.getBlockY(), shooter.getBlockZ(),
+                ModSounds.PISTOLMAGIN.get(), SoundSource.NEUTRAL, 1.0F, 1.0F, 0);
+
+        if (shooter instanceof Player ply) {
+            ply.getCooldowns().addCooldown(this, 15);
+        }
+    }
+
+    @Override
+    public void onShoot(Level pLevel, LivingEntity shooter, ItemStack gunStack) {
+
+        if (!isAttachmentValidAndEnabled(gunStack, "Silencer")) {
+            pLevel.playSeededSound(null, shooter.getBlockX(), shooter.getBlockY(), shooter.getBlockZ(),
+                    ModSounds.PISTOLSHOOT.get(), SoundSource.NEUTRAL, 3.0F, 1.0F, 0);
+            pLevel.playSeededSound(null, shooter.getBlockX(), shooter.getBlockY(), shooter.getBlockZ(),
+                    ModSounds.PISTOLDISTANTSHOOT.get(), SoundSource.NEUTRAL, 9.0F, 1.0F, 0);
+        } else {
+            pLevel.playSeededSound(null, shooter.getBlockX(), shooter.getBlockY(), shooter.getBlockZ(),
+                    ModSounds.SHOTGUNSHOTSILENCED.get(), SoundSource.NEUTRAL, 2.0F, 1.0F, 0);
+        }
+
+        // Particles
+        if (!pLevel.isClientSide()) {
+            ServerLevel sLevel = (ServerLevel) pLevel;
+            for (int index0 = 0; index0 < 3; index0++) {
+                double speed = 0.15;
+                double spread = 0.05;
+
+                sLevel.sendParticles(
+                        ParticleTypes.POOF,
+                        shooter.getX(), shooter.getY() + shooter.getEyeHeight() * 0.6, shooter.getZ(),
+                        0,
+                        shooter.getDeltaMovement().x + shooter.getLookAngle().x * speed + Mth.nextDouble(RandomSource.create(), spread * (-1), spread),
+                        shooter.getDeltaMovement().y + shooter.getLookAngle().y * speed + Mth.nextDouble(RandomSource.create(), spread * (-1), spread),
+                        shooter.getDeltaMovement().z + shooter.getLookAngle().z * speed + Mth.nextDouble(RandomSource.create(), spread * (-1), spread),
+                        1.0
+                );
+            }
+        }
+
+        if (shooter instanceof Player) {
+            ((Player) shooter).getCooldowns().addCooldown(this, shootCooldown(shooter, gunStack));
+        }
+    }
+
+    @Override
+    public void appendHoverText(ItemStack pStack, @Nullable Level pLevel, List<Component> pTooltipComponents, TooltipFlag pIsAdvanced) {
+        pTooltipComponents.add(Component.literal(""));
+        pTooltipComponents.add(Component.translatable("item.flintnpowder.handgun_pistol.description_0"));
+        pTooltipComponents.add(Component.translatable("item.flintnpowder.handgun_pistol.description_1"));
+        pTooltipComponents.add(Component.literal(""));
+
+        int totalAttach = 0;
+        if (isAttachmentValidAndEnabled(pStack, "Silencer")) {
+            ItemStack item = getAttachmentStack(pStack, "Silencer");
+            pTooltipComponents.add(Component.translatable("flintnpowder.attachment").append(item.getDisplayName()));
+            item.getItem().appendHoverText(pStack, pLevel, pTooltipComponents, pIsAdvanced);
+
+            totalAttach++;
+        }
+
+        if (totalAttach > 0) {
+            pTooltipComponents.add(Component.literal(""));
+        }
+
+        super.appendHoverText(pStack, pLevel, pTooltipComponents, pIsAdvanced);
+    }
+}

@@ -17,6 +17,7 @@ import org.ragingzombies.flintnpowder.item.attachments.Silencer;
 import org.ragingzombies.flintnpowder.item.guns.flintlocks.Flinter;
 import org.ragingzombies.flintnpowder.item.guns.flintlocks.Musket;
 import org.ragingzombies.flintnpowder.item.guns.flintlocks.Pistol;
+import org.ragingzombies.flintnpowder.item.guns.magfed.SemiPistol;
 import org.ragingzombies.flintnpowder.item.guns.pumpaction.PumpActionShotgun;
 import org.ragingzombies.flintnpowder.item.guns.blazelocks.SingleActionRevolver;
 
@@ -34,6 +35,9 @@ public class ModItemsGuns {
             () -> new SingleActionRevolver(new SingleActionRevolver.Properties().stacksTo(1)));
     public static final RegistryObject<Item> PUMPACTIONSHOTGUN = ITEMS.register("shotgun",
             () -> new PumpActionShotgun(new PumpActionShotgun.Properties().stacksTo(1)));
+
+    public static final RegistryObject<Item> SEMIAUTOPISTOL = ITEMS.register("handgun_pistol",
+            () -> new SemiPistol(new SemiPistol.Properties().stacksTo(1)));
 
 
     public static void register(IEventBus eventBus) {
