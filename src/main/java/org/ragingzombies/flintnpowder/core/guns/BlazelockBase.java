@@ -114,10 +114,14 @@ public class BlazelockBase extends GunBase {
         else
             secondItemStack = pPlayer.getItemInHand(InteractionHand.MAIN_HAND);
 
-
-
         if (!pLevel.isClientSide()) {
             if (!gunStack.hasTag()) gunStack.setTag(new CompoundTag());
+
+            // Attachment
+            if (checkAttachmentComparability(pPlayer, gunStack, secondItemStack.getItem())) {
+                this.setAttachment(pPlayer, gunStack, secondItemStack);
+                return InteractionResultHolder.success(pPlayer.getItemInHand(pUsedHand));
+            }
 
             // If everything is done - shoot
             if (gunStack.getTag().getBoolean("ShootReady")) {
@@ -154,8 +158,6 @@ public class BlazelockBase extends GunBase {
                     onChamberOpen(pLevel, pPlayer, gunStack, pUsedHand);
                     gunStack.getTag().putBoolean("ChamberOpen", true);
                 }
-
-
             }
         }
 

@@ -9,15 +9,20 @@
   "flintnpowder.not_stuffed": "Not stuffed",
   "flintnpowder.ready_to_shoot": "Ready to shoot",
 
+  "flintnpowder.attachment": "Attachment: ",
   "flintnpowder.ammo": "Ammo: ",
   "flintnpowder.projectile_damage": "Projectile damage: ",
 
   "fnp.creativetab.firearms": "Flint'N'Powder - Firearms",
   "fnp.creativetab.ammunition": "Flint'N'Powder - Ammunition",
+
   "item.flintnpowder.ramrod": "Ramrod",
 
+  "item.flintnpowder.silencer": "Silencer",
+  "item.flintnpowder.silencer.description": "§2Makes a quieter gunshot sound",
+
   "flintnpowder.bullet_description": "§7When shot from a firearm:",
-  
+
   "item.flintnpowder.musket": "Musket",
   "item.flintnpowder.musket.description_0": "§6Flintlock: No flint and steel is required to fire",
   "item.flintnpowder.musket.description_1": "§2Calibre: Cast Iron Roundshot, Steel Roundshot",

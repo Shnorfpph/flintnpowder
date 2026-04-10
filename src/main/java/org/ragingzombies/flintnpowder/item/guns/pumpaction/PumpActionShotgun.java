@@ -15,6 +15,7 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
 import org.ragingzombies.flintnpowder.core.guns.PumpActionBase;
+import org.ragingzombies.flintnpowder.item.ModItems;
 import org.ragingzombies.flintnpowder.item.ammo.shotgun.ShotgunShell;
 import org.ragingzombies.flintnpowder.item.ammo.shotgun.ShotgunShellDragon;
 import org.ragingzombies.flintnpowder.item.ammo.shotgun.ShotgunShellSlug;
@@ -90,53 +91,82 @@ public class PumpActionShotgun extends PumpActionBase {
         return true;
     }
 
+    @Override
+    public boolean checkAttachmentComparability(Player ply, ItemStack gun, Item attachment) {
+        return (attachment == ModItems.SILENCER.get());
+    }
 
     @Override
     public void onShoot(Level pLevel, LivingEntity shooter, ItemStack gunStack) {
-        pLevel.playSeededSound(null, shooter.getBlockX(), shooter.getBlockY(), shooter.getBlockZ(),
-                ModSounds.SHOTGUNSHOT.get(), SoundSource.NEUTRAL, 5.0F, 1.0F, 0);
-        pLevel.playSeededSound(null, shooter.getBlockX(), shooter.getBlockY(), shooter.getBlockZ(),
-                ModSounds.GUNSHOTDISTANT.get(), SoundSource.NEUTRAL, 10.0F, 1.0F, 0);
 
         if (shooter instanceof Player) {
             ((Player) shooter).getCooldowns().addCooldown(this, shootCooldownTicks);
         }
-        // Particles
-        if (!pLevel.isClientSide()) {
-            ServerLevel sLevel = (ServerLevel) pLevel;
-            //Second index is your particle count. DO. NOT. TOUCH. pParticleCount.
-            //I'm dead serious. I know it might be weird that the particle count is not the actual particle count, but just trust the process and don't touch it.
-            //Thank you.
-            for (int index0 = 0; index0 < 25; index0++) {
-                double speed = 0.15;
-                double spread = 0.32;
 
-                sLevel.sendParticles(
-                        ParticleTypes.FLAME,
-                        shooter.getX(), shooter.getY() + shooter.getEyeHeight() * 0.6, shooter.getZ(),
-                        0,
-                        shooter.getDeltaMovement().x + shooter.getLookAngle().x * speed + Mth.nextDouble(RandomSource.create(), spread * (-1), spread),
-                        shooter.getDeltaMovement().y + shooter.getLookAngle().y * speed + Mth.nextDouble(RandomSource.create(), spread * (-1), spread),
-                        shooter.getDeltaMovement().z + shooter.getLookAngle().z * speed + Mth.nextDouble(RandomSource.create(), spread * (-1), spread),
-                        1.0
-                );
+        if (!isAttachmentValidAndEnabled(gunStack, "Silencer")) {
+            pLevel.playSeededSound(null, shooter.getBlockX(), shooter.getBlockY(), shooter.getBlockZ(),
+                    ModSounds.SHOTGUNSHOT.get(), SoundSource.NEUTRAL, 5.0F, 1.0F, 0);
+            pLevel.playSeededSound(null, shooter.getBlockX(), shooter.getBlockY(), shooter.getBlockZ(),
+                    ModSounds.GUNSHOTDISTANT.get(), SoundSource.NEUTRAL, 10.0F, 1.0F, 0);
+
+            // Particles
+            if (!pLevel.isClientSide()) {
+                ServerLevel sLevel = (ServerLevel) pLevel;
+                //Second index is your particle count. DO. NOT. TOUCH. pParticleCount.
+                //I'm dead serious. I know it might be weird that the particle count is not the actual particle count, but just trust the process and don't touch it.
+                //Thank you.
+                for (int index0 = 0; index0 < 25; index0++) {
+                    double speed = 0.15;
+                    double spread = 0.32;
+
+                    sLevel.sendParticles(
+                            ParticleTypes.FLAME,
+                            shooter.getX(), shooter.getY() + shooter.getEyeHeight() * 0.6, shooter.getZ(),
+                            0,
+                            shooter.getDeltaMovement().x + shooter.getLookAngle().x * speed + Mth.nextDouble(RandomSource.create(), spread * (-1), spread),
+                            shooter.getDeltaMovement().y + shooter.getLookAngle().y * speed + Mth.nextDouble(RandomSource.create(), spread * (-1), spread),
+                            shooter.getDeltaMovement().z + shooter.getLookAngle().z * speed + Mth.nextDouble(RandomSource.create(), spread * (-1), spread),
+                            1.0
+                    );
+                }
+                for (int index1 = 0; index1 < 15; index1++) {
+                    double speed = 0.22;
+                    double spread = 0.28;
+
+                    sLevel.sendParticles(
+                            ParticleTypes.LARGE_SMOKE,
+                            shooter.getX(), shooter.getY() + shooter.getEyeHeight() * 0.5, shooter.getZ(),
+                            0,
+                            shooter.getDeltaMovement().x + shooter.getLookAngle().x * speed + Mth.nextDouble(RandomSource.create(), spread * (-1), spread),
+                            shooter.getDeltaMovement().y + shooter.getLookAngle().y * speed + Mth.nextDouble(RandomSource.create(), spread * (-1), spread),
+                            shooter.getDeltaMovement().z + shooter.getLookAngle().z * speed + Mth.nextDouble(RandomSource.create(), spread * (-1), spread),
+                            1.0
+                    );
+                }
             }
-            for (int index1 = 0; index1 < 15; index1++) {
-                double speed = 0.22;
-                double spread = 0.28;
+        } else {
+            pLevel.playSeededSound(null, shooter.getBlockX(), shooter.getBlockY(), shooter.getBlockZ(),
+                    ModSounds.SHOTGUNSHOTSILENCED.get(), SoundSource.NEUTRAL, 2.0F, 1.0F, 0);
 
-                sLevel.sendParticles(
-                        ParticleTypes.LARGE_SMOKE,
-                        shooter.getX(), shooter.getY() + shooter.getEyeHeight() * 0.5, shooter.getZ(),
-                        0,
-                        shooter.getDeltaMovement().x + shooter.getLookAngle().x * speed + Mth.nextDouble(RandomSource.create(), spread * (-1), spread),
-                        shooter.getDeltaMovement().y + shooter.getLookAngle().y * speed + Mth.nextDouble(RandomSource.create(), spread * (-1), spread),
-                        shooter.getDeltaMovement().z + shooter.getLookAngle().z * speed + Mth.nextDouble(RandomSource.create(), spread * (-1), spread),
-                        1.0
-                );
+            if (!pLevel.isClientSide()) {
+                ServerLevel sLevel = (ServerLevel) pLevel;
+
+                for (int index1 = 0; index1 < 5; index1++) {
+                    double speed = 0.22;
+                    double spread = 0.12;
+
+                    sLevel.sendParticles(
+                            ParticleTypes.SMOKE,
+                            shooter.getX(), shooter.getY() + shooter.getEyeHeight() * 0.5, shooter.getZ(),
+                            0,
+                            shooter.getDeltaMovement().x + shooter.getLookAngle().x * speed + Mth.nextDouble(RandomSource.create(), spread * (-1), spread),
+                            shooter.getDeltaMovement().y + shooter.getLookAngle().y * speed + Mth.nextDouble(RandomSource.create(), spread * (-1), spread),
+                            shooter.getDeltaMovement().z + shooter.getLookAngle().z * speed + Mth.nextDouble(RandomSource.create(), spread * (-1), spread),
+                            1.0
+                    );
+                }
             }
         }
-
 
     }
 
@@ -160,6 +190,22 @@ public class PumpActionShotgun extends PumpActionBase {
         pTooltipComponents.add(Component.translatable("item.flintnpowder.shotgun.description_2"));
         pTooltipComponents.add(Component.translatable("item.flintnpowder.shotgun.description_3"));
         pTooltipComponents.add(Component.literal(""));
+
+        int totalAttach = 0;
+        if (isAttachmentValidAndEnabled(pStack, "Silencer")) {
+            ItemStack item = getAttachmentStack(pStack, "Silencer");
+            pTooltipComponents.add(Component.translatable("flintnpowder.attachment").append(item.getDisplayName()));
+            item.getItem().appendHoverText(pStack, pLevel, pTooltipComponents, pIsAdvanced);
+
+            totalAttach++;
+        }
+
+
+
+        if (totalAttach > 0) {
+            pTooltipComponents.add(Component.literal(""));
+        }
+
 
         super.appendHoverText(pStack, pLevel, pTooltipComponents, pIsAdvanced);
     }
