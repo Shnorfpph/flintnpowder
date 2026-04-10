@@ -34,7 +34,7 @@ public class MagfedBase extends GunBase {
                 ModSounds.GUNSWING.get(), SoundSource.NEUTRAL, 1.0F, 1.0F, 0);
 
         if (shooter instanceof Player ply) {
-            ply.getCooldowns().addCooldown(this, cooldownTicks);
+            ply.getCooldowns().addCooldown(this, 10);
         }
     }
 
@@ -45,27 +45,27 @@ public class MagfedBase extends GunBase {
         setAimAnimation(gun);
 
         if (shooter instanceof Player ply) {
-            ply.getCooldowns().addCooldown(this, cooldownTicks);
+            ply.getCooldowns().addCooldown(this, 15);
         }
     }
 
     public void onMagExtract(Level pLevel, LivingEntity shooter, ItemStack gun) {
         pLevel.playSeededSound(null, shooter.getBlockX(), shooter.getBlockY(), shooter.getBlockZ(),
-                ModSounds.GUNSWING.get(), SoundSource.NEUTRAL, 1.0F, 1.0F, 0);
+                ModSounds.PISTOLMAGIN.get(), SoundSource.NEUTRAL, 1.0F, 1.0F, 0);
 
         setReloadAnimation(gun);
 
         if (shooter instanceof Player ply) {
-            ply.getCooldowns().addCooldown(this, cooldownTicks);
+            ply.getCooldowns().addCooldown(this, 15);
         }
     }
 
     public void onMagInsert(Level pLevel, LivingEntity shooter, ItemStack gun) {
         pLevel.playSeededSound(null, shooter.getBlockX(), shooter.getBlockY(), shooter.getBlockZ(),
-                ModSounds.GUNSWING.get(), SoundSource.NEUTRAL, 1.0F, 1.0F, 0);
+                ModSounds.PISTOLMAGIN.get(), SoundSource.NEUTRAL, 1.0F, 1.0F, 0);
 
         if (shooter instanceof Player ply) {
-            ply.getCooldowns().addCooldown(this, cooldownTicks);
+            ply.getCooldowns().addCooldown(this, 15);
         }
     }
 
@@ -159,7 +159,7 @@ public class MagfedBase extends GunBase {
             // Attachment
             if (checkAttachmentComparability(pPlayer, gunStack, secondItemStack.getItem())) {
                 this.setAttachment(pPlayer, gunStack, secondItemStack);
-                return InteractionResultHolder.success(pPlayer.getItemInHand(pUsedHand));
+                return InteractionResultHolder.pass(pPlayer.getItemInHand(pUsedHand));
             }
 
             // I'm sleep-deprived hi

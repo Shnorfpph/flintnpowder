@@ -38,7 +38,7 @@
   "overrides": [
     {
       "predicate": {
-        "flintnpowder:blowback_handgun_priming": 1
+        "flintnpowder:slider": 1
       },
       "model": "flintnpowder:item/blowback_handgun_0"
     }

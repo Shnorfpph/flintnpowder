@@ -8,11 +8,13 @@ public class HandgunMag extends BaseMagazine {
 
     public HandgunMag(Properties pProperties) {
         super(pProperties);
-        maxAmmo = 30;
+        maxAmmo = 8;
     }
 
     @Override
     public boolean allowAmmo(ItemStack ammo) {
-        return true;
+        if (ammo.getItem() instanceof PistolRound) return true;
+
+        return false;
     }
 }

@@ -50,6 +50,14 @@ public class ClientModHandler {
                     return stack.getOrCreateTag().getBoolean("IsCocked") ? 1.0F : 0.0F;
                 }
         );
+        // Handgun
+        ItemProperties.register(
+                ModItemsGuns.SEMIAUTOPISTOL.get(),
+                new ResourceLocation(MOD_ID, "slider"),
+                (stack, level, entity, seed) -> {
+                    return stack.getOrCreateTag().getBoolean("SlideCocked") ? 1.0F : 0.0F;
+                }
+        );
 
         // Cast Iron Roundshot Projectile
         EntityRenderers.register(ModProjectiles.CASTIRONROUNDSHOTPROJECTILE.get(), ThrownItemRenderer::new);

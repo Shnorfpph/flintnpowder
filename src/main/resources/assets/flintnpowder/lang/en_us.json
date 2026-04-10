@@ -2,13 +2,12 @@
   "flintnpowder.gunpowder": "Gunpowder: ",
   "flintnpowder.payload": "Ammo: ",
   "flintnpowder.no_payload": "No ammo",
-  "flintnpowder.magazine": "Magazine:",
+  "flintnpowder.magazine": "Magazine: ",
   "flintnpowder.no_magazine": "No magazine",
+  "flintnpowder.magempty": "Magazine empty",
 
   "item.flintnpowder.handgunmag": "Handgun Magazine",
 
-  "flintnpowder.magempty": "Magazine empty",
-  "flintnpowder.magazine": "Magazine:",
 
   "flintnpowder.chamberopen": "[CHAMBER OPEN]",
   "flintnpowder.uncocked": "[UNCOCKED]",
@@ -46,10 +45,10 @@
   "item.flintnpowder.single_action_revolver.description_3": "§26 Rounds capacity",
 
   "item.flintnpowder.shotgun": "Pump Action Shotgun",
-  "item.flintnpowder.shotgun.description_3": "§26 Rounds capacity",
-  "item.flintnpowder.shotgun.description_2": "§2Calibre: Shotgun Shell",
-  "item.flintnpowder.shotgun.description_1": "§2Two handed: Empty Offhand required",
   "item.flintnpowder.shotgun.description_0": "§6Endlock: No need for additional gunpowder or ramrod",
+  "item.flintnpowder.shotgun.description_1": "§2Two handed: Empty Offhand required",
+  "item.flintnpowder.shotgun.description_2": "§2Calibre: Shotgun Shell",
+  "item.flintnpowder.shotgun.description_3": "§26 Rounds capacity",
 
   "item.flintnpowder.copper_roundshot": "Copper Roundshot",
   "item.flintnpowder.castironroundshot": "Cast Iron Roundshot",
@@ -65,5 +64,9 @@
   "item.flintnpowder.flinter.description_1": "§2Uses stick as a ramrod",
   "item.flintnpowder.flinter.description_2": "§420% chance to fire",
   "item.flintnpowder.flinter.description_3": "§2Calibre: Copper Roundshot",
-  "item.flintnpowder.flinter.description_4": ""
+  "item.flintnpowder.flinter.description_4": "",
+
+  "item.flintnpowder.handgun_pistol": "Blowback Handgun",
+  "item.flintnpowder.handgun_pistol.description_0": "§6Endlock: No need for additional gunpowder or ramrod",
+  "item.flintnpowder.handgun_pistol.description_1": "§2Calibre: Pistol Round Magazine"
 }

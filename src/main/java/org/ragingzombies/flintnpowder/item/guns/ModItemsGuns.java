@@ -36,7 +36,7 @@ public class ModItemsGuns {
     public static final RegistryObject<Item> PUMPACTIONSHOTGUN = ITEMS.register("shotgun",
             () -> new PumpActionShotgun(new PumpActionShotgun.Properties().stacksTo(1)));
 
-    public static final RegistryObject<Item> SEMIAUTOPISTOL = ITEMS.register("semiautopistol",
+    public static final RegistryObject<Item> SEMIAUTOPISTOL = ITEMS.register("handgun_pistol",
             () -> new SemiPistol(new SemiPistol.Properties().stacksTo(1)));
 
 
