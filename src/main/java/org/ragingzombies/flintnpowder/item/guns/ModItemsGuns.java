@@ -14,9 +14,9 @@ import org.ragingzombies.flintnpowder.item.ammo.shotgun.ShotgunShellDragon;
 import org.ragingzombies.flintnpowder.item.ammo.shotgun.ShotgunShellSlug;
 import org.ragingzombies.flintnpowder.item.attachments.Bayonet;
 import org.ragingzombies.flintnpowder.item.attachments.Silencer;
-import org.ragingzombies.flintnpowder.item.guns.flintlocks.Flinter;
-import org.ragingzombies.flintnpowder.item.guns.flintlocks.Musket;
-import org.ragingzombies.flintnpowder.item.guns.flintlocks.Pistol;
+import org.ragingzombies.flintnpowder.item.guns.blazelocks.BreakActionCoachgun;
+import org.ragingzombies.flintnpowder.item.guns.blazelocks.TrapdoorRifle;
+import org.ragingzombies.flintnpowder.item.guns.flintlocks.*;
 import org.ragingzombies.flintnpowder.item.guns.magfed.SemiPistol;
 import org.ragingzombies.flintnpowder.item.guns.pumpaction.PumpActionShotgun;
 import org.ragingzombies.flintnpowder.item.guns.blazelocks.SingleActionRevolver;
@@ -29,10 +29,22 @@ public class ModItemsGuns {
             () -> new Musket(new Musket.Properties().stacksTo(1)));
     public static final RegistryObject<Item> PISTOL = ITEMS.register("pistol",
             () -> new Pistol(new Pistol.Properties().stacksTo(1)));
+
     public static final RegistryObject<Item> FLINTER = ITEMS.register("flinter",
             () -> new Flinter(new Flinter.Properties().stacksTo(1)));
+    public static final RegistryObject<Item> VOLLEYGUN = ITEMS.register("volleygun",
+            () -> new Volleygun(new Volleygun.Properties().stacksTo(1)));
+
+    public static final RegistryObject<Item> ARQUEBUS = ITEMS.register("arquebus",
+            () -> new Arquebus(new Arquebus.Properties().stacksTo(1)));
+
     public static final RegistryObject<Item> SINGLEACTIONREVOLVER = ITEMS.register("single_action_revolver",
             () -> new SingleActionRevolver(new SingleActionRevolver.Properties().stacksTo(1)));
+    public static final RegistryObject<Item> BREAKACTIONCOACHGUN = ITEMS.register("break_action_coachgun",
+            () -> new BreakActionCoachgun(new BreakActionCoachgun.Properties().stacksTo(1)));
+    public static final RegistryObject<Item> TRAPDOORRIFLE = ITEMS.register("trapdoor_rifle",
+            () -> new TrapdoorRifle(new TrapdoorRifle.Properties().stacksTo(1)));
+
     public static final RegistryObject<Item> PUMPACTIONSHOTGUN = ITEMS.register("shotgun",
             () -> new PumpActionShotgun(new PumpActionShotgun.Properties().stacksTo(1)));
 

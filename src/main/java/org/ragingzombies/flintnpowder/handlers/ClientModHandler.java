@@ -20,7 +20,8 @@ import static org.ragingzombies.flintnpowder.Flintnpowder.MOD_ID;
 // You can use EventBusSubscriber to automatically register all static methods in the class annotated with @SubscribeEvent
 @Mod.EventBusSubscriber(modid = MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
 public class ClientModHandler {
-    /*
+
+    // Maybe, some day...
     static AttachmentRenderer renderer;
 
     public static AttachmentRenderer getRenderer() {
@@ -30,7 +31,7 @@ public class ClientModHandler {
         }
         return renderer;
     }
-     */
+
 
     @SubscribeEvent
     public static void onClientSetup(FMLClientSetupEvent event) {
@@ -55,6 +56,29 @@ public class ClientModHandler {
                 new ResourceLocation(MOD_ID, "musket_bayonet"),
                 (stack, level, entity, seed) -> {
                     return stack.getOrCreateTag().getBoolean("HaveBayonet") ? 1.0F : 0.0F;
+                }
+        );
+        // Coachgun
+        ItemProperties.register(
+                ModItemsGuns.BREAKACTIONCOACHGUN.get(),
+                new ResourceLocation(MOD_ID, "break_action_coachgun_opened"),
+                (stack, level, entity, seed) -> {
+                    return stack.getOrCreateTag().getBoolean("ChamberOpen") ? 1.0F : 0.0F;
+                }
+        );
+        // Trapdoor
+        ItemProperties.register(
+                ModItemsGuns.TRAPDOORRIFLE.get(),
+                new ResourceLocation(MOD_ID, "trapdoor_rifle_opened"),
+                (stack, level, entity, seed) -> {
+                    return stack.getOrCreateTag().getBoolean("ChamberOpen") ? 1.0F : 0.0F;
+                }
+        );
+        ItemProperties.register(
+                ModItemsGuns.TRAPDOORRIFLE.get(),
+                new ResourceLocation(MOD_ID, "trapdoor_rifle_primed"),
+                (stack, level, entity, seed) -> {
+                    return stack.getOrCreateTag().getBoolean("ShootReady") ? 1.0F : 0.0F;
                 }
         );
         // Pistol

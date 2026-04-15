@@ -10,6 +10,7 @@ import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
 import org.ragingzombies.flintnpowder.core.ammo.BaseAmmo;
@@ -43,7 +44,7 @@ public class BlazelockBase extends GunBase {
         setReloadAnimation(gun);
 
         if (shooter instanceof Player ply) {
-            ply.getCooldowns().addCooldown(this, shootCooldown(ply, gun));
+            ply.getCooldowns().addCooldown(this, cooldownTicks);
         }
     }
 
@@ -54,7 +55,7 @@ public class BlazelockBase extends GunBase {
         setAimAnimation(gun);
 
         if (shooter instanceof Player ply) {
-            ply.getCooldowns().addCooldown(this, shootCooldown(ply, gun));
+            ply.getCooldowns().addCooldown(this, cooldownTicks);
         }
     }
 

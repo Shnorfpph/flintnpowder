@@ -21,6 +21,7 @@ import org.ragingzombies.flintnpowder.sound.ModSounds;
 
 import javax.annotation.Nullable;
 import java.util.List;
+import java.util.UUID;
 
 public class SingleActionRevolver extends BlazelockBase {
     public SingleActionRevolver(Properties pProperties) {
@@ -55,19 +56,9 @@ public class SingleActionRevolver extends BlazelockBase {
         }
     }
 
-    /*
     @Override
-    public boolean checkAmmo(Item ammo){
-        if (ammo instanceof PistolRound) {
-            return true;
-        }
-
-        return false;
-    }*/
-
-    @Override
-    public float accuracyModifier(){
-        return 2.5F * super.accuracyModifier();
+    public float accuracyModifier(UUID ply){
+        return 2.5F * super.accuracyModifier(ply);
     }
 
     @Override

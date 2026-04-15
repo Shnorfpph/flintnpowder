@@ -19,10 +19,17 @@ public class ModItemsAmmo {
             () -> new CastIronRoundshot(new CastIronRoundshot.Properties().stacksTo(32)));
     public static final RegistryObject<Item> STEELROUNDSHOT = ITEMS.register("steel_roundshot",
             () -> new CastIronRoundshot(new CastIronRoundshot.Properties().stacksTo(32)));
+
     public static final RegistryObject<Item> COPPERROUNDSHOT = ITEMS.register("copper_roundshot",
             () -> new CopperRoundshot(new CopperRoundshot.Properties().stacksTo(32)));
+    public static final RegistryObject<Item> COPPERVOLLEYSHOT = ITEMS.register("copper_volleyshot",
+            () -> new CopperVolleyshot(new CopperVolleyshot.Properties().stacksTo(32)));
+
     public static final RegistryObject<Item> PISTOLROUND = ITEMS.register("pistol_round",
             () -> new PistolRound(new PistolRound.Properties().stacksTo(32)));
+    public static final RegistryObject<Item> RIFLEROUND = ITEMS.register("rifle_round",
+            () -> new RifleRound(new RifleRound.Properties().stacksTo(32)));
+
     public static final RegistryObject<Item> SHOTGUNSHELL = ITEMS.register("shotgunshell",
             () -> new ShotgunShell(new ShotgunShell.Properties().stacksTo(32)));
     public static final RegistryObject<Item> SHOTGUNSHELLSLUG = ITEMS.register("shotgunshellslug",

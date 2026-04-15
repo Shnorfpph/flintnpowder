@@ -26,6 +26,7 @@ public class ModSounds {
     public static final RegistryObject<SoundEvent> SHOTGUNSHOT = registerSoundEvents("autoshotgun");
     public static final RegistryObject<SoundEvent> SHOTGUNSHOTSILENCED = registerSoundEvents("silencedshotgun");
 
+    public static final RegistryObject<SoundEvent> RIFLESHOOT = registerSoundEvents("rifle");
     public static final RegistryObject<SoundEvent> RIFLERELOAD = registerSoundEvents("rifleround");
 
     public static final RegistryObject<SoundEvent> PISTOLSHOOT = registerSoundEvents("pistol");
