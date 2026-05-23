@@ -1,3 +1,21 @@
+/*
+ * Copyright (C) 2026 RagingZombies
+ *
+ * This file is part of Flint'N'Powder.
+ *
+ * Flint'N'Powder is free software: you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public License as
+ * published by the Free Software Foundation, either version 3 of the
+ * License, or (at your option) any later version.
+ *
+ * Flint'N'Powder is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this program. If not, see <https://www.gnu.org/licenses/>.
+ */
 package org.ragingzombies.flintnpowder.item;
 
 import net.minecraft.core.registries.Registries;
@@ -39,11 +57,15 @@ public class ModCreativeModTabs {
                         pOutput.accept(ModItemsAmmo.SHOTGUNSHELLDRAGON.get());
                         pOutput.accept(ModItemsAmmo.PISTOLROUND.get());
                         pOutput.accept(ModItemsAmmo.RIFLEROUND.get());
+                        pOutput.accept(ModItemsAmmo.SNIPERRIFLEROUND.get());
                         pOutput.accept(ModItemsAmmo.RIFLEROUNDCLIP.get());
+                        pOutput.accept(ModItemsAmmo.PISTOLROUNDCLIP.get());
                         pOutput.accept(ModItemsAmmo.HANDGUNMAG.get());
                         pOutput.accept(ModItemsAmmo.EXTENDEDHANDGUNMAG.get());
                         pOutput.accept(ModItemsAmmo.BATTLERIFLEMAGAZINE.get());
                         pOutput.accept(ModItemsAmmo.SHOTGUNMAGAZINE.get());
+                        pOutput.accept(ModItemsAmmo.SNIPERRIFLEMAGAZINE.get());
+
                         // Empty
                     }))
                     .build());
@@ -59,6 +81,7 @@ public class ModCreativeModTabs {
                         pOutput.accept(ModItemsGuns.FLAMINGHALBERD.get());
                         pOutput.accept(ModItemsGuns.HANDGONNE.get());
                         pOutput.accept(ModItemsGuns.PISTOL.get());
+                        pOutput.accept(ModItemsGuns.BROOMHANDLE.get());
                         pOutput.accept(ModItemsGuns.MUSKET.get());
                         pOutput.accept(ModItemsGuns.BLUNDERBUSS.get());
                         pOutput.accept(ModItemsGuns.ARQUEBUS.get());
@@ -74,6 +97,7 @@ public class ModCreativeModTabs {
                         pOutput.accept(ModItemsGuns.OPENBOLTSUBMACHINEGUN.get());
                         pOutput.accept(ModItemsGuns.CLOSEDBOLTBATTLERIFLE.get());
                         pOutput.accept(ModItemsGuns.GASOPERATEDSHOTGUN.get());
+                        pOutput.accept(ModItemsGuns.SNIPERRIFLE.get());
                         pOutput.accept(ModItems.RAMROD.get());
                         pOutput.accept(ModItemsAttachments.SILENCER.get());
                         pOutput.accept(ModItemsAttachments.BAYONET.get());

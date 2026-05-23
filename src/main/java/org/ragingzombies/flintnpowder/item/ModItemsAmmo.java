@@ -1,3 +1,21 @@
+/*
+ * Copyright (C) 2026 RagingZombies
+ *
+ * This file is part of Flint'N'Powder.
+ *
+ * Flint'N'Powder is free software: you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public License as
+ * published by the Free Software Foundation, either version 3 of the
+ * License, or (at your option) any later version.
+ *
+ * Flint'N'Powder is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this program. If not, see <https://www.gnu.org/licenses/>.
+ */
 package org.ragingzombies.flintnpowder.item;
 
 import net.minecraft.world.item.Item;
@@ -7,11 +25,9 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import org.ragingzombies.flintnpowder.Flintnpowder;
 import org.ragingzombies.flintnpowder.item.ammo.*;
+import org.ragingzombies.flintnpowder.item.ammo.clips.PistolRoundClip;
 import org.ragingzombies.flintnpowder.item.ammo.clips.RifleRoundClip;
-import org.ragingzombies.flintnpowder.item.ammo.magazines.BattleRifleMag;
-import org.ragingzombies.flintnpowder.item.ammo.magazines.ExtendedHandgunMag;
-import org.ragingzombies.flintnpowder.item.ammo.magazines.HandgunMag;
-import org.ragingzombies.flintnpowder.item.ammo.magazines.ShotgunMag;
+import org.ragingzombies.flintnpowder.item.ammo.magazines.*;
 import org.ragingzombies.flintnpowder.item.ammo.shotgun.ShotgunShell;
 import org.ragingzombies.flintnpowder.item.ammo.shotgun.ShotgunShellDragon;
 import org.ragingzombies.flintnpowder.item.ammo.shotgun.ShotgunShellSlug;
@@ -51,6 +67,8 @@ public class ModItemsAmmo {
 
     public static final RegistryObject<Item> RIFLEROUNDCLIP = ITEMS.register("rifle_round_clip",
             () -> new RifleRoundClip(new RifleRoundClip.Properties().stacksTo(4)));
+    public static final RegistryObject<Item> PISTOLROUNDCLIP = ITEMS.register("pistolclip",
+            () -> new PistolRoundClip(new PistolRoundClip.Properties().stacksTo(4)));
 
     public static final RegistryObject<Item> FLAMINGGRAPESHOT = ITEMS.register("greek_fire_buckshot",
             () -> new FlamingGrapeshot(new FlamingGrapeshot.Properties().stacksTo(32)));
@@ -72,6 +90,12 @@ public class ModItemsAmmo {
             () -> new BattleRifleMag(new BattleRifleMag.Properties().stacksTo(1)));
     public static final RegistryObject<Item> SHOTGUNMAGAZINE = ITEMS.register("shotgun_magazine",
             () -> new ShotgunMag(new ShotgunMag.Properties().stacksTo(1)));
+
+    public static final RegistryObject<Item> SNIPERRIFLEROUND = ITEMS.register("50bmground",
+            () -> new SniperRound(new SniperRound.Properties().stacksTo(16)));
+    public static final RegistryObject<Item> SNIPERRIFLEMAGAZINE = ITEMS.register("sniperriflemagazine",
+            () -> new SniperRifleMag(new SniperRifleMag.Properties().stacksTo(1)));
+
 
     public static final RegistryObject<Item> CASTIRONBOMB = ITEMS.register("cast_iron_bomb",
             () -> new CastIronBomb(new CastIronBomb.Properties().stacksTo(16)));

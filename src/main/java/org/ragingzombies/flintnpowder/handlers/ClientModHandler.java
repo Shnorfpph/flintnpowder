@@ -1,3 +1,21 @@
+/*
+ * Copyright (C) 2026 RagingZombies
+ *
+ * This file is part of Flint'N'Powder.
+ *
+ * Flint'N'Powder is free software: you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public License as
+ * published by the Free Software Foundation, either version 3 of the
+ * License, or (at your option) any later version.
+ *
+ * Flint'N'Powder is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this program. If not, see <https://www.gnu.org/licenses/>.
+ */
 package org.ragingzombies.flintnpowder.handlers;
 
 import net.minecraft.client.Minecraft;
@@ -192,6 +210,14 @@ public class ClientModHandler {
                 new ResourceLocation(MOD_ID, "gas_operated_shotgun_priming"),
                 (stack, level, entity, seed) -> {
                     return stack.getOrCreateTag().getBoolean("SlideCocked") ? 1.0F : 0.0F;
+                }
+        );
+        // Sniper
+        ItemProperties.register(
+                ModItemsGuns.SNIPERRIFLE.get(),
+                new ResourceLocation(MOD_ID, "have_mag"),
+                (stack, level, entity, seed) -> {
+                    return stack.getOrCreateTag().getBoolean("HaveMag") ? 1.0F : 0.0F;
                 }
         );
 

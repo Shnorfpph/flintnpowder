@@ -1,3 +1,21 @@
+/*
+ * Copyright (C) 2026 RagingZombies
+ *
+ * This file is part of Flint'N'Powder.
+ *
+ * Flint'N'Powder is free software: you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public License as
+ * published by the Free Software Foundation, either version 3 of the
+ * License, or (at your option) any later version.
+ *
+ * Flint'N'Powder is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this program. If not, see <https://www.gnu.org/licenses/>.
+ */
 package org.ragingzombies.flintnpowder.item;
 
 import net.minecraft.world.item.Item;
@@ -7,12 +25,10 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import org.ragingzombies.flintnpowder.Flintnpowder;
 import org.ragingzombies.flintnpowder.item.guns.blazelocks.BreakActionCoachgun;
+import org.ragingzombies.flintnpowder.item.guns.blazelocks.Broomhandle;
 import org.ragingzombies.flintnpowder.item.guns.blazelocks.TrapdoorRifle;
 import org.ragingzombies.flintnpowder.item.guns.flintlocks.*;
-import org.ragingzombies.flintnpowder.item.guns.magfed.ClosedBoltBattleRifle;
-import org.ragingzombies.flintnpowder.item.guns.magfed.GasOperatedShotgun;
-import org.ragingzombies.flintnpowder.item.guns.magfed.OpenBoltSubmachineGun;
-import org.ragingzombies.flintnpowder.item.guns.magfed.SemiPistol;
+import org.ragingzombies.flintnpowder.item.guns.magfed.*;
 import org.ragingzombies.flintnpowder.item.guns.other.LogCannon;
 import org.ragingzombies.flintnpowder.item.guns.pumpaction.BoltActionRifle;
 import org.ragingzombies.flintnpowder.item.guns.pumpaction.PumpActionShotgun;
@@ -67,6 +83,12 @@ public class ModItemsGuns {
 
     public static final RegistryObject<Item> PUMPACTIONSHOTGUN = ITEMS.register("shotgun",
             () -> new PumpActionShotgun(new PumpActionShotgun.Properties().stacksTo(1)));
+    public static final RegistryObject<Item> SNIPERRIFLE = ITEMS.register("antimaterielrifle",
+            () -> new SniperRifle(new SniperRifle.Properties().stacksTo(1)));
+
+
+    public static final RegistryObject<Item> BROOMHANDLE = ITEMS.register("broomhandlepistol",
+            () -> new Broomhandle(new Broomhandle.Properties().stacksTo(1)));
 
     public static final RegistryObject<Item> SEMIAUTOPISTOL = ITEMS.register("handgun_pistol",
             () -> new SemiPistol(new SemiPistol.Properties().stacksTo(1)));
@@ -76,6 +98,7 @@ public class ModItemsGuns {
             () -> new ClosedBoltBattleRifle(new ClosedBoltBattleRifle.Properties().stacksTo(1)));
     public static final RegistryObject<Item> GASOPERATEDSHOTGUN = ITEMS.register("gas_operated_shotgun",
             () -> new GasOperatedShotgun(new GasOperatedShotgun.Properties().stacksTo(1)));
+
 
 
     public static void register(IEventBus eventBus) {

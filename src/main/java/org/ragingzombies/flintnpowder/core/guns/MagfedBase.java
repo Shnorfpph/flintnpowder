@@ -1,3 +1,21 @@
+/*
+ * Copyright (C) 2026 RagingZombies
+ *
+ * This file is part of Flint'N'Powder.
+ *
+ * Flint'N'Powder is free software: you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public License as
+ * published by the Free Software Foundation, either version 3 of the
+ * License, or (at your option) any later version.
+ *
+ * Flint'N'Powder is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this program. If not, see <https://www.gnu.org/licenses/>.
+ */
 package org.ragingzombies.flintnpowder.core.guns;
 
 import net.minecraft.ChatFormatting;
@@ -29,6 +47,7 @@ public class MagfedBase extends GunBase {
         super(pProperties);
     }
 
+    public boolean needSlideAfterShot = false;
     public List<Item> allowedMags = new ArrayList<>();
 
     public void addAllowedMagazine(Item mag) {
@@ -187,6 +206,11 @@ public class MagfedBase extends GunBase {
                         if (tryShoot(pLevel, pPlayer, gunStack, pUsedHand)) {
                             Shoot(pLevel, pPlayer, gunStack);
                             onShoot(pLevel, pPlayer, gunStack);
+
+                            if (needSlideAfterShot) {
+                                gunStack.getTag().putBoolean("SlideCocked", false);
+                                gunStack.getTag().putBoolean("ShootReady", false);
+                            }
                         } else {
                             onTryFailure(pLevel, pPlayer, gunStack);
                             gunStack.getTag().putBoolean("ShootReady", false);
