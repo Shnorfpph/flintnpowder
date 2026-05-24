@@ -83,7 +83,7 @@ public class TrapdoorRifle extends BlazelockBase {
     }
 
     @Override
-    public float accuracyModifier(UUID ply, ItemStack gun){
+    public float accuracyModifier(LivingEntity ply, ItemStack gun){
         return 1.25F * super.accuracyModifier(ply, gun);
     }
 

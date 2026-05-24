@@ -18,8 +18,12 @@
  */
 package org.ragingzombies.flintnpowder.core.util;
 
+import net.minecraft.server.MinecraftServer;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Player;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.server.ServerLifecycleHooks;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -37,6 +41,14 @@ public class PlayerSpecificModifiers {
         return playerData.containsKey(id);
     }
 
+    public static Player getPlayerByUUID(UUID id) {
+        MinecraftServer server = ServerLifecycleHooks.getCurrentServer();
+        if (server == null) {
+            return null;
+        }
+
+        return server.getPlayerList().getPlayer(id);
+    }
 
     public static void setPSMDamage(UUID id, float stat) {
         if (isUUIDRegistered(id)) {

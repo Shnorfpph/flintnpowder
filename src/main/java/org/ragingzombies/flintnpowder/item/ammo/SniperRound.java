@@ -48,17 +48,17 @@ public class SniperRound extends BaseAmmo {
     public void onAmmoShot(LivingEntity shooter, ItemStack gun, Level level) {
         FoolsGoldRoundshotProjectile proj = new FoolsGoldRoundshotProjectile(level, shooter);
 
-        proj.damage = this.damage * ((GunBase) gun.getItem()).damageModifier(shooter.getUUID(), gun);
+        proj.damage = this.damage * ((GunBase) gun.getItem()).damageModifier(shooter, gun);
         proj.setOwner(shooter);
 
-        proj.shootFromRotation(shooter, CameraWork.getPlayerViewX(shooter), CameraWork.getPlayerViewY(shooter), 0.0F, 25F, 0.5F * ((GunBase) gun.getItem()).accuracyModifier(shooter.getUUID(), gun));
+        proj.shootFromRotation(shooter, CameraWork.getPlayerViewX(shooter), CameraWork.getPlayerViewY(shooter), 0.0F, 25F, 0.5F * ((GunBase) gun.getItem()).accuracyModifier(shooter, gun));
 
         // Recoil
 
         if (shooter instanceof Player) {
             Random rand = new Random();
             float angleX = rand.nextFloat(4.0F);
-            OffsetEntityCamera(shooter, (-13 + (angleX - 2)) * ((GunBase) gun.getItem()).recoilModifierX(shooter.getUUID(), gun), (angleX - 2) * ((GunBase) gun.getItem()).recoilModifierY(shooter.getUUID(), gun));
+            OffsetEntityCamera(shooter, (-13 + (angleX - 2)) * ((GunBase) gun.getItem()).recoilModifierX(shooter, gun), (angleX - 2) * ((GunBase) gun.getItem()).recoilModifierY(shooter, gun));
         }
 
         level.addFreshEntity(proj);

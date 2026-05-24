@@ -51,7 +51,7 @@ public class OpenBoltSubmachineGun extends MagfedBase {
     }
 
     @Override
-    public float accuracyModifier(UUID ply, ItemStack gun) {
+    public float accuracyModifier(LivingEntity ply, ItemStack gun) {
         return 1.2F * super.accuracyModifier(ply, gun);
     }
 
@@ -78,12 +78,12 @@ public class OpenBoltSubmachineGun extends MagfedBase {
     }
 
     @Override
-    public float damageModifier(UUID shooter, ItemStack gun) {
+    public float damageModifier(LivingEntity shooter, ItemStack gun) {
         return 0.8F*super.damageModifier(shooter, gun);
     }
 
     @Override
-    public float recoilModifierX(UUID id, ItemStack gun) {
+    public float recoilModifierX(LivingEntity id, ItemStack gun) {
         return 0.25F*super.recoilModifierX(id, gun);
     }
 

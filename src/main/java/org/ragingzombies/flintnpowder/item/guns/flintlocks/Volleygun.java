@@ -51,7 +51,7 @@ public class Volleygun extends FlintlockBase {
     }
 
     @Override
-    public float accuracyModifier(UUID ply, ItemStack gun) {
+    public float accuracyModifier(LivingEntity ply, ItemStack gun) {
         return 2F * super.accuracyModifier(ply, gun);
     }
 

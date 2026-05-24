@@ -64,10 +64,10 @@ public class OilFlameshot extends BaseAmmo {
 
                 FlamingBuckshotProjectile proj = new FlamingBuckshotProjectile(level, shooter);
 
-                proj.damage = this.damage * ((GunBase) gun.getItem()).damageModifier(shooter.getUUID(), gun);
+                proj.damage = this.damage * ((GunBase) gun.getItem()).damageModifier(shooter, gun);
                 proj.setOwner(shooter);
 
-                proj.shootFromRotation(shooter, CameraWork.getPlayerViewX(shooter)-5, CameraWork.getPlayerViewY(shooter), 0.0F, 2F, 2F * ((GunBase) gun.getItem()).accuracyModifier(shooter.getUUID(), gun));
+                proj.shootFromRotation(shooter, CameraWork.getPlayerViewX(shooter)-5, CameraWork.getPlayerViewY(shooter), 0.0F, 2F, 2F * ((GunBase) gun.getItem()).accuracyModifier(shooter, gun));
 
                 level.addFreshEntity(proj);
             });

@@ -56,8 +56,8 @@ public class ShotgunShellDragon extends BaseAmmo {
 
             proj.setOwner(shooter);
             proj.shootFromRotation(shooter, CameraWork.getPlayerViewX(shooter) + (float)(Math.cos(angle)*radius),
-                    CameraWork.getPlayerViewY(shooter) + (float)(Math.sin(angle)*radius), 0.0F, 2F,5 * ((GunBase) gun.getItem()).accuracyModifier(shooter.getUUID(), gun));
-            proj.SetDamage(0.0F * ((GunBase) gun.getItem()).damageModifier(shooter.getUUID(), gun));
+                    CameraWork.getPlayerViewY(shooter) + (float)(Math.sin(angle)*radius), 0.0F, 2F,5 * ((GunBase) gun.getItem()).accuracyModifier(shooter, gun));
+            proj.SetDamage(0.0F * ((GunBase) gun.getItem()).damageModifier(shooter, gun));
 
             level.addFreshEntity(proj);
         }
@@ -65,7 +65,7 @@ public class ShotgunShellDragon extends BaseAmmo {
         // Recoil
         if (shooter instanceof Player) {
             float angleX = rand.nextFloat(4.0F);
-            OffsetEntityCamera(shooter, (-25 + (angleX - 2)) * ((GunBase) gun.getItem()).recoilModifierX(shooter.getUUID(), gun), (angleX - 2) * ((GunBase) gun.getItem()).recoilModifierY(shooter.getUUID(), gun));
+            OffsetEntityCamera(shooter, (-25 + (angleX - 2)) * ((GunBase) gun.getItem()).recoilModifierX(shooter, gun), (angleX - 2) * ((GunBase) gun.getItem()).recoilModifierY(shooter, gun));
         }
     }
 

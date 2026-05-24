@@ -103,6 +103,7 @@ public class ModCreativeModTabs {
                         pOutput.accept(ModItemsAttachments.BAYONET.get());
                         pOutput.accept(ModItemsAttachments.HIGHPROFILEOPTIC.get());
                         pOutput.accept(ModItemsAttachments.LOWPROFILEOPTIC.get());
+                        pOutput.accept(ModItemsAttachments.BIPOD.get());
                     }))
                     .build());
 

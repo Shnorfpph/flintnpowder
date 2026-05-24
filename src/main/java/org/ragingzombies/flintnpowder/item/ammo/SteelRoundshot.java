@@ -43,18 +43,18 @@ public class SteelRoundshot extends BaseAmmo {
     public void onAmmoShot(LivingEntity shooter, ItemStack gun, Level level) {
         SteelRoundshotProjectile proj = new SteelRoundshotProjectile(level, shooter);
 
-        proj.damage = this.damage * ((GunBase) gun.getItem()).damageModifier(shooter.getUUID(), gun);
+        proj.damage = this.damage * ((GunBase) gun.getItem()).damageModifier(shooter, gun);
         proj.setOwner(shooter);
         Vec3 eyePos = shooter.getEyePosition();
         Vec3 lookVec = shooter.getLookAngle();
 
-        proj.shootFromRotation(shooter, CameraWork.getPlayerViewX(shooter), CameraWork.getPlayerViewY(shooter), 0.0F, 10F, 2F * ((GunBase) gun.getItem()).accuracyModifier(shooter.getUUID(), gun));
+        proj.shootFromRotation(shooter, CameraWork.getPlayerViewX(shooter), CameraWork.getPlayerViewY(shooter), 0.0F, 10F, 2F * ((GunBase) gun.getItem()).accuracyModifier(shooter, gun));
 
         // Recoil
         if (shooter instanceof Player) {
             Random rand = new Random();
             float angleX = rand.nextFloat(4.0F);
-            OffsetEntityCamera(shooter, (-15 + (angleX - 2)) * ((GunBase) gun.getItem()).recoilModifierX(shooter.getUUID(), gun), (angleX - 2) * ((GunBase) gun.getItem()).recoilModifierY(shooter.getUUID(), gun));
+            OffsetEntityCamera(shooter, (-15 + (angleX - 2)) * ((GunBase) gun.getItem()).recoilModifierX(shooter, gun), (angleX - 2) * ((GunBase) gun.getItem()).recoilModifierY(shooter, gun));
         }
 
         level.addFreshEntity(proj);
