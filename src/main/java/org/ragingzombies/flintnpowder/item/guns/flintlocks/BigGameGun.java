@@ -97,12 +97,12 @@ public class BigGameGun extends FlintlockBase {
     }
 
 
-    public float damageModifier(UUID shooter, ItemStack gun) {
+    public float damageModifier(LivingEntity shooter, ItemStack gun) {
         return 1.1F*super.damageModifier(shooter, gun);
     }
 
     @Override
-    public float accuracyModifier(UUID ply, ItemStack gun) {
+    public float accuracyModifier(LivingEntity ply, ItemStack gun) {
         return 2F * super.accuracyModifier(ply, gun);
     }
 

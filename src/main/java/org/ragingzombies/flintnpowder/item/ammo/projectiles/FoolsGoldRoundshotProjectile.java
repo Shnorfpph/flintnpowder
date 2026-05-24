@@ -55,7 +55,7 @@ public class FoolsGoldRoundshotProjectile extends AbstractArrow implements ItemS
     @Override
     public void tick() {
         super.tick();
-
+        /*
         if (!level().isClientSide()) {
             Vec3 motion = this.getDeltaMovement();
 
@@ -69,6 +69,7 @@ public class FoolsGoldRoundshotProjectile extends AbstractArrow implements ItemS
                     0.06
             );
         }
+         */
     }
 
     @Override

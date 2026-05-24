@@ -61,7 +61,7 @@ public class Arquebus extends FlintlockBase {
 
 
     @Override
-    public float accuracyModifier(UUID ply, ItemStack gun) {
+    public float accuracyModifier(LivingEntity ply, ItemStack gun) {
         return 1 * super.accuracyModifier(ply, gun);
     }
 

@@ -24,10 +24,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import org.ragingzombies.flintnpowder.Flintnpowder;
-import org.ragingzombies.flintnpowder.item.attachments.Bayonet;
-import org.ragingzombies.flintnpowder.item.attachments.HighProfileOptic;
-import org.ragingzombies.flintnpowder.item.attachments.LowProfileOptic;
-import org.ragingzombies.flintnpowder.item.attachments.Silencer;
+import org.ragingzombies.flintnpowder.item.attachments.*;
 
 public class ModItemsAttachments {
     public static final DeferredRegister<Item> ITEMS =
@@ -41,6 +38,8 @@ public class ModItemsAttachments {
             () -> new HighProfileOptic(new HighProfileOptic.Properties().stacksTo(1)));
     public static final RegistryObject<Item> LOWPROFILEOPTIC = ITEMS.register("lpoptic",
             () -> new LowProfileOptic(new LowProfileOptic.Properties().stacksTo(1)));
+    public static final RegistryObject<Item> BIPOD = ITEMS.register("bipod",
+            () -> new Bipod(new Bipod.Properties().stacksTo(1)));
 
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);

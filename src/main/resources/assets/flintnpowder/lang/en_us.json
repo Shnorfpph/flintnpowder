@@ -44,6 +44,9 @@
   "item.flintnpowder.bayonet": "Bayonet",
   "item.flintnpowder.bayonet.description": "§2Increases melee damage and distance",
 
+  "item.flintnpowder.bipod": "Bipod",
+  "item.flintnpowder.bipod.description": "§2Decreases recoil if SHIFT is held",
+
   "flintnpowder.bullet_description": "§7When shot from a firearm:",
 
   "item.flintnpowder.hpoptic": "High Profile Optic",

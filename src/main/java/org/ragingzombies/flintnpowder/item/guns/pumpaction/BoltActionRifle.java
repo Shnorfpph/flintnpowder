@@ -107,7 +107,7 @@ public class BoltActionRifle extends PumpActionBase {
     }
 
     @Override
-    public float accuracyModifier(UUID ply, ItemStack gun) {
+    public float accuracyModifier(LivingEntity ply, ItemStack gun) {
         return 0.5F * super.accuracyModifier(ply, gun);
     }
 

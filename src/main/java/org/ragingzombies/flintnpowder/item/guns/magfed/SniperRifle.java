@@ -41,6 +41,8 @@ import javax.annotation.Nullable;
 import java.util.List;
 import java.util.UUID;
 
+import static org.ragingzombies.flintnpowder.core.util.PlayerSpecificModifiers.getPlayerByUUID;
+
 public class SniperRifle extends MagfedBase {
     public SniperRifle(Properties pProperties) {
         super(pProperties);
@@ -51,10 +53,11 @@ public class SniperRifle extends MagfedBase {
 
         addAllowedAttachment(ModItemsAttachments.LOWPROFILEOPTIC.get());
         addAllowedAttachment(ModItemsAttachments.HIGHPROFILEOPTIC.get());
+        addAllowedAttachment(ModItemsAttachments.BIPOD.get());
     }
 
     @Override
-    public float accuracyModifier(UUID ply, ItemStack gun) {
+    public float accuracyModifier(LivingEntity ply, ItemStack gun) {
         return 0.025F * super.accuracyModifier(ply, gun);
     }
 
@@ -114,14 +117,18 @@ public class SniperRifle extends MagfedBase {
     }
 
     @Override
-    public float damageModifier(UUID shooter, ItemStack gun) {
+    public float damageModifier(LivingEntity shooter, ItemStack gun) {
         return super.damageModifier(shooter, gun);
     }
 
     @Override
-    public float recoilModifierX(UUID id, ItemStack gun) {
+    public float recoilModifierX(LivingEntity id, ItemStack gun) {
+        if (gun.getOrCreateTag().getBoolean("HaveBipod") && id.isCrouching() ) {
+            return 0.2F;
+        }
         return 3F*super.recoilModifierX(id, gun);
     }
+
 
     @Override
     public void onShoot(Level pLevel, LivingEntity shooter, ItemStack gunStack) {

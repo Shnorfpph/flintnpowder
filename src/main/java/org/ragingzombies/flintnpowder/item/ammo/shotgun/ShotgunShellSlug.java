@@ -45,9 +45,9 @@ public class ShotgunShellSlug extends BaseAmmo {
 
         SlugProjectile proj = new SlugProjectile(level, shooter);
 
-        proj.damage = this.damage * ((GunBase) gun.getItem()).damageModifier(shooter.getUUID(), gun);
+        proj.damage = this.damage * ((GunBase) gun.getItem()).damageModifier(shooter, gun);
         proj.setOwner(shooter);
-        proj.shootFromRotation(shooter, CameraWork.getPlayerViewX(shooter), CameraWork.getPlayerViewY(shooter), 0.0F, 3F, 0.1F * ((GunBase) gun.getItem()).accuracyModifier(shooter.getUUID(), gun));
+        proj.shootFromRotation(shooter, CameraWork.getPlayerViewX(shooter), CameraWork.getPlayerViewY(shooter), 0.0F, 3F, 0.1F * ((GunBase) gun.getItem()).accuracyModifier(shooter, gun));
 
         level.addFreshEntity(proj);
 
@@ -55,7 +55,7 @@ public class ShotgunShellSlug extends BaseAmmo {
 
         if (shooter instanceof Player) {
             float angleX = rand.nextFloat(5.0F);
-            OffsetEntityCamera(shooter, (-30 + (angleX - 2)) * ((GunBase) gun.getItem()).recoilModifierX(shooter.getUUID(), gun), (angleX - 2) * ((GunBase) gun.getItem()).recoilModifierY(shooter.getUUID(), gun));
+            OffsetEntityCamera(shooter, (-30 + (angleX - 2)) * ((GunBase) gun.getItem()).recoilModifierX(shooter, gun), (angleX - 2) * ((GunBase) gun.getItem()).recoilModifierY(shooter, gun));
         }
     }
 }

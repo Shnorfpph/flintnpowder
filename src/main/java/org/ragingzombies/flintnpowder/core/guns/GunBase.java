@@ -62,6 +62,7 @@ import java.util.List;
 import java.util.UUID;
 import java.util.function.Consumer;
 
+import static java.lang.System.currentTimeMillis;
 import static org.ragingzombies.flintnpowder.core.attachments.AttachmentBase.attachmentTypes;
 
 public class GunBase extends Item {
@@ -133,23 +134,23 @@ public class GunBase extends Item {
         consumer.accept(new IClientItemExtensions() {
             private static final HumanoidModel.ArmPose GUN_AIM = HumanoidModel.ArmPose.create("GUN_AIM", true, (model, entity, arm) -> {
                 if (arm == HumanoidArm.RIGHT) {
-                    model.body.yRot = 0.5F;
+                    model.rightArm.xRot = model.head.xRot - (float) Math.PI / 2F;
+                    model.rightArm.yRot = model.head.yRot;
 
-                    model.rightArm.xRot = (float) (-Math.PI*0.5F);
                     model.rightArm.x = -4;
                     model.rightArm.z = -1;
 
-                    model.leftArm.xRot = (float) (-Math.PI*0.5F);
-                    model.leftArm.yRot = (float) (Math.PI*0.25F);
+                    model.leftArm.xRot = model.head.xRot - (float) Math.PI / 2F;
+                    model.leftArm.yRot = model.head.yRot / 2F + (float) Math.PI / 4F ;
                 } else {
-                    model.body.yRot = -0.5F;
+                    model.leftArm.xRot = model.head.xRot - (float) Math.PI / 2F;
+                    model.leftArm.yRot = model.head.yRot;
 
-                    model.leftArm.xRot = (float) -(Math.PI*0.5F);
                     model.leftArm.x = 4;
-                    model.leftArm.z = 1;
+                    model.leftArm.z = -1;
 
-                    model.rightArm.xRot = (float) -(Math.PI*0.5F);
-                    model.rightArm.yRot = (float) -(Math.PI*0.25);
+                    model.rightArm.xRot = model.head.xRot - (float) Math.PI / 2F;
+                    model.rightArm.yRot = model.head.yRot / 2F - (float) Math.PI / 4F ;
                 }
             });
 
@@ -314,19 +315,19 @@ public class GunBase extends Item {
     }
 
 
-    public float damageModifier(UUID shooter, ItemStack gun) {
+    public float damageModifier(LivingEntity shooter, ItemStack gun) {
         int amoLevel = EnchantmentHelper.getItemEnchantmentLevel(ModEnchantments.QUALITY_PROPELLANT.get(), gun);
-        return (1 + amoLevel*0.10F) * PlayerSpecificModifiers.getPSMDamage(shooter);
+        return (1 + amoLevel*0.10F) * PlayerSpecificModifiers.getPSMDamage(shooter.getUUID());
     }
 
-    public float recoilModifierX(UUID id, ItemStack gun) {
-        return 1 * PlayerSpecificModifiers.getPSMRecoil(id);
+    public float recoilModifierX(LivingEntity id, ItemStack gun) {
+        return 1 * PlayerSpecificModifiers.getPSMRecoil(id.getUUID());
     }
-    public float recoilModifierY(UUID id, ItemStack gun) {
-        return 1 * PlayerSpecificModifiers.getPSMRecoil(id);
+    public float recoilModifierY(LivingEntity id, ItemStack gun) {
+        return 1 * PlayerSpecificModifiers.getPSMRecoil(id.getUUID());
     }
-    public float accuracyModifier(UUID id, ItemStack gun) {
-        return 1 * PlayerSpecificModifiers.getPSMAccuracy(id);
+    public float accuracyModifier(LivingEntity id, ItemStack gun) {
+        return 1 * PlayerSpecificModifiers.getPSMAccuracy(id.getUUID());
     }
 
 
