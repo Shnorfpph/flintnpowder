@@ -29,7 +29,8 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
-import org.ragingzombies.flintnpowder.core.guns.PumpActionBase;
+import com.livelandr.flintcore.core.guns.PumpActionBase;
+import org.ragingzombies.flintnpowder.core_modified.guns.PumpActionBaseEnchantable;
 import org.ragingzombies.flintnpowder.item.ModItemsAmmo;
 import org.ragingzombies.flintnpowder.item.ModItemsAttachments;
 import org.ragingzombies.flintnpowder.sound.ModSounds;
@@ -38,7 +39,7 @@ import javax.annotation.Nullable;
 import java.util.List;
 import java.util.UUID;
 
-public class PumpActionShotgun extends PumpActionBase {
+public class PumpActionShotgun extends PumpActionBaseEnchantable {
     public PumpActionShotgun(Properties pProperties) {
         super(pProperties);
         needCockToReload = false;

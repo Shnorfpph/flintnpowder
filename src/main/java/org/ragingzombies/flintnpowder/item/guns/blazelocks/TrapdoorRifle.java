@@ -32,16 +32,13 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.Rarity;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
-import org.ragingzombies.flintnpowder.core.guns.BlazelockBase;
-import org.ragingzombies.flintnpowder.item.ModItemsAmmo;
-import org.ragingzombies.flintnpowder.item.ModItemsAttachments;
+import org.ragingzombies.flintnpowder.core_modified.guns.BlazelockBaseEnchantable;
 import org.ragingzombies.flintnpowder.sound.ModSounds;
 
 import javax.annotation.Nullable;
 import java.util.List;
-import java.util.UUID;
 
-public class TrapdoorRifle extends BlazelockBase {
+public class TrapdoorRifle extends BlazelockBaseEnchantable {
     public TrapdoorRifle(Properties pProperties) {
         super(pProperties);
         maxAmmo = 1;

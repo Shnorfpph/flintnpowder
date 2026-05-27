@@ -30,7 +30,7 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import org.ragingzombies.flintnpowder.Flintnpowder;
-import org.ragingzombies.flintnpowder.core.guns.GunBase;
+import com.livelandr.flintcore.core.guns.GunBase;
 
 @Mod.EventBusSubscriber(modid = Flintnpowder.MOD_ID, value = Dist.CLIENT)
 public class ZoomComputing {

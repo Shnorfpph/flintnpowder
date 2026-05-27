@@ -32,16 +32,14 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
-import org.ragingzombies.flintnpowder.core.guns.FlintlockBase;
-import org.ragingzombies.flintnpowder.item.ModItemsAmmo;
+import org.ragingzombies.flintnpowder.core_modified.guns.FlintlockBaseEnchantable;
 import org.ragingzombies.flintnpowder.sound.ModSounds;
 
 import javax.annotation.Nullable;
 import java.util.List;
 import java.util.Random;
-import java.util.UUID;
 
-public class Volleygun extends FlintlockBase {
+public class Volleygun extends FlintlockBaseEnchantable {
     public Volleygun(Properties pProperties) {
         super(pProperties);
         shootCooldownTicks = 25;

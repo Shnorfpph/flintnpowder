@@ -18,7 +18,7 @@
  */
 package org.ragingzombies.flintnpowder.item.ammo.magazines;
 
-import org.ragingzombies.flintnpowder.core.ammo.BaseMagazine;
+import com.livelandr.flintcore.core.ammo.BaseMagazine;
 import org.ragingzombies.flintnpowder.item.ModItemsAmmo;
 
 public class ShotgunMag extends BaseMagazine {

@@ -27,8 +27,8 @@ import net.minecraftforge.event.server.ServerStartedEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import org.ragingzombies.flintnpowder.Flintnpowder;
-import org.ragingzombies.flintnpowder.core.attachments.AttachmentBase;
-import org.ragingzombies.flintnpowder.core.guns.GunBase;
+import com.livelandr.flintcore.core.attachments.AttachmentBase;
+import com.livelandr.flintcore.core.guns.GunBase;
 import org.ragingzombies.flintnpowder.item.ModItemsAttachments;
 
 import javax.annotation.Nullable;

@@ -1,42 +1,11 @@
 {
-
   "key.categories.flintnpowder": "Flint'n'Powder",
   "key.flintnpowder.zoomaim": "Aim gun",
-
-  "flintnpowder.gunpowder": "Gunpowder: ",
-  "flintnpowder.payload": "Ammo: ",
-  "flintnpowder.no_payload": "No ammo",
-  "flintnpowder.magazine": "Magazine: ",
-  "flintnpowder.no_magazine": "No magazine",
-  "flintnpowder.magempty": "Magazine empty",
 
   "item.flintnpowder.handgunmagazine": "Handgun Magazine",
   "item.flintnpowder.handgunmagazineextended": "Extended Handgun Magazine",
 
   "flintnpowder.incendiary": "§6Incendiary: Sets blocks and entities on fire",
-
-  "flintnpowder.chamberopen": "[CHAMBER OPEN]",
-  "flintnpowder.uncocked": "[UNCOCKED]",
-  "flintnpowder.cocked": "[COCKED]",
-
-  "flintnpowder.not_stuffed": "Not stuffed",
-  "flintnpowder.ready_to_shoot": "Ready to shoot",
-
-  "flintnpowder.attachment": "Attachment: ",
-  "flintnpowder.contains": "§2Contains: ",
-  "flintnpowder.ammo": "Ammo: ",
-  "flintnpowder.projectile_damage": "Projectile damage: ",
-
-  "flintnpowder.magazinetier": "§2Weapon tier: ",
-  "flintnpowder.weapontier": "§2Weapon tier: ",
-  "flintnpowder.weapontieruniversal": "§6Universal weapon tier.",
-  "flintnpowder.guninfoshift": "§6Hold [SHIFT] to view information about comparable ammo and attachments.",
-  "flintnpowder.guninfoctrl": "§6Hold [CTRL] to view information about inserted ammo.",
-  "flintnpowder.guninfoattachmentslots": "§2Attachment slots: ",
-  "flintnpowder.guninfoattachmenttags": "§2Attachment tags: ",
-  "flintnpowder.guninfonoattachment": "§4No attachment slots",
-  "flintnpowder.guninfoammo": "§2Compatible ammunition tags: ",
-  "flintnpowder.ammoinfotags": "§2Required ammunition tags: ",
 
   "fnp.creativetab.firearms": "Flint'N'Powder - Firearms",
   "fnp.creativetab.ammunition": "Flint'N'Powder - Ammunition",
@@ -223,7 +192,14 @@
   "enchantment.flintnpowder.swift_reload": "Swift Reload",
   "enchantment.flintnpowder.ramrod_mastery": "Ramrod Mastery",
 
-  "flintnpowder.slotnames.optic": "Optical slot",
-  "flintnpowder.slotnames.underbarrel": "Underbarrel fastening",
-  "flintnpowder.calibernames.roundshot": "Roundshots"
+  "flintcore.slotnames.optic": "Optical slot",
+  "flintcore.slotnames.underbarrel": "Underbarrel fastening",
+
+  "flintcore.slotnames.sniper": "Sniper optics avaliable",
+  "flintcore.slotnames.bayonet": "Bayonettable",
+  "flintcore.slotnames.bipodable": "Can be installed on bipod",
+
+  "flintcore.calibernames.roundshot": "Roundshot",
+  "flintcore.calibernames.9mm": "9mm round",
+  "flintcore.calibernames.12gauge": "12 Gauge Shotgun Shell"
 }

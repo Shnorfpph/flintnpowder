@@ -30,15 +30,13 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
-import org.ragingzombies.flintnpowder.core.guns.FlintlockBase;
-import org.ragingzombies.flintnpowder.item.ModItemsAmmo;
+import org.ragingzombies.flintnpowder.core_modified.guns.FlintlockBaseEnchantable;
 import org.ragingzombies.flintnpowder.sound.ModSounds;
 
 import javax.annotation.Nullable;
 import java.util.List;
-import java.util.UUID;
 
-public class Blunderbuss extends FlintlockBase {
+public class Blunderbuss extends FlintlockBaseEnchantable {
     public Blunderbuss(Properties pProperties) {
         super(pProperties);
 

@@ -41,15 +41,13 @@ import net.minecraft.world.item.Rarity;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.common.util.Lazy;
-import org.ragingzombies.flintnpowder.core.guns.FlintlockBase;
-import org.ragingzombies.flintnpowder.item.ModItemsAmmo;
+import org.ragingzombies.flintnpowder.core_modified.guns.FlintlockBaseEnchantable;
 import org.ragingzombies.flintnpowder.sound.ModSounds;
 
 import javax.annotation.Nullable;
 import java.util.List;
-import java.util.UUID;
 
-public class BigGameGun extends FlintlockBase {
+public class BigGameGun extends FlintlockBaseEnchantable {
 
     protected final Lazy<Multimap<Attribute, AttributeModifier>> lazyAttributeMap;
 

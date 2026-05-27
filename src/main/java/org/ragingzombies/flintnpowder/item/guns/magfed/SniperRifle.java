@@ -32,18 +32,13 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.Rarity;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
-import org.ragingzombies.flintnpowder.core.guns.MagfedBase;
-import org.ragingzombies.flintnpowder.item.ModItemsAmmo;
-import org.ragingzombies.flintnpowder.item.ModItemsAttachments;
+import org.ragingzombies.flintnpowder.core_modified.guns.MagfedBaseEnchantable;
 import org.ragingzombies.flintnpowder.sound.ModSounds;
 
 import javax.annotation.Nullable;
 import java.util.List;
-import java.util.UUID;
 
-import static org.ragingzombies.flintnpowder.core.util.PlayerSpecificModifiers.getPlayerByUUID;
-
-public class SniperRifle extends MagfedBase {
+public class SniperRifle extends MagfedBaseEnchantable {
     public SniperRifle(Properties pProperties) {
         super(pProperties);
         shootCooldownTicks = 10;
@@ -55,7 +50,7 @@ public class SniperRifle extends MagfedBase {
         addAttachmentSlot("optic");
 
         addCompatibleAttachmentTag("sniper");
-        addCompatibleAttachmentTag("fixable");
+        addCompatibleAttachmentTag("bipodable");
     }
 
     @Override

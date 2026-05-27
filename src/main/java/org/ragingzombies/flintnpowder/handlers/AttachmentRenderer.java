@@ -43,6 +43,8 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 import org.joml.Matrix4f;
 import org.ragingzombies.flintnpowder.Flintnpowder;
 
+import static net.minecraft.resources.ResourceLocation.fromNamespaceAndPath;
+
 @OnlyIn(Dist.CLIENT)
 public class AttachmentRenderer extends BlockEntityWithoutLevelRenderer {
     public static AttachmentRenderer INSTANCE;
@@ -64,7 +66,7 @@ public class AttachmentRenderer extends BlockEntityWithoutLevelRenderer {
                                            int packedLight, int packedOverlay) {
 
         // Получаем спрайт базовой текстуры
-        ResourceLocation textureLocation = new ResourceLocation(
+        ResourceLocation textureLocation = fromNamespaceAndPath(
                 Flintnpowder.MOD_ID,
                 "textures/item/" + BuiltInRegistries.ITEM.getKey(stack.getItem()).getPath() + ".png"
         );

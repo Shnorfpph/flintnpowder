@@ -33,15 +33,13 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.Rarity;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
-import org.ragingzombies.flintnpowder.core.guns.BlazelockBase;
-import org.ragingzombies.flintnpowder.item.ModItemsAmmo;
+import org.ragingzombies.flintnpowder.core_modified.guns.BlazelockBaseEnchantable;
 import org.ragingzombies.flintnpowder.sound.ModSounds;
 
 import javax.annotation.Nullable;
 import java.util.List;
-import java.util.UUID;
 
-public class Broomhandle extends BlazelockBase {
+public class Broomhandle extends BlazelockBaseEnchantable {
     public Broomhandle(Properties pProperties) {
         super(pProperties);
         maxAmmo = 10;

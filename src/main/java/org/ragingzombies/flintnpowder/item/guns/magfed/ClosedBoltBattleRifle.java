@@ -32,16 +32,13 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.Rarity;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
-import org.ragingzombies.flintnpowder.core.guns.MagfedBase;
-import org.ragingzombies.flintnpowder.item.ModItemsAmmo;
-import org.ragingzombies.flintnpowder.item.ModItemsAttachments;
+import org.ragingzombies.flintnpowder.core_modified.guns.MagfedBaseEnchantable;
 import org.ragingzombies.flintnpowder.sound.ModSounds;
 
 import javax.annotation.Nullable;
 import java.util.List;
-import java.util.UUID;
 
-public class ClosedBoltBattleRifle extends MagfedBase {
+public class ClosedBoltBattleRifle extends MagfedBaseEnchantable {
     public ClosedBoltBattleRifle(Properties pProperties) {
         super(pProperties);
         shootCooldownTicks = 15;

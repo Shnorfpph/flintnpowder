@@ -23,15 +23,15 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
-import org.ragingzombies.flintnpowder.core.ammo.BaseAmmo;
-import org.ragingzombies.flintnpowder.core.guns.GunBase;
-import org.ragingzombies.flintnpowder.core.util.CameraWork;
+import com.livelandr.flintcore.core.ammo.BaseAmmo;
+import com.livelandr.flintcore.core.guns.GunBase;
+import com.livelandr.flintcore.core.util.CameraWork;
 import org.ragingzombies.flintnpowder.item.ammo.projectiles.shotgun.SlugProjectile;
 import org.ragingzombies.flintnpowder.sound.ModSounds;
 
 import java.util.Random;
 
-import static org.ragingzombies.flintnpowder.core.util.CameraWork.OffsetEntityCamera;
+import static com.livelandr.flintcore.core.util.CameraWork.OffsetEntityCamera;
 
 public class ShotgunShellSlug extends BaseAmmo {
     public ShotgunShellSlug(Properties pProperties) {

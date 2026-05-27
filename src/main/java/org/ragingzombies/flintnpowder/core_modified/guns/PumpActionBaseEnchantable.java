@@ -1,0 +1,81 @@
+/*
+ * Copyright (C) 2026 Livelandr
+ *
+ * This file is part of Flint'N'Powder.
+ *
+ * Flint'N'Powder is free software: you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public License as
+ * published by the Free Software Foundation, either version 3 of the
+ * License, or (at your option) any later version.
+ *
+ * Flint'N'Powder is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this program. If not, see <https://www.gnu.org/licenses/>.
+ */
+package org.ragingzombies.flintnpowder.core_modified.guns;
+
+import com.livelandr.flintcore.core.guns.PumpActionBase;
+import net.minecraft.ChatFormatting;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.chat.Component;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResultHolder;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.item.enchantment.Enchantment;
+import net.minecraft.world.item.enchantment.EnchantmentHelper;
+import net.minecraft.world.level.Level;
+import com.livelandr.flintcore.core.ammo.BaseAmmo;
+import org.ragingzombies.flintnpowder.enchantments.ModEnchantments;
+
+import javax.annotation.Nullable;
+import java.util.List;
+
+public class PumpActionBaseEnchantable extends PumpActionBase {
+    public PumpActionBaseEnchantable(Properties pProperties) {
+        super(pProperties);
+    }
+
+    @Override
+    public boolean isEnchantable(ItemStack stack) {
+        return true;
+    }
+
+    @Override
+    public boolean canApplyAtEnchantingTable(ItemStack stack, Enchantment enchantment) {
+        return enchantment == ModEnchantments.QUALITY_PROPELLANT.get() ||
+                enchantment == ModEnchantments.TRIGGER_FINGER.get() ||
+                enchantment == ModEnchantments.SWIFT_RELOAD.get() ||
+                enchantment == ModEnchantments.GHOST_LOADING.get() ||
+                super.canApplyAtEnchantingTable(stack, enchantment);
+    }
+
+    @Override
+    public int getEnchantmentValue(ItemStack stack) {
+        return 22;
+    }
+
+    @Override
+    public int ammoCooldown(LivingEntity ply, ItemStack gun) {
+        int amoLevel = EnchantmentHelper.getItemEnchantmentLevel(ModEnchantments.SWIFT_RELOAD.get(), gun);
+        return ammoCooldownTicks - (int) (ammoCooldownTicks/4F) * amoLevel;
+    }
+
+    @Override
+    public int shootCooldown(LivingEntity ply, ItemStack gun) {
+        int amoLevel = EnchantmentHelper.getItemEnchantmentLevel(ModEnchantments.TRIGGER_FINGER.get(), gun);
+        return shootCooldownTicks - (int) (shootCooldownTicks/4F) * amoLevel;
+    }
+
+    @Override
+    public int GetMaxAmmoAmount(ItemStack gun) {
+        int amoLevel = EnchantmentHelper.getItemEnchantmentLevel(ModEnchantments.GHOST_LOADING.get(), gun);
+        return ((PumpActionBase) gun.getItem()).maxAmmo + (int) (this.maxAmmo/4)*amoLevel;
+    }
+}

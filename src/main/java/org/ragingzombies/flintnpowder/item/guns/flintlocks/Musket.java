@@ -20,6 +20,7 @@ package org.ragingzombies.flintnpowder.item.guns.flintlocks;
 
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
+import com.livelandr.flintcore.core.guns.FlintlockBase;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraftforge.common.util.Lazy;
 import net.minecraft.core.particles.ParticleTypes;
@@ -38,9 +39,8 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.common.ForgeMod;
-import org.ragingzombies.flintnpowder.core.guns.FlintlockBase;
-import org.ragingzombies.flintnpowder.core.guns.GunBase;
-import org.ragingzombies.flintnpowder.item.ModItemsAmmo;
+import com.livelandr.flintcore.core.guns.GunBase;
+import org.ragingzombies.flintnpowder.core_modified.guns.FlintlockBaseEnchantable;
 import org.ragingzombies.flintnpowder.item.ModItemsAttachments;
 import org.ragingzombies.flintnpowder.sound.ModSounds;
 
@@ -48,7 +48,7 @@ import javax.annotation.Nullable;
 import java.util.List;
 import java.util.UUID;
 
-public class Musket extends FlintlockBase {
+public class Musket extends FlintlockBaseEnchantable {
 
     private static final UUID ENTITY_REACH_MODIFIER_UUID = UUID.fromString("5aa470a9-ce82-4124-ae14-11d5ee1c18e0");
     private static final UUID DAMAGE_MODIFIER_UUID = UUID.fromString("8f715ef6-7db2-4168-9006-36d10db1da44");
@@ -71,7 +71,7 @@ public class Musket extends FlintlockBase {
         addAttachmentSlot("optic");
 
         addCompatibleAttachmentTag("sniper");
-        addCompatibleAttachmentTag("fixable");
+        addCompatibleAttachmentTag("bipodable");
         addCompatibleAttachmentTag("bayonet");
 
         /*
