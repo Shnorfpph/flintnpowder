@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2026 RagingZombies
+ * Copyright (C) 2026 Livelandr
  *
  * This file is part of Flint'N'Powder.
  *
@@ -32,24 +32,21 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.Rarity;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
-import org.ragingzombies.flintnpowder.core.guns.MagfedBase;
-import org.ragingzombies.flintnpowder.item.ModItemsAmmo;
-import org.ragingzombies.flintnpowder.item.ModItemsAttachments;
+import org.ragingzombies.flintnpowder.core_modified.guns.MagfedBaseEnchantable;
 import org.ragingzombies.flintnpowder.sound.ModSounds;
 
 import javax.annotation.Nullable;
 import java.util.List;
-import java.util.UUID;
 
-public class GasOperatedShotgun extends MagfedBase {
+public class GasOperatedShotgun extends MagfedBaseEnchantable {
     public GasOperatedShotgun(Properties pProperties) {
         super(pProperties);
         shootCooldownTicks = 15;
 
-        addAllowedMagazine(ModItemsAmmo.SHOTGUNMAGAZINE.get());
+        addCompatibleCaliberTag("shotgunmag");
 
-        addAllowedAttachment(ModItemsAttachments.LOWPROFILEOPTIC.get());
-        addAllowedAttachment(ModItemsAttachments.HIGHPROFILEOPTIC.get());
+        addAttachmentSlot("optic");
+        addCompatibleAttachmentTag("sniper");
     }
 
     @Override

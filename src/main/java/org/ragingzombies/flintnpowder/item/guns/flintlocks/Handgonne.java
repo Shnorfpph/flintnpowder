@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2026 RagingZombies
+ * Copyright (C) 2026 Livelandr
  *
  * This file is part of Flint'N'Powder.
  *
@@ -39,18 +39,15 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.common.util.Lazy;
-import org.ragingzombies.flintnpowder.core.ammo.BaseAmmo;
-import org.ragingzombies.flintnpowder.core.guns.FlintlockBase;
-import org.ragingzombies.flintnpowder.core.guns.GunBase;
+import com.livelandr.flintcore.core.ammo.BaseAmmo;
+import org.ragingzombies.flintnpowder.core_modified.guns.FlintlockBaseEnchantable;
 import org.ragingzombies.flintnpowder.handlers.ServerTickHandler;
-import org.ragingzombies.flintnpowder.item.ModItemsAmmo;
 import org.ragingzombies.flintnpowder.sound.ModSounds;
 
 import javax.annotation.Nullable;
 import java.util.List;
-import java.util.UUID;
 
-public class Handgonne extends FlintlockBase {
+public class Handgonne extends FlintlockBaseEnchantable {
 
     protected final Lazy<Multimap<Attribute, AttributeModifier>> lazyAttributeMap;
 
@@ -64,7 +61,7 @@ public class Handgonne extends FlintlockBase {
 
         noCock = true;
 
-        addAllowedAmmo(ModItemsAmmo.HEAVYCASTIRONROUNDSHOT.get());
+        addCompatibleCaliberTag("heavyroundshot");
 
         this.lazyAttributeMap = Lazy.of(() -> {
             ImmutableMultimap.Builder<Attribute, AttributeModifier> builder = ImmutableMultimap.builder();
@@ -136,7 +133,7 @@ public class Handgonne extends FlintlockBase {
     }
 
     @Override
-    public void Shoot(Level pLevel, LivingEntity pPlayer, ItemStack gunStack) {
+    public void shoot(Level pLevel, LivingEntity pPlayer, ItemStack gunStack) {
         gunStack.getTag().putInt("Gunpowder", 0);
         gunStack.getTag().putBoolean("HasAmmo", false);
         gunStack.getTag().putBoolean("IsCocked", false);
@@ -146,6 +143,7 @@ public class Handgonne extends FlintlockBase {
                 SoundEvents.TNT_PRIMED, SoundSource.NEUTRAL, 1.0F, 0.75F, 0);
 
         ServerTickHandler.createTask(25, () -> {
+            triggerHooks("onShoot", pPlayer, gunStack);
             pLevel.playSeededSound(null, pPlayer.getBlockX(), pPlayer.getBlockY(), pPlayer.getBlockZ(),
                     SoundEvents.GENERIC_EXPLODE, SoundSource.NEUTRAL, 8.0F, 0.5F, 0);
 

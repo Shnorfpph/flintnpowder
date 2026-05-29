@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2026 RagingZombies
+ * Copyright (C) 2026 Livelandr
  *
  * This file is part of Flint'N'Powder.
  *
@@ -22,20 +22,22 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
-import org.ragingzombies.flintnpowder.core.ammo.BaseAmmo;
-import org.ragingzombies.flintnpowder.core.guns.GunBase;
-import org.ragingzombies.flintnpowder.core.util.CameraWork;
+import com.livelandr.flintcore.core.ammo.BaseAmmo;
+import com.livelandr.flintcore.core.guns.GunBase;
+import com.livelandr.flintcore.core.util.CameraWork;
 import org.ragingzombies.flintnpowder.item.ammo.projectiles.CastIronRoundshotProjectile;
 import org.ragingzombies.flintnpowder.item.ammo.projectiles.HeavyCastIronRoundshotProjectile;
 
 import java.util.Random;
 
-import static org.ragingzombies.flintnpowder.core.util.CameraWork.OffsetEntityCamera;
+import static com.livelandr.flintcore.core.util.CameraWork.OffsetEntityCamera;
 
 public class HeavyCastIronRoundshot extends BaseAmmo {
     public HeavyCastIronRoundshot(Properties pProperties) {
         super(pProperties);
         this.damage = 24;
+
+        this.requiredCaliberTags.add("heavyroundshot");
     }
 
     @Override

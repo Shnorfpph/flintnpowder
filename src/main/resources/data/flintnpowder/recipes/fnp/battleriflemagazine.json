@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "  I",
+    " NI",
+    "II "
+  ],
+  "key": {
+    "I": {
+      "item": "flintnpowder:steel_nugget"
+    },
+    "N": {
+      "item": "flintnpowder:steel_nugget"
+    }
+  },
+  "result": {
+    "item": "flintnpowder:battleriflemagazine",
+    "count": 1
+  }
+}

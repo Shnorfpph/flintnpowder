@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2026 RagingZombies
+ * Copyright (C) 2026 Livelandr
  *
  * This file is part of Flint'N'Powder.
  *
@@ -32,28 +32,25 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.Rarity;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
-import org.ragingzombies.flintnpowder.core.guns.MagfedBase;
-import org.ragingzombies.flintnpowder.item.ModItemsAmmo;
-import org.ragingzombies.flintnpowder.item.ModItemsAttachments;
+import org.ragingzombies.flintnpowder.core_modified.guns.MagfedBaseEnchantable;
 import org.ragingzombies.flintnpowder.sound.ModSounds;
 
 import javax.annotation.Nullable;
 import java.util.List;
-import java.util.UUID;
 
-import static org.ragingzombies.flintnpowder.core.util.PlayerSpecificModifiers.getPlayerByUUID;
-
-public class SniperRifle extends MagfedBase {
+public class SniperRifle extends MagfedBaseEnchantable {
     public SniperRifle(Properties pProperties) {
         super(pProperties);
         shootCooldownTicks = 10;
         needSlideAfterShot = true;
 
-        addAllowedMagazine(ModItemsAmmo.SNIPERRIFLEMAGAZINE.get());
+        addCompatibleCaliberTag("snipermag");
 
-        addAllowedAttachment(ModItemsAttachments.LOWPROFILEOPTIC.get());
-        addAllowedAttachment(ModItemsAttachments.HIGHPROFILEOPTIC.get());
-        addAllowedAttachment(ModItemsAttachments.BIPOD.get());
+        addAttachmentSlot("underbarrel");
+        addAttachmentSlot("optic");
+
+        addCompatibleAttachmentTag("sniper");
+        addCompatibleAttachmentTag("bipodable");
     }
 
     @Override
@@ -123,9 +120,6 @@ public class SniperRifle extends MagfedBase {
 
     @Override
     public float recoilModifierX(LivingEntity id, ItemStack gun) {
-        if (gun.getOrCreateTag().getBoolean("HaveBipod") && id.isCrouching() ) {
-            return 0.2F;
-        }
         return 3F*super.recoilModifierX(id, gun);
     }
 

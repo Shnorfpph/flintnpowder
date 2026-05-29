@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2026 RagingZombies
+ * Copyright (C) 2026 Livelandr
  *
  * This file is part of Flint'N'Powder.
  *
@@ -18,7 +18,7 @@
  */
 package org.ragingzombies.flintnpowder.item.ammo.magazines;
 
-import org.ragingzombies.flintnpowder.core.ammo.BaseMagazine;
+import com.livelandr.flintcore.core.ammo.BaseMagazine;
 import org.ragingzombies.flintnpowder.item.ModItemsAmmo;
 
 public class HandgunMag extends BaseMagazine {
@@ -26,6 +26,10 @@ public class HandgunMag extends BaseMagazine {
     public HandgunMag(Properties pProperties) {
         super(pProperties);
         maxAmmo = 8;
-        addAllowedAmmo(ModItemsAmmo.PISTOLROUND.get());
+
+        this.requiredMagazineTags.add("pistolmag");
+        this.requiredMagazineTags.add("9mmmag");
+
+        this.allowedCalibersTags.add("9mm");
     }
 }

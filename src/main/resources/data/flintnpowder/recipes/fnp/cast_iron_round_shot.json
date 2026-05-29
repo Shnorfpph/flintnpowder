@@ -6,9 +6,15 @@
     " I "
   ],
   "key": {
-    "I": {
+    "I":
+[
+    {
       "tag": "forge:nuggets/cast_iron"
+    },
+    {
+      "item": "flintnpowder:cast_iron_nugget"
     }
+]
   },
   "result": {
     "item": "flintnpowder:castironroundshot",

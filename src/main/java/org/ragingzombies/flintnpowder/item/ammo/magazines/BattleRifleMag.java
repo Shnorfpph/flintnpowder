@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2026 RagingZombies
+ * Copyright (C) 2026 Livelandr
  *
  * This file is part of Flint'N'Powder.
  *
@@ -18,7 +18,7 @@
  */
 package org.ragingzombies.flintnpowder.item.ammo.magazines;
 
-import org.ragingzombies.flintnpowder.core.ammo.BaseMagazine;
+import com.livelandr.flintcore.core.ammo.BaseMagazine;
 import org.ragingzombies.flintnpowder.item.ModItemsAmmo;
 
 public class BattleRifleMag extends BaseMagazine {

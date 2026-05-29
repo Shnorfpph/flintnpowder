@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2026 RagingZombies
+ * Copyright (C) 2026 Livelandr
  *
  * This file is part of Flint'N'Powder.
  *
@@ -30,7 +30,7 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import org.ragingzombies.flintnpowder.Flintnpowder;
-import org.ragingzombies.flintnpowder.core.guns.GunBase;
+import com.livelandr.flintcore.core.guns.GunBase;
 
 @Mod.EventBusSubscriber(modid = Flintnpowder.MOD_ID, value = Dist.CLIENT)
 public class ZoomComputing {
@@ -43,7 +43,7 @@ public class ZoomComputing {
 
         if (item instanceof GunBase) {
             GunBase gun = (GunBase) item;
-            if (gun.getAttachmentItem(stack, "Optic") != Items.AIR) {
+            if (gun.getAttachmentItem(stack, "optic") != Items.AIR) {
                 return true;
             }
         }
@@ -56,7 +56,7 @@ public class ZoomComputing {
 
         if (item instanceof GunBase) {
             GunBase gun = (GunBase) item;
-            if (gun.getAttachmentItem(stack, "Optic") != Items.AIR) {
+            if (gun.getAttachmentItem(stack, "optic") != Items.AIR) {
                 return stack.getOrCreateTag().getFloat("OpticZoom");
             }
         }

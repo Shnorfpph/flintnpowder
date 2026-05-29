@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "BBB",
+    "BMB"
+  ],
+  "key": {
+    "M": {
+      "item": "flintnpowder:handgunmagazine"
+    },
+    "B": {
+      "item": "flintnpowder:steel_nugget"
+    }
+  },
+  "result": {
+    "item": "flintnpowder:handgunmagazineextended",
+    "count": 1
+  }
+}

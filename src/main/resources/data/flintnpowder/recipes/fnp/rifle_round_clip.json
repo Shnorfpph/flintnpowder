@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " AI",
+    "AAI",
+    " AI"
+  ],
+  "key": {
+    "I": {
+      "tag": "forge:nuggets/iron"
+    },
+    "A": {
+      "item": "flintnpowder:rifle_round"
+    }
+  },
+  "result": {
+    "item": "flintnpowder:rifle_round_clip",
+    "count": 1
+  }
+}

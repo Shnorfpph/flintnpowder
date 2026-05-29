@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2026 RagingZombies
+ * Copyright (C) 2026 Livelandr
  *
  * This file is part of Flint'N'Powder.
  *
@@ -27,9 +27,12 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
+import com.livelandr.flintcore.core.guns.GunBase;
+import org.ragingzombies.flintnpowder.item.ModItemsAttachments;
 import org.ragingzombies.flintnpowder.item.ModItemsGuns;
 import org.ragingzombies.flintnpowder.item.ammo.projectiles.ModProjectiles;
 
+import static net.minecraft.resources.ResourceLocation.fromNamespaceAndPath;
 import static org.ragingzombies.flintnpowder.Flintnpowder.MOD_ID;
 
 // You can use EventBusSubscriber to automatically register all static methods in the class annotated with @SubscribeEvent
@@ -53,7 +56,7 @@ public class ClientModHandler {
         // Shotgun
         ItemProperties.register(
                 ModItemsGuns.PUMPACTIONSHOTGUN.get(),
-                new ResourceLocation(MOD_ID, "shotgun_pumping"),
+                fromNamespaceAndPath(MOD_ID, "shotgun_pumping"),
                 (stack, level, entity, seed) -> {
                     return stack.getOrCreateTag().getBoolean("IsUncocked") ? 1.0F : 0.0F;
                 }
@@ -61,37 +64,37 @@ public class ClientModHandler {
         // Musket
         ItemProperties.register(
                 ModItemsGuns.MUSKET.get(),
-                new ResourceLocation(MOD_ID, "musket_primed"),
+                fromNamespaceAndPath(MOD_ID, "musket_primed"),
                 (stack, level, entity, seed) -> {
                     return stack.getOrCreateTag().getBoolean("IsCocked") ? 1.0F : 0.0F;
                 }
         );
         ItemProperties.register(
                 ModItemsGuns.MUSKET.get(),
-                new ResourceLocation(MOD_ID, "musket_bayonet"),
+                fromNamespaceAndPath(MOD_ID, "musket_bayonet"),
                 (stack, level, entity, seed) -> {
-                    return stack.getOrCreateTag().getBoolean("HaveBayonet") ? 1.0F : 0.0F;
+                    return GunBase.getGunBase(stack).isAttachmentSpecific(stack, "underbarrel", ModItemsAttachments.BAYONET.get()) ? 1.0F : 0.0F;
                 }
         );
         // Bolt Action Rifle
         ItemProperties.register(
                 ModItemsGuns.BOLTACTIONRIFLE.get(),
-                new ResourceLocation(MOD_ID, "bolt_action_rifle_bolting"),
+                fromNamespaceAndPath(MOD_ID, "bolt_action_rifle_bolting"),
                 (stack, level, entity, seed) -> {
                     return stack.getOrCreateTag().getBoolean("IsUncocked") ? 1.0F : 0.0F;
                 }
         );
         ItemProperties.register(
                 ModItemsGuns.BOLTACTIONRIFLE.get(),
-                new ResourceLocation(MOD_ID, "bolt_action_bayonet"),
+                fromNamespaceAndPath(MOD_ID, "bolt_action_bayonet"),
                 (stack, level, entity, seed) -> {
-                    return stack.getOrCreateTag().getBoolean("HaveBayonet") ? 1.0F : 0.0F;
+                    return GunBase.getGunBase(stack).isAttachmentSpecific(stack, "underbarrel", ModItemsAttachments.BAYONET.get()) ? 1.0F : 0.0F;
                 }
         );
         // Blunderbuss
         ItemProperties.register(
                 ModItemsGuns.BLUNDERBUSS.get(),
-                new ResourceLocation(MOD_ID, "blunderbuss_primed"),
+                fromNamespaceAndPath(MOD_ID, "blunderbuss_primed"),
                 (stack, level, entity, seed) -> {
                     return stack.getOrCreateTag().getBoolean("IsCocked") ? 1.0F : 0.0F;
                 }
@@ -99,7 +102,7 @@ public class ClientModHandler {
         // Coachgun
         ItemProperties.register(
                 ModItemsGuns.BREAKACTIONCOACHGUN.get(),
-                new ResourceLocation(MOD_ID, "break_action_coachgun_opened"),
+                fromNamespaceAndPath(MOD_ID, "break_action_coachgun_opened"),
                 (stack, level, entity, seed) -> {
                     return stack.getOrCreateTag().getBoolean("ChamberOpen") ? 1.0F : 0.0F;
                 }
@@ -107,7 +110,7 @@ public class ClientModHandler {
         // Rifle
         ItemProperties.register(
                 ModItemsGuns.RIFLE.get(),
-                new ResourceLocation(MOD_ID, "rifle_primed"),
+                fromNamespaceAndPath(MOD_ID, "rifle_primed"),
                 (stack, level, entity, seed) -> {
                     return stack.getOrCreateTag().getBoolean("IsCocked") ? 1.0F : 0.0F;
                 }
@@ -115,14 +118,14 @@ public class ClientModHandler {
         // Trapdoor
         ItemProperties.register(
                 ModItemsGuns.TRAPDOORRIFLE.get(),
-                new ResourceLocation(MOD_ID, "trapdoor_rifle_opened"),
+                fromNamespaceAndPath(MOD_ID, "trapdoor_rifle_opened"),
                 (stack, level, entity, seed) -> {
                     return stack.getOrCreateTag().getBoolean("ChamberOpen") ? 1.0F : 0.0F;
                 }
         );
         ItemProperties.register(
                 ModItemsGuns.TRAPDOORRIFLE.get(),
-                new ResourceLocation(MOD_ID, "trapdoor_rifle_primed"),
+                fromNamespaceAndPath(MOD_ID, "trapdoor_rifle_primed"),
                 (stack, level, entity, seed) -> {
                     return stack.getOrCreateTag().getBoolean("ShootReady") ? 1.0F : 0.0F;
                 }
@@ -130,7 +133,7 @@ public class ClientModHandler {
         // Pistol
         ItemProperties.register(
                 ModItemsGuns.PISTOL.get(),
-                new ResourceLocation(MOD_ID, "pistol_primed"),
+                fromNamespaceAndPath(MOD_ID, "pistol_primed"),
                 (stack, level, entity, seed) -> {
                     return stack.getOrCreateTag().getBoolean("IsCocked") ? 1.0F : 0.0F;
                 }
@@ -138,7 +141,7 @@ public class ClientModHandler {
         // Handgun
         ItemProperties.register(
                 ModItemsGuns.SEMIAUTOPISTOL.get(),
-                new ResourceLocation(MOD_ID, "slider"),
+                fromNamespaceAndPath(MOD_ID, "slider"),
                 (stack, level, entity, seed) -> {
                     return stack.getOrCreateTag().getBoolean("SlideCocked") ? 1.0F : 0.0F;
                 }
@@ -146,14 +149,14 @@ public class ClientModHandler {
         // Open Bolt
         ItemProperties.register(
                 ModItemsGuns.OPENBOLTSUBMACHINEGUN.get(),
-                new ResourceLocation(MOD_ID, "open_bolt_smg_magless"),
+                fromNamespaceAndPath(MOD_ID, "open_bolt_smg_magless"),
                 (stack, level, entity, seed) -> {
                     return stack.getOrCreateTag().getBoolean("HaveMag") ? 0.0F : 1.0F;
                 }
         );
         ItemProperties.register(
                 ModItemsGuns.OPENBOLTSUBMACHINEGUN.get(),
-                new ResourceLocation(MOD_ID, "open_bolt_smg_primed"),
+                fromNamespaceAndPath(MOD_ID, "open_bolt_smg_primed"),
                 (stack, level, entity, seed) -> {
                     return stack.getOrCreateTag().getBoolean("SlideCocked") ? 1.0F : 0.0F;
                 }
@@ -161,7 +164,7 @@ public class ClientModHandler {
         // Big Game
         ItemProperties.register(
                 ModItemsGuns.BIGGAMEGUN.get(),
-                new ResourceLocation(MOD_ID, "big_game_primed"),
+                fromNamespaceAndPath(MOD_ID, "big_game_primed"),
                 (stack, level, entity, seed) -> {
                     return stack.getOrCreateTag().getBoolean("IsCocked") ? 1.0F : 0.0F;
                 }
@@ -169,7 +172,7 @@ public class ClientModHandler {
         // Flaming Halberd
         ItemProperties.register(
                 ModItemsGuns.FLAMINGHALBERD.get(),
-                new ResourceLocation(MOD_ID, "flaming_halberd_ready"),
+                fromNamespaceAndPath(MOD_ID, "flaming_halberd_ready"),
                 (stack, level, entity, seed) -> {
                     return stack.getOrCreateTag().getBoolean("IsStuffed") ? 1.0F : 0.0F;
                 }
@@ -177,7 +180,7 @@ public class ClientModHandler {
         // Bruttbuss
         ItemProperties.register(
                 ModItemsGuns.BRUTTBUSS.get(),
-                new ResourceLocation(MOD_ID, "bruttbuss_primed"),
+                fromNamespaceAndPath(MOD_ID, "bruttbuss_primed"),
                 (stack, level, entity, seed) -> {
                     return stack.getOrCreateTag().getBoolean("IsStuffed") ? 1.0F : 0.0F;
                 }
@@ -185,14 +188,14 @@ public class ClientModHandler {
         // CLOSED BOLT BATTLE RIFLE
         ItemProperties.register(
                 ModItemsGuns.CLOSEDBOLTBATTLERIFLE.get(),
-                new ResourceLocation(MOD_ID, "closed_bolt_mag_rifle_unloaded"),
+                fromNamespaceAndPath(MOD_ID, "closed_bolt_mag_rifle_unloaded"),
                 (stack, level, entity, seed) -> {
                     return stack.getOrCreateTag().getBoolean("HaveMag") ? 0.0F : 1.0F;
                 }
         );
         ItemProperties.register(
                 ModItemsGuns.CLOSEDBOLTBATTLERIFLE.get(),
-                new ResourceLocation(MOD_ID, "closed_bolt_mag_rifle_priming"),
+                fromNamespaceAndPath(MOD_ID, "closed_bolt_mag_rifle_priming"),
                 (stack, level, entity, seed) -> {
                     return stack.getOrCreateTag().getBoolean("SlideCocked") ? 1.0F : 0.0F;
                 }
@@ -200,14 +203,14 @@ public class ClientModHandler {
         // GAS OPERATED SHOTGUN
         ItemProperties.register(
                 ModItemsGuns.GASOPERATEDSHOTGUN.get(),
-                new ResourceLocation(MOD_ID, "gas_operated_shotgun_unloaded"),
+                fromNamespaceAndPath(MOD_ID, "gas_operated_shotgun_unloaded"),
                 (stack, level, entity, seed) -> {
                     return stack.getOrCreateTag().getBoolean("HaveMag") ? 0.0F : 1.0F;
                 }
         );
         ItemProperties.register(
                 ModItemsGuns.GASOPERATEDSHOTGUN.get(),
-                new ResourceLocation(MOD_ID, "gas_operated_shotgun_priming"),
+                fromNamespaceAndPath(MOD_ID, "gas_operated_shotgun_priming"),
                 (stack, level, entity, seed) -> {
                     return stack.getOrCreateTag().getBoolean("SlideCocked") ? 1.0F : 0.0F;
                 }
@@ -215,7 +218,7 @@ public class ClientModHandler {
         // Sniper
         ItemProperties.register(
                 ModItemsGuns.SNIPERRIFLE.get(),
-                new ResourceLocation(MOD_ID, "have_mag"),
+                fromNamespaceAndPath(MOD_ID, "have_mag"),
                 (stack, level, entity, seed) -> {
                     return stack.getOrCreateTag().getBoolean("HaveMag") ? 1.0F : 0.0F;
                 }

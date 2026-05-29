@@ -132,6 +132,8 @@ dependencies {
     // then special handling is done to allow a setup of a vanilla dependency without the use of an external repository.
     minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
 
+    implementation 'com.livelandr:flintcore'
+
     // Example mod dependency with JEI - using fg.deobf() ensures the dependency is remapped to your development mappings
     // The JEI API is declared for compile time use, while the full JEI artifact is used at runtime
     // compileOnly fg.deobf("mezz.jei:jei-${mc_version}-common-api:${jei_version}")
@@ -185,4 +187,19 @@ tasks.named('jar', Jar).configure {
 
 tasks.withType(JavaCompile).configureEach {
     options.encoding = 'UTF-8' // Use the UTF-8 charset for Java compilation
+}
+
+// Ждем, пока Gradle полностью настроит проект и создаст все динамические таски
+afterEvaluate {
+    // Проверяем, появился ли таск reobfJar (чтобы Gradle больше не ругался)
+    if (tasks.findByName('reobfJar')) {
+        tasks.named('reobfJar').configure {
+            doLast {
+                copy {
+                    from tasks.named('jar').get().archiveFile
+                    into "C:\\Users\\Livelandr\\AppData\\Roaming\\PrismLauncher\\instances\\FLintNpowderDEV\\minecraft\\mods"
+                }
+            }
+        }
+    }
 }

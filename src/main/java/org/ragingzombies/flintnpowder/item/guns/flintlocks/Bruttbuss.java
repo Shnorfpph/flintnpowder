@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2026 RagingZombies
+ * Copyright (C) 2026 Livelandr
  *
  * This file is part of Flint'N'Powder.
  *
@@ -31,23 +31,21 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Rarity;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
-import org.ragingzombies.flintnpowder.core.guns.FlintlockBase;
-import org.ragingzombies.flintnpowder.item.ModItemsAmmo;
+import org.ragingzombies.flintnpowder.core_modified.guns.FlintlockBaseEnchantable;
 import org.ragingzombies.flintnpowder.sound.ModSounds;
 
 import javax.annotation.Nullable;
 import java.util.List;
-import java.util.UUID;
 
-public class Bruttbuss extends FlintlockBase {
+public class Bruttbuss extends FlintlockBaseEnchantable {
     public Bruttbuss(Properties pProperties) {
         super(pProperties);
 
         gunpowderCooldownTicks = 20;
         ramrodCooldownTicks = 60;
 
-        addAllowedAmmo(ModItemsAmmo.CASTIRONBOMB.get());
-        addAllowedAmmo(ModItemsAmmo.STEELBUCKSHOT.get());
+        addCompatibleCaliberTag("buckshot");
+        addCompatibleCaliberTag("bigbomb");
     }
 
     @Override

@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2026 RagingZombies
+ * Copyright (C) 2026 Livelandr
  *
  * This file is part of Flint'N'Powder.
  *
@@ -32,22 +32,20 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
-import org.ragingzombies.flintnpowder.core.guns.FlintlockBase;
-import org.ragingzombies.flintnpowder.item.ModItemsAmmo;
+import org.ragingzombies.flintnpowder.core_modified.guns.FlintlockBaseEnchantable;
 import org.ragingzombies.flintnpowder.sound.ModSounds;
 
 import javax.annotation.Nullable;
 import java.util.List;
 import java.util.Random;
-import java.util.UUID;
 
-public class Volleygun extends FlintlockBase {
+public class Volleygun extends FlintlockBaseEnchantable {
     public Volleygun(Properties pProperties) {
         super(pProperties);
         shootCooldownTicks = 25;
         noCock = true;
 
-        addAllowedAmmo(ModItemsAmmo.COPPERVOLLEYSHOT.get());
+        addCompatibleAttachmentTag("volleyshot");
     }
 
     @Override
@@ -89,6 +87,8 @@ public class Volleygun extends FlintlockBase {
         if (shooter instanceof Player ply) {
             ply.getCooldowns().addCooldown(this, 35);
         }
+
+        this.setAimAnimation(gun);
     }
 
     @Override

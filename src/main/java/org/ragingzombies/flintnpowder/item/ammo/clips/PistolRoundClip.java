@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2026 RagingZombies
+ * Copyright (C) 2026 Livelandr
  *
  * This file is part of Flint'N'Powder.
  *
@@ -23,7 +23,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
-import org.ragingzombies.flintnpowder.core.ammo.BaseAmmo;
+import com.livelandr.flintcore.core.ammo.BaseAmmo;
 import org.ragingzombies.flintnpowder.item.ModItemsAmmo;
 
 import javax.annotation.Nullable;
@@ -34,6 +34,8 @@ public class PistolRoundClip extends BaseAmmo {
     public PistolRoundClip(Properties pProperties) {
         super(pProperties);
         damage = 6;
+
+        this.requiredCaliberTags.add("9mmclip");
     }
 
     @Override

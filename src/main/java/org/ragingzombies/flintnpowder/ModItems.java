@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2026 RagingZombies
+ * Copyright (C) 2026 Livelandr
  *
  * This file is part of Flint'N'Powder.
  *
@@ -55,6 +55,8 @@ public class ModItems {
     public static final RegistryObject<Item> STEEL_HEAVY_BARREL = ITEMS.register("steel_heavy_barrel",
             () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> BLAZING_BRASS = ITEMS.register("blazing_brass",
+            () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> BLAZING_POWDER = ITEMS.register("blazing_powder",
             () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> CAST_IRON_BARREL = ITEMS.register("cast_iron_barrel",
             () -> new Item(new Item.Properties()));

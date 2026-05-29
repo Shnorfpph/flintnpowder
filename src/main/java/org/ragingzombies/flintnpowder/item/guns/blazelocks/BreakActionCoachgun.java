@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2026 RagingZombies
+ * Copyright (C) 2026 Livelandr
  *
  * This file is part of Flint'N'Powder.
  *
@@ -32,23 +32,20 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.Rarity;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
-import org.ragingzombies.flintnpowder.core.guns.BlazelockBase;
-import org.ragingzombies.flintnpowder.item.ModItemsAmmo;
+import org.ragingzombies.flintnpowder.core_modified.guns.BlazelockBaseEnchantable;
 import org.ragingzombies.flintnpowder.sound.ModSounds;
 
 import javax.annotation.Nullable;
 import java.util.List;
 
-public class BreakActionCoachgun extends BlazelockBase {
+public class BreakActionCoachgun extends BlazelockBaseEnchantable {
     public BreakActionCoachgun(Properties pProperties) {
         super(pProperties);
         maxAmmo = 2;
         shootCooldownTicks = 5;
         needCocking = false;
 
-        addAllowedAmmo(ModItemsAmmo.SHOTGUNSHELL.get());
-        addAllowedAmmo(ModItemsAmmo.SHOTGUNSHELLSLUG.get());
-        addAllowedAmmo(ModItemsAmmo.SHOTGUNSHELLDRAGON.get());
+        addCompatibleCaliberTag("12gauge");
     }
 
     @Override

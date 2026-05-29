@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "BB",
+    "BB",
+    "PP"
+  ],
+  "key": {
+    "P": {
+      "tag": "minecraft:planks"
+    },
+    "B": {
+      "item": "flintnpowder:steel_nugget"
+    }
+  },
+  "result": {
+    "item": "flintnpowder:handgunmagazine",
+    "count": 1
+  }
+}

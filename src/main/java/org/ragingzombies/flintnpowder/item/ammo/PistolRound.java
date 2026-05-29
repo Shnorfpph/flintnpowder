@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2026 RagingZombies
+ * Copyright (C) 2026 Livelandr
  *
  * This file is part of Flint'N'Powder.
  *
@@ -24,22 +24,24 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
-import org.ragingzombies.flintnpowder.core.ammo.BaseAmmo;
-import org.ragingzombies.flintnpowder.core.guns.GunBase;
-import org.ragingzombies.flintnpowder.core.util.CameraWork;
+import com.livelandr.flintcore.core.ammo.BaseAmmo;
+import com.livelandr.flintcore.core.guns.GunBase;
+import com.livelandr.flintcore.core.util.CameraWork;
 import org.ragingzombies.flintnpowder.item.ammo.projectiles.CastIronRoundshotProjectile;
 import org.ragingzombies.flintnpowder.item.ammo.projectiles.PistolRoundProjectile;
 import org.ragingzombies.flintnpowder.sound.ModSounds;
 
 import java.util.Random;
 
-import static org.ragingzombies.flintnpowder.core.util.CameraWork.OffsetEntityCamera;
+import static com.livelandr.flintcore.core.util.CameraWork.OffsetEntityCamera;
 
 public class PistolRound extends BaseAmmo {
     public PistolRound(Properties pProperties) {
         super(pProperties);
 
         damage = 6;
+
+        this.requiredCaliberTags.add("9mm");
     }
 
     @Override

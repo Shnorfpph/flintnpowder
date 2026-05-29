@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2026 RagingZombies
+ * Copyright (C) 2026 Livelandr
  *
  * This file is part of Flint'N'Powder.
  *
@@ -29,7 +29,8 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
-import org.ragingzombies.flintnpowder.core.guns.PumpActionBase;
+import com.livelandr.flintcore.core.guns.PumpActionBase;
+import org.ragingzombies.flintnpowder.core_modified.guns.PumpActionBaseEnchantable;
 import org.ragingzombies.flintnpowder.item.ModItemsAmmo;
 import org.ragingzombies.flintnpowder.item.ModItemsAttachments;
 import org.ragingzombies.flintnpowder.sound.ModSounds;
@@ -38,16 +39,14 @@ import javax.annotation.Nullable;
 import java.util.List;
 import java.util.UUID;
 
-public class PumpActionShotgun extends PumpActionBase {
+public class PumpActionShotgun extends PumpActionBaseEnchantable {
     public PumpActionShotgun(Properties pProperties) {
         super(pProperties);
         needCockToReload = false;
 
-        addAllowedAmmo(ModItemsAmmo.SHOTGUNSHELL.get());
-        addAllowedAmmo(ModItemsAmmo.SHOTGUNSHELLSLUG.get());
-        addAllowedAmmo(ModItemsAmmo.SHOTGUNSHELLDRAGON.get());
-
-        addAllowedAttachment(ModItemsAttachments.SILENCER.get());
+        addCompatibleCaliberTag("12gauge");
+        addAttachmentSlot("silencer");
+        addAttachmentSlot("optic");
     }
 
     @Override
@@ -109,7 +108,7 @@ public class PumpActionShotgun extends PumpActionBase {
             ((Player) shooter).getCooldowns().addCooldown(this, shootCooldown(shooter, gunStack));
         }
 
-        if (!isAttachmentValidAndEnabled(gunStack, "Silencer")) {
+        if (!isAttachmentValidAndEnabled(gunStack, "silencer")) {
             pLevel.playSeededSound(null, shooter.getBlockX(), shooter.getBlockY(), shooter.getBlockZ(),
                     ModSounds.SHOTGUNSHOT.get(), SoundSource.NEUTRAL, 5.0F, 1.0F, 0);
             pLevel.playSeededSound(null, shooter.getBlockX(), shooter.getBlockY(), shooter.getBlockZ(),

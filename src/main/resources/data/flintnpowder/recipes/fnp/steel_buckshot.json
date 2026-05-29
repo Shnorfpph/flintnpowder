@@ -10,7 +10,7 @@
       "tag": "forge:nuggets/iron"
     },
     "S": {
-      "tag": "forge:nuggets/steel"
+      "item": "flintnpowder:steel_nugget"
     }
   },
   "result": {

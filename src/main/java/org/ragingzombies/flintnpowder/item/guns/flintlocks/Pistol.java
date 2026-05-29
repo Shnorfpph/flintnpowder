@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2026 RagingZombies
+ * Copyright (C) 2026 Livelandr
  *
  * This file is part of Flint'N'Powder.
  *
@@ -29,23 +29,22 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
-import org.ragingzombies.flintnpowder.core.guns.FlintlockBase;
-import org.ragingzombies.flintnpowder.item.ModItemsAmmo;
+import org.ragingzombies.flintnpowder.core_modified.guns.FlintlockBaseEnchantable;
 import org.ragingzombies.flintnpowder.sound.ModSounds;
 
 import javax.annotation.Nullable;
 import java.util.List;
-import java.util.UUID;
 
-public class Pistol extends FlintlockBase {
+public class Pistol extends FlintlockBaseEnchantable {
     public Pistol(Properties pProperties) {
         super(pProperties);
         shootCooldownTicks = 10;
         gunpowderCooldownTicks = 15;
         ramrodCooldownTicks = 40;
 
-        addAllowedAmmo(ModItemsAmmo.CASTIRONROUNDSHOT.get());
-        addAllowedAmmo(ModItemsAmmo.COPPERROUNDSHOT.get());
+        this.showTier = true;
+        this.weaponTier = 1;
+        addCompatibleCaliberTag("roundshot");
     }
 
     @Override

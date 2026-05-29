@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2026 RagingZombies
+ * Copyright (C) 2026 Livelandr
  *
  * This file is part of Flint'N'Powder.
  *
@@ -23,7 +23,7 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
-import org.ragingzombies.flintnpowder.core.attachments.AttachmentBase;
+import com.livelandr.flintcore.core.attachments.AttachmentBase;
 
 import javax.annotation.Nullable;
 import java.util.List;
@@ -31,7 +31,9 @@ import java.util.List;
 public class HighProfileOptic extends AttachmentBase {
     public HighProfileOptic(Properties pProperties) {
         super(pProperties);
-        type = "Optic";
+        setSlot("optic");
+
+        this.addTags("sniper");
     }
 
     @Override
@@ -46,5 +48,6 @@ public class HighProfileOptic extends AttachmentBase {
     @Override
     public void appendHoverText(ItemStack pStack, @Nullable Level pLevel, List<Component> pTooltipComponents, TooltipFlag pIsAdvanced) {
         pTooltipComponents.add(Component.translatable("item.flintnpowder.hpoptic.description"));
+        super.appendHoverText(pStack, pLevel, pTooltipComponents, pIsAdvanced);
     }
 }
