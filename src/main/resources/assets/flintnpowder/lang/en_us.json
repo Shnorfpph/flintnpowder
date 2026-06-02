@@ -21,8 +21,6 @@
   "item.flintnpowder.bipod": "Bipod",
   "item.flintnpowder.bipod.description": "§2Decreases recoil if SHIFT is held",
 
-  "flintnpowder.bullet_description": "§7When shot from a firearm:",
-
   "item.flintnpowder.hpoptic": "High Profile Optic",
   "item.flintnpowder.hpoptic.description": "§2Allow too zoom to big distances",
 
@@ -35,6 +33,7 @@
 
   "item.flintnpowder.antimaterielrifle": "Anti-Materiel Rifle",
   "item.flintnpowder.50bmground": ".50 BMG Round",
+  "item.flintnpowder.50bmgroundsubsonic": "Subsonic .50 BMG Round",
   "item.flintnpowder.sniperriflemagazine": "Sniper Rifle Magazine",
 
 
@@ -194,12 +193,30 @@
 
   "flintcore.slotnames.optic": "Optical slot",
   "flintcore.slotnames.underbarrel": "Underbarrel fastening",
+  "flintcore.slotnames.silencer": "Silencer can be attached",
 
-  "flintcore.slotnames.sniper": "Sniper optics avaliable",
-  "flintcore.slotnames.bayonet": "Bayonettable",
-  "flintcore.slotnames.bipodable": "Can be installed on bipod",
+  "flintcore.attachmenttag.sniper": "Sniper optics avaliable",
+  "flintcore.attachmenttag.bayonet": "Bayonettable",
+  "flintcore.attachmenttag.bipodable": "Can be installed on bipod",
 
+  "flintcore.calibernames.flaming": "Incendiary ammo",
+
+  "flintcore.calibernames.heavyroundshot": "Heavy roundshot",
   "flintcore.calibernames.roundshot": "Roundshot",
+  "flintcore.calibernames.buckshot": "Buckshot",
   "flintcore.calibernames.9mm": "9mm round",
-  "flintcore.calibernames.12gauge": "12 Gauge Shotgun Shell"
+  "flintcore.calibernames.50bmg": ".50 BMG round",
+  "flintcore.calibernames.9mmclip": "9mm clip",
+  "flintcore.calibernames.9mmmag": "9mm magazine",
+  "flintcore.calibernames.brmag": "Battle rifle magazine",
+  "flintcore.calibernames.pistolmag": "Pistol magazine",
+  "flintcore.calibernames.extendedpistolmag": "Extended pistol magazine",
+  "flintcore.calibernames.rifleround": "Rifle round",
+  "flintcore.calibernames.rifleroundclip": "Rifle rounds clip",
+  "flintcore.calibernames.shotgunmag": "Shotgun magazine",
+  "flintcore.calibernames.12gauge": "12 Gauge Shotgun Shell",
+
+  "item.flintnpowder.diamond_bore_drill": "Diamond Bore Drill",
+  "item.flintnpowder.cast_iron_bore_drill": "Cast Iron Bore Drill",
+  "item.flintnpowder.netherite_bore_drill": "Netherite Bore Drill"
 }

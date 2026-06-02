@@ -19,7 +19,9 @@
 package org.ragingzombies.flintnpowder.core_modified.guns;
 
 import com.livelandr.flintcore.core.guns.MagfedBase;
+import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.Enchantment;
@@ -49,6 +51,22 @@ public class MagfedBaseEnchantable extends MagfedBase {
     @Override
     public int getEnchantmentValue(ItemStack stack) {
         return 22;
+    }
+
+    @Override
+    public void onAmmo(Level pLevel, LivingEntity shooter, ItemStack gun, ItemStack ammo , InteractionHand pUsedHand) {
+        pLevel.playSeededSound(null, shooter.getBlockX(), shooter.getBlockY(), shooter.getBlockZ(),
+                SoundEvents.ITEM_PICKUP, SoundSource.NEUTRAL, 1.0F, 1.0F, 0);
+
+        super.onAmmo(pLevel, shooter, gun, ammo, pUsedHand);
+    }
+
+    @Override
+    public void onTryFailure(Level pLevel, LivingEntity pPlayer, ItemStack gun) {
+        pLevel.playSeededSound(null, pPlayer.getBlockX(), pPlayer.getBlockY(), pPlayer.getBlockZ(),
+                ModSounds.FLINTSTRIKE.get(), SoundSource.NEUTRAL, 1.0F, 1.0F, 0);
+
+        super.onTryFailure(pLevel, pPlayer, gun);
     }
 
     @Override

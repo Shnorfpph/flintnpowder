@@ -35,7 +35,7 @@ public class PistolRoundClip extends BaseAmmo {
         super(pProperties);
         damage = 6;
 
-        this.requiredCaliberTags.add("9mmclip");
+        addRequiredTag("9mmclip");
     }
 
     @Override
@@ -50,7 +50,7 @@ public class PistolRoundClip extends BaseAmmo {
 
     @Override
     public void appendHoverText(ItemStack pStack, @Nullable Level pLevel, List<Component> pTooltipComponents, TooltipFlag pIsAdvanced) {
-        pTooltipComponents.add(Component.translatable("flintnpowder.contains").
+        pTooltipComponents.add(Component.translatable("flintcore.contains").
                 append(String.valueOf(ammoCountInOne(dummy))).
                 append(" ").
                 append(getAmmoItemStack(dummy).getDisplayName())

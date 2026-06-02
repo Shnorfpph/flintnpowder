@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "III",
+    "C  ",
+    "III"
+  ],
+  "key": {
+    "I": {
+      "tag": "forge:nuggets/iron"
+    },
+    "C": {
+      "items": "minecraft:amethyst_shard"
+    }
+  },
+  "result": {
+    "item": "flintnpowder:lpoptic",
+    "count": 1
+  }
+}

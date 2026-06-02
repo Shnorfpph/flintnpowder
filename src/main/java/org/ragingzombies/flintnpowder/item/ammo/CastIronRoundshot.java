@@ -39,7 +39,7 @@ public class CastIronRoundshot extends BaseAmmo {
 
         this.tier = 1;
 
-        this.requiredCaliberTags.add("roundshot");
+        addRequiredTag("roundshot");
     }
 
     @Override

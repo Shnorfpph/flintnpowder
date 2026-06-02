@@ -58,6 +58,7 @@ public class ModCreativeModTabs {
                         pOutput.accept(ModItemsAmmo.PISTOLROUND.get());
                         pOutput.accept(ModItemsAmmo.RIFLEROUND.get());
                         pOutput.accept(ModItemsAmmo.SNIPERRIFLEROUND.get());
+                        pOutput.accept(ModItemsAmmo.SNIPERRIFLESUBSONICROUND.get());
                         pOutput.accept(ModItemsAmmo.RIFLEROUNDCLIP.get());
                         pOutput.accept(ModItemsAmmo.PISTOLROUNDCLIP.get());
                         pOutput.accept(ModItemsAmmo.HANDGUNMAG.get());

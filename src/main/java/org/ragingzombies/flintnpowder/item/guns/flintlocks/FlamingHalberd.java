@@ -158,7 +158,7 @@ public class FlamingHalberd extends FlintlockBaseEnchantable {
     @Override
     public void onShoot(Level pLevel, LivingEntity shooter, ItemStack gunStack) {
         pLevel.playSeededSound(null, shooter.getBlockX(), shooter.getBlockY(), shooter.getBlockZ(),
-                SoundEvents.FLINTANDSTEEL_USE, SoundSource.NEUTRAL, 1.0F, 1.0F, 0);
+                ModSounds.FLINTSTRIKE.get(), SoundSource.NEUTRAL, 1.0F, 1.0F, 0);
 
         if (shooter instanceof Player) {
             ((Player) shooter).getCooldowns().addCooldown(this, shootCooldown(shooter, gunStack));

@@ -43,7 +43,7 @@ public class FlamingBuckshot extends BaseAmmo {
         this.damage = 3F;
         this.customDescription = true;
 
-        this.requiredCaliberTags.add("buckshot");
+        addRequiredTag("buckshot");
     }
 
     @Override
@@ -76,8 +76,8 @@ public class FlamingBuckshot extends BaseAmmo {
     public void appendHoverText(ItemStack pStack, @Nullable Level pLevel, List<Component> pTooltipComponents, TooltipFlag pIsAdvanced) {
         pTooltipComponents.add(Component.translatable("flintnpowder.incendiary"));
         pTooltipComponents.add(Component.literal(""));
-        pTooltipComponents.add(Component.translatable("flintnpowder.bullet_description"));
-        pTooltipComponents.add(Component.translatable("flintnpowder.projectile_damage")
+        pTooltipComponents.add(Component.translatable("flintcore.bullet_description"));
+        pTooltipComponents.add(Component.translatable("flintcore.projectile_damage")
                 .append(String.valueOf(Math.round(this.damage)))
                 .append("x6").withStyle(ChatFormatting.DARK_GREEN));
 

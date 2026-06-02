@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "BN ",
+    "PBM",
+    " PF"
+  ],
+  "key": {
+    "B": {
+      "item": "flintnpowder:blazing_brass_barrel"
+    },
+    "F": {
+      "item": "flintnpowder:wooden_gun_furniture"
+    },
+    "M": {
+      "item": "flintnpowder:flintlock_mechanism"
+    },
+    "N": {
+      "tag": "forge:nuggets/gold"
+    },
+    "P": {
+      "tag": "minecraft:planks"
+    }
+  },
+  "result": {
+    "item": "flintnpowder:rifle",
+    "count": 1
+  }
+}

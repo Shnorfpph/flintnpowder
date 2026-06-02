@@ -37,6 +37,8 @@ public class RifleRound extends BaseAmmo {
         super(pProperties);
 
         damage = 19;
+
+        addRequiredTag("rifleround");
     }
 
     @Override

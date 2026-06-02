@@ -47,6 +47,8 @@ public class CopperVolleyshot extends BaseAmmo {
     public CopperVolleyshot(Properties pProperties) {
         super(pProperties);
         this.damage = 7;
+
+        this.addRequiredTag("volleyshot");
     }
 
     @Override

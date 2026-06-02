@@ -19,9 +19,10 @@
 package org.ragingzombies.flintnpowder.item.ammo.magazines;
 
 import com.livelandr.flintcore.core.ammo.BaseMagazine;
+import org.ragingzombies.flintnpowder.core_modified.BaseMagazineEnchantable;
 import org.ragingzombies.flintnpowder.item.ModItemsAmmo;
 
-public class HandgunMag extends BaseMagazine {
+public class HandgunMag extends BaseMagazineEnchantable {
 
     public HandgunMag(Properties pProperties) {
         super(pProperties);

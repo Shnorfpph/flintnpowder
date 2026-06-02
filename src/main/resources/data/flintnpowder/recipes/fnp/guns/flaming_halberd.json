@@ -1,0 +1,31 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "B  ",
+    "IBM",
+    "IIF"
+  ],
+  "key": {
+    "B": {
+      "item": "flintnpowder:cast_iron_barrel"
+    },
+    "M": {
+      "item": "flintnpowder:matchlock_mechanism"
+    },
+    "F": {
+      "item": "flintnpowder:wooden_gun_furniture"
+    },
+    "I": [
+      {
+        "tag": "forge:ingots/cast_iron"
+      },
+      {
+        "item": "flintnpowder:cast_iron_ingot"
+      }
+    ]
+  },
+  "result": {
+    "item": "flintnpowder:flaming_halberd",
+    "count": 1
+  }
+}

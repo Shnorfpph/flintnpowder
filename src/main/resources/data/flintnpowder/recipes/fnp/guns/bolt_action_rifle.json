@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "B  ",
+    " BP",
+    " FM"
+  ],
+  "key": {
+    "B": {
+      "item": "flintnpowder:gun_metal_barrel"
+    },
+    "F": {
+      "item": "flintnpowder:blaze_lock_mechanism"
+    },
+    "M": {
+      "item": "flintnpowder:wooden_gun_furniture"
+    },
+    "P": {
+      "item": "flintnpowder:gunmetal_ingot"
+    }
+  },
+  "result": {
+    "item": "flintnpowder:bolt_action_rifle",
+    "count": 1
+  }
+}

@@ -151,7 +151,7 @@ public class PumpActionShotgun extends PumpActionBaseEnchantable {
             }
         } else {
             pLevel.playSeededSound(null, shooter.getBlockX(), shooter.getBlockY(), shooter.getBlockZ(),
-                    ModSounds.SHOTGUNSHOTSILENCED.get(), SoundSource.NEUTRAL, 2.0F, 1.0F, 0);
+                    ModSounds.SHOTGUNSHOTSILENCED.get(), SoundSource.NEUTRAL, 1.5F, 1.0F, 0);
 
             if (!pLevel.isClientSide()) {
                 ServerLevel sLevel = (ServerLevel) pLevel;

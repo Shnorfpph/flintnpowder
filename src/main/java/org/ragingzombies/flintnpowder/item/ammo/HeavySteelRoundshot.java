@@ -41,7 +41,7 @@ public class HeavySteelRoundshot extends BaseAmmo {
         super(pProperties);
         this.damage = 30;
 
-        this.requiredCaliberTags.add("heavyroundshot");
+        addRequiredTag("heavyroundshot");
     }
 
     @Override

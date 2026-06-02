@@ -45,7 +45,7 @@ public class Volleygun extends FlintlockBaseEnchantable {
         shootCooldownTicks = 25;
         noCock = true;
 
-        addCompatibleAttachmentTag("volleyshot");
+        addCompatibleCaliberTag("volleyshot");
     }
 
     @Override
@@ -69,7 +69,7 @@ public class Volleygun extends FlintlockBaseEnchantable {
     @Override
     public boolean tryShoot(Level pLevel, LivingEntity pPlayer, ItemStack gun, InteractionHand pUsedHand) {
         pLevel.playSeededSound(null, pPlayer.getBlockX(), pPlayer.getBlockY(), pPlayer.getBlockZ(),
-                SoundEvents.FLINTANDSTEEL_USE, SoundSource.NEUTRAL, 1.0F, 1.0F, 0);
+                ModSounds.FLINTSTRIKE.get(), SoundSource.NEUTRAL, 1.0F, 1.0F, 0);
 
         if (pPlayer instanceof Player) {
             ((Player) pPlayer).getCooldowns().addCooldown(this, 20);
@@ -82,7 +82,7 @@ public class Volleygun extends FlintlockBaseEnchantable {
     @Override
     public void onStuff(Level pLevel, LivingEntity shooter, ItemStack gun, InteractionHand pUsedHand) {
         pLevel.playSeededSound(null, shooter.getBlockX(), shooter.getBlockY(), shooter.getBlockZ(),
-                ModSounds.RAMROD.get(), SoundSource.NEUTRAL, 1.0F, 1.0F, 0);
+                ModSounds.RAMROD.get(), SoundSource.NEUTRAL, 0.45F, 1.0F, 0);
 
         if (shooter instanceof Player ply) {
             ply.getCooldowns().addCooldown(this, 35);

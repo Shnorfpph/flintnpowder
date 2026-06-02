@@ -18,6 +18,7 @@
  */
 package org.ragingzombies.flintnpowder.item.ammo.projectiles;
 
+import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
@@ -34,6 +35,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.Vec3;
+import org.ragingzombies.flintnpowder.Flintnpowder;
 import org.ragingzombies.flintnpowder.sound.ModSounds;
 
 public class FoolsGoldRoundshotProjectile extends AbstractArrow implements ItemSupplier {
@@ -51,25 +53,45 @@ public class FoolsGoldRoundshotProjectile extends AbstractArrow implements ItemS
         super(ModProjectiles.STEELROUNDSHOTPROJECTILE.get(), livingEntity, pLevel);
         this.setPierceLevel((byte) 1);
     }
-
     @Override
     public void tick() {
+        double prevX = this.getX();
+        double prevY = this.getY();
+        double prevZ = this.getZ();
+
         super.tick();
-        /*
+
         if (!level().isClientSide()) {
             Vec3 motion = this.getDeltaMovement();
+            double length = motion.length();
 
-            ((ServerLevel) this.level()).sendParticles(
-                    ParticleTypes.FIREWORK,
-                    this.getX() - motion.x,
-                    this.getY() - motion.y + 0.1,
-                    this.getZ() - motion.z,
-                    1,
-                    motion.x * 0.05, motion.y * 0.05, motion.z * 0.05,
-                    0.06
-            );
+            if (length == 0) return;
+
+            double step = 3;
+            int spawnPointsCount = (int) (length / step);
+
+            double chaosRadius = 0.05;
+
+            ServerLevel serverLevel = (ServerLevel) this.level();
+
+            for (int i = 0; i < spawnPointsCount; i++) {
+                double pct = (double) i / spawnPointsCount;
+
+                double pX = prevX + (this.getX() - prevX) * pct;
+                double pY = prevY + (this.getY() - prevY) * pct + 0.1;
+                double pZ = prevZ + (this.getZ() - prevZ) * pct;
+
+                serverLevel.sendParticles(
+                        ParticleTypes.FIREWORK,
+                        pX, pY, pZ,
+                        1,
+                        chaosRadius,
+                        chaosRadius,
+                        chaosRadius,
+                        0.03
+                );
+            }
         }
-         */
     }
 
     @Override
@@ -86,12 +108,12 @@ public class FoolsGoldRoundshotProjectile extends AbstractArrow implements ItemS
         return SoundEvents.EMPTY;
     }
 
-    void collisionParticles() {
+    void collisionParticles(BlockPos pos) {
         ((ServerLevel) this.level()).sendParticles(
                 ParticleTypes.LARGE_SMOKE,
-                this.getX(),
-                this.getY(),
-                this.getZ(),
+                pos.getX(),
+                pos.getY(),
+                pos.getZ(),
                 10,
                 0.05, 0.05, 0.05,
                 0.06
@@ -105,7 +127,7 @@ public class FoolsGoldRoundshotProjectile extends AbstractArrow implements ItemS
     @Override
     protected void onHitBlock(BlockHitResult pResult) {
         if (!this.level().isClientSide()) {
-            collisionParticles();
+            collisionParticles(pResult.getBlockPos());
             this.discard();
         }
 
@@ -120,14 +142,15 @@ public class FoolsGoldRoundshotProjectile extends AbstractArrow implements ItemS
             double speed = this.getDeltaMovement().length();
             pResult.getEntity().hurt(dmg, damage);
 
-            collisionParticles();
+            collisionParticles(pResult.getEntity().getOnPos());
             damage /= 1.25;
-            if (++entsPierced > 1) {
-                this.discard();
-            }
         }
 
-        //super.onHitEntity(pResult);
+        if (++entsPierced > 1) {
+            this.discard();
+        }
+
+        //
     }
 
 }

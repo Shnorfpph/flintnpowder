@@ -41,7 +41,7 @@ public class PistolRound extends BaseAmmo {
 
         damage = 6;
 
-        this.requiredCaliberTags.add("9mm");
+        addRequiredTag("9mm");
     }
 
     @Override

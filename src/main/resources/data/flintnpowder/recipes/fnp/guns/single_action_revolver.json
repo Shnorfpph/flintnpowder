@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "B  ",
+    " F ",
+    " M "
+  ],
+  "key": {
+    "B": {
+      "item": "flintnpowder:blazing_brass_barrel"
+    },
+    "F": {
+      "item": "flintnpowder:blaze_lock_mechanism"
+    },
+    "M": {
+      "tag": "minecraft:logs"
+    }
+  },
+  "result": {
+    "item": "flintnpowder:single_action_revolver",
+    "count": 1
+  }
+}

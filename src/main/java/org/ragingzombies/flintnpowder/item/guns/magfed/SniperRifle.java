@@ -48,6 +48,7 @@ public class SniperRifle extends MagfedBaseEnchantable {
 
         addAttachmentSlot("underbarrel");
         addAttachmentSlot("optic");
+        addAttachmentSlot("silencer");
 
         addCompatibleAttachmentTag("sniper");
         addCompatibleAttachmentTag("bipodable");
@@ -127,28 +128,33 @@ public class SniperRifle extends MagfedBaseEnchantable {
     @Override
     public void onShoot(Level pLevel, LivingEntity shooter, ItemStack gunStack) {
 
-        pLevel.playSeededSound(null, shooter.getBlockX(), shooter.getBlockY(), shooter.getBlockZ(),
-                ModSounds.SNIPERSHOOT.get(), SoundSource.NEUTRAL, 5.0F, 1.0F, 0);
-        pLevel.playSeededSound(null, shooter.getBlockX(), shooter.getBlockY(), shooter.getBlockZ(),
-                ModSounds.GUNSHOTDISTANT.get(), SoundSource.NEUTRAL, 9.0F, 1.0F, 0);
+        if (!isAttachmentValidAndEnabled(gunStack, "silencer")) {
+            pLevel.playSeededSound(null, shooter.getBlockX(), shooter.getBlockY(), shooter.getBlockZ(),
+                    ModSounds.SNIPERSHOOT.get(), SoundSource.NEUTRAL, 5.0F, 1.0F, 0);
+            pLevel.playSeededSound(null, shooter.getBlockX(), shooter.getBlockY(), shooter.getBlockZ(),
+                    ModSounds.GUNSHOTDISTANT.get(), SoundSource.NEUTRAL, 9.0F, 1.0F, 0);
 
-        // Particles
-        if (!pLevel.isClientSide()) {
-            ServerLevel sLevel = (ServerLevel) pLevel;
-            for (int index0 = 0; index0 < 3; index0++) {
-                double speed = 0.15;
-                double spread = 0.05;
+            // Particles
+            if (!pLevel.isClientSide()) {
+                ServerLevel sLevel = (ServerLevel) pLevel;
+                for (int index0 = 0; index0 < 3; index0++) {
+                    double speed = 0.15;
+                    double spread = 0.05;
 
-                sLevel.sendParticles(
-                        ParticleTypes.POOF,
-                        shooter.getX(), shooter.getY() + shooter.getEyeHeight() * 0.6, shooter.getZ(),
-                        0,
-                        shooter.getDeltaMovement().x + shooter.getLookAngle().x * speed + Mth.nextDouble(RandomSource.create(), spread * (-1), spread),
-                        shooter.getDeltaMovement().y + shooter.getLookAngle().y * speed + Mth.nextDouble(RandomSource.create(), spread * (-1), spread),
-                        shooter.getDeltaMovement().z + shooter.getLookAngle().z * speed + Mth.nextDouble(RandomSource.create(), spread * (-1), spread),
-                        1.0
-                );
+                    sLevel.sendParticles(
+                            ParticleTypes.POOF,
+                            shooter.getX(), shooter.getY() + shooter.getEyeHeight() * 0.6, shooter.getZ(),
+                            0,
+                            shooter.getDeltaMovement().x + shooter.getLookAngle().x * speed + Mth.nextDouble(RandomSource.create(), spread * (-1), spread),
+                            shooter.getDeltaMovement().y + shooter.getLookAngle().y * speed + Mth.nextDouble(RandomSource.create(), spread * (-1), spread),
+                            shooter.getDeltaMovement().z + shooter.getLookAngle().z * speed + Mth.nextDouble(RandomSource.create(), spread * (-1), spread),
+                            1.0
+                    );
+                }
             }
+        } else {
+            pLevel.playSeededSound(null, shooter.getBlockX(), shooter.getBlockY(), shooter.getBlockZ(),
+                    ModSounds.SHOTGUNSHOTSILENCED.get(), SoundSource.NEUTRAL, 2.0F, 1.0F, 0);
         }
 
         if (shooter instanceof Player) {

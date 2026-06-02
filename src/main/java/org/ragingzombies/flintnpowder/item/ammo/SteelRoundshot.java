@@ -39,7 +39,7 @@ public class SteelRoundshot extends BaseAmmo {
         this.damage = 21;
 
         this.tier = 1;
-        this.requiredCaliberTags.add("roundshot");
+        addRequiredTag("roundshot");
     }
 
     @Override

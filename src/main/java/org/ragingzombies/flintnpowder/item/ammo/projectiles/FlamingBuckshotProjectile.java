@@ -114,12 +114,12 @@ public class FlamingBuckshotProjectile extends AbstractArrow implements ItemSupp
         }
     }
 
-    void collisionParticles() {
+    void collisionParticles(BlockPos pos) {
         ((ServerLevel) this.level()).sendParticles(
                 ParticleTypes.SMOKE,
-                this.getX(),
-                this.getY(),
-                this.getZ(),
+                pos.getX(),
+                pos.getY(),
+                pos.getZ(),
                 3,
                 0.1, 0.1, 0.1,
                 0.15
@@ -133,7 +133,7 @@ public class FlamingBuckshotProjectile extends AbstractArrow implements ItemSupp
     @Override
     protected void onHitBlock(BlockHitResult pResult) {
         if (!this.level().isClientSide()) {
-            collisionParticles();
+            collisionParticles(pResult.getBlockPos());
             BlockPos abovePos = pResult.getBlockPos().above();
 
             if (Math.random() < 0.75 && (this.level().isEmptyBlock(abovePos) || this.level().getBlockState(abovePos).canBeReplaced())) {
@@ -150,16 +150,17 @@ public class FlamingBuckshotProjectile extends AbstractArrow implements ItemSupp
     protected void onHitEntity(EntityHitResult pResult) {
         if (!this.level().isClientSide()) {
             DamageSource dmg = this.damageSources().mobProjectile(this, (LivingEntity ) this.getOwner());
-            ((LivingEntity) pResult.getEntity()).invulnerableTime = 0;
+            if (pResult.getEntity() instanceof LivingEntity) {
+            ((LivingEntity) pResult.getEntity()).invulnerableTime = 0;}
 
             pResult.getEntity().hurt(dmg, damage);
             pResult.getEntity().setSecondsOnFire(12);
 
-            collisionParticles();
-            this.discard();
+            collisionParticles(pResult.getEntity().getOnPos());
         }
+        this.discard();
 
-        super.onHitEntity(pResult);
+        
     }
 
 }

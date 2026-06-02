@@ -89,7 +89,7 @@ public class TrapdoorRifle extends BlazelockBaseEnchantable {
     @Override
     public void onShoot(Level pLevel, LivingEntity shooter, ItemStack gunStack) {
         pLevel.playSeededSound(null, shooter.getBlockX(), shooter.getBlockY(), shooter.getBlockZ(),
-                ModSounds.FLINTPRIME.get(), SoundSource.NEUTRAL, 1.0F, 1.0F, 0);
+                ModSounds.FLINTPRIME.get(), SoundSource.NEUTRAL, 0.15F, 1.0F, 0);
 
         pLevel.playSeededSound(null, shooter.getBlockX(), shooter.getBlockY(), shooter.getBlockZ(),
                  ModSounds.RIFLESHOOT.get(), SoundSource.NEUTRAL, 8.0F, 1.0F, 0);

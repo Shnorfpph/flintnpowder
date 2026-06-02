@@ -46,7 +46,7 @@ public class OilFlameshot extends BaseAmmo {
         super(pProperties);
         this.damage = 2;
 
-        this.requiredCaliberTags.add("flaming");
+        addRequiredTag("flaming");
     }
 
     @Override
@@ -81,8 +81,8 @@ public class OilFlameshot extends BaseAmmo {
         pTooltipComponents.add(Component.translatable("flintnpowder.incendiary"));
         pTooltipComponents.add(Component.translatable("item.flintnpowder.greek_fire_charge.description_1"));
         pTooltipComponents.add(Component.literal(""));
-        pTooltipComponents.add(Component.translatable("flintnpowder.bullet_description"));
-        pTooltipComponents.add(Component.translatable("flintnpowder.projectile_damage")
+        pTooltipComponents.add(Component.translatable("flintcore.bullet_description"));
+        pTooltipComponents.add(Component.translatable("flintcore.projectile_damage")
                 .append(String.valueOf(Math.round(this.damage)))
                 .append("x10").withStyle(ChatFormatting.DARK_GREEN));
     }

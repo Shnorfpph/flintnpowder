@@ -246,6 +246,8 @@ public class ClientModHandler {
 
         EntityRenderers.register(ModProjectiles.CASTIRONBOMB.get(), ThrownItemRenderer::new);
 
+        EntityRenderers.register(ModProjectiles.INVISIBLEPROJECTILE.get(), ThrownItemRenderer::new);
+
 
     }
 }

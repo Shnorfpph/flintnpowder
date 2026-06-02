@@ -124,7 +124,7 @@ public class SlugProjectile extends AbstractArrow implements ItemSupplier {
             this.discard();
         }
 
-        super.onHitEntity(pResult);
+        
     }
 
 }
