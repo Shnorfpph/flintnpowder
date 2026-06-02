@@ -19,15 +19,16 @@
 package org.ragingzombies.flintnpowder.item.ammo.magazines;
 
 import com.livelandr.flintcore.core.ammo.BaseMagazine;
+import org.ragingzombies.flintnpowder.core_modified.BaseMagazineEnchantable;
 import org.ragingzombies.flintnpowder.item.ModItemsAmmo;
 
-public class ShotgunMag extends BaseMagazine {
+public class ShotgunMag extends BaseMagazineEnchantable {
 
     public ShotgunMag(Properties pProperties) {
         super(pProperties);
-        maxAmmo = 8;
-        addAllowedAmmo(ModItemsAmmo.SHOTGUNSHELL.get());
-        addAllowedAmmo(ModItemsAmmo.SHOTGUNSHELLSLUG.get());
-        addAllowedAmmo(ModItemsAmmo.SHOTGUNSHELLDRAGON.get());
+        maxAmmo = 10;
+
+        this.requiredMagazineTags.add("12gaugemag");
+        this.allowedCalibersTags.add("12gauge");
     }
 }

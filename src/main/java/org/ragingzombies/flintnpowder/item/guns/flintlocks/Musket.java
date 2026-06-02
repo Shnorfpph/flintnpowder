@@ -127,7 +127,7 @@ public class Musket extends FlintlockBaseEnchantable {
 
     public void onStuff(Level pLevel, LivingEntity shooter, ItemStack gun, InteractionHand pUsedHand) {
         pLevel.playSeededSound(null, shooter.getBlockX(), shooter.getBlockY(), shooter.getBlockZ(),
-                ModSounds.RAMROD.get(), SoundSource.NEUTRAL, 5.0F, 1.0F, 0);
+                ModSounds.RAMROD.get(), SoundSource.NEUTRAL, 0.45F, 1.0F, 0);
 
         setAimAnimation(gun);
 

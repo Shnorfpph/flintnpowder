@@ -22,6 +22,8 @@ import com.livelandr.flintcore.core.guns.PumpActionBase;
 import net.minecraft.ChatFormatting;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.LivingEntity;
@@ -33,6 +35,7 @@ import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.level.Level;
 import com.livelandr.flintcore.core.ammo.BaseAmmo;
 import org.ragingzombies.flintnpowder.enchantments.ModEnchantments;
+import org.ragingzombies.flintnpowder.sound.ModSounds;
 
 import javax.annotation.Nullable;
 import java.util.List;
@@ -59,6 +62,22 @@ public class PumpActionBaseEnchantable extends PumpActionBase {
     @Override
     public int getEnchantmentValue(ItemStack stack) {
         return 22;
+    }
+
+    @Override
+    public void onAmmo(Level pLevel, LivingEntity shooter, ItemStack gun, ItemStack ammo ,InteractionHand pUsedHand) {
+        pLevel.playSeededSound(null, shooter.getBlockX(), shooter.getBlockY(), shooter.getBlockZ(),
+                SoundEvents.ITEM_PICKUP, SoundSource.NEUTRAL, 1.0F, 1.0F, 0);
+
+        super.onAmmo(pLevel, shooter, gun, ammo, pUsedHand);
+    }
+
+    @Override
+    public void onTryFailure(Level pLevel, LivingEntity pPlayer, ItemStack gun) {
+        pLevel.playSeededSound(null, pPlayer.getBlockX(), pPlayer.getBlockY(), pPlayer.getBlockZ(),
+                ModSounds.FLINTSTRIKE.get(), SoundSource.NEUTRAL, 1.0F, 1.0F, 0);
+
+        super.onTryFailure(pLevel, pPlayer, gun);
     }
 
     @Override

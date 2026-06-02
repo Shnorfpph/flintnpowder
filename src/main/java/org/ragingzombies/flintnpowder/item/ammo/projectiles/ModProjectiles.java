@@ -82,6 +82,13 @@ public class ModProjectiles {
                     .updateInterval(5)
                     .build("pistolround_projectile"));
 
+    public static final RegistryObject<EntityType<InvisibleProjectile>> INVISIBLEPROJECTILE =
+            PROJECTILES.register("invisibleround_projectile", () -> EntityType.Builder.<InvisibleProjectile>of(InvisibleProjectile::new, MobCategory.MISC)
+                    .sized(0.025f,0.025f)
+                    .clientTrackingRange(10)
+                    .updateInterval(5)
+                    .build("invisibleround_projectile"));
+
     public static final RegistryObject<EntityType<TheRockProjectile>> THEROCKPROJECTILE =
             PROJECTILES.register("therock_projectile", () -> EntityType.Builder.<TheRockProjectile>of(TheRockProjectile::new, MobCategory.MISC)
                     .sized(0.025f,0.025f)

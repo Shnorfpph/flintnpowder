@@ -145,7 +145,7 @@ public class DragonBreathProjectile extends AbstractArrow implements ItemSupplie
             this.discard();
         }
 
-        super.onHitEntity(pResult);
+        
     }
 
 }

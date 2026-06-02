@@ -93,6 +93,8 @@ public class ModItemsAmmo {
 
     public static final RegistryObject<Item> SNIPERRIFLEROUND = ITEMS.register("50bmground",
             () -> new SniperRound(new SniperRound.Properties().stacksTo(16)));
+    public static final RegistryObject<Item> SNIPERRIFLESUBSONICROUND = ITEMS.register("50bmgroundsubsonic",
+            () -> new SniperSubsonicRound(new SniperSubsonicRound.Properties().stacksTo(16)));
     public static final RegistryObject<Item> SNIPERRIFLEMAGAZINE = ITEMS.register("sniperriflemagazine",
             () -> new SniperRifleMag(new SniperRifleMag.Properties().stacksTo(1)));
 

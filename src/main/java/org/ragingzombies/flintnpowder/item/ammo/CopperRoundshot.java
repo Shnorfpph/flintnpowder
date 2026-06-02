@@ -38,7 +38,7 @@ public class CopperRoundshot extends BaseAmmo {
         this.damage = 15;
 
         this.tier = 0;
-        this.requiredCaliberTags.add("roundshot");
+        addRequiredTag("roundshot");
     }
 
     @Override

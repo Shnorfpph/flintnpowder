@@ -44,7 +44,7 @@ public class FoolsGoldRoundshot extends BaseAmmo {
         this.damage = 24;
 
         this.tier = 2;
-        this.requiredCaliberTags.add("roundshot");
+        addRequiredTag("roundshot");
     }
 
     @Override
@@ -71,7 +71,7 @@ public class FoolsGoldRoundshot extends BaseAmmo {
     @Override
     public void appendHoverText(ItemStack pStack, @Nullable Level pLevel, List<Component> pTooltipComponents, TooltipFlag pIsAdvanced) {
         pTooltipComponents.add(Component.literal(""));
-        pTooltipComponents.add(Component.translatable("flintnpowder.bullet_description"));
+        pTooltipComponents.add(Component.translatable("flintcore.bullet_description"));
         pTooltipComponents.add(Component.translatable("item.flintnpowder.golden_roundshot.description_0"));
         pTooltipComponents.add(Component.translatable("item.flintnpowder.golden_roundshot.description_1"));
 

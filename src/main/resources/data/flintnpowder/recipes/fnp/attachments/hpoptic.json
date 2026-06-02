@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "CII",
+    " I "
+  ],
+  "key": {
+    "I": {
+      "tag": "forge:ingots/copper"
+    },
+    "C": {
+      "items": "minecraft:amethyst_shard"
+    }
+  },
+  "result": {
+    "item": "flintnpowder:hpoptic",
+    "count": 1
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "B  ",
+    "PH ",
+    " FM"
+  ],
+  "key": {
+    "B": {
+      "item": "flintnpowder:gun_metal_barrel"
+    },
+    "H": {
+      "item": "flintnpowder:gun_metal_heavy_barrel"
+    },
+    "F": {
+      "item": "flintnpowder:blaze_lock_mechanism"
+    },
+    "M": {
+      "item": "flintnpowder:wooden_gun_furniture"
+    },
+    "P": {
+      "tag": "minecraft:planks"
+    }
+  },
+  "result": {
+    "item": "flintnpowder:shotgun",
+    "count": 1
+  }
+}

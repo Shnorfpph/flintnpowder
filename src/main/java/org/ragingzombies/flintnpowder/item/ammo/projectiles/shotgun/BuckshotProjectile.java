@@ -39,7 +39,7 @@ import org.ragingzombies.flintnpowder.sound.ModSounds;
 
 public class BuckshotProjectile extends AbstractArrow implements ItemSupplier {
 
-    public float damage = 1;
+    public float damage = 0;
 
     public BuckshotProjectile(EntityType<? extends AbstractArrow> pEntityType, Level pLevel) {
         super(pEntityType, pLevel);
@@ -120,15 +120,15 @@ public class BuckshotProjectile extends AbstractArrow implements ItemSupplier {
     protected void onHitEntity(EntityHitResult pResult) {
         if (!this.level().isClientSide()) {
             DamageSource dmg = this.damageSources().mobProjectile(this, (LivingEntity ) this.getOwner());
-            ((LivingEntity) pResult.getEntity()).invulnerableTime = 0;
 
             pResult.getEntity().hurt(dmg, damage);
+            if (pResult.getEntity() instanceof LivingEntity) {
+                ((LivingEntity) pResult.getEntity()).invulnerableTime = 0;
+            }
 
             collisionParticles();
             this.discard();
         }
-
-        super.onHitEntity(pResult);
     }
 
 }

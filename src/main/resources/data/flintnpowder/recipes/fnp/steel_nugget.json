@@ -5,7 +5,7 @@
   ],
   "key": {
     "I": {
-      "tag": "forge:ingots/steel"
+      "item": "flintnpowder:steel_ingot"
     }
   },
   "result": {

@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " B ",
+    "BF ",
+    "  M"
+  ],
+  "key": {
+    "B": {
+      "item": "flintnpowder:blazing_brass_heavy_barrel"
+    },
+    "F": {
+      "item": "flintnpowder:blaze_lock_mechanism"
+    },
+    "M": {
+      "item": "flintnpowder:wooden_gun_furniture"
+    }
+  },
+  "result": {
+    "item": "flintnpowder:break_action_coachgun",
+    "count": 1
+  }
+}

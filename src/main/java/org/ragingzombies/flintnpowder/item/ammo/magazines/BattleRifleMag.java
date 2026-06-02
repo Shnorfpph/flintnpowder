@@ -19,13 +19,16 @@
 package org.ragingzombies.flintnpowder.item.ammo.magazines;
 
 import com.livelandr.flintcore.core.ammo.BaseMagazine;
+import org.ragingzombies.flintnpowder.core_modified.BaseMagazineEnchantable;
 import org.ragingzombies.flintnpowder.item.ModItemsAmmo;
 
-public class BattleRifleMag extends BaseMagazine {
+public class BattleRifleMag extends BaseMagazineEnchantable {
 
     public BattleRifleMag(Properties pProperties) {
         super(pProperties);
         maxAmmo = 8;
-        addAllowedAmmo(ModItemsAmmo.RIFLEROUND.get());
+        this.requiredMagazineTags.add("brmag");
+
+        this.allowedCalibersTags.add("rifleround");
     }
 }

@@ -45,6 +45,9 @@ public class GreekFire extends FlintlockBaseEnchantable {
     public GreekFire(Properties pProperties) {
         super(pProperties);
 
+
+        GunpowderRequired = 2;
+
         shootCooldownTicks = 60;
         gunpowderCooldownTicks = 60;
         ramrodCooldownTicks = 80;
@@ -121,7 +124,7 @@ public class GreekFire extends FlintlockBaseEnchantable {
     @Override
     public void onShoot(Level pLevel, LivingEntity shooter, ItemStack gunStack) {
         pLevel.playSeededSound(null, shooter.getBlockX(), shooter.getBlockY(), shooter.getBlockZ(),
-                SoundEvents.FLINTANDSTEEL_USE, SoundSource.NEUTRAL, 1.0F, 1.0F, 0);
+                ModSounds.FLINTSTRIKE.get(), SoundSource.NEUTRAL, 1.0F, 1.0F, 0);
 
         setReloadAnimation(gunStack);
 

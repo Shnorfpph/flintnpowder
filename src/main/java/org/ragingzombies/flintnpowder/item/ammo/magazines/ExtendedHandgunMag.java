@@ -19,14 +19,14 @@
 package org.ragingzombies.flintnpowder.item.ammo.magazines;
 
 import com.livelandr.flintcore.core.ammo.BaseMagazine;
+import org.ragingzombies.flintnpowder.core_modified.BaseMagazineEnchantable;
 import org.ragingzombies.flintnpowder.item.ModItemsAmmo;
 
-public class ExtendedHandgunMag extends BaseMagazine {
+public class ExtendedHandgunMag extends BaseMagazineEnchantable {
 
     public ExtendedHandgunMag(Properties pProperties) {
         super(pProperties);
         maxAmmo = 27;
-        addAllowedAmmo(ModItemsAmmo.PISTOLROUND.get());
 
         this.requiredMagazineTags.add("extendedpistolmag");
         this.requiredMagazineTags.add("9mmmag");

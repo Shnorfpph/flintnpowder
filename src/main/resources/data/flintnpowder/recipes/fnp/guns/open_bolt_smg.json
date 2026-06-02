@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "B  ",
+    "PF ",
+    " G "
+  ],
+  "key": {
+    "B": {
+      "item": "flintnpowder:gun_metal_barrel"
+    },
+    "F": {
+      "item": "flintnpowder:endlock_mechanism"
+    },
+    "P": {
+      "item": "flintnpowder:gunmetal_ingot"
+    },
+    "G": {
+      "item": "flintnpowder:pistol_grip"
+    }
+  },
+  "result": {
+    "item": "flintnpowder:open_bolt_smg",
+    "count": 1
+  }
+}

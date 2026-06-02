@@ -23,6 +23,7 @@ import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
+import org.ragingzombies.flintnpowder.item.QualityCraftItem;
 
 public class ModItems {
     public static final DeferredRegister<Item> ITEMS =
@@ -91,11 +92,11 @@ public class ModItems {
 
 
     public static final RegistryObject<Item> CAST_IRON_BORE_DRILL = ITEMS.register("cast_iron_bore_drill",
-            () -> new Item(new Item.Properties().stacksTo(1)));
+            () -> new QualityCraftItem(new QualityCraftItem.Properties().defaultDurability(50)));
     public static final RegistryObject<Item> DIAMOND_BORE_DRILL = ITEMS.register("diamond_bore_drill",
-            () -> new Item(new Item.Properties().stacksTo(1)));
+            () -> new QualityCraftItem(new QualityCraftItem.Properties().defaultDurability(100)));
     public static final RegistryObject<Item> NETHERITE_BORE_DRILL = ITEMS.register("netherite_bore_drill",
-            () -> new Item(new Item.Properties().stacksTo(1)));
+            () -> new QualityCraftItem(new QualityCraftItem.Properties().defaultDurability(200)));
 
 
     public static void register(IEventBus eventBus) {

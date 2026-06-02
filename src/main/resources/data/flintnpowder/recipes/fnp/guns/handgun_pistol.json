@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "BF ",
+    " P "
+  ],
+  "key": {
+    "B": {
+      "item": "flintnpowder:gun_metal_barrel"
+    },
+    "F": {
+      "item": "flintnpowder:endlock_mechanism"
+    },
+    "P": {
+      "item": "flintnpowder:pistol_grip"
+    }
+  },
+  "result": {
+    "item": "flintnpowder:handgun_pistol",
+    "count": 1
+  }
+}

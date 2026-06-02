@@ -18,6 +18,7 @@
  */
 package org.ragingzombies.flintnpowder.item.ammo.projectiles;
 
+import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
@@ -85,12 +86,12 @@ public class CastIronRoundshotProjectile extends AbstractArrow implements ItemSu
         return SoundEvents.EMPTY;
     }
 
-    void collisionParticles() {
+    void collisionParticles(BlockPos pos) {
         ((ServerLevel) this.level()).sendParticles(
                 ParticleTypes.LARGE_SMOKE,
-                this.getX(),
-                this.getY(),
-                this.getZ(),
+                pos.getX(),
+                pos.getY(),
+                pos.getZ(),
                 10,
                 0.05, 0.05, 0.05,
                 0.06
@@ -104,7 +105,7 @@ public class CastIronRoundshotProjectile extends AbstractArrow implements ItemSu
     @Override
     protected void onHitBlock(BlockHitResult pResult) {
         if (!this.level().isClientSide()) {
-            collisionParticles();
+            collisionParticles(pResult.getBlockPos());
             this.discard();
         }
 
@@ -119,11 +120,9 @@ public class CastIronRoundshotProjectile extends AbstractArrow implements ItemSu
             double speed = this.getDeltaMovement().length();
             pResult.getEntity().hurt(dmg, damage);
 
-            collisionParticles();
-            this.discard();
+            collisionParticles(pResult.getEntity().getOnPos());
         }
-
-        super.onHitEntity(pResult);
+        this.discard();
     }
 
 }

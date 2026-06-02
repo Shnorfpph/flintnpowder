@@ -41,9 +41,9 @@ import java.util.List;
 public class GasOperatedShotgun extends MagfedBaseEnchantable {
     public GasOperatedShotgun(Properties pProperties) {
         super(pProperties);
-        shootCooldownTicks = 15;
+        shootCooldownTicks = 7;
 
-        addCompatibleCaliberTag("shotgunmag");
+        addCompatibleCaliberTag("12gaugemag");
 
         addAttachmentSlot("optic");
         addCompatibleAttachmentTag("sniper");
@@ -117,7 +117,12 @@ public class GasOperatedShotgun extends MagfedBaseEnchantable {
 
     @Override
     public float recoilModifierX(LivingEntity id, ItemStack gun) {
-        return 2F*super.recoilModifierX(id, gun);
+        return 0.5F*super.recoilModifierX(id, gun);
+    }
+
+    @Override
+    public float recoilModifierY(LivingEntity id, ItemStack gun) {
+        return 0.5F*super.recoilModifierY(id, gun);
     }
 
     @Override

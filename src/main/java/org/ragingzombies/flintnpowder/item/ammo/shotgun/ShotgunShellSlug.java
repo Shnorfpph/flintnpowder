@@ -38,7 +38,7 @@ public class ShotgunShellSlug extends BaseAmmo {
         super(pProperties);
         this.damage = 25;
 
-        this.requiredCaliberTags.add("12gauge");
+        addRequiredTag("12gauge");
     }
 
     @Override

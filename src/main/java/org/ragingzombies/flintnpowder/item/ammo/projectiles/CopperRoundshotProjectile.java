@@ -18,6 +18,7 @@
  */
 package org.ragingzombies.flintnpowder.item.ammo.projectiles;
 
+import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
@@ -85,12 +86,12 @@ public class CopperRoundshotProjectile extends AbstractArrow implements ItemSupp
         return SoundEvents.EMPTY;
     }
 
-    void collisionParticles() {
+    void collisionParticles(BlockPos pos) {
         ((ServerLevel) this.level()).sendParticles(
                 ParticleTypes.POOF,
-                this.getX(),
-                this.getY(),
-                this.getZ(),
+                pos.getX(),
+                pos.getY(),
+                pos.getZ(),
                 3,
                 0.05, 0.05, 0.05,
                 0.06
@@ -104,7 +105,7 @@ public class CopperRoundshotProjectile extends AbstractArrow implements ItemSupp
     @Override
     protected void onHitBlock(BlockHitResult pResult) {
         if (!this.level().isClientSide()) {
-            collisionParticles();
+            collisionParticles(pResult.getBlockPos());
             this.discard();
         }
 
@@ -119,11 +120,11 @@ public class CopperRoundshotProjectile extends AbstractArrow implements ItemSupp
             double speed = this.getDeltaMovement().length();
             pResult.getEntity().hurt(dmg, damage);
 
-            collisionParticles();
-            this.discard();
+            collisionParticles(pResult.getEntity().getOnPos());
         }
+        this.discard();
 
-        super.onHitEntity(pResult);
+        
     }
 
 }

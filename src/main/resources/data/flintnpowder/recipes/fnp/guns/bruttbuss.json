@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "N  ",
+    "PBM",
+    " PF"
+  ],
+  "key": {
+    "B": {
+      "item": "flintnpowder:blazing_brass_heavy_barrel"
+    },
+    "F": {
+      "item": "flintnpowder:wooden_gun_furniture"
+    },
+    "M": {
+      "item": "flintnpowder:flintlock_mechanism"
+    },
+    "N": {
+      "item": "minecraft:gold_block"
+    },
+    "P": {
+      "tag": "minecraft:planks"
+    }
+  },
+  "result": {
+    "item": "flintnpowder:bruttbuss",
+    "count": 1
+  }
+}

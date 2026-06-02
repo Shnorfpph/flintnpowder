@@ -43,7 +43,7 @@ public class SniperRound extends BaseAmmo {
 
         damage = 30;
 
-        this.requiredCaliberTags.add("50bmg");
+        addRequiredTag("50bmg");
     }
 
     @Override
