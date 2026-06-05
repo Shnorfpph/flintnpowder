@@ -9,7 +9,7 @@
       "tag": "forge:ingots/copper"
     },
     "C": {
-      "items": "minecraft:amethyst_shard"
+      "item": "minecraft:amethyst_shard"
     }
   },
   "result": {

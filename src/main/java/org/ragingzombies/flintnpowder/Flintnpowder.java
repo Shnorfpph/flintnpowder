@@ -28,13 +28,11 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.ragingzombies.flintnpowder.enchantments.ModEnchantments;
-import org.ragingzombies.flintnpowder.handlers.ServerTickHandler;
 import org.ragingzombies.flintnpowder.item.ModCreativeModTabs;
 import org.ragingzombies.flintnpowder.item.ModItemsAmmo;
 import org.ragingzombies.flintnpowder.item.ModItemsAttachments;
 import org.ragingzombies.flintnpowder.item.ModItemsGuns;
 import org.ragingzombies.flintnpowder.item.ammo.projectiles.ModProjectiles;
-import com.livelandr.flintcore.core.network.PacketHandler;
 import org.ragingzombies.flintnpowder.sound.ModSounds;
 import org.slf4j.Logger;
 
@@ -47,9 +45,7 @@ public class Flintnpowder {
     // Directly reference a slf4j logger
     public static final Logger LOGGER = LogUtils.getLogger();
 
-    public Flintnpowder() {
-        IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
-
+    public Flintnpowder(IEventBus modEventBus) {
         ModCreativeModTabs.register(modEventBus);
 
         ModItems.register(modEventBus);

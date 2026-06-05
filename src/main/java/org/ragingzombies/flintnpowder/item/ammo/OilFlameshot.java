@@ -24,7 +24,6 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
@@ -32,14 +31,11 @@ import com.livelandr.flintcore.core.ammo.BaseAmmo;
 import com.livelandr.flintcore.core.guns.GunBase;
 import com.livelandr.flintcore.core.util.CameraWork;
 import org.ragingzombies.flintnpowder.handlers.ServerTickHandler;
-import org.ragingzombies.flintnpowder.item.ammo.projectiles.CastIronRoundshotProjectile;
 import org.ragingzombies.flintnpowder.item.ammo.projectiles.FlamingBuckshotProjectile;
 
 import javax.annotation.Nullable;
 import java.util.List;
 import java.util.Random;
-
-import static com.livelandr.flintcore.core.util.CameraWork.OffsetEntityCamera;
 
 public class OilFlameshot extends BaseAmmo {
     public OilFlameshot(Properties pProperties) {

@@ -20,7 +20,6 @@ package org.ragingzombies.flintnpowder.item.ammo.clips;
 
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
 import com.livelandr.flintcore.core.ammo.BaseAmmo;
@@ -30,7 +29,7 @@ import javax.annotation.Nullable;
 import java.util.List;
 
 public class PistolRoundClip extends BaseAmmo {
-    ItemStack dummy = new ItemStack(Items.AIR);
+    ItemStack dummy = ItemStack.EMPTY;
     public PistolRoundClip(Properties pProperties) {
         super(pProperties);
         damage = 6;

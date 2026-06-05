@@ -1,9 +1,8 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "III",
-    "  C",
-    "III"
+    " I ",
+    "C C"
   ],
   "key": {
     "I": {
@@ -14,7 +13,7 @@
     }
   },
   "result": {
-    "item": "flintnpowder:silencer",
+    "item": "flintnpowder:bipod",
     "count": 1
   }
 }

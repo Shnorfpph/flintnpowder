@@ -19,26 +19,16 @@
 package org.ragingzombies.flintnpowder.core_modified.guns;
 
 import com.livelandr.flintcore.core.guns.PumpActionBase;
-import net.minecraft.ChatFormatting;
-import net.minecraft.nbt.CompoundTag;
-import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
-import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.level.Level;
-import com.livelandr.flintcore.core.ammo.BaseAmmo;
 import org.ragingzombies.flintnpowder.enchantments.ModEnchantments;
 import org.ragingzombies.flintnpowder.sound.ModSounds;
-
-import javax.annotation.Nullable;
-import java.util.List;
 
 public class PumpActionBaseEnchantable extends PumpActionBase {
     public PumpActionBaseEnchantable(Properties pProperties) {

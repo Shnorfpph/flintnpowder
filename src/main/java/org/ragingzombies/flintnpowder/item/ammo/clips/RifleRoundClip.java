@@ -18,29 +18,18 @@
  */
 package org.ragingzombies.flintnpowder.item.ammo.clips;
 
-import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
-import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
-import org.ragingzombies.flintnpowder.ModItems;
 import com.livelandr.flintcore.core.ammo.BaseAmmo;
-import com.livelandr.flintcore.core.guns.GunBase;
-import com.livelandr.flintcore.core.util.CameraWork;
 import org.ragingzombies.flintnpowder.item.ModItemsAmmo;
-import org.ragingzombies.flintnpowder.item.ammo.projectiles.PistolRoundProjectile;
 
 import javax.annotation.Nullable;
 import java.util.List;
-import java.util.Random;
-
-import static com.livelandr.flintcore.core.util.CameraWork.OffsetEntityCamera;
 
 public class RifleRoundClip extends BaseAmmo {
-    ItemStack dummy = new ItemStack(Items.AIR);
+    ItemStack dummy = ItemStack.EMPTY;
     public RifleRoundClip(Properties pProperties) {
         super(pProperties);
         damage = 19;

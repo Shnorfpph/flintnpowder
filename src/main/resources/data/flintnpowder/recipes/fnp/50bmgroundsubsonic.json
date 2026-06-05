@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " C ",
+    "IRI",
+    "IGI"
+  ],
+  "key": {
+    "C": {
+      "tag": "forge:ingots/iron"
+    },
+    "I": {
+      "tag": "forge:nuggets/gold"
+    },
+    "G": {
+      "item": "minecraft:gunpowder"
+    },
+    "R": {
+      "item": "flintnpowder:blazing_powder"
+    }
+  },
+  "result": {
+    "item": "flintnpowder:50bmgroundsubsonic",
+    "count": 2
+  }
+}

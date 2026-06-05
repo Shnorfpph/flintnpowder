@@ -18,7 +18,6 @@
  */
 package org.ragingzombies.flintnpowder.item.ammo;
 
-import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
@@ -29,7 +28,6 @@ import com.livelandr.flintcore.core.ammo.BaseAmmo;
 import com.livelandr.flintcore.core.guns.GunBase;
 import com.livelandr.flintcore.core.util.CameraWork;
 import org.ragingzombies.flintnpowder.item.ammo.projectiles.CastIronBombProjectile;
-import org.ragingzombies.flintnpowder.item.ammo.projectiles.PistolRoundProjectile;
 
 import javax.annotation.Nullable;
 import java.util.List;
@@ -42,6 +40,7 @@ public class CastIronBomb extends BaseAmmo {
         super(pProperties);
 
         damage = 5;
+        addRequiredTag("bigbomb");
     }
 
     @Override

@@ -23,7 +23,6 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.Mth;
-import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -58,9 +57,7 @@ public class SemiPistol extends MagfedBaseEnchantable {
         pLevel.playSeededSound(null, shooter.getBlockX(), shooter.getBlockY(), shooter.getBlockZ(),
                 ModSounds.PISTOLCOCKBACKWARD.get(), SoundSource.NEUTRAL, 1.0F, 1.0F, 0);
 
-        if (shooter instanceof Player ply) {
-            ply.getCooldowns().addCooldown(this, 10);
-        }
+        super.onSlideStart(pLevel, shooter, gun);
     }
 
     @Override
@@ -68,11 +65,7 @@ public class SemiPistol extends MagfedBaseEnchantable {
         pLevel.playSeededSound(null, shooter.getBlockX(), shooter.getBlockY(), shooter.getBlockZ(),
                 ModSounds.PISTOLCOCKFORWARD.get(), SoundSource.NEUTRAL, 1.0F, 1.0F, 0);
 
-        setAimAnimation(gun);
-
-        if (shooter instanceof Player ply) {
-            ply.getCooldowns().addCooldown(this, 15);
-        }
+        super.onSlideEnd(pLevel, shooter, gun);
     }
 
     @Override
@@ -99,9 +92,9 @@ public class SemiPistol extends MagfedBaseEnchantable {
                         ParticleTypes.POOF,
                         shooter.getX(), shooter.getY() + shooter.getEyeHeight() * 0.6, shooter.getZ(),
                         0,
-                        shooter.getDeltaMovement().x + shooter.getLookAngle().x * speed + Mth.nextDouble(RandomSource.create(), spread * (-1), spread),
-                        shooter.getDeltaMovement().y + shooter.getLookAngle().y * speed + Mth.nextDouble(RandomSource.create(), spread * (-1), spread),
-                        shooter.getDeltaMovement().z + shooter.getLookAngle().z * speed + Mth.nextDouble(RandomSource.create(), spread * (-1), spread),
+                        shooter.getDeltaMovement().x + shooter.getLookAngle().x * speed + Mth.nextDouble(shooter.getRandom(), spread * (-1), spread),
+                        shooter.getDeltaMovement().y + shooter.getLookAngle().y * speed + Mth.nextDouble(shooter.getRandom(), spread * (-1), spread),
+                        shooter.getDeltaMovement().z + shooter.getLookAngle().z * speed + Mth.nextDouble(shooter.getRandom(), spread * (-1), spread),
                         1.0
                 );
             }

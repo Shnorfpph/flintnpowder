@@ -37,7 +37,7 @@ public class ZoomComputing {
     public static Double standardMouse = 0.5;
     public static boolean isZooming = false;
 
-    private static boolean isAiming(Player ply) {
+    public static boolean isAiming(Player ply) {
         ItemStack stack = ply.getMainHandItem();
         Item item = stack.getItem();
 
@@ -50,7 +50,7 @@ public class ZoomComputing {
         return false;
     }
 
-    private static float zoomModifier(Player ply) {
+    public static float zoomModifier(Player ply) {
         ItemStack stack = ply.getMainHandItem();
         Item item = stack.getItem();
 
@@ -73,7 +73,7 @@ public class ZoomComputing {
         Player player = event.getPlayer();
 
         // KeyBindings check is required to be first to avoid extreme lags
-        if (KeyBindings.ZOOM_KEY.isDown() && isAiming(player)) {
+        if (com.livelandr.flintcore.core.handlers.KeyBindings.ZOOM_KEY.isDown() && isAiming(player)) {
             float currentFov = event.getFovModifier();
             event.setNewFovModifier(currentFov * zoomModifier(player) );
             Minecraft.getInstance().options.sensitivity().set(standardMouse * 2 * zoomModifier(player));

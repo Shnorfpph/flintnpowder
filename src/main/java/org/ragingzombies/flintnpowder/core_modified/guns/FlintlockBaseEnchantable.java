@@ -99,7 +99,7 @@ public class FlintlockBaseEnchantable extends FlintlockBase {
     @Override
     public void onGunpowder(Level pLevel, LivingEntity shooter, ItemStack gun, InteractionHand pUsedHand) {
         pLevel.playSeededSound(null, shooter.getBlockX(), shooter.getBlockY(), shooter.getBlockZ(),
-                SoundEvents.SAND_BREAK, SoundSource.NEUTRAL, 0.45F, 1.0F, 0);
+                SoundEvents.SAND_BREAK, SoundSource.NEUTRAL, 1F, 1.0F, 0);
 
         super.onGunpowder(pLevel, shooter, gun, pUsedHand);
     }
@@ -107,7 +107,7 @@ public class FlintlockBaseEnchantable extends FlintlockBase {
     @Override
     public void onStuff(Level pLevel, LivingEntity shooter, ItemStack gun, InteractionHand pUsedHand) {
         pLevel.playSeededSound(null, shooter.getBlockX(), shooter.getBlockY(), shooter.getBlockZ(),
-                ModSounds.RAMROD.get(), SoundSource.NEUTRAL, 0.45F, 1.0F, 0);
+                ModSounds.RAMROD.get(), SoundSource.NEUTRAL, 1F, 1.0F, 0);
 
         super.onStuff(pLevel, shooter, gun, pUsedHand);
     }

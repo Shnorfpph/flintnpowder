@@ -27,9 +27,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
-import org.ragingzombies.flintnpowder.item.ammo.projectiles.FoolsGoldRoundshotProjectile;
 import org.ragingzombies.flintnpowder.item.ammo.projectiles.InvisibleProjectile;
-import org.ragingzombies.flintnpowder.item.ammo.projectiles.PistolRoundProjectile;
 
 import javax.annotation.Nullable;
 import java.util.List;

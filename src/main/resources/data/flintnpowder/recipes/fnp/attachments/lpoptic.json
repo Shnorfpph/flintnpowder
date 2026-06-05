@@ -10,7 +10,7 @@
       "tag": "forge:nuggets/iron"
     },
     "C": {
-      "items": "minecraft:amethyst_shard"
+      "item": "minecraft:amethyst_shard"
     }
   },
   "result": {

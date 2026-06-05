@@ -110,6 +110,13 @@ public class ModProjectiles {
                     .updateInterval(5)
                     .build("castironbomb_projectile"));
 
+    public static final RegistryObject<EntityType<FoolsGoldRoundshotProjectile>> FOOLSGOLD =
+            PROJECTILES.register("foolsgold_projectile", () -> EntityType.Builder.<FoolsGoldRoundshotProjectile>of(FoolsGoldRoundshotProjectile::new, MobCategory.MISC)
+                    .sized(0.025f,0.025f)
+                    .clientTrackingRange(15)
+                    .updateInterval(5)
+                    .build("foolsgold_projectile"));
+
 
 
 
