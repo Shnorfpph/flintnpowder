@@ -50,7 +50,7 @@ public class SteelRoundshot extends BaseAmmo {
         Vec3 eyePos = shooter.getEyePosition();
         Vec3 lookVec = shooter.getLookAngle();
 
-        proj.shootFromRotation(shooter, CameraWork.getPlayerViewX(shooter), CameraWork.getPlayerViewY(shooter), 0.0F, 10F, 2F * ((GunBase) gun.getItem()).accuracyModifier(shooter, gun));
+        proj.shootFromRotation(shooter,xRotation, yRotation, 0.0F, 10F, 2F * ((GunBase) gun.getItem()).accuracyModifier(shooter, gun));
 
         // Recoil
         if (shooter instanceof Player) {

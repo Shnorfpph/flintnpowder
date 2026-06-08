@@ -50,7 +50,7 @@ public class CastIronBomb extends BaseAmmo {
         proj.damage = this.damage * ((GunBase) gun.getItem()).damageModifier(shooter, gun);
         proj.setOwner(shooter);
 
-        proj.shootFromRotation(shooter, CameraWork.getPlayerViewX(shooter), CameraWork.getPlayerViewY(shooter), 0.0F, 3F, 1F * ((GunBase) gun.getItem()).accuracyModifier(shooter, gun));
+        proj.shootFromRotation(shooter,xRotation, yRotation, 0.0F, 3F, 1F * ((GunBase) gun.getItem()).accuracyModifier(shooter, gun));
 
         // Recoil
 

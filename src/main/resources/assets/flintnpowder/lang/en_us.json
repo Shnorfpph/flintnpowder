@@ -221,5 +221,7 @@
 
   "item.flintnpowder.diamond_bore_drill": "Diamond Bore Drill",
   "item.flintnpowder.cast_iron_bore_drill": "Cast Iron Bore Drill",
-  "item.flintnpowder.netherite_bore_drill": "Netherite Bore Drill"
+  "item.flintnpowder.netherite_bore_drill": "Netherite Bore Drill",
+
+  "flintnpowder.mortarrotation": "Current mortar angle: "
 }

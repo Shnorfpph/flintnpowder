@@ -25,6 +25,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import org.ragingzombies.flintnpowder.Flintnpowder;
+import org.ragingzombies.flintnpowder.item.ammo.projectiles.mortar.HEShellProjectile;
 import org.ragingzombies.flintnpowder.item.ammo.projectiles.shotgun.BuckshotProjectile;
 import org.ragingzombies.flintnpowder.item.ammo.projectiles.shotgun.DragonBreathProjectile;
 import org.ragingzombies.flintnpowder.item.ammo.projectiles.shotgun.SlugProjectile;
@@ -116,6 +117,13 @@ public class ModProjectiles {
                     .clientTrackingRange(15)
                     .updateInterval(5)
                     .build("foolsgold_projectile"));
+
+    public static final RegistryObject<EntityType<HEShellProjectile>> HESHELL =
+            PROJECTILES.register("hemortarshell_projectile", () -> EntityType.Builder.<HEShellProjectile>of(HEShellProjectile::new, MobCategory.MISC)
+                    .sized(0.025f,0.025f)
+                    .clientTrackingRange(15)
+                    .updateInterval(5)
+                    .build("hemortarshell_projectile"));
 
 
 

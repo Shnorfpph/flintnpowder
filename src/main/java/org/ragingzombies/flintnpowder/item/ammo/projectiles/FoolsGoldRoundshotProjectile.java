@@ -43,20 +43,17 @@ public class FoolsGoldRoundshotProjectile extends AbstractArrow implements ItemS
 
     public float damage = 1;
     public int piercedEnts = 0;
-    @Nullable
-    private IntOpenHashSet piercingIgnoreEntityIds;
-    @Nullable
-    private List<Entity> piercedAndKilledEntities;
-    private final IntOpenHashSet ignoredEntities = new IntOpenHashSet();
 
     public FoolsGoldRoundshotProjectile(EntityType<? extends AbstractArrow> pEntityType, Level pLevel) {
         super(pEntityType, pLevel);
     }
     public FoolsGoldRoundshotProjectile(Level pLevel) {
-        super(ModProjectiles.STEELROUNDSHOTPROJECTILE.get(), pLevel);
+        super(ModProjectiles.FOOLSGOLD.get(), pLevel);
     }
     public FoolsGoldRoundshotProjectile(Level pLevel, LivingEntity livingEntity) {
-        super(ModProjectiles.STEELROUNDSHOTPROJECTILE.get(), livingEntity, pLevel);
+        super(ModProjectiles.FOOLSGOLD.get(), livingEntity, pLevel);
+
+        this.setPierceLevel((byte) 1);
     }
 
 
@@ -153,9 +150,6 @@ public class FoolsGoldRoundshotProjectile extends AbstractArrow implements ItemS
     protected void onHitEntity(EntityHitResult pResult) {
         pResult.getEntity().invulnerableTime = 0;
 
-        // That thing is bad practice actually, it's better to move it to constructor, but that's... well... to dangerous.
-        this.setPierceLevel((byte) 1);
-
         Entity entity = pResult.getEntity();
 
         if (entity instanceof LivingEntity) {
@@ -168,6 +162,9 @@ public class FoolsGoldRoundshotProjectile extends AbstractArrow implements ItemS
                 collisionParticles(pResult.getEntity().getOnPos());
                 damage /= 1.25;
             }
+        }
+        if (++piercedEnts > getPierceLevel()) {
+            this.discard();
         }
     }
 

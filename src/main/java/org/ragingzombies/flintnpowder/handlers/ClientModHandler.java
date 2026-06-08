@@ -29,6 +29,8 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import com.livelandr.flintcore.core.guns.GunBase;
+import org.ragingzombies.flintnpowder.entity.ModEntities;
+import org.ragingzombies.flintnpowder.entity.client.renderers.MortarRenderer;
 import org.ragingzombies.flintnpowder.item.ModItemsAttachments;
 import org.ragingzombies.flintnpowder.item.ModItemsGuns;
 import org.ragingzombies.flintnpowder.item.ammo.projectiles.ModProjectiles;
@@ -62,6 +64,10 @@ public class ClientModHandler {
 
     @SubscribeEvent
     public static void onClientSetup(FMLClientSetupEvent event) {
+        // MOBS
+        EntityRenderers.register(ModEntities.MORTAR.get(), MortarRenderer::new);
+
+        // GUNS
         // Shotgun
         ItemProperties.register(
                 ModItemsGuns.PUMPACTIONSHOTGUN.get(),
@@ -256,6 +262,10 @@ public class ClientModHandler {
         EntityRenderers.register(ModProjectiles.CASTIRONBOMB.get(), ThrownItemRenderer::new);
 
         EntityRenderers.register(ModProjectiles.INVISIBLEPROJECTILE.get(), ThrownItemRenderer::new);
+
+        EntityRenderers.register(ModProjectiles.FOOLSGOLD.get(), ThrownItemRenderer::new);
+
+        EntityRenderers.register(ModProjectiles.HESHELL.get(), ThrownItemRenderer::new);
 
 
     }

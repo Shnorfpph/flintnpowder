@@ -1,5 +1,8 @@
 package org.ragingzombies.flintnpowder.item.ammo.projectiles.mortar;
 
+import com.livelandr.flintcore.core.sounds.ModSoundDeferred;
+import com.livelandr.flintcore.core.sounds.TickableSounds.MortarFallingSoundInstance;
+import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;
@@ -16,22 +19,35 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.Vec3;
+import org.ragingzombies.flintnpowder.Flintnpowder;
 import org.ragingzombies.flintnpowder.item.ammo.projectiles.ModProjectiles;
 
 public class HEShellProjectile extends AbstractArrow implements ItemSupplier {
 
+    MortarFallingSoundInstance snd = null;
     public HEShellProjectile(EntityType<? extends AbstractArrow> pEntityType, Level pLevel) {
         super(pEntityType, pLevel);
     }
     public HEShellProjectile(Level pLevel) {
-        super(ModProjectiles.CASTIRONROUNDSHOTPROJECTILE.get(), pLevel);
+        super(ModProjectiles.HESHELL.get(), pLevel);
     }
     public HEShellProjectile(Level pLevel, LivingEntity livingEntity) {
-        super(ModProjectiles.CASTIRONROUNDSHOTPROJECTILE.get(), livingEntity, pLevel);
+        super(ModProjectiles.HESHELL.get(), livingEntity, pLevel);
     }
 
     @Override
     public void tick() {
+        if (this.level().isClientSide()) {
+            if (snd == null) {
+                snd = new MortarFallingSoundInstance(ModSoundDeferred.BROWNNOISE.get(), getX(), getY(), getZ());
+                snd.setEnt(this);
+                Minecraft.getInstance().getSoundManager().play(snd);
+            } else {
+                snd.setPosition(getX(),getY(),getZ());
+            }
+        }
+
+        // Sounds
         super.tick();
 
         if (!level().isClientSide()) {
@@ -104,7 +120,7 @@ public class HEShellProjectile extends AbstractArrow implements ItemSupplier {
 
     void impact(BlockPos pos) {
         collisionParticles(pos);
-        this.level().explode(this, null, null, getX(), getY(), getZ(), 3f, false, Level.ExplosionInteraction.TNT);
+        this.level().explode(this, null, null, getX(), getY(), getZ(), 4f, false, Level.ExplosionInteraction.BLOCK);
         this.discard();
     }
 
@@ -119,6 +135,8 @@ public class HEShellProjectile extends AbstractArrow implements ItemSupplier {
 
     @Override
     protected void onHitEntity(EntityHitResult pResult) {
+        if (this.getOwner() == pResult.getEntity()) return;
+
         pResult.getEntity().invulnerableTime = 0;
         if (!this.level().isClientSide()) {
             DamageSource dmg = this.damageSources().arrow(this, this.getOwner());

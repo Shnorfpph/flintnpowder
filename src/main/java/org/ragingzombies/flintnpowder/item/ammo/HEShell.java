@@ -27,6 +27,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
+import org.ragingzombies.flintnpowder.Flintnpowder;
 import org.ragingzombies.flintnpowder.item.ammo.projectiles.CastIronBombProjectile;
 import org.ragingzombies.flintnpowder.item.ammo.projectiles.mortar.HEShellProjectile;
 
@@ -47,8 +48,12 @@ public class HEShell extends BaseAmmo {
     public void onAmmoShot(float xRotation, float yRotation, LivingEntity shooter, ItemStack gun, Level level) {
         HEShellProjectile proj = new HEShellProjectile(level, shooter);
 
+        Flintnpowder.LOGGER.info(shooter.toString());
+        Flintnpowder.LOGGER.info(Float.toString(xRotation));
+        Flintnpowder.LOGGER.info(Float.toString(yRotation));
+
         proj.setOwner(shooter);
-        proj.shootFromRotation(shooter, CameraWork.getPlayerViewX(shooter), CameraWork.getPlayerViewY(shooter), 0.0F, 6F, 0);
+        proj.shootFromRotation(shooter, xRotation, yRotation, 0.0F, 6F, 0);
 
         // Recoil
 
