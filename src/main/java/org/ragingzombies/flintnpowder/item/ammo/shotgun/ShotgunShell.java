@@ -46,7 +46,7 @@ public class ShotgunShell extends BaseAmmo {
     }
 
     @Override
-    public void onAmmoShot(LivingEntity shooter, ItemStack gun, Level level) {
+    public void onAmmoShot(float xRotation, float yRotation, LivingEntity shooter, ItemStack gun, Level level) {
         Random rand = new Random();
         for (int i = 0; i < 9; i++) {
             float angle = rand.nextFloat((float) (2.0F*Math.PI));

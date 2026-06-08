@@ -161,7 +161,7 @@ public class BoltActionRifle extends PumpActionBaseEnchantable {
     }
 
     @Override
-    public void onShoot(Level pLevel, LivingEntity shooter, ItemStack gunStack) {
+    public void onShoot(float rotationX, float rotationY, Level pLevel, LivingEntity shooter, ItemStack gunStack) {
 
         if (shooter instanceof Player) {
             ((Player) shooter).getCooldowns().addCooldown(this, shootCooldown(shooter, gunStack));

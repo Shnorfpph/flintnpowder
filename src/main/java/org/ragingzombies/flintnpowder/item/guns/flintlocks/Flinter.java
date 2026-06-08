@@ -98,7 +98,7 @@ public class Flinter extends FlintlockBaseEnchantable {
     }
 
     @Override
-    public void onShoot(Level pLevel, LivingEntity shooter, ItemStack gunStack) {
+    public void onShoot(float rotationX, float rotationY, Level pLevel, LivingEntity shooter, ItemStack gunStack) {
 
         pLevel.playSeededSound(null, shooter.getBlockX(), shooter.getBlockY(), shooter.getBlockZ(),
                 ModSounds.PISTOLSHOOT.get(), SoundSource.NEUTRAL, 2.0F, 1.0F, 0);

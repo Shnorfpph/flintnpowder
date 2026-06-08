@@ -125,7 +125,7 @@ public class SniperRifle extends MagfedBaseEnchantable {
 
 
     @Override
-    public void onShoot(Level pLevel, LivingEntity shooter, ItemStack gunStack) {
+    public void onShoot(float rotationX, float rotationY, Level pLevel, LivingEntity shooter, ItemStack gunStack) {
 
         if (!isAttachmentValidAndEnabled(gunStack, "silencer")) {
             pLevel.playSeededSound(null, shooter.getBlockX(), shooter.getBlockY(), shooter.getBlockZ(),

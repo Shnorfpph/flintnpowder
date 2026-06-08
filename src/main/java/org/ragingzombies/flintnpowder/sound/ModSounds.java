@@ -66,6 +66,13 @@ public class ModSounds {
 
     public static final RegistryObject<SoundEvent> GUNSHOTDISTANT = registerSoundEvents("distantgunshot");
 
+    public static final RegistryObject<SoundEvent> GUNSHOTDISTANTHEAVY = registerSoundEvents("distantgunshotheavy");
+
+    public static final RegistryObject<SoundEvent> MACHINEGUN = registerSoundEvents("machinegunfire");
+    public static final RegistryObject<SoundEvent> AUTOSHOTGUNMAGIN = registerSoundEvents("shotgunmagin");
+    public static final RegistryObject<SoundEvent> AUTOSHOTGUNMAGOUT = registerSoundEvents("autoshotgunmagout");
+    public static final RegistryObject<SoundEvent> AUTOSHOTGUNBOLTBACK = registerSoundEvents("autoshotgunboltbackward");
+    public static final RegistryObject<SoundEvent> AUTOSHOTGUNBOLTFORW = registerSoundEvents("autoshotgunboltforward");
 
 
 

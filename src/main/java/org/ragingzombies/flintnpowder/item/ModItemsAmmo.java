@@ -97,6 +97,11 @@ public class ModItemsAmmo {
             () -> new SniperSubsonicRound(new SniperSubsonicRound.Properties().stacksTo(16)));
     public static final RegistryObject<Item> SNIPERRIFLEMAGAZINE = ITEMS.register("sniperriflemagazine",
             () -> new SniperRifleMag(new SniperRifleMag.Properties().stacksTo(1)));
+    public static final RegistryObject<Item> MACHINEGUNMAG = ITEMS.register("machinegunmag",
+            () -> new MachineGunMag(new MachineGunMag.Properties().stacksTo(1)));
+
+    public static final RegistryObject<Item> HESHELL = ITEMS.register("heshell",
+            () -> new HEShell(new HEShell.Properties().stacksTo(1)));
 
 
     public static final RegistryObject<Item> CASTIRONBOMB = ITEMS.register("cast_iron_bomb",

@@ -45,7 +45,9 @@ public class Flintnpowder {
     // Directly reference a slf4j logger
     public static final Logger LOGGER = LogUtils.getLogger();
 
-    public Flintnpowder(IEventBus modEventBus) {
+    public Flintnpowder(FMLJavaModLoadingContext context) {
+        IEventBus modEventBus = context.getModEventBus();
+
         ModCreativeModTabs.register(modEventBus);
 
         ModItems.register(modEventBus);

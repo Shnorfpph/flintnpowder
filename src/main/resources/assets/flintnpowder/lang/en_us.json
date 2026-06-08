@@ -185,6 +185,8 @@
   "item.flintnpowder.pistol_grip": "Pistol Grip",
   "item.flintnpowder.palladium_green": "Green Palladium",
 
+  "item.flintnpowder.machine_gun": "Machine Gun",
+  "item.flintnpowder.machinegunmag": "Machine Gun Magazine",
 
   "enchantment.flintnpowder.ghost_loading": "Ghost Loading",
   "enchantment.flintnpowder.quality_propellant": "Quality Propellant",
@@ -215,6 +217,7 @@
   "flintcore.calibernames.rifleroundclip": "Rifle rounds clip",
   "flintcore.calibernames.shotgunmag": "Shotgun magazine",
   "flintcore.calibernames.12gauge": "12 Gauge Shotgun Shell",
+  "flintcore.calibernames.machinegunmag": "Machine Gun Magazines",
 
   "item.flintnpowder.diamond_bore_drill": "Diamond Bore Drill",
   "item.flintnpowder.cast_iron_bore_drill": "Cast Iron Bore Drill",

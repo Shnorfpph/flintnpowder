@@ -103,6 +103,27 @@
       }
     ]
   },
+  "machinegunfire": {
+    "subtitle": "subtitles.machinegun",
+    "sounds": [
+      {
+        "name": "flintnpowder:machinegunfire1",
+        "stream": false
+      },
+      {
+        "name": "flintnpowder:machinegunfire2",
+        "stream": false
+      },
+      {
+        "name": "flintnpowder:machinegunfire3",
+        "stream": false
+      },
+      {
+        "name": "flintnpowder:machinegunfire4",
+        "stream": false
+      }
+    ]
+  },
   "bulletimpact": {
     "subtitle": "subtitles.bulletimpact",
     "sounds": [

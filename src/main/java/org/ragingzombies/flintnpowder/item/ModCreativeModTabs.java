@@ -66,6 +66,7 @@ public class ModCreativeModTabs {
                         pOutput.accept(ModItemsAmmo.BATTLERIFLEMAGAZINE.get());
                         pOutput.accept(ModItemsAmmo.SHOTGUNMAGAZINE.get());
                         pOutput.accept(ModItemsAmmo.SNIPERRIFLEMAGAZINE.get());
+                        pOutput.accept(ModItemsAmmo.MACHINEGUNMAG.get());
 
                         // Empty
                     }))
@@ -99,6 +100,7 @@ public class ModCreativeModTabs {
                         pOutput.accept(ModItemsGuns.CLOSEDBOLTBATTLERIFLE.get());
                         pOutput.accept(ModItemsGuns.GASOPERATEDSHOTGUN.get());
                         pOutput.accept(ModItemsGuns.SNIPERRIFLE.get());
+                        pOutput.accept(ModItemsGuns.MACHINEGUN.get());
                         pOutput.accept(ModItems.RAMROD.get());
                         pOutput.accept(ModItemsAttachments.SILENCER.get());
                         pOutput.accept(ModItemsAttachments.BAYONET.get());

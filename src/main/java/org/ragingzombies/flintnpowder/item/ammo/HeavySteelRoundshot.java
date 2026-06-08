@@ -44,13 +44,13 @@ public class HeavySteelRoundshot extends BaseAmmo {
     }
 
     @Override
-    public void onAmmoShot(LivingEntity shooter, ItemStack gun, Level level) {
+    public void onAmmoShot(float xRotation, float yRotation, LivingEntity shooter, ItemStack gun, Level level) {
         FoolsGoldRoundshotProjectile proj = new FoolsGoldRoundshotProjectile(level, shooter);
 
         proj.damage = this.damage * ((GunBase) gun.getItem()).damageModifier(shooter, gun);
         proj.setOwner(shooter);
 
-        proj.shootFromRotation(shooter, CameraWork.getPlayerViewX(shooter), CameraWork.getPlayerViewY(shooter), 0.0F, 5F, 3F * ((GunBase) gun.getItem()).accuracyModifier(shooter, gun));
+        proj.shootFromRotation(shooter, xRotation, yRotation, 0.0F, 5F, 3F * ((GunBase) gun.getItem()).accuracyModifier(shooter, gun));
 
         // Recoil
 

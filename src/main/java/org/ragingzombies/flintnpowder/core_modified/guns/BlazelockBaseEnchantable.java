@@ -89,19 +89,19 @@ public class BlazelockBaseEnchantable extends BlazelockBase {
     }
 
     @Override
-    public void onChamberOpen(Level pLevel, LivingEntity shooter, ItemStack gun, InteractionHand pUsedHand) {
+    public void onChamberOpen(Level pLevel, LivingEntity shooter, ItemStack gun) {
         pLevel.playSeededSound(null, shooter.getBlockX(), shooter.getBlockY(), shooter.getBlockZ(),
                 ModSounds.GUNSWING.get(), SoundSource.NEUTRAL, 1.0F, 1.0F, 0);
 
-        super.onChamberOpen(pLevel, shooter, gun, pUsedHand);
+        super.onChamberOpen(pLevel, shooter, gun);
     }
 
     @Override
-    public void onChamberClose(Level pLevel, LivingEntity shooter, ItemStack gun, InteractionHand pUsedHand) {
+    public void onChamberClose(Level pLevel, LivingEntity shooter, ItemStack gun) {
         pLevel.playSeededSound(null, shooter.getBlockX(), shooter.getBlockY(), shooter.getBlockZ(),
                 ModSounds.GUNSWING.get(), SoundSource.NEUTRAL, 1.0F, 1.0F, 0);
 
-        super.onChamberClose(pLevel, shooter, gun, pUsedHand);
+        super.onChamberClose(pLevel, shooter, gun);
     }
 
     @Override

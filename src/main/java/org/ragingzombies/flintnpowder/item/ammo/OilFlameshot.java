@@ -46,7 +46,7 @@ public class OilFlameshot extends BaseAmmo {
     }
 
     @Override
-    public void onAmmoShot(LivingEntity shooter, ItemStack gun, Level level) {
+    public void onAmmoShot(float xRotation, float yRotation, LivingEntity shooter, ItemStack gun, Level level) {
         if (shooter.level().isClientSide()) return;
 
         ServerLevel serverLevel = (ServerLevel) shooter.level();

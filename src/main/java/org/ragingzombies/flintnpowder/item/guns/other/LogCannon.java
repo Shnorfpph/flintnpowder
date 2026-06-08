@@ -69,7 +69,7 @@ public class LogCannon extends GunBase {
     }
 
     @Override
-    public void onShoot(Level pLevel, LivingEntity shooter, ItemStack gunStack) {
+    public void onShoot(float rotationX, float rotationY, Level pLevel, LivingEntity shooter, ItemStack gunStack) {
         pLevel.playSeededSound(null, shooter.getBlockX(), shooter.getBlockY(), shooter.getBlockZ(),
                 SoundEvents.GENERIC_EXPLODE, SoundSource.NEUTRAL, 5.0F, 1.5F, 0);
         pLevel.playSeededSound(null, shooter.getBlockX(), shooter.getBlockY(), shooter.getBlockZ(),
@@ -136,35 +136,6 @@ public class LogCannon extends GunBase {
 
         pLevel.addFreshEntity(proj);
 
-    }
-
-    // Damn it's EMPTY, there is NOTHING unique, and it makes it MOST unique gun
-    @Override
-    public InteractionResultHolder<ItemStack> use(Level pLevel, Player pPlayer, InteractionHand pUsedHand) {
-        // Getting hand and offhand item
-        ItemStack gunStack = pPlayer.getItemInHand(pUsedHand);
-
-        ItemStack secondItemStack;
-        if (pUsedHand == InteractionHand.MAIN_HAND)
-            secondItemStack = pPlayer.getItemInHand(InteractionHand.OFF_HAND);
-        else
-            secondItemStack = pPlayer.getItemInHand(InteractionHand.MAIN_HAND);
-
-        if (!pLevel.isClientSide()) {
-            if (!gunStack.hasTag()) gunStack.setTag(new CompoundTag());
-
-            if (allowPressingTrigger(pLevel, pPlayer, gunStack, pUsedHand)) {
-                if (tryShoot(pLevel, pPlayer, gunStack, pUsedHand)) {
-                    shoot(pLevel, pPlayer, gunStack);
-                    onShoot(pLevel, pPlayer, gunStack);
-                } else {
-                    onTryFailure(pLevel, pPlayer, gunStack);
-                }
-            }
-
-        }
-
-        return InteractionResultHolder.pass(pPlayer.getItemInHand(pUsedHand));
     }
 
     @Override

@@ -85,12 +85,12 @@ public class FlintlockBaseEnchantable extends FlintlockBase {
     }
 
     @Override
-    public int gunpowderCooldown(Player ply, ItemStack gunStack) {
+    public int gunpowderCooldown(LivingEntity ply, ItemStack gunStack) {
         int amoLevel = EnchantmentHelper.getItemEnchantmentLevel(ModEnchantments.SWIFT_RELOAD.get(), gunStack);
         return gunpowderCooldownTicks - (gunpowderCooldownTicks/4) * amoLevel;
     }
     @Override
-    public int ramrodCooldown(Player ply, ItemStack gunStack) {
+    public int ramrodCooldown(LivingEntity ply, ItemStack gunStack) {
         int amoLevel = EnchantmentHelper.getItemEnchantmentLevel(ModEnchantments.RAMROD_MASTERY.get(), gunStack);
         return ramrodCooldownTicks - (ramrodCooldownTicks/4) * amoLevel;
     }

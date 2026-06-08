@@ -20,6 +20,7 @@ package org.ragingzombies.flintnpowder.item.guns.flintlocks;
 
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
+import com.livelandr.flintcore.core.util.CameraWork;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvents;
@@ -143,20 +144,16 @@ public class FlamingHalberd extends FlintlockBaseEnchantable {
                 SoundEvents.TNT_PRIMED, SoundSource.NEUTRAL, 1.0F, 0.75F, 0);
 
         ServerTickHandler.createTask(25, () -> {
-            triggerHooks("onShoot", pPlayer, gunStack);
-            gunStack.getTag().putBoolean("IsStuffed", false);
+            super.shoot(pLevel, pPlayer, gunStack, CameraWork.getPlayerViewX(pPlayer), CameraWork.getPlayerViewY(pPlayer));
             pLevel.playSeededSound(null, pPlayer.getBlockX(), pPlayer.getBlockY(), pPlayer.getBlockZ(),
                     SoundEvents.GENERIC_EXPLODE, SoundSource.NEUTRAL, 8.0F, 0.5F, 0);
 
-            ItemStack ammoData = ItemStack.of((CompoundTag) gunStack.getTag().get("AmmoType"));
-
-            BaseAmmo ammo = (BaseAmmo) ammoData.getItem();
-            ammo.onAmmoShot(pPlayer, gunStack, pLevel);
+            setReloadAnimation(gunStack);
         });
     }
 
     @Override
-    public void onShoot(Level pLevel, LivingEntity shooter, ItemStack gunStack) {
+    public void onShoot(float rotationX, float rotationY, Level pLevel, LivingEntity shooter, ItemStack gunStack) {
         pLevel.playSeededSound(null, shooter.getBlockX(), shooter.getBlockY(), shooter.getBlockZ(),
                 ModSounds.FLINTSTRIKE.get(), SoundSource.NEUTRAL, 1.0F, 1.0F, 0);
 
