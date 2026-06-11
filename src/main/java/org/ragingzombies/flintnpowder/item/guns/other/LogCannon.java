@@ -25,7 +25,6 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.Mth;
-import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.LivingEntity;
@@ -70,11 +69,11 @@ public class LogCannon extends GunBase {
     }
 
     @Override
-    public void onShoot(Level pLevel, LivingEntity shooter, ItemStack gunStack) {
-        pLevel.playSeededSound(null, shooter.getBlockX(), shooter.getBlockY(), shooter.getBlockZ(),
-                SoundEvents.GENERIC_EXPLODE, SoundSource.NEUTRAL, 5.0F, 1.5F, 0);
-        pLevel.playSeededSound(null, shooter.getBlockX(), shooter.getBlockY(), shooter.getBlockZ(),
-                SoundEvents.GENERIC_EXPLODE, SoundSource.NEUTRAL, 7.0F, 1.1F, 0);
+    public void onShoot(float rotationX, float rotationY, Level pLevel, LivingEntity shooter, ItemStack gunStack) {
+        pLevel.playSound(null, shooter.getBlockX(), shooter.getBlockY(), shooter.getBlockZ(),
+                SoundEvents.GENERIC_EXPLODE, SoundSource.NEUTRAL, 5.0F, 1.5F);
+        pLevel.playSound(null, shooter.getBlockX(), shooter.getBlockY(), shooter.getBlockZ(),
+                SoundEvents.GENERIC_EXPLODE, SoundSource.NEUTRAL, 7.0F, 1.1F);
 
         // Particles
         if (!pLevel.isClientSide()) {
@@ -87,9 +86,9 @@ public class LogCannon extends GunBase {
                         ParticleTypes.LARGE_SMOKE,
                         shooter.getX(), shooter.getY() + shooter.getEyeHeight() * 0.5, shooter.getZ(),
                         5,
-                        shooter.getDeltaMovement().x + shooter.getLookAngle().x * speed + Mth.nextDouble(RandomSource.create(), spread * (-1), spread),
-                        shooter.getDeltaMovement().y + shooter.getLookAngle().y * speed + Mth.nextDouble(RandomSource.create(), spread * (-1), spread),
-                        shooter.getDeltaMovement().z + shooter.getLookAngle().z * speed + Mth.nextDouble(RandomSource.create(), spread * (-1), spread),
+                        shooter.getDeltaMovement().x + shooter.getLookAngle().x * speed + Mth.nextDouble(shooter.getRandom(), spread * (-1), spread),
+                        shooter.getDeltaMovement().y + shooter.getLookAngle().y * speed + Mth.nextDouble(shooter.getRandom(), spread * (-1), spread),
+                        shooter.getDeltaMovement().z + shooter.getLookAngle().z * speed + Mth.nextDouble(shooter.getRandom(), spread * (-1), spread),
                         1.0
                 );
             }
@@ -98,15 +97,15 @@ public class LogCannon extends GunBase {
         gunStack.shrink(1);
 
         if (shooter instanceof Player) {
-            ((Player) shooter).getCooldowns().addCooldown(this, shootCooldown(shooter, gunStack));
+            setCooldown(shooter, gunStack, shootCooldown(shooter, gunStack));
         }
     }
 
 
     @Override
     public boolean tryShoot(Level pLevel, LivingEntity pPlayer, ItemStack gun, InteractionHand pUsedHand) {
-        pLevel.playSeededSound(null, pPlayer.getBlockX(), pPlayer.getBlockY(), pPlayer.getBlockZ(),
-                ModSounds.FLINTSTRIKE.get(), SoundSource.NEUTRAL, 1.0F, 1.0F, 0);
+        pLevel.playSound(null, pPlayer.getBlockX(), pPlayer.getBlockY(), pPlayer.getBlockZ(),
+                ModSounds.FLINTSTRIKE.get(), SoundSource.NEUTRAL, 1.0F, 1.0F);
 
         setAimAnimation(gun);
 
@@ -137,35 +136,6 @@ public class LogCannon extends GunBase {
 
         pLevel.addFreshEntity(proj);
 
-    }
-
-    // Damn it's EMPTY, there is NOTHING unique, and it makes it MOST unique gun
-    @Override
-    public InteractionResultHolder<ItemStack> use(Level pLevel, Player pPlayer, InteractionHand pUsedHand) {
-        // Getting hand and offhand item
-        ItemStack gunStack = pPlayer.getItemInHand(pUsedHand);
-
-        ItemStack secondItemStack;
-        if (pUsedHand == InteractionHand.MAIN_HAND)
-            secondItemStack = pPlayer.getItemInHand(InteractionHand.OFF_HAND);
-        else
-            secondItemStack = pPlayer.getItemInHand(InteractionHand.MAIN_HAND);
-
-        if (!pLevel.isClientSide()) {
-            if (!gunStack.hasTag()) gunStack.setTag(new CompoundTag());
-
-            if (allowPressingTrigger(pLevel, pPlayer, gunStack, pUsedHand)) {
-                if (tryShoot(pLevel, pPlayer, gunStack, pUsedHand)) {
-                    shoot(pLevel, pPlayer, gunStack);
-                    onShoot(pLevel, pPlayer, gunStack);
-                } else {
-                    onTryFailure(pLevel, pPlayer, gunStack);
-                }
-            }
-
-        }
-
-        return InteractionResultHolder.pass(pPlayer.getItemInHand(pUsedHand));
     }
 
     @Override

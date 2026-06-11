@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " t ",
+    "tat",
+    " t "
+  ],
+  "key": {
+    "a": {
+      "item": "flintnpowder:heshell"
+    },
+    "t": {
+      "item": "minecraft:tnt"
+    }
+  },
+  "result": {
+    "item": "flintnpowder:clustershell",
+    "count": 1
+  }
+}

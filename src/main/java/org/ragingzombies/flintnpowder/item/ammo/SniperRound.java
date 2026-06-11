@@ -28,8 +28,6 @@ import com.livelandr.flintcore.core.ammo.BaseAmmo;
 import com.livelandr.flintcore.core.guns.GunBase;
 import com.livelandr.flintcore.core.util.CameraWork;
 import org.ragingzombies.flintnpowder.item.ammo.projectiles.FoolsGoldRoundshotProjectile;
-import org.ragingzombies.flintnpowder.item.ammo.projectiles.PistolRoundProjectile;
-import org.ragingzombies.flintnpowder.item.ammo.projectiles.SteelRoundshotProjectile;
 
 import javax.annotation.Nullable;
 import java.util.List;
@@ -47,13 +45,13 @@ public class SniperRound extends BaseAmmo {
     }
 
     @Override
-    public void onAmmoShot(LivingEntity shooter, ItemStack gun, Level level) {
+    public void onAmmoShot(float xRotation, float yRotation, LivingEntity shooter, ItemStack gun, Level level) {
         FoolsGoldRoundshotProjectile proj = new FoolsGoldRoundshotProjectile(level, shooter);
 
         proj.damage = this.damage * ((GunBase) gun.getItem()).damageModifier(shooter, gun);
         proj.setOwner(shooter);
 
-        proj.shootFromRotation(shooter, CameraWork.getPlayerViewX(shooter), CameraWork.getPlayerViewY(shooter), 0.0F, 25F, 0.5F * ((GunBase) gun.getItem()).accuracyModifier(shooter, gun));
+        proj.shootFromRotation(shooter,xRotation, yRotation, 0.0F, 25F, 0.5F * ((GunBase) gun.getItem()).accuracyModifier(shooter, gun));
 
         // Recoil
 

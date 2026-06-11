@@ -29,12 +29,10 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.projectile.*;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.Vec3;
-import org.ragingzombies.flintnpowder.Flintnpowder;
 import org.ragingzombies.flintnpowder.sound.ModSounds;
 
 public class CastIronRoundshotProjectile extends AbstractArrow implements ItemSupplier {
@@ -74,12 +72,12 @@ public class CastIronRoundshotProjectile extends AbstractArrow implements ItemSu
 
     @Override
     protected ItemStack getPickupItem() {
-        return new ItemStack(Items.AIR);
+        return ItemStack.EMPTY;
     }
 
     @Override
     public ItemStack getItem() {
-        return new ItemStack(Items.AIR);
+        return ItemStack.EMPTY;
     }
     @Override
     protected SoundEvent getDefaultHitGroundSoundEvent() {
@@ -97,8 +95,8 @@ public class CastIronRoundshotProjectile extends AbstractArrow implements ItemSu
                 0.06
         );
 
-        this.level().playSeededSound(null, this.getX(), this.getY(), this.getZ(),
-                ModSounds.BULLETHIT.get(), SoundSource.NEUTRAL, 2.0F, 1.0F, 0);
+        this.level().playSound(null, this.getX(), this.getY(), this.getZ(),
+                ModSounds.BULLETHIT.get(), SoundSource.NEUTRAL, 0.5F, 1.0F);
     }
 
 
@@ -114,6 +112,7 @@ public class CastIronRoundshotProjectile extends AbstractArrow implements ItemSu
 
     @Override
     protected void onHitEntity(EntityHitResult pResult) {
+    pResult.getEntity().invulnerableTime = 0;
         if (!this.level().isClientSide()) {
             DamageSource dmg = this.damageSources().arrow( this, this.getOwner());
 

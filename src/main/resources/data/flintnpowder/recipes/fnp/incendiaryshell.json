@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "t",
+    "a"
+  ],
+  "key": {
+    "a": {
+      "item": "flintnpowder:heshell"
+    },
+    "t": {
+      "item": "flintnpowder:oil_flask"
+    }
+  },
+  "result": {
+    "item": "flintnpowder:incendiaryshell",
+    "count": 1
+  }
+}

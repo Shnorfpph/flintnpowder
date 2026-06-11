@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " I ",
+    "C C"
+  ],
+  "key": {
+    "I": {
+      "tag": "forge:nuggets/iron"
+    },
+    "C": {
+      "tag": "forge:ingots/iron"
+    }
+  },
+  "result": {
+    "item": "flintnpowder:bipod",
+    "count": 1
+  }
+}

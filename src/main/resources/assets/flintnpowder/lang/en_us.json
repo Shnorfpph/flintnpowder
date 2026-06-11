@@ -184,7 +184,19 @@
   "item.flintnpowder.endlock_mechanism": "Endlock Mechanism",
   "item.flintnpowder.pistol_grip": "Pistol Grip",
   "item.flintnpowder.palladium_green": "Green Palladium",
+  "item.flintnpowder.rocketfuel": "Rocket Fuel",
 
+  "item.flintnpowder.machine_gun": "Machine Gun",
+  "item.flintnpowder.machinegunmag": "Machine Gun Magazine",
+
+  "item.flintnpowder.heshell": "HE Mortar Bomb",
+  "item.flintnpowder.incendiaryshell": "Incendiary Mortar Bomb",
+
+  "item.flintnpowder.clustershell": "Cluster Mortar Bomb",
+  "item.flintnpowder.clustershell.description_0": "§4Extremely chaotic and explosive ammunition, be very careful.",
+
+  "item.flintnpowder.mortar_spawner": "Gunmetal Mortar",
+  "item.flintnpowder.divider": "Divider",
 
   "enchantment.flintnpowder.ghost_loading": "Ghost Loading",
   "enchantment.flintnpowder.quality_propellant": "Quality Propellant",
@@ -215,8 +227,15 @@
   "flintcore.calibernames.rifleroundclip": "Rifle rounds clip",
   "flintcore.calibernames.shotgunmag": "Shotgun magazine",
   "flintcore.calibernames.12gauge": "12 Gauge Shotgun Shell",
+  "flintcore.calibernames.machinegunmag": "Machine Gun Magazines",
+  "flintcore.calibernames.mortarshell": "Mortar Bomb",
 
   "item.flintnpowder.diamond_bore_drill": "Diamond Bore Drill",
   "item.flintnpowder.cast_iron_bore_drill": "Cast Iron Bore Drill",
-  "item.flintnpowder.netherite_bore_drill": "Netherite Bore Drill"
+  "item.flintnpowder.netherite_bore_drill": "Netherite Bore Drill",
+
+  "flintnpowder.mortarrotationX": "Current mortar yaw: ",
+  "flintnpowder.mortarrotationY": "Current mortar roll: ",
+
+  "entity.flintnpowder.mortar": "Mortar"
 }

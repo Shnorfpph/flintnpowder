@@ -25,7 +25,6 @@ import net.minecraft.world.level.Level;
 import com.livelandr.flintcore.core.ammo.BaseAmmo;
 import com.livelandr.flintcore.core.guns.GunBase;
 import com.livelandr.flintcore.core.util.CameraWork;
-import org.ragingzombies.flintnpowder.item.ammo.projectiles.CastIronRoundshotProjectile;
 import org.ragingzombies.flintnpowder.item.ammo.projectiles.PistolRoundProjectile;
 
 import java.util.Random;
@@ -42,13 +41,13 @@ public class RifleRound extends BaseAmmo {
     }
 
     @Override
-    public void onAmmoShot(LivingEntity shooter, ItemStack gun, Level level) {
+    public void onAmmoShot(float xRotation, float yRotation, LivingEntity shooter, ItemStack gun, Level level) {
         PistolRoundProjectile proj = new PistolRoundProjectile(level, shooter);
 
         proj.damage = this.damage * ((GunBase) gun.getItem()).damageModifier(shooter, gun);
         proj.setOwner(shooter);
 
-        proj.shootFromRotation(shooter, CameraWork.getPlayerViewX(shooter), CameraWork.getPlayerViewY(shooter), 0.0F, 15F, 0.5F * ((GunBase) gun.getItem()).accuracyModifier(shooter, gun));
+        proj.shootFromRotation(shooter,xRotation, yRotation, 0.0F, 15F, 0.5F * ((GunBase) gun.getItem()).accuracyModifier(shooter, gun));
 
         // Recoil
 

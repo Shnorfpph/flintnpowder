@@ -18,7 +18,6 @@
  */
 package org.ragingzombies.flintnpowder.handlers;
 
-import net.minecraft.util.TaskChainer;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -27,7 +26,6 @@ import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 @Mod.EventBusSubscriber(modid = Flintnpowder.MOD_ID, bus = Mod.EventBusSubscriber.Bus.FORGE)

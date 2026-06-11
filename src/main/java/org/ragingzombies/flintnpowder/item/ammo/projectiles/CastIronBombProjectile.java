@@ -34,7 +34,6 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.Vec3;
-import org.ragingzombies.flintnpowder.Flintnpowder;
 import org.ragingzombies.flintnpowder.handlers.ServerTickHandler;
 import org.ragingzombies.flintnpowder.item.ModItemsAmmo;
 
@@ -110,8 +109,8 @@ public class CastIronBombProjectile extends AbstractArrow implements ItemSupplie
                 0.06
         );
 
-        this.level().playSeededSound(null, this.getX(), this.getY(), this.getZ(),
-                SoundEvents.ANVIL_LAND, SoundSource.NEUTRAL, 2.0F, 1.0F, 0);
+        this.level().playSound(null, this.getX(), this.getY(), this.getZ(),
+                SoundEvents.ANVIL_LAND, SoundSource.NEUTRAL, 2.0F, 1.0F);
     }
 
 
@@ -131,6 +130,7 @@ public class CastIronBombProjectile extends AbstractArrow implements ItemSupplie
 
     @Override
     protected void onHitEntity(EntityHitResult pResult) {
+    pResult.getEntity().invulnerableTime = 0;
         if (!this.level().isClientSide()) {
             DamageSource dmg = this.damageSources().arrow( this, this.getOwner());
 

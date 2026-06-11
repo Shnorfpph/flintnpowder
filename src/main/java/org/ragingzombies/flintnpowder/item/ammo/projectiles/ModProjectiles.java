@@ -25,6 +25,10 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import org.ragingzombies.flintnpowder.Flintnpowder;
+import org.ragingzombies.flintnpowder.item.ammo.projectiles.mortar.ClusterPellet;
+import org.ragingzombies.flintnpowder.item.ammo.projectiles.mortar.ClusterShellProjectile;
+import org.ragingzombies.flintnpowder.item.ammo.projectiles.mortar.FlamingShellProjectile;
+import org.ragingzombies.flintnpowder.item.ammo.projectiles.mortar.HEShellProjectile;
 import org.ragingzombies.flintnpowder.item.ammo.projectiles.shotgun.BuckshotProjectile;
 import org.ragingzombies.flintnpowder.item.ammo.projectiles.shotgun.DragonBreathProjectile;
 import org.ragingzombies.flintnpowder.item.ammo.projectiles.shotgun.SlugProjectile;
@@ -109,6 +113,41 @@ public class ModProjectiles {
                     .clientTrackingRange(15)
                     .updateInterval(5)
                     .build("castironbomb_projectile"));
+
+    public static final RegistryObject<EntityType<FoolsGoldRoundshotProjectile>> FOOLSGOLD =
+            PROJECTILES.register("foolsgold_projectile", () -> EntityType.Builder.<FoolsGoldRoundshotProjectile>of(FoolsGoldRoundshotProjectile::new, MobCategory.MISC)
+                    .sized(0.025f,0.025f)
+                    .clientTrackingRange(15)
+                    .updateInterval(5)
+                    .build("foolsgold_projectile"));
+
+    public static final RegistryObject<EntityType<HEShellProjectile>> HESHELL =
+            PROJECTILES.register("hemortarshell_projectile", () -> EntityType.Builder.<HEShellProjectile>of(HEShellProjectile::new, MobCategory.MISC)
+                    .sized(0.025f,0.025f)
+                    .clientTrackingRange(15)
+                    .updateInterval(5)
+                    .build("hemortarshell_projectile"));
+    public static final RegistryObject<EntityType<FlamingShellProjectile>> FLAMINGMORTARSHELL =
+            PROJECTILES.register("flamemortarshell_projectile", () -> EntityType.Builder.<FlamingShellProjectile>of(FlamingShellProjectile::new, MobCategory.MISC)
+                    .sized(0.025f,0.025f)
+                    .clientTrackingRange(15)
+                    .updateInterval(5)
+                    .build("flamemortarshell_projectile"));
+
+    public static final RegistryObject<EntityType<ClusterShellProjectile>> CLUSTERMORTARSHELL =
+            PROJECTILES.register("mortarclustershell_projectile", () -> EntityType.Builder.<ClusterShellProjectile>of(ClusterShellProjectile::new, MobCategory.MISC)
+                    .sized(0.025f,0.025f)
+                    .clientTrackingRange(15)
+                    .updateInterval(5)
+                    .build("mortarclustershell_projectile"));
+
+    public static final RegistryObject<EntityType<ClusterPellet>> CLUSTERPELLET =
+            PROJECTILES.register("mortarclusterpellet_projectile", () -> EntityType.Builder.<ClusterPellet>of(ClusterPellet::new, MobCategory.MISC)
+                    .sized(0.025f,0.025f)
+                    .clientTrackingRange(15)
+                    .updateInterval(5)
+                    .build("mortarclusterpellet_projectile"));
+
 
 
 

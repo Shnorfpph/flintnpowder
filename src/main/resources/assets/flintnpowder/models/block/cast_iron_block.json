@@ -1,8 +1,0 @@
-{
-  "parent": "block/cube_all",
-  "textures": {
-    "all": "flintnpowder:block/cast_iron_block",
-    "particle": "flintnpowder:block/cast_iron_block"
-  },
-  "render_type": "solid"
-}

@@ -29,7 +29,6 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.entity.projectile.ItemSupplier;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.EntityHitResult;
@@ -58,12 +57,12 @@ public class DragonBreathProjectile extends AbstractArrow implements ItemSupplie
 
     @Override
     protected ItemStack getPickupItem() {
-        return new ItemStack(Items.AIR);
+        return ItemStack.EMPTY;
     }
 
     @Override
     public ItemStack getItem() {
-        return new ItemStack(Items.AIR);
+        return ItemStack.EMPTY;
     }
     @Override
     protected SoundEvent getDefaultHitGroundSoundEvent() {
@@ -118,8 +117,8 @@ public class DragonBreathProjectile extends AbstractArrow implements ItemSupplie
                 0.15
         );
 
-        this.level().playSeededSound(null, this.getX(), this.getY(), this.getZ(),
-                ModSounds.BULLETHIT.get(), SoundSource.NEUTRAL, 0.25F, 1.0F, 0);
+        this.level().playSound(null, this.getX(), this.getY(), this.getZ(),
+                ModSounds.BULLETHIT.get(), SoundSource.NEUTRAL, 0.25F, 1.0F);
     }
 
 
@@ -135,6 +134,7 @@ public class DragonBreathProjectile extends AbstractArrow implements ItemSupplie
 
     @Override
     protected void onHitEntity(EntityHitResult pResult) {
+    pResult.getEntity().invulnerableTime = 0;
         if (!this.level().isClientSide()) {
             DamageSource dmg = this.damageSources().mobProjectile(this, (LivingEntity ) this.getOwner());
 

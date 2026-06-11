@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "abb",
+    "b",
+    "b"
+  ],
+  "key": {
+    "a": {
+      "tag": "forge:ingots/gold"
+    },
+    "b": {
+      "tag": "forge:nuggets/gold"
+    }
+  },
+  "result": {
+    "item": "flintnpowder:divider",
+    "count": 1
+  }
+}

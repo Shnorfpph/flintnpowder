@@ -27,9 +27,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
-import org.ragingzombies.flintnpowder.item.ammo.projectiles.FoolsGoldRoundshotProjectile;
 import org.ragingzombies.flintnpowder.item.ammo.projectiles.InvisibleProjectile;
-import org.ragingzombies.flintnpowder.item.ammo.projectiles.PistolRoundProjectile;
 
 import javax.annotation.Nullable;
 import java.util.List;
@@ -47,13 +45,13 @@ public class SniperSubsonicRound extends BaseAmmo {
     }
 
     @Override
-    public void onAmmoShot(LivingEntity shooter, ItemStack gun, Level level) {
+    public void onAmmoShot(float xRotation, float yRotation, LivingEntity shooter, ItemStack gun, Level level) {
         InvisibleProjectile proj = new InvisibleProjectile(level, shooter);
 
         proj.damage = this.damage * ((GunBase) gun.getItem()).damageModifier(shooter, gun);
         proj.setOwner(shooter);
 
-        proj.shootFromRotation(shooter, CameraWork.getPlayerViewX(shooter), CameraWork.getPlayerViewY(shooter), 0.0F, 25F, 0.5F * ((GunBase) gun.getItem()).accuracyModifier(shooter, gun));
+        proj.shootFromRotation(shooter,xRotation, yRotation, 0.0F, 25F, 0.5F * ((GunBase) gun.getItem()).accuracyModifier(shooter, gun));
 
         // Recoil
 

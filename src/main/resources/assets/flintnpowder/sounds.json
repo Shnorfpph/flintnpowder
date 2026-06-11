@@ -7,6 +7,14 @@
       }
     ]
   },
+  "mortar_fire": {
+    "sounds": [
+      {
+        "name": "flintnpowder:mortar_fire",
+        "stream": false
+      }
+    ]
+  },
   "musketfire": {
     "subtitle": "subtitles.musketfire",
     "sounds": [
@@ -99,6 +107,27 @@
       },
       {
         "name": "flintnpowder:pistolfire2",
+        "stream": false
+      }
+    ]
+  },
+  "machinegunfire": {
+    "subtitle": "subtitles.machinegun",
+    "sounds": [
+      {
+        "name": "flintnpowder:machinegunfire1",
+        "stream": false
+      },
+      {
+        "name": "flintnpowder:machinegunfire2",
+        "stream": false
+      },
+      {
+        "name": "flintnpowder:machinegunfire3",
+        "stream": false
+      },
+      {
+        "name": "flintnpowder:machinegunfire4",
         "stream": false
       }
     ]

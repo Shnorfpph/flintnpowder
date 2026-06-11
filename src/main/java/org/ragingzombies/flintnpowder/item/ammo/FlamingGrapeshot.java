@@ -31,8 +31,6 @@ import net.minecraft.world.level.Level;
 import com.livelandr.flintcore.core.ammo.BaseAmmo;
 import com.livelandr.flintcore.core.guns.GunBase;
 import com.livelandr.flintcore.core.util.CameraWork;
-import org.ragingzombies.flintnpowder.handlers.ServerTickHandler;
-import org.ragingzombies.flintnpowder.item.ammo.projectiles.CastIronRoundshotProjectile;
 import org.ragingzombies.flintnpowder.item.ammo.projectiles.FlamingBuckshotProjectile;
 
 import javax.annotation.Nullable;
@@ -50,7 +48,7 @@ public class FlamingGrapeshot extends BaseAmmo {
     }
 
     @Override
-    public void onAmmoShot(LivingEntity shooter, ItemStack gun, Level level) {
+    public void onAmmoShot(float xRotation, float yRotation, LivingEntity shooter, ItemStack gun, Level level) {
         if (shooter.level().isClientSide()) return;
 
         ServerLevel serverLevel = (ServerLevel) shooter.level();
@@ -58,8 +56,8 @@ public class FlamingGrapeshot extends BaseAmmo {
 
         Random rand = new Random();
 
-        serverLevel.playSeededSound(null, shooter.getBlockX(), shooter.getBlockY(), shooter.getBlockZ(),
-                SoundEvents.GENERIC_EXPLODE, SoundSource.NEUTRAL, 9.0F, .5F+rand.nextFloat(), 0);
+        serverLevel.playSound(null, shooter.getBlockX(), shooter.getBlockY(), shooter.getBlockZ(),
+                SoundEvents.GENERIC_EXPLODE, SoundSource.NEUTRAL, 9.0F, .5F+rand.nextFloat());
 
         for (int i = 0; i < 8; i++) {
             float angle = rand.nextFloat((float) (2.0F*Math.PI));

@@ -20,7 +20,6 @@ package org.ragingzombies.flintnpowder.item.ammo.shotgun;
 
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
-import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -30,7 +29,6 @@ import com.livelandr.flintcore.core.ammo.BaseAmmo;
 import com.livelandr.flintcore.core.guns.GunBase;
 import com.livelandr.flintcore.core.util.CameraWork;
 import org.ragingzombies.flintnpowder.item.ammo.projectiles.shotgun.BuckshotProjectile;
-import org.ragingzombies.flintnpowder.sound.ModSounds;
 
 import javax.annotation.Nullable;
 import java.util.List;
@@ -48,7 +46,7 @@ public class ShotgunShell extends BaseAmmo {
     }
 
     @Override
-    public void onAmmoShot(LivingEntity shooter, ItemStack gun, Level level) {
+    public void onAmmoShot(float xRotation, float yRotation, LivingEntity shooter, ItemStack gun, Level level) {
         Random rand = new Random();
         for (int i = 0; i < 9; i++) {
             float angle = rand.nextFloat((float) (2.0F*Math.PI));

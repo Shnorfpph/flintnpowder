@@ -33,6 +33,8 @@ import org.ragingzombies.flintnpowder.item.guns.other.LogCannon;
 import org.ragingzombies.flintnpowder.item.guns.pumpaction.BoltActionRifle;
 import org.ragingzombies.flintnpowder.item.guns.pumpaction.PumpActionShotgun;
 import org.ragingzombies.flintnpowder.item.guns.blazelocks.SingleActionRevolver;
+import org.ragingzombies.flintnpowder.item.guns.siege.MortarModern;
+import org.ragingzombies.flintnpowder.item.guns.siege.MortarModern_Spawner;
 
 public class ModItemsGuns {
     public static final DeferredRegister<Item> ITEMS =
@@ -98,6 +100,15 @@ public class ModItemsGuns {
             () -> new ClosedBoltBattleRifle(new ClosedBoltBattleRifle.Properties().stacksTo(1)));
     public static final RegistryObject<Item> GASOPERATEDSHOTGUN = ITEMS.register("gas_operated_shotgun",
             () -> new GasOperatedShotgun(new GasOperatedShotgun.Properties().stacksTo(1)));
+    public static final RegistryObject<Item> MACHINEGUN = ITEMS.register("machine_gun",
+            () -> new MachineGun(new MachineGun.Properties().stacksTo(1)));
+
+
+    public static final RegistryObject<Item> MORTAR_MODERN_SIEGE_ENGINE = ITEMS.register("mortar_siege_internal",
+            () -> new MortarModern(new MortarModern.Properties().stacksTo(1)));
+
+    public static final RegistryObject<Item> MORTAR_SPAWNER = ITEMS.register("mortar_spawner",
+            () -> new MortarModern_Spawner(new MortarModern_Spawner.Properties().stacksTo(1)));
 
 
 

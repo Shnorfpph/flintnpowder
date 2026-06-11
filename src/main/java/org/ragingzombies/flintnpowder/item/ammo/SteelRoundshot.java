@@ -26,7 +26,6 @@ import net.minecraft.world.phys.Vec3;
 import com.livelandr.flintcore.core.ammo.BaseAmmo;
 import com.livelandr.flintcore.core.guns.GunBase;
 import com.livelandr.flintcore.core.util.CameraWork;
-import org.ragingzombies.flintnpowder.item.ammo.projectiles.CastIronRoundshotProjectile;
 import org.ragingzombies.flintnpowder.item.ammo.projectiles.SteelRoundshotProjectile;
 
 import java.util.Random;
@@ -43,7 +42,7 @@ public class SteelRoundshot extends BaseAmmo {
     }
 
     @Override
-    public void onAmmoShot(LivingEntity shooter, ItemStack gun, Level level) {
+    public void onAmmoShot(float xRotation, float yRotation, LivingEntity shooter, ItemStack gun, Level level) {
         SteelRoundshotProjectile proj = new SteelRoundshotProjectile(level, shooter);
 
         proj.damage = this.damage * ((GunBase) gun.getItem()).damageModifier(shooter, gun);
@@ -51,7 +50,7 @@ public class SteelRoundshot extends BaseAmmo {
         Vec3 eyePos = shooter.getEyePosition();
         Vec3 lookVec = shooter.getLookAngle();
 
-        proj.shootFromRotation(shooter, CameraWork.getPlayerViewX(shooter), CameraWork.getPlayerViewY(shooter), 0.0F, 10F, 2F * ((GunBase) gun.getItem()).accuracyModifier(shooter, gun));
+        proj.shootFromRotation(shooter,xRotation, yRotation, 0.0F, 10F, 2F * ((GunBase) gun.getItem()).accuracyModifier(shooter, gun));
 
         // Recoil
         if (shooter instanceof Player) {

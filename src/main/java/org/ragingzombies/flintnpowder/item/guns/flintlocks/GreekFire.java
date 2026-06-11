@@ -18,6 +18,7 @@
  */
 package org.ragingzombies.flintnpowder.item.guns.flintlocks;
 
+import com.livelandr.flintcore.core.util.CameraWork;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvents;
@@ -65,8 +66,8 @@ public class GreekFire extends FlintlockBaseEnchantable {
 
     @Override
     public void onStuff(Level pLevel, LivingEntity shooter, ItemStack gun, InteractionHand pUsedHand) {
-        pLevel.playSeededSound(null, shooter.getBlockX(), shooter.getBlockY(), shooter.getBlockZ(),
-                ModSounds.RAMROD.get(), SoundSource.NEUTRAL, 1.0F, 0.8F, 0);
+        pLevel.playSound(null, shooter.getBlockX(), shooter.getBlockY(), shooter.getBlockZ(),
+                ModSounds.RAMROD.get(), SoundSource.NEUTRAL, 1.0F, 0.8F);
 
         if (shooter instanceof Player ply) {
             ply.getCooldowns().addCooldown(this, 40);
@@ -104,32 +105,27 @@ public class GreekFire extends FlintlockBaseEnchantable {
         gunStack.getTag().putBoolean("IsCocked", false);
         gunStack.getTag().putBoolean("IsStuffed", false);
 
-        pLevel.playSeededSound(null, pPlayer.getBlockX(), pPlayer.getBlockY(), pPlayer.getBlockZ(),
-                SoundEvents.TNT_PRIMED, SoundSource.NEUTRAL, 1.0F, 0.75F, 0);
+        pLevel.playSound(null, pPlayer.getBlockX(), pPlayer.getBlockY(), pPlayer.getBlockZ(),
+                SoundEvents.TNT_PRIMED, SoundSource.NEUTRAL, 1.0F, 0.75F);
 
         ServerTickHandler.createTask(25, () -> {
-            triggerHooks("onShoot", pPlayer, gunStack);
-            pLevel.playSeededSound(null, pPlayer.getBlockX(), pPlayer.getBlockY(), pPlayer.getBlockZ(),
-                    SoundEvents.GENERIC_EXPLODE, SoundSource.NEUTRAL, 8.0F, 0.5F, 0);
-
-            ItemStack ammoData = ItemStack.of((CompoundTag) gunStack.getTag().get("AmmoType"));
-
-            BaseAmmo ammo = (BaseAmmo) ammoData.getItem();
-            ammo.onAmmoShot(pPlayer, gunStack, pLevel);
+            super.shoot(pLevel, pPlayer, gunStack, CameraWork.getPlayerViewX(pPlayer), CameraWork.getPlayerViewY(pPlayer));
+            pLevel.playSound(null, pPlayer.getBlockX(), pPlayer.getBlockY(), pPlayer.getBlockZ(),
+                    SoundEvents.GENERIC_EXPLODE, SoundSource.NEUTRAL, 8.0F, 0.5F);
 
             setReloadAnimation(gunStack);
         });
     }
 
     @Override
-    public void onShoot(Level pLevel, LivingEntity shooter, ItemStack gunStack) {
-        pLevel.playSeededSound(null, shooter.getBlockX(), shooter.getBlockY(), shooter.getBlockZ(),
-                ModSounds.FLINTSTRIKE.get(), SoundSource.NEUTRAL, 1.0F, 1.0F, 0);
+    public void onShoot(float rotationX, float rotationY, Level pLevel, LivingEntity shooter, ItemStack gunStack) {
+        pLevel.playSound(null, shooter.getBlockX(), shooter.getBlockY(), shooter.getBlockZ(),
+                ModSounds.FLINTSTRIKE.get(), SoundSource.NEUTRAL, 1.0F, 1.0F);
 
         setReloadAnimation(gunStack);
 
         if (shooter instanceof Player) {
-            ((Player) shooter).getCooldowns().addCooldown(this, shootCooldown(shooter, gunStack));
+            setCooldown(shooter, gunStack, shootCooldown(shooter, gunStack));
         }
     }
 

@@ -19,8 +19,6 @@
 package org.ragingzombies.flintnpowder.item.ammo.projectiles;
 
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.particles.ParticleTypes;
-import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -30,11 +28,9 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.entity.projectile.ItemSupplier;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.EntityHitResult;
-import net.minecraft.world.phys.Vec3;
 import org.ragingzombies.flintnpowder.sound.ModSounds;
 
 public class InvisibleProjectile extends AbstractArrow implements ItemSupplier {
@@ -58,12 +54,12 @@ public class InvisibleProjectile extends AbstractArrow implements ItemSupplier {
 
     @Override
     protected ItemStack getPickupItem() {
-        return new ItemStack(Items.AIR);
+        return ItemStack.EMPTY;
     }
 
     @Override
     public ItemStack getItem() {
-        return new ItemStack(Items.AIR);
+        return ItemStack.EMPTY;
     }
     @Override
     protected SoundEvent getDefaultHitGroundSoundEvent() {
@@ -71,8 +67,8 @@ public class InvisibleProjectile extends AbstractArrow implements ItemSupplier {
     }
 
     void collisionParticles(BlockPos pos) {
-        this.level().playSeededSound(null, this.getX(), this.getY(), this.getZ(),
-                ModSounds.BULLETHIT.get(), SoundSource.NEUTRAL, 0.125F, 1.0F, 0);
+        this.level().playSound(null, this.getX(), this.getY(), this.getZ(),
+                ModSounds.BULLETHIT.get(), SoundSource.NEUTRAL, 0.125F, 1.0F);
     }
 
 
@@ -88,6 +84,7 @@ public class InvisibleProjectile extends AbstractArrow implements ItemSupplier {
 
     @Override
     protected void onHitEntity(EntityHitResult pResult) {
+    pResult.getEntity().invulnerableTime = 0;
         if (!this.level().isClientSide()) {
             DamageSource dmg = this.damageSources().arrow( this, this.getOwner());
 

@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "  a",
+    " a ",
+    "cbb"
+  ],
+  "key": {
+    "a": {
+      "item": "flintnpowder:cast_iron_heavy_barrel"
+    },
+    "c": {
+      "item": "flintnpowder:steel_heavy_barrel"
+    },
+    "b": {
+      "item": "flintnpowder:gunmetal_ingot"
+    }
+  },
+  "result": {
+    "item": "flintnpowder:mortar_spawner",
+    "count": 1
+  }
+}

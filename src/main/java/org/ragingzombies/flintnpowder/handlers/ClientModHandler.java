@@ -22,12 +22,15 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.client.renderer.entity.ThrownItemRenderer;
 import net.minecraft.client.renderer.item.ItemProperties;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.client.event.RegisterGuiOverlaysEvent;
+import net.minecraftforge.client.gui.overlay.VanillaGuiOverlay;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import com.livelandr.flintcore.core.guns.GunBase;
+import org.ragingzombies.flintnpowder.entity.ModEntities;
+import org.ragingzombies.flintnpowder.entity.client.renderers.MortarRenderer;
 import org.ragingzombies.flintnpowder.item.ModItemsAttachments;
 import org.ragingzombies.flintnpowder.item.ModItemsGuns;
 import org.ragingzombies.flintnpowder.item.ammo.projectiles.ModProjectiles;
@@ -50,9 +53,21 @@ public class ClientModHandler {
         return renderer;
     }
 
+    @SubscribeEvent
+    public static void registerOverlays(RegisterGuiOverlaysEvent event) {
+        event.registerAbove(
+                VanillaGuiOverlay.VIGNETTE.id(),
+                "hpopticoverlay",
+                new AimingOverlay()
+        );
+    }
 
     @SubscribeEvent
     public static void onClientSetup(FMLClientSetupEvent event) {
+        // MOBS
+        EntityRenderers.register(ModEntities.MORTAR.get(), MortarRenderer::new);
+
+        // GUNS
         // Shotgun
         ItemProperties.register(
                 ModItemsGuns.PUMPACTIONSHOTGUN.get(),
@@ -223,6 +238,14 @@ public class ClientModHandler {
                     return stack.getOrCreateTag().getBoolean("HaveMag") ? 1.0F : 0.0F;
                 }
         );
+        // Machine Gun
+        ItemProperties.register(
+                ModItemsGuns.MACHINEGUN.get(),
+                fromNamespaceAndPath(MOD_ID, "have_mag"),
+                (stack, level, entity, seed) -> {
+                    return stack.getOrCreateTag().getBoolean("HaveMag") ? 1.0F : 0.0F;
+                }
+        );
 
 
         // Cast Iron Roundshot Projectile
@@ -248,6 +271,14 @@ public class ClientModHandler {
 
         EntityRenderers.register(ModProjectiles.INVISIBLEPROJECTILE.get(), ThrownItemRenderer::new);
 
+        EntityRenderers.register(ModProjectiles.FOOLSGOLD.get(), ThrownItemRenderer::new);
 
+        EntityRenderers.register(ModProjectiles.HESHELL.get(), ThrownItemRenderer::new);
+
+        EntityRenderers.register(ModProjectiles.FLAMINGMORTARSHELL.get(), ThrownItemRenderer::new);
+
+        EntityRenderers.register(ModProjectiles.CLUSTERPELLET.get(), ThrownItemRenderer::new);
+
+        EntityRenderers.register(ModProjectiles.CLUSTERMORTARSHELL.get(), ThrownItemRenderer::new);
     }
 }
