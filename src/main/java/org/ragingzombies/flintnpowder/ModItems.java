@@ -89,6 +89,8 @@ public class ModItems {
             () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> PALLADIUM_GREEN = ITEMS.register("palladium_green",
             () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> ROCKET_FUEL = ITEMS.register("rocketfuel",
+            () -> new Item(new Item.Properties()));
 
 
     public static final RegistryObject<Item> CAST_IRON_BORE_DRILL = ITEMS.register("cast_iron_bore_drill",
@@ -98,6 +100,9 @@ public class ModItems {
     public static final RegistryObject<Item> NETHERITE_BORE_DRILL = ITEMS.register("netherite_bore_drill",
             () -> new QualityCraftItem(new QualityCraftItem.Properties().defaultDurability(200)));
 
+
+    public static final RegistryObject<Item> DIVIDER = ITEMS.register("divider",
+            () -> new Item(new Item.Properties().stacksTo(1)));
 
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);

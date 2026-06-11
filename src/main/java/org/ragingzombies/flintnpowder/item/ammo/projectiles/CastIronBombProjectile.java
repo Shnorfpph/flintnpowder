@@ -109,8 +109,8 @@ public class CastIronBombProjectile extends AbstractArrow implements ItemSupplie
                 0.06
         );
 
-        this.level().playSeededSound(null, this.getX(), this.getY(), this.getZ(),
-                SoundEvents.ANVIL_LAND, SoundSource.NEUTRAL, 2.0F, 1.0F, 0);
+        this.level().playSound(null, this.getX(), this.getY(), this.getZ(),
+                SoundEvents.ANVIL_LAND, SoundSource.NEUTRAL, 2.0F, 1.0F);
     }
 
 

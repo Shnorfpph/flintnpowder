@@ -238,6 +238,14 @@ public class ClientModHandler {
                     return stack.getOrCreateTag().getBoolean("HaveMag") ? 1.0F : 0.0F;
                 }
         );
+        // Machine Gun
+        ItemProperties.register(
+                ModItemsGuns.MACHINEGUN.get(),
+                fromNamespaceAndPath(MOD_ID, "have_mag"),
+                (stack, level, entity, seed) -> {
+                    return stack.getOrCreateTag().getBoolean("HaveMag") ? 1.0F : 0.0F;
+                }
+        );
 
 
         // Cast Iron Roundshot Projectile
@@ -267,6 +275,10 @@ public class ClientModHandler {
 
         EntityRenderers.register(ModProjectiles.HESHELL.get(), ThrownItemRenderer::new);
 
+        EntityRenderers.register(ModProjectiles.FLAMINGMORTARSHELL.get(), ThrownItemRenderer::new);
 
+        EntityRenderers.register(ModProjectiles.CLUSTERPELLET.get(), ThrownItemRenderer::new);
+
+        EntityRenderers.register(ModProjectiles.CLUSTERMORTARSHELL.get(), ThrownItemRenderer::new);
     }
 }

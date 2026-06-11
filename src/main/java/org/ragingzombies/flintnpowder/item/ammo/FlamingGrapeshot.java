@@ -56,8 +56,8 @@ public class FlamingGrapeshot extends BaseAmmo {
 
         Random rand = new Random();
 
-        serverLevel.playSeededSound(null, shooter.getBlockX(), shooter.getBlockY(), shooter.getBlockZ(),
-                SoundEvents.GENERIC_EXPLODE, SoundSource.NEUTRAL, 9.0F, .5F+rand.nextFloat(), 0);
+        serverLevel.playSound(null, shooter.getBlockX(), shooter.getBlockY(), shooter.getBlockZ(),
+                SoundEvents.GENERIC_EXPLODE, SoundSource.NEUTRAL, 9.0F, .5F+rand.nextFloat());
 
         for (int i = 0; i < 8; i++) {
             float angle = rand.nextFloat((float) (2.0F*Math.PI));

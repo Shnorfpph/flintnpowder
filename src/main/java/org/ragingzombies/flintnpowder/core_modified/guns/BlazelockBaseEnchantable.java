@@ -54,16 +54,16 @@ public class BlazelockBaseEnchantable extends BlazelockBase {
 
     @Override
     public void onAmmo(Level pLevel, LivingEntity shooter, ItemStack gun, ItemStack ammo ,InteractionHand pUsedHand) {
-        pLevel.playSeededSound(null, shooter.getBlockX(), shooter.getBlockY(), shooter.getBlockZ(),
-                SoundEvents.ITEM_PICKUP, SoundSource.NEUTRAL, 1.0F, 1.0F, 0);
+        pLevel.playSound(null, shooter.getBlockX(), shooter.getBlockY(), shooter.getBlockZ(),
+                SoundEvents.ITEM_PICKUP, SoundSource.NEUTRAL, 1.0F, 1.0F);
 
         super.onAmmo(pLevel, shooter, gun, ammo, pUsedHand);
     }
 
     @Override
     public void onTryFailure(Level pLevel, LivingEntity pPlayer, ItemStack gun) {
-        pLevel.playSeededSound(null, pPlayer.getBlockX(), pPlayer.getBlockY(), pPlayer.getBlockZ(),
-                ModSounds.FLINTSTRIKE.get(), SoundSource.NEUTRAL, 1.0F, 1.0F, 0);
+        pLevel.playSound(null, pPlayer.getBlockX(), pPlayer.getBlockY(), pPlayer.getBlockZ(),
+                ModSounds.FLINTSTRIKE.get(), SoundSource.NEUTRAL, 1.0F, 1.0F);
 
         super.onTryFailure(pLevel, pPlayer, gun);
     }
@@ -82,32 +82,32 @@ public class BlazelockBaseEnchantable extends BlazelockBase {
 
     @Override
     public void onCocking(Level pLevel, LivingEntity shooter, ItemStack gun) {
-        pLevel.playSeededSound(null, shooter.getBlockX(), shooter.getBlockY(), shooter.getBlockZ(),
-                ModSounds.GUNSWING.get(), SoundSource.NEUTRAL, 1.0F, 1.0F, 0);
+        pLevel.playSound(null, shooter.getBlockX(), shooter.getBlockY(), shooter.getBlockZ(),
+                ModSounds.GUNSWING.get(), SoundSource.NEUTRAL, 1.0F, 1.0F);
 
         super.onCocking(pLevel, shooter, gun);
     }
 
     @Override
     public void onChamberOpen(Level pLevel, LivingEntity shooter, ItemStack gun) {
-        pLevel.playSeededSound(null, shooter.getBlockX(), shooter.getBlockY(), shooter.getBlockZ(),
-                ModSounds.GUNSWING.get(), SoundSource.NEUTRAL, 1.0F, 1.0F, 0);
+        pLevel.playSound(null, shooter.getBlockX(), shooter.getBlockY(), shooter.getBlockZ(),
+                ModSounds.GUNSWING.get(), SoundSource.NEUTRAL, 1.0F, 1.0F);
 
         super.onChamberOpen(pLevel, shooter, gun);
     }
 
     @Override
     public void onChamberClose(Level pLevel, LivingEntity shooter, ItemStack gun) {
-        pLevel.playSeededSound(null, shooter.getBlockX(), shooter.getBlockY(), shooter.getBlockZ(),
-                ModSounds.GUNSWING.get(), SoundSource.NEUTRAL, 1.0F, 1.0F, 0);
+        pLevel.playSound(null, shooter.getBlockX(), shooter.getBlockY(), shooter.getBlockZ(),
+                ModSounds.GUNSWING.get(), SoundSource.NEUTRAL, 1.0F, 1.0F);
 
         super.onChamberClose(pLevel, shooter, gun);
     }
 
     @Override
     public void onAmmoInsert(Level pLevel, LivingEntity shooter, ItemStack gun, InteractionHand pUsedHand) {
-        pLevel.playSeededSound(null, shooter.getBlockX(), shooter.getBlockY(), shooter.getBlockZ(),
-                SoundEvents.ITEM_PICKUP, SoundSource.NEUTRAL, 1.0F, 1.0F, 0);
+        pLevel.playSound(null, shooter.getBlockX(), shooter.getBlockY(), shooter.getBlockZ(),
+                SoundEvents.ITEM_PICKUP, SoundSource.NEUTRAL, 1.0F, 1.0F);
 
         super.onAmmoInsert(pLevel, shooter, gun, pUsedHand);
     }

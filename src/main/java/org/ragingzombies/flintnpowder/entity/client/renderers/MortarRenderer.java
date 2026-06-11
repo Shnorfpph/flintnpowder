@@ -12,7 +12,7 @@ import org.ragingzombies.flintnpowder.entity.custom.MortarEntity;
 
 public class MortarRenderer extends MobRenderer<MortarEntity, MortarModel<MortarEntity>> {
     public MortarRenderer(EntityRendererProvider.Context pContext) {
-        super(pContext, new MortarModel<>(pContext.bakeLayer(ModModelLayers.MORTAR_LAYER)), 0.25f);
+        super(pContext, new MortarModel<>(pContext.bakeLayer(ModModelLayers.MORTAR_LAYER)), 0.5f);
     }
 
     @Override

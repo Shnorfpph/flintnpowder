@@ -100,8 +100,8 @@ public class BuckshotProjectile extends AbstractArrow implements ItemSupplier {
                 0.15
         );
 
-        this.level().playSeededSound(null, this.getX(), this.getY(), this.getZ(),
-                ModSounds.BULLETHIT.get(), SoundSource.NEUTRAL, 0.25F, 1.0F, 0);
+        this.level().playSound(null, this.getX(), this.getY(), this.getZ(),
+                ModSounds.BULLETHIT.get(), SoundSource.NEUTRAL, 0.25F, 1.0F);
     }
 
 

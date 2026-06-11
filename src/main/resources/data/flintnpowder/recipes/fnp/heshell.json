@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " aa",
+    "ata",
+    "fa "
+  ],
+  "key": {
+    "a": {
+      "item": "flintnpowder:cast_iron_nugget"
+    },
+    "t": {
+      "item": "minecraft:tnt"
+    },
+    "f": {
+      "item": "flintnpowder:rocketfuel"
+    }
+  },
+  "result": {
+    "item": "flintnpowder:heshell",
+    "count": 1
+  }
+}

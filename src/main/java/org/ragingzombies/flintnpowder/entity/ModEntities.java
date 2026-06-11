@@ -14,8 +14,9 @@ public class ModEntities {
             DeferredRegister.create(ForgeRegistries.ENTITY_TYPES, Flintnpowder.MOD_ID);
 
     public static final RegistryObject<EntityType<MortarEntity>> MORTAR =
-            ENTITY_TYPES.register("mortar", () -> EntityType.Builder.of(MortarEntity::new, MobCategory.MISC).
-                    build("mortar"));
+            ENTITY_TYPES.register("mortar", () -> EntityType.Builder.of(MortarEntity::new, MobCategory.MISC)
+                    .sized(1.0F, 0.8F)
+                    .build("mortar"));
 
     public static void register(IEventBus eventBus) {
         ENTITY_TYPES.register(eventBus);

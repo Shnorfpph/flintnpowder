@@ -133,23 +133,23 @@ public class BoltActionRifle extends PumpActionBaseEnchantable {
 
     @Override
     public void OnCockStart(Level pLevel, LivingEntity shooter, ItemStack gun, InteractionHand pUsedHand) {
-        pLevel.playSeededSound(null, shooter.getBlockX(), shooter.getBlockY(), shooter.getBlockZ(),
-                ModSounds.RIFLEBOLTBACK.get(), SoundSource.NEUTRAL, 1.0F, 1.0F, 0);
+        pLevel.playSound(null, shooter.getBlockX(), shooter.getBlockY(), shooter.getBlockZ(),
+                ModSounds.RIFLEBOLTBACK.get(), SoundSource.NEUTRAL, 1.0F, 1.0F);
 
         if (shooter instanceof Player) {
-            ((Player) shooter).getCooldowns().addCooldown(this, 20);
+            setCooldown(shooter, gun, 20);
         }
     }
 
     @Override
     public void OnCockEnd(Level pLevel, LivingEntity shooter, ItemStack gun, InteractionHand pUsedHand){
-        pLevel.playSeededSound(null, shooter.getBlockX(), shooter.getBlockY(), shooter.getBlockZ(),
-                ModSounds.RIFLEBOLTFORW.get(), SoundSource.NEUTRAL, 1.0F, 1.0F, 0);
+        pLevel.playSound(null, shooter.getBlockX(), shooter.getBlockY(), shooter.getBlockZ(),
+                ModSounds.RIFLEBOLTFORW.get(), SoundSource.NEUTRAL, 1.0F, 1.0F);
 
         setAimAnimation(gun);
 
         if (shooter instanceof Player) {
-            ((Player) shooter).getCooldowns().addCooldown(this, 20);
+            setCooldown(shooter, gun, 20);
         }
     }
 
@@ -164,11 +164,11 @@ public class BoltActionRifle extends PumpActionBaseEnchantable {
     public void onShoot(float rotationX, float rotationY, Level pLevel, LivingEntity shooter, ItemStack gunStack) {
 
         if (shooter instanceof Player) {
-            ((Player) shooter).getCooldowns().addCooldown(this, shootCooldown(shooter, gunStack));
+            setCooldown(shooter, gunStack, shootCooldown(shooter, gunStack));
         }
 
-        pLevel.playSeededSound(null, shooter.getBlockX(), shooter.getBlockY(), shooter.getBlockZ(),
-                ModSounds.RIFLESHOOT.get(), SoundSource.NEUTRAL, 4.0F, 1.0F, 0);
+        pLevel.playSound(null, shooter.getBlockX(), shooter.getBlockY(), shooter.getBlockZ(),
+                ModSounds.RIFLESHOOT.get(), SoundSource.NEUTRAL, 4.0F, 1.0F);
 
 
         // Particles
@@ -211,13 +211,13 @@ public class BoltActionRifle extends PumpActionBaseEnchantable {
 
     @Override
     public void onAmmo(Level pLevel, LivingEntity shooter, ItemStack gun, ItemStack ammo, InteractionHand pUsedHand) {
-        pLevel.playSeededSound(null, shooter.getBlockX(), shooter.getBlockY(), shooter.getBlockZ(),
-                ModSounds.SHOTGUNRELOAD.get(), SoundSource.NEUTRAL, 5.0F, 1.0F, 0);
+        pLevel.playSound(null, shooter.getBlockX(), shooter.getBlockY(), shooter.getBlockZ(),
+                ModSounds.SHOTGUNRELOAD.get(), SoundSource.NEUTRAL, 5.0F, 1.0F);
 
         setReloadAnimation(gun);
 
         if (shooter instanceof Player) {
-            ((Player) shooter).getCooldowns().addCooldown(this, ammoCooldown(shooter, gun));
+            setCooldown(shooter, gun, ammoCooldown(shooter, gun));
         }
     }
 

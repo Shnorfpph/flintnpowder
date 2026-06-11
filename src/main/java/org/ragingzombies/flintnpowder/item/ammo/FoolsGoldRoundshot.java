@@ -40,6 +40,7 @@ public class FoolsGoldRoundshot extends BaseAmmo {
         super(pProperties);
         this.damage = 24;
 
+        showTier = true;
         this.tier = 2;
         addRequiredTag("roundshot");
     }

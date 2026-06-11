@@ -92,6 +92,7 @@ public class Flintnpowder {
             event.accept(ModItems.BLAZING_BRASS_ALLOY);
 
             event.accept(ModItems.PALLADIUM_GREEN);
+            event.accept(ModItems.ROCKET_FUEL);
 
             event.accept(ModItems.MATCHLOCK_MECHANISM);
             event.accept(ModItems.FLINTLOCK_MECHANISM);

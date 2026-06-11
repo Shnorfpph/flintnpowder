@@ -19,7 +19,6 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.Vec3;
-import org.ragingzombies.flintnpowder.Flintnpowder;
 import org.ragingzombies.flintnpowder.item.ammo.projectiles.ModProjectiles;
 
 public class HEShellProjectile extends AbstractArrow implements ItemSupplier {
@@ -114,8 +113,8 @@ public class HEShellProjectile extends AbstractArrow implements ItemSupplier {
                 0.01
         );
 
-        this.level().playSeededSound(null, this.getX(), this.getY(), this.getZ(),
-                SoundEvents.GENERIC_EXPLODE, SoundSource.NEUTRAL, 5.0F, 1.0F, 0);
+        this.level().playSound(null, this.getX(), this.getY(), this.getZ(),
+                SoundEvents.GENERIC_EXPLODE, SoundSource.NEUTRAL, 5.0F, 1.0F);
     }
 
     void impact(BlockPos pos) {
@@ -145,4 +144,5 @@ public class HEShellProjectile extends AbstractArrow implements ItemSupplier {
             impact(pResult.getEntity().getOnPos());
         }
     }
+
 }

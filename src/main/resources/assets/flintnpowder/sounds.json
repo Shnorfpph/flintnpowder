@@ -7,6 +7,14 @@
       }
     ]
   },
+  "mortar_fire": {
+    "sounds": [
+      {
+        "name": "flintnpowder:mortar_fire",
+        "stream": false
+      }
+    ]
+  },
   "musketfire": {
     "subtitle": "subtitles.musketfire",
     "sounds": [

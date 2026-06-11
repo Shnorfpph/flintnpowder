@@ -70,10 +70,10 @@ public class LogCannon extends GunBase {
 
     @Override
     public void onShoot(float rotationX, float rotationY, Level pLevel, LivingEntity shooter, ItemStack gunStack) {
-        pLevel.playSeededSound(null, shooter.getBlockX(), shooter.getBlockY(), shooter.getBlockZ(),
-                SoundEvents.GENERIC_EXPLODE, SoundSource.NEUTRAL, 5.0F, 1.5F, 0);
-        pLevel.playSeededSound(null, shooter.getBlockX(), shooter.getBlockY(), shooter.getBlockZ(),
-                SoundEvents.GENERIC_EXPLODE, SoundSource.NEUTRAL, 7.0F, 1.1F, 0);
+        pLevel.playSound(null, shooter.getBlockX(), shooter.getBlockY(), shooter.getBlockZ(),
+                SoundEvents.GENERIC_EXPLODE, SoundSource.NEUTRAL, 5.0F, 1.5F);
+        pLevel.playSound(null, shooter.getBlockX(), shooter.getBlockY(), shooter.getBlockZ(),
+                SoundEvents.GENERIC_EXPLODE, SoundSource.NEUTRAL, 7.0F, 1.1F);
 
         // Particles
         if (!pLevel.isClientSide()) {
@@ -97,15 +97,15 @@ public class LogCannon extends GunBase {
         gunStack.shrink(1);
 
         if (shooter instanceof Player) {
-            ((Player) shooter).getCooldowns().addCooldown(this, shootCooldown(shooter, gunStack));
+            setCooldown(shooter, gunStack, shootCooldown(shooter, gunStack));
         }
     }
 
 
     @Override
     public boolean tryShoot(Level pLevel, LivingEntity pPlayer, ItemStack gun, InteractionHand pUsedHand) {
-        pLevel.playSeededSound(null, pPlayer.getBlockX(), pPlayer.getBlockY(), pPlayer.getBlockZ(),
-                ModSounds.FLINTSTRIKE.get(), SoundSource.NEUTRAL, 1.0F, 1.0F, 0);
+        pLevel.playSound(null, pPlayer.getBlockX(), pPlayer.getBlockY(), pPlayer.getBlockZ(),
+                ModSounds.FLINTSTRIKE.get(), SoundSource.NEUTRAL, 1.0F, 1.0F);
 
         setAimAnimation(gun);
 

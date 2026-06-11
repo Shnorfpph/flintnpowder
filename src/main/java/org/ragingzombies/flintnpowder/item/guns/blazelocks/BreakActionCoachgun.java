@@ -67,8 +67,8 @@ public class BreakActionCoachgun extends BlazelockBaseEnchantable {
 
     @Override
     public void onAmmoInsert(Level pLevel, LivingEntity shooter, ItemStack gun, InteractionHand pUsedHand) {
-        pLevel.playSeededSound(null, shooter.getBlockX(), shooter.getBlockY(), shooter.getBlockZ(),
-                ModSounds.SHOTGUNRELOAD.get(), SoundSource.NEUTRAL, 1.0F, 1.0F, 0);
+        pLevel.playSound(null, shooter.getBlockX(), shooter.getBlockY(), shooter.getBlockZ(),
+                ModSounds.SHOTGUNRELOAD.get(), SoundSource.NEUTRAL, 1.0F, 1.0F);
 
         if (shooter instanceof Player ply) {
             ply.getCooldowns().addCooldown(this, 5);
@@ -77,11 +77,11 @@ public class BreakActionCoachgun extends BlazelockBaseEnchantable {
 
     @Override
     public void onShoot(float rotationX, float rotationY, Level pLevel, LivingEntity shooter, ItemStack gunStack) {
-        pLevel.playSeededSound(null, shooter.getBlockX(), shooter.getBlockY(), shooter.getBlockZ(),
-                ModSounds.FLINTPRIME.get(), SoundSource.NEUTRAL, 0.15F, 1.0F, 0);
+        pLevel.playSound(null, shooter.getBlockX(), shooter.getBlockY(), shooter.getBlockZ(),
+                ModSounds.FLINTPRIME.get(), SoundSource.NEUTRAL, 0.15F, 1.0F);
 
-        pLevel.playSeededSound(null, shooter.getBlockX(), shooter.getBlockY(), shooter.getBlockZ(),
-                 ModSounds.SHOTGUNSHOT.get(), SoundSource.NEUTRAL, 4.0F, 1.0F, 0);
+        pLevel.playSound(null, shooter.getBlockX(), shooter.getBlockY(), shooter.getBlockZ(),
+                 ModSounds.SHOTGUNSHOT.get(), SoundSource.NEUTRAL, 4.0F, 1.0F);
 
 
         // Particles
@@ -121,7 +121,7 @@ public class BreakActionCoachgun extends BlazelockBaseEnchantable {
         }
 
         if (shooter instanceof Player) {
-            ((Player) shooter).getCooldowns().addCooldown(this, shootCooldownTicks);
+            setCooldown(shooter, gunStack, shootCooldownTicks);
         }
     }
 

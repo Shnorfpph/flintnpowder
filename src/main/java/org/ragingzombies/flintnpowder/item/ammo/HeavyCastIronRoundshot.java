@@ -34,6 +34,7 @@ import static com.livelandr.flintcore.core.util.CameraWork.OffsetEntityCamera;
 public class HeavyCastIronRoundshot extends BaseAmmo {
     public HeavyCastIronRoundshot(Properties pProperties) {
         super(pProperties);
+        showTier = true;
         this.damage = 24;
 
         addRequiredTag("heavyroundshot");

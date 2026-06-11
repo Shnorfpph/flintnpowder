@@ -55,8 +55,8 @@ public class ClosedBoltBattleRifle extends MagfedBaseEnchantable {
 
 
     public void onMagExtract(Level pLevel, LivingEntity shooter, ItemStack gun) {
-        pLevel.playSeededSound(null, shooter.getBlockX(), shooter.getBlockY(), shooter.getBlockZ(),
-                ModSounds.BRMAGOUT.get(), SoundSource.NEUTRAL, 1.0F, 1.0F, 0);
+        pLevel.playSound(null, shooter.getBlockX(), shooter.getBlockY(), shooter.getBlockZ(),
+                ModSounds.BRMAGOUT.get(), SoundSource.NEUTRAL, 1.0F, 1.0F);
 
         setReloadAnimation(gun);
 
@@ -66,8 +66,8 @@ public class ClosedBoltBattleRifle extends MagfedBaseEnchantable {
     }
 
     public void onMagInsert(Level pLevel, LivingEntity shooter, ItemStack gun) {
-        pLevel.playSeededSound(null, shooter.getBlockX(), shooter.getBlockY(), shooter.getBlockZ(),
-                ModSounds.BRMAGOUT.get(), SoundSource.NEUTRAL, 1.0F, 1.0F, 0);
+        pLevel.playSound(null, shooter.getBlockX(), shooter.getBlockY(), shooter.getBlockZ(),
+                ModSounds.BRMAGOUT.get(), SoundSource.NEUTRAL, 1.0F, 1.0F);
 
         if (shooter instanceof Player ply) {
             ply.getCooldowns().addCooldown(this, 45);
@@ -76,16 +76,16 @@ public class ClosedBoltBattleRifle extends MagfedBaseEnchantable {
 
     @Override
     public void onSlideStart(Level pLevel, LivingEntity shooter, ItemStack gun) {
-        pLevel.playSeededSound(null, shooter.getBlockX(), shooter.getBlockY(), shooter.getBlockZ(),
-                ModSounds.BRBOLTBACK.get(), SoundSource.NEUTRAL, 1.0F, 1.0F, 0);
+        pLevel.playSound(null, shooter.getBlockX(), shooter.getBlockY(), shooter.getBlockZ(),
+                ModSounds.BRBOLTBACK.get(), SoundSource.NEUTRAL, 1.0F, 1.0F);
 
         super.onSlideStart(pLevel, shooter, gun);
     }
 
     @Override
     public void onSlideEnd(Level pLevel, LivingEntity shooter, ItemStack gun) {
-        pLevel.playSeededSound(null, shooter.getBlockX(), shooter.getBlockY(), shooter.getBlockZ(),
-                ModSounds.BRBOLTFORW.get(), SoundSource.NEUTRAL, 1.0F, 1.0F, 0);
+        pLevel.playSound(null, shooter.getBlockX(), shooter.getBlockY(), shooter.getBlockZ(),
+                ModSounds.BRBOLTFORW.get(), SoundSource.NEUTRAL, 1.0F, 1.0F);
 
         super.onSlideEnd(pLevel, shooter, gun);
     }
@@ -116,10 +116,10 @@ public class ClosedBoltBattleRifle extends MagfedBaseEnchantable {
     @Override
     public void onShoot(float rotationX, float rotationY, Level pLevel, LivingEntity shooter, ItemStack gunStack) {
 
-        pLevel.playSeededSound(null, shooter.getBlockX(), shooter.getBlockY(), shooter.getBlockZ(),
-                ModSounds.BRFIRE.get(), SoundSource.NEUTRAL, 5.0F, 1.0F, 0);
-        pLevel.playSeededSound(null, shooter.getBlockX(), shooter.getBlockY(), shooter.getBlockZ(),
-                ModSounds.GUNSHOTDISTANT.get(), SoundSource.NEUTRAL, 9.0F, 1.0F, 0);
+        pLevel.playSound(null, shooter.getBlockX(), shooter.getBlockY(), shooter.getBlockZ(),
+                ModSounds.BRFIRE.get(), SoundSource.NEUTRAL, 5.0F, 1.0F);
+        pLevel.playSound(null, shooter.getBlockX(), shooter.getBlockY(), shooter.getBlockZ(),
+                ModSounds.GUNSHOTDISTANT.get(), SoundSource.NEUTRAL, 9.0F, 1.0F);
 
         // Particles
         if (!pLevel.isClientSide()) {
@@ -141,7 +141,7 @@ public class ClosedBoltBattleRifle extends MagfedBaseEnchantable {
         }
 
         if (shooter instanceof Player) {
-            ((Player) shooter).getCooldowns().addCooldown(this, shootCooldown(shooter, gunStack));
+            setCooldown(shooter, gunStack, shootCooldown(shooter, gunStack));
         }
     }
 

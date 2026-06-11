@@ -101,7 +101,11 @@ public class ModItemsAmmo {
             () -> new MachineGunMag(new MachineGunMag.Properties().stacksTo(1)));
 
     public static final RegistryObject<Item> HESHELL = ITEMS.register("heshell",
-            () -> new HEShell(new HEShell.Properties().stacksTo(1)));
+            () -> new HEShell(new HEShell.Properties().stacksTo(8)));
+    public static final RegistryObject<Item> INCSHELL = ITEMS.register("incendiaryshell",
+            () -> new IncendiaryShell(new IncendiaryShell.Properties().stacksTo(8)));
+    public static final RegistryObject<Item> CLUSTERSHELL = ITEMS.register("clustershell",
+            () -> new ClusterShell(new ClusterShell.Properties().stacksTo(8)));
 
 
     public static final RegistryObject<Item> CASTIRONBOMB = ITEMS.register("cast_iron_bomb",

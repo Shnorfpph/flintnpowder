@@ -53,8 +53,8 @@ public class CopperVolleyshot extends BaseAmmo {
         for (int i = 0; i < 5; i++) {
             // Delay
             ServerTickHandler.createTask(i*2, () -> {
-                serverLevel.playSeededSound(null, shooter.getBlockX(), shooter.getBlockY(), shooter.getBlockZ(),
-                        SoundEvents.FIREWORK_ROCKET_BLAST, SoundSource.NEUTRAL, 9.0F, 1.0F, 0);
+                serverLevel.playSound(null, shooter.getBlockX(), shooter.getBlockY(), shooter.getBlockZ(),
+                        SoundEvents.FIREWORK_ROCKET_BLAST, SoundSource.NEUTRAL, 9.0F, 1.0F);
 
                 CastIronRoundshotProjectile proj = new CastIronRoundshotProjectile(level, shooter);
 

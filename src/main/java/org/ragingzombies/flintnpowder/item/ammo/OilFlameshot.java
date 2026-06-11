@@ -57,8 +57,8 @@ public class OilFlameshot extends BaseAmmo {
             // Delay
             ServerTickHandler.createTask(i*4, () -> {
                 Random rand = new Random();
-                serverLevel.playSeededSound(null, shooter.getBlockX(), shooter.getBlockY(), shooter.getBlockZ(),
-                        SoundEvents.FIRECHARGE_USE, SoundSource.NEUTRAL, 9.0F, 0.3F + rand.nextFloat(0.8F), 0);
+                serverLevel.playSound(null, shooter.getBlockX(), shooter.getBlockY(), shooter.getBlockZ(),
+                        SoundEvents.FIRECHARGE_USE, SoundSource.NEUTRAL, 9.0F, 0.3F + rand.nextFloat(0.8F));
 
                 FlamingBuckshotProjectile proj = new FlamingBuckshotProjectile(level, shooter);
 

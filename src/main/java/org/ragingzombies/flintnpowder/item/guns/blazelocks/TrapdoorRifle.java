@@ -72,8 +72,8 @@ public class TrapdoorRifle extends BlazelockBaseEnchantable {
 
     @Override
     public void onAmmoInsert(Level pLevel, LivingEntity shooter, ItemStack gun, InteractionHand pUsedHand) {
-        pLevel.playSeededSound(null, shooter.getBlockX(), shooter.getBlockY(), shooter.getBlockZ(),
-                ModSounds.RIFLERELOAD.get(), SoundSource.NEUTRAL, 1.0F, 1.0F, 0);
+        pLevel.playSound(null, shooter.getBlockX(), shooter.getBlockY(), shooter.getBlockZ(),
+                ModSounds.RIFLERELOAD.get(), SoundSource.NEUTRAL, 1.0F, 1.0F);
 
         if (shooter instanceof Player ply) {
             ply.getCooldowns().addCooldown(this, 5);
@@ -87,11 +87,11 @@ public class TrapdoorRifle extends BlazelockBaseEnchantable {
 
     @Override
     public void onShoot(float rotationX, float rotationY, Level pLevel, LivingEntity shooter, ItemStack gunStack) {
-        pLevel.playSeededSound(null, shooter.getBlockX(), shooter.getBlockY(), shooter.getBlockZ(),
-                ModSounds.FLINTPRIME.get(), SoundSource.NEUTRAL, 0.15F, 1.0F, 0);
+        pLevel.playSound(null, shooter.getBlockX(), shooter.getBlockY(), shooter.getBlockZ(),
+                ModSounds.FLINTPRIME.get(), SoundSource.NEUTRAL, 0.15F, 1.0F);
 
-        pLevel.playSeededSound(null, shooter.getBlockX(), shooter.getBlockY(), shooter.getBlockZ(),
-                 ModSounds.RIFLESHOOT.get(), SoundSource.NEUTRAL, 8.0F, 1.0F, 0);
+        pLevel.playSound(null, shooter.getBlockX(), shooter.getBlockY(), shooter.getBlockZ(),
+                 ModSounds.RIFLESHOOT.get(), SoundSource.NEUTRAL, 8.0F, 1.0F);
 
 
         // Particles
@@ -131,7 +131,7 @@ public class TrapdoorRifle extends BlazelockBaseEnchantable {
         }
 
         if (shooter instanceof Player) {
-            ((Player) shooter).getCooldowns().addCooldown(this, shootCooldownTicks);
+            setCooldown(shooter, gunStack, shootCooldownTicks);
         }
     }
 

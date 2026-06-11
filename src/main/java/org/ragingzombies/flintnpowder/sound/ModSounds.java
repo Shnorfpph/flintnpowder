@@ -74,6 +74,8 @@ public class ModSounds {
     public static final RegistryObject<SoundEvent> AUTOSHOTGUNBOLTBACK = registerSoundEvents("autoshotgunboltbackward");
     public static final RegistryObject<SoundEvent> AUTOSHOTGUNBOLTFORW = registerSoundEvents("autoshotgunboltforward");
 
+    public static final RegistryObject<SoundEvent> MORTAR_FIRE = registerSoundEvents("mortar_fire");
+
 
 
     public static RegistryObject<SoundEvent> registerSoundEvents(String name) {

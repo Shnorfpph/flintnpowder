@@ -41,27 +41,15 @@ public class HEShell extends BaseAmmo {
     public HEShell(Properties pProperties) {
         super(pProperties);
 
-        addRequiredTag("bigbomb");
+        addRequiredTag("mortarshell");
     }
 
     @Override
     public void onAmmoShot(float xRotation, float yRotation, LivingEntity shooter, ItemStack gun, Level level) {
         HEShellProjectile proj = new HEShellProjectile(level, shooter);
 
-        Flintnpowder.LOGGER.info(shooter.toString());
-        Flintnpowder.LOGGER.info(Float.toString(xRotation));
-        Flintnpowder.LOGGER.info(Float.toString(yRotation));
-
         proj.setOwner(shooter);
-        proj.shootFromRotation(shooter, xRotation, yRotation, 0.0F, 6F, 0);
-
-        // Recoil
-
-        if (shooter instanceof Player) {
-            Random rand = new Random();
-            float angleX = rand.nextFloat(4.0F);
-            OffsetEntityCamera(shooter, (-15 + (angleX - 2)) * ((GunBase) gun.getItem()).recoilModifierX(shooter, gun), (angleX - 2) * ((GunBase) gun.getItem()).recoilModifierY(shooter, gun));
-        }
+        proj.shootFromRotation(shooter, xRotation, yRotation, 0.0F, 4F, 0);
 
         level.addFreshEntity(proj);
     }

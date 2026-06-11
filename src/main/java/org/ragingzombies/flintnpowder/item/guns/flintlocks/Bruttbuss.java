@@ -63,8 +63,8 @@ public class Bruttbuss extends FlintlockBaseEnchantable {
     }
 
     public void onStuff(Level pLevel, LivingEntity shooter, ItemStack gun, InteractionHand pUsedHand) {
-        pLevel.playSeededSound(null, shooter.getBlockX(), shooter.getBlockY(), shooter.getBlockZ(),
-                ModSounds.RAMROD.get(), SoundSource.NEUTRAL, 1F, 1.0F, 0);
+        pLevel.playSound(null, shooter.getBlockX(), shooter.getBlockY(), shooter.getBlockZ(),
+                ModSounds.RAMROD.get(), SoundSource.NEUTRAL, 1F, 1.0F);
 
         setAimAnimation(gun);
 
@@ -75,12 +75,12 @@ public class Bruttbuss extends FlintlockBaseEnchantable {
 
     @Override
     public void onShoot(float rotationX, float rotationY, Level pLevel, LivingEntity shooter, ItemStack gunStack) {
-        pLevel.playSeededSound(null, shooter.getBlockX(), shooter.getBlockY(), shooter.getBlockZ(),
-                ModSounds.FLINTSTRIKE.get(), SoundSource.NEUTRAL, 1.0F, 1.0F, 0);
-        pLevel.playSeededSound(null, shooter.getBlockX(), shooter.getBlockY(), shooter.getBlockZ(),
-                ModSounds.RIFLESHOOT.get(), SoundSource.NEUTRAL, 3.0F, 1.0F, 0);
-        pLevel.playSeededSound(null, shooter.getBlockX(), shooter.getBlockY(), shooter.getBlockZ(),
-                ModSounds.GUNSHOTDISTANT.get(), SoundSource.NEUTRAL, 9.0F, 1.0F, 0);
+        pLevel.playSound(null, shooter.getBlockX(), shooter.getBlockY(), shooter.getBlockZ(),
+                ModSounds.FLINTSTRIKE.get(), SoundSource.NEUTRAL, 1.0F, 1.0F);
+        pLevel.playSound(null, shooter.getBlockX(), shooter.getBlockY(), shooter.getBlockZ(),
+                ModSounds.RIFLESHOOT.get(), SoundSource.NEUTRAL, 3.0F, 1.0F);
+        pLevel.playSound(null, shooter.getBlockX(), shooter.getBlockY(), shooter.getBlockZ(),
+                ModSounds.GUNSHOTDISTANT.get(), SoundSource.NEUTRAL, 9.0F, 1.0F);
 
         setReloadAnimation(gunStack);
 
@@ -121,7 +121,7 @@ public class Bruttbuss extends FlintlockBaseEnchantable {
         }
 
         if (shooter instanceof Player) {
-            ((Player) shooter).getCooldowns().addCooldown(this, shootCooldown(shooter, gunStack));
+            setCooldown(shooter, gunStack, shootCooldown(shooter, gunStack));
         }
     }
 

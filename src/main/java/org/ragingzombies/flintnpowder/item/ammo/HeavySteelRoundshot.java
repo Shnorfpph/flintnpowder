@@ -39,7 +39,7 @@ public class HeavySteelRoundshot extends BaseAmmo {
     public HeavySteelRoundshot(Properties pProperties) {
         super(pProperties);
         this.damage = 30;
-
+        showTier = true;
         addRequiredTag("heavyroundshot");
     }
 

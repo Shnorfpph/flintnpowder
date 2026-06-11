@@ -66,8 +66,8 @@ public class Volleygun extends FlintlockBaseEnchantable {
 
     @Override
     public boolean tryShoot(Level pLevel, LivingEntity pPlayer, ItemStack gun, InteractionHand pUsedHand) {
-        pLevel.playSeededSound(null, pPlayer.getBlockX(), pPlayer.getBlockY(), pPlayer.getBlockZ(),
-                ModSounds.FLINTSTRIKE.get(), SoundSource.NEUTRAL, 1.0F, 1.0F, 0);
+        pLevel.playSound(null, pPlayer.getBlockX(), pPlayer.getBlockY(), pPlayer.getBlockZ(),
+                ModSounds.FLINTSTRIKE.get(), SoundSource.NEUTRAL, 1.0F, 1.0F);
 
         if (pPlayer instanceof Player) {
             ((Player) pPlayer).getCooldowns().addCooldown(this, 20);
@@ -79,8 +79,8 @@ public class Volleygun extends FlintlockBaseEnchantable {
 
     @Override
     public void onStuff(Level pLevel, LivingEntity shooter, ItemStack gun, InteractionHand pUsedHand) {
-        pLevel.playSeededSound(null, shooter.getBlockX(), shooter.getBlockY(), shooter.getBlockZ(),
-                ModSounds.RAMROD.get(), SoundSource.NEUTRAL, 1F, 1.0F, 0);
+        pLevel.playSound(null, shooter.getBlockX(), shooter.getBlockY(), shooter.getBlockZ(),
+                ModSounds.RAMROD.get(), SoundSource.NEUTRAL, 1F, 1.0F);
 
         if (shooter instanceof Player ply) {
             ply.getCooldowns().addCooldown(this, 35);
@@ -97,10 +97,10 @@ public class Volleygun extends FlintlockBaseEnchantable {
     @Override
     public void onShoot(float rotationX, float rotationY, Level pLevel, LivingEntity shooter, ItemStack gunStack) {
 
-        pLevel.playSeededSound(null, shooter.getBlockX(), shooter.getBlockY(), shooter.getBlockZ(),
-                ModSounds.PISTOLSHOOT.get(), SoundSource.NEUTRAL, 2.0F, 1.0F, 0);
-        pLevel.playSeededSound(null, shooter.getBlockX(), shooter.getBlockY(), shooter.getBlockZ(),
-                ModSounds.PISTOLDISTANTSHOOT.get(), SoundSource.NEUTRAL, 8.0F, 1.0F, 0);
+        pLevel.playSound(null, shooter.getBlockX(), shooter.getBlockY(), shooter.getBlockZ(),
+                ModSounds.PISTOLSHOOT.get(), SoundSource.NEUTRAL, 2.0F, 1.0F);
+        pLevel.playSound(null, shooter.getBlockX(), shooter.getBlockY(), shooter.getBlockZ(),
+                ModSounds.PISTOLDISTANTSHOOT.get(), SoundSource.NEUTRAL, 8.0F, 1.0F);
 
         setReloadAnimation(gunStack);
 

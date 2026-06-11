@@ -36,6 +36,7 @@ public class CopperRoundshot extends BaseAmmo {
         super(pProperties);
         this.damage = 15;
 
+        showTier = true;
         this.tier = 0;
         addRequiredTag("roundshot");
     }
