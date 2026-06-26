@@ -1,7 +1,4 @@
-package org.ragingzombies.flintnpowder.entity.client.models;// Made with Blockbench 4.12.6
-// Exported for Minecraft version 1.17 or later with Mojang mappings
-// Paste this class into your mod and generate all required imports
-
+package org.ragingzombies.flintnpowder.entity.client.models;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
@@ -15,10 +12,6 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.Entity;
 import org.ragingzombies.flintnpowder.Flintnpowder;
 import org.ragingzombies.flintnpowder.entity.custom.MortarEntity;
-
-// Made with Blockbench 5.1.3
-// Exported for Minecraft version 1.17 or later with Mojang mappings
-// Paste this class into your mod and generate all required imports
 
 
 public class MortarModel<T extends Entity> extends HierarchicalModel<T> {

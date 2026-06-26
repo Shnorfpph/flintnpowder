@@ -18,6 +18,7 @@
  */
 package org.ragingzombies.flintnpowder.item.guns.flintlocks;
 
+import com.livelandr.flintcore.core.guns.MatchlockBase;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvents;
@@ -31,6 +32,7 @@ import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
 import com.livelandr.flintcore.core.ammo.BaseAmmo;
 import org.ragingzombies.flintnpowder.core_modified.guns.FlintlockBaseEnchantable;
+import org.ragingzombies.flintnpowder.core_modified.guns.MatchlockBaseEnchantable;
 import org.ragingzombies.flintnpowder.handlers.ServerTickHandler;
 import org.ragingzombies.flintnpowder.sound.ModSounds;
 
