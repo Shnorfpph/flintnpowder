@@ -75,6 +75,7 @@ public class ModSounds {
     public static final RegistryObject<SoundEvent> AUTOSHOTGUNBOLTFORW = registerSoundEvents("autoshotgunboltforward");
 
     public static final RegistryObject<SoundEvent> MORTAR_FIRE = registerSoundEvents("mortar_fire");
+    public static final RegistryObject<SoundEvent> SIEGE_DIE = registerSoundEvents("siegebreak");
 
 
 

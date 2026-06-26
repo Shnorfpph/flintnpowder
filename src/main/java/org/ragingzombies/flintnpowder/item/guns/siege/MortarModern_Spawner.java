@@ -34,9 +34,9 @@ public class MortarModern_Spawner extends Item {
                 ent.setOwnerName(pPlayer.getName());
 
                 pLevel.addFreshEntity(ent);
+                pPlayer.getItemInHand(pUsedHand).shrink(1);
             }
         }
-
         return InteractionResultHolder.pass(pPlayer.getItemInHand(pUsedHand));
     }
 }

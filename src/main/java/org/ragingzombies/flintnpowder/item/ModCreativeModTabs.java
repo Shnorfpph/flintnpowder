@@ -67,10 +67,18 @@ public class ModCreativeModTabs {
                         pOutput.accept(ModItemsAmmo.SHOTGUNMAGAZINE.get());
                         pOutput.accept(ModItemsAmmo.SNIPERRIFLEMAGAZINE.get());
                         pOutput.accept(ModItemsAmmo.MACHINEGUNMAG.get());
+                        pOutput.accept(ModItemsAmmo.CASTIRONCANNONBALL.get());
+                        pOutput.accept(ModItemsAmmo.STEELCANNONBALL.get());
+
+                        pOutput.accept(ModItemsAmmo.EXPLOSIVEBARREL.get());
+                        pOutput.accept(ModItemsAmmo.MORTARBURNING.get());
+                        pOutput.accept(ModItemsAmmo.MORTARGASPOISON.get());
+                        pOutput.accept(ModItemsAmmo.MORTARGASHEALING.get());
 
                         pOutput.accept(ModItemsAmmo.HESHELL.get());
                         pOutput.accept(ModItemsAmmo.INCSHELL.get());
                         pOutput.accept(ModItemsAmmo.CLUSTERSHELL.get());
+
 
                         // Empty
                     }))
@@ -112,7 +120,9 @@ public class ModCreativeModTabs {
                         pOutput.accept(ModItemsAttachments.LOWPROFILEOPTIC.get());
                         pOutput.accept(ModItemsAttachments.BIPOD.get());
 
+                        pOutput.accept(ModItemsGuns.MORTAROLD_SPAWNER.get());
                         pOutput.accept(ModItemsGuns.MORTAR_SPAWNER.get());
+                        pOutput.accept(ModItemsGuns.CANNON_SPAWNER.get());
                         pOutput.accept(ModItems.DIVIDER.get());
                     }))
                     .build());

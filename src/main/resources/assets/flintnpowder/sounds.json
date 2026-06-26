@@ -561,6 +561,22 @@
       }
     ]
   },
+  "siegebreak": {
+    "sounds": [
+      {
+        "name": "flintnpowder:siegedie_1",
+        "stream": false
+      },
+      {
+        "name": "flintnpowder:siegedie_2",
+        "stream": false
+      },
+      {
+        "name": "flintnpowder:siegedie_2",
+        "stream": false
+      }
+    ]
+  },
   "rifle": {
     "subtitle": "subtitles.rifle",
     "sounds": [

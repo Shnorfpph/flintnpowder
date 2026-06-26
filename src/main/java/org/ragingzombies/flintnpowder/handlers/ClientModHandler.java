@@ -30,7 +30,11 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import com.livelandr.flintcore.core.guns.GunBase;
 import org.ragingzombies.flintnpowder.entity.ModEntities;
+import org.ragingzombies.flintnpowder.entity.client.renderers.CannonRenderer;
 import org.ragingzombies.flintnpowder.entity.client.renderers.MortarRenderer;
+import org.ragingzombies.flintnpowder.entity.client.renderers.OldMortarRenderer;
+import org.ragingzombies.flintnpowder.entity.client.renderers.SpriteRenderer;
+import org.ragingzombies.flintnpowder.entity.custom.OldMortarEntity;
 import org.ragingzombies.flintnpowder.item.ModItemsAttachments;
 import org.ragingzombies.flintnpowder.item.ModItemsGuns;
 import org.ragingzombies.flintnpowder.item.ammo.projectiles.ModProjectiles;
@@ -65,7 +69,9 @@ public class ClientModHandler {
     @SubscribeEvent
     public static void onClientSetup(FMLClientSetupEvent event) {
         // MOBS
+        EntityRenderers.register(ModEntities.OLDMORTAR.get(), OldMortarRenderer::new);
         EntityRenderers.register(ModEntities.MORTAR.get(), MortarRenderer::new);
+        EntityRenderers.register(ModEntities.CANNON.get(), CannonRenderer::new);
 
         // GUNS
         // Shotgun
@@ -280,5 +286,15 @@ public class ClientModHandler {
         EntityRenderers.register(ModProjectiles.CLUSTERPELLET.get(), ThrownItemRenderer::new);
 
         EntityRenderers.register(ModProjectiles.CLUSTERMORTARSHELL.get(), ThrownItemRenderer::new);
+
+        EntityRenderers.register(ModProjectiles.CASTIRONCANNONBALL.get(), ThrownItemRenderer::new);
+
+        EntityRenderers.register(ModProjectiles.STEELCANNONBALL.get(), ThrownItemRenderer::new);
+
+        EntityRenderers.register(ModProjectiles.POISONGASPROJECTILE.get(), ThrownItemRenderer::new);
+
+        EntityRenderers.register(ModProjectiles.HEALINGGASPROJECTILE.get(), ThrownItemRenderer::new);
+
+        EntityRenderers.register(ModEntities.SMOKE_GAS.get(), SpriteRenderer::new);
     }
 }

@@ -107,9 +107,23 @@ public class ModItemsAmmo {
     public static final RegistryObject<Item> CLUSTERSHELL = ITEMS.register("clustershell",
             () -> new ClusterShell(new ClusterShell.Properties().stacksTo(8)));
 
+    public static final RegistryObject<Item> EXPLOSIVEBARREL = ITEMS.register("explosivebarrel",
+            () -> new MortarExplosiveBarrel(new MortarExplosiveBarrel.Properties().stacksTo(8)));
+    public static final RegistryObject<Item> MORTARBURNING = ITEMS.register("mortarburning",
+            () -> new MortarBurningAmmo(new MortarBurningAmmo.Properties().stacksTo(8)));
+    public static final RegistryObject<Item> MORTARGASPOISON = ITEMS.register("mortargaspoison",
+            () -> new MortarGasPoisonAmmo(new MortarGasPoisonAmmo.Properties().stacksTo(8)));
+    public static final RegistryObject<Item> MORTARGASHEALING = ITEMS.register("mortargashealing",
+            () -> new MortarGasHealingAmmo(new MortarGasHealingAmmo.Properties().stacksTo(8)));
 
     public static final RegistryObject<Item> CASTIRONBOMB = ITEMS.register("cast_iron_bomb",
             () -> new CastIronBomb(new CastIronBomb.Properties().stacksTo(16)));
+
+    public static final RegistryObject<Item> CASTIRONCANNONBALL = ITEMS.register("cast_iron_cannonball",
+            () -> new CastIronCannonball(new CastIronCannonball.Properties().stacksTo(4)));
+
+    public static final RegistryObject<Item> STEELCANNONBALL = ITEMS.register("steel_cannonball",
+            () -> new SteelCannonball(new SteelCannonball.Properties().stacksTo(4)));
 
 
 

@@ -192,11 +192,21 @@
   "item.flintnpowder.heshell": "HE Mortar Bomb",
   "item.flintnpowder.incendiaryshell": "Incendiary Mortar Bomb",
 
+  "item.flintnpowder.cast_iron_cannonball": "Cast Iron Cannonball",
+  "item.flintnpowder.steel_cannonball": "Cast Iron Cannonball",
+
   "item.flintnpowder.clustershell": "Cluster Mortar Bomb",
   "item.flintnpowder.clustershell.description_0": "§4Extremely chaotic and explosive ammunition, be very careful.",
 
+  "item.flintnpowder.mortar_old_spawner": "Mortar",
   "item.flintnpowder.mortar_spawner": "Gunmetal Mortar",
+  "item.flintnpowder.cannon_spawner": "Cannon",
   "item.flintnpowder.divider": "Divider",
+
+  "item.flintnpowder.explosivebarrel": "Explosive Barrel",
+  "item.flintnpowder.mortarburning": "Huge Fireball",
+  "item.flintnpowder.mortargaspoison": "Huge Potion of Poison",
+  "item.flintnpowder.mortargashealing": "Huge Potion of Healing",
 
   "enchantment.flintnpowder.ghost_loading": "Ghost Loading",
   "enchantment.flintnpowder.quality_propellant": "Quality Propellant",
@@ -228,14 +238,18 @@
   "flintcore.calibernames.shotgunmag": "Shotgun magazine",
   "flintcore.calibernames.12gauge": "12 Gauge Shotgun Shell",
   "flintcore.calibernames.machinegunmag": "Machine Gun Magazines",
-  "flintcore.calibernames.mortarshell": "Mortar Bomb",
+  "flintcore.calibernames.mortarshell": "Modern Mortar Bomb",
+  "flintcore.calibernames.cannonball": "Cannonball",
+  "flintcore.calibernames.mortarold": "Old Mortal Payload",
 
   "item.flintnpowder.diamond_bore_drill": "Diamond Bore Drill",
   "item.flintnpowder.cast_iron_bore_drill": "Cast Iron Bore Drill",
   "item.flintnpowder.netherite_bore_drill": "Netherite Bore Drill",
 
-  "flintnpowder.mortarrotationX": "Current mortar yaw: ",
-  "flintnpowder.mortarrotationY": "Current mortar roll: ",
 
-  "entity.flintnpowder.mortar": "Mortar"
+  "flintnpowder.mortarrotationX": "Current yaw: ",
+  "flintnpowder.mortarrotationY": "Current roll: ",
+
+  "entity.flintnpowder.mortar": "Mortar",
+  "entity.flintnpowder.cannon": "Cannon"
 }
