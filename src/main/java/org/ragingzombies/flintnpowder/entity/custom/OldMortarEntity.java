@@ -42,7 +42,7 @@ public class OldMortarEntity extends Mob {
         weapon.setScapegoat(this);
 
         if (this.getXRot() == 0) {
-            aimAngleX(-105);
+            aimAngleX(-147);
         }
     }
 
@@ -172,9 +172,9 @@ public class OldMortarEntity extends Mob {
                 ang = arccos;
             }
 
-            ang = Math.round(ang*100.0) / 100.0;
+            ang = 180 + Math.round(ang*100.0) / 100.0;
 
-            player.displayClientMessage(Component.translatable("flintnpowder.mortarrotationY").append(Double.toString(Math.round((ang+90)*100)/100)), true);
+            player.displayClientMessage(Component.translatable("flintnpowder.mortarrotationY").append(Double.toString(Math.round((ang+90)*100)/100 - 90)), true);
 
             aimAngleY((float) ang);
 

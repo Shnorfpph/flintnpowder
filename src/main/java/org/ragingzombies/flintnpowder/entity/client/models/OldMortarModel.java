@@ -56,7 +56,7 @@ public class OldMortarModel<T extends Entity> extends HierarchicalModel<T> {
 
 	@Override
 	public void setupAnim(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
-		this.cannon.xRot = (float) Math.toRadians(((OldMortarEntity) entity).weapon.rotationX);
+		this.cannon.xRot = (float) Math.toRadians(-((OldMortarEntity) entity).weapon.rotationX + 180);
 	}
 
 	@Override

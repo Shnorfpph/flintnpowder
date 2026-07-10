@@ -111,6 +111,7 @@ public class ModCreativeModTabs {
                         pOutput.accept(ModItemsGuns.OPENBOLTSUBMACHINEGUN.get());
                         pOutput.accept(ModItemsGuns.CLOSEDBOLTBATTLERIFLE.get());
                         pOutput.accept(ModItemsGuns.GASOPERATEDSHOTGUN.get());
+                        pOutput.accept(ModItemsGuns.GASOPERATEDASSAULTRIFLE.get());
                         pOutput.accept(ModItemsGuns.SNIPERRIFLE.get());
                         pOutput.accept(ModItemsGuns.MACHINEGUN.get());
                         pOutput.accept(ModItems.RAMROD.get());
