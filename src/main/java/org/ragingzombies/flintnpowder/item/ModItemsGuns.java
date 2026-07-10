@@ -99,6 +99,8 @@ public class ModItemsGuns {
             () -> new ClosedBoltBattleRifle(new ClosedBoltBattleRifle.Properties().stacksTo(1)));
     public static final RegistryObject<Item> GASOPERATEDSHOTGUN = ITEMS.register("gas_operated_shotgun",
             () -> new GasOperatedShotgun(new GasOperatedShotgun.Properties().stacksTo(1)));
+    public static final RegistryObject<Item> GASOPERATEDASSAULTRIFLE = ITEMS.register("gas_operated_assault_rifle",
+            () -> new GasOperatedAssaultRifle(new GasOperatedAssaultRifle.Properties().stacksTo(1)));
     public static final RegistryObject<Item> MACHINEGUN = ITEMS.register("machine_gun",
             () -> new MachineGun(new MachineGun.Properties().stacksTo(1)));
 
