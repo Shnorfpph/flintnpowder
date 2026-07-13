@@ -68,9 +68,29 @@ public class Broomhandle extends BlazelockBaseEnchantable {
     }
 
     @Override
+    public void onChamberOpen(Level pLevel, LivingEntity shooter, ItemStack gun) {
+        pLevel.playSound(null, shooter,
+                ModSounds.PISTOLCOCKBACKWARD.get(), SoundSource.NEUTRAL, 2.0F, 1.0F);
+
+        if (shooter instanceof Player ply) {
+            setCooldown(ply, gun,  20);
+        }
+    }
+
+    @Override
+    public void onChamberClose(Level pLevel, LivingEntity shooter, ItemStack gun) {
+        pLevel.playSound(null, shooter,
+                ModSounds.PISTOLCOCKFORWARD.get(), SoundSource.NEUTRAL, 2.0F, 1.0F);
+
+        if (shooter instanceof Player ply) {
+            setCooldown(ply, gun,  20);
+        }
+    }
+
+    @Override
     public void onAmmoInsert(Level pLevel, LivingEntity shooter, ItemStack gun, InteractionHand pUsedHand) {
         pLevel.playSound(null, shooter,
-                SoundEvents.ITEM_PICKUP, SoundSource.NEUTRAL, 1.0F, 1.0F);
+                ModSounds.MAGAZINERELOAD.get(), SoundSource.NEUTRAL, 2.0F, 1.0F);
 
         if (shooter instanceof Player ply) {
             setCooldown(ply, gun,  5);
@@ -84,9 +104,6 @@ public class Broomhandle extends BlazelockBaseEnchantable {
 
     @Override
     public void onShoot(float rotationX, float rotationY, Level pLevel, LivingEntity shooter, ItemStack gunStack) {
-        pLevel.playSound(null, shooter,
-                ModSounds.FLINTPRIME.get(), SoundSource.NEUTRAL, 0.15F, 1.0F);
-
         pLevel.playSound(null, shooter,
                  ModSounds.PISTOLSHOOT.get(), SoundSource.NEUTRAL, 2.0F, 1.0F);
         pLevel.playSound(null, shooter,

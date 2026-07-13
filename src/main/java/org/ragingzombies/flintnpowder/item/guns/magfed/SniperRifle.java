@@ -81,7 +81,7 @@ public class SniperRifle extends MagfedBaseEnchantable {
     @Override
     public void onSlideStart(Level pLevel, LivingEntity shooter, ItemStack gun) {
         pLevel.playSound(null, shooter,
-                ModSounds.BRBOLTBACK.get(), SoundSource.NEUTRAL, 1.0F, 1.0F);
+                ModSounds.AMRBOLTBACKWARD.get(), SoundSource.NEUTRAL, 1.0F, 1.0F);
 
         if (shooter instanceof Player ply) {
             setCooldown(ply, gun,  10);
@@ -91,7 +91,7 @@ public class SniperRifle extends MagfedBaseEnchantable {
     @Override
     public void onSlideEnd(Level pLevel, LivingEntity shooter, ItemStack gun) {
         pLevel.playSound(null, shooter,
-                ModSounds.BRBOLTFORW.get(), SoundSource.NEUTRAL, 1.0F, 1.0F);
+                ModSounds.AMRBOLTFORWARD.get(), SoundSource.NEUTRAL, 1.0F, 1.0F);
 
         setAimAnimation(gun);
 
@@ -129,9 +129,9 @@ public class SniperRifle extends MagfedBaseEnchantable {
 
         if (!isAttachmentValidAndEnabled(gunStack, "silencer")) {
             pLevel.playSound(null, shooter,
-                    ModSounds.SNIPERSHOOT.get(), SoundSource.NEUTRAL, 5.0F, 1.0F);
+                    ModSounds.ANTIMATERIELRIFLE.get(), SoundSource.NEUTRAL, 5.0F, 1.0F);
             pLevel.playSound(null, shooter,
-                    ModSounds.GUNSHOTDISTANT.get(), SoundSource.NEUTRAL, 9.0F, 1.0F);
+                    ModSounds.GUNSHOTDISTANTHEAVY.get(), SoundSource.NEUTRAL, 9.0F, 1.0F);
 
             // Particles
             if (!pLevel.isClientSide()) {

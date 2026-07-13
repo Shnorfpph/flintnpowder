@@ -88,6 +88,8 @@ public class ModItemsAmmo {
             () -> new ExtendedHandgunMag(new ExtendedHandgunMag.Properties().stacksTo(1)));
     public static final RegistryObject<Item> BATTLERIFLEMAGAZINE = ITEMS.register("battleriflemagazine",
             () -> new BattleRifleMag(new BattleRifleMag.Properties().stacksTo(1)));
+    public static final RegistryObject<Item> ASSAULTRIFLEMAGAZINE = ITEMS.register("assaultriflemagazine",
+            () -> new AssaultRifleMag(new AssaultRifleMag.Properties().stacksTo(1)));
     public static final RegistryObject<Item> SHOTGUNMAGAZINE = ITEMS.register("shotgun_magazine",
             () -> new ShotgunMag(new ShotgunMag.Properties().stacksTo(1)));
 

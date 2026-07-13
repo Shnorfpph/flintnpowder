@@ -35,6 +35,7 @@ public class ModSounds {
     public static final RegistryObject<SoundEvent> GUNSWING = registerSoundEvents("gunswing");
     public static final RegistryObject<SoundEvent> MUSKETFIRE = registerSoundEvents("musketfire");
     public static final RegistryObject<SoundEvent> BULLETHIT = registerSoundEvents("bullethit");
+    public static final RegistryObject<SoundEvent> MAGAZINERELOAD = registerSoundEvents("magazinereload");
 
     public static final RegistryObject<SoundEvent> FLINTPRIME = registerSoundEvents("flintprime");
     public static final RegistryObject<SoundEvent> FLINTSTRIKE = registerSoundEvents("flintstrike");
@@ -61,14 +62,17 @@ public class ModSounds {
     public static final RegistryObject<SoundEvent> PISTOLCOCKFORWARD = registerSoundEvents("pistolcockforward");
     public static final RegistryObject<SoundEvent> PISTOLMAGIN = registerSoundEvents("pistolmagin");
 
-    public static final RegistryObject<SoundEvent> SNIPERSHOOT = registerSoundEvents("snipershoot");
+    public static final RegistryObject<SoundEvent> ANTIMATERIELRIFLE = registerSoundEvents("antimaterielrifle");
+    public static final RegistryObject<SoundEvent> AMRBOLTBACKWARD = registerSoundEvents("amrboltbackward");
+    public static final RegistryObject<SoundEvent> AMRBOLTFORWARD = registerSoundEvents("amrboltforward");
 
 
     public static final RegistryObject<SoundEvent> GUNSHOTDISTANT = registerSoundEvents("distantgunshot");
-
+    public static final RegistryObject<SoundEvent> GUNSHOTDISTANTRAPID = registerSoundEvents("distantgunshotrapid");
     public static final RegistryObject<SoundEvent> GUNSHOTDISTANTHEAVY = registerSoundEvents("distantgunshotheavy");
 
     public static final RegistryObject<SoundEvent> MACHINEGUN = registerSoundEvents("machinegunfire");
+    public static final RegistryObject<SoundEvent> ASSAULTRIFLE = registerSoundEvents("assaultrifle");
     public static final RegistryObject<SoundEvent> AUTOSHOTGUNMAGIN = registerSoundEvents("shotgunmagin");
     public static final RegistryObject<SoundEvent> AUTOSHOTGUNMAGOUT = registerSoundEvents("autoshotgunmagout");
     public static final RegistryObject<SoundEvent> AUTOSHOTGUNBOLTBACK = registerSoundEvents("autoshotgunboltbackward");

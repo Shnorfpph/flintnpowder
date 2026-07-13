@@ -18,17 +18,24 @@
  */
 package org.ragingzombies.flintnpowder.item.ammo.magazines;
 
+import net.minecraft.sounds.SoundSource;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.item.ItemStack;
 import org.ragingzombies.flintnpowder.core_modified.BaseMagazineEnchantable;
+import org.ragingzombies.flintnpowder.sound.ModSounds;
 
-public class BattleRifleMag extends BaseMagazineEnchantable {
-
-    public BattleRifleMag(Properties pProperties) {
+public class AssaultRifleMag extends BaseMagazineEnchantable {
+    public AssaultRifleMag(Properties pProperties) {
         super(pProperties);
-        maxAmmo = 8;
-        this.requiredMagazineTags.add("brmag");
-
-
+        //16 Rounds capacity due to ar's weird magazine dupe glitch, also irl m16 had 20 round mags with a 3 round burst, so it's only fair :)
+        maxAmmo = 16;
+        this.requiredMagazineTags.add("armag");
 
         this.allowedCalibersTags.add("rifleround");
+    }
+    @Override
+    public void onAmmoInsert(LivingEntity ply, ItemStack mag) {
+        ply.level().playSound(null, ply,
+                ModSounds.MAGAZINERELOAD.get(), SoundSource.NEUTRAL, 1.0F, 1.0F);
     }
 }

@@ -18,17 +18,20 @@
  */
 package org.ragingzombies.flintnpowder.item.ammo.magazines;
 
+import net.minecraft.sounds.SoundSource;
+import net.minecraft.world.item.ItemStack;
 import org.ragingzombies.flintnpowder.core_modified.BaseMagazineEnchantable;
+import org.ragingzombies.flintnpowder.sound.ModSounds;
 
 public class ExtendedHandgunMag extends BaseMagazineEnchantable {
 
     public ExtendedHandgunMag(Properties pProperties) {
         super(pProperties);
-        maxAmmo = 27;
+        maxAmmo = 24;
 
         this.requiredMagazineTags.add("extendedpistolmag");
-        this.requiredMagazineTags.add("9mmmag");
 
         this.allowedCalibersTags.add("9mm");
+
     }
 }

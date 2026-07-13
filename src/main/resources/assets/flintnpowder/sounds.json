@@ -1,8 +1,32 @@
 {
-  "snipershoot": {
+  "antimaterielrifle": {
     "sounds": [
       {
-        "name": "flintnpowder:snipershoot",
+        "name": "flintnpowder:antimaterielrifle-1",
+        "stream": false
+      },
+      {
+        "name": "flintnpowder:antimaterielrifle-2",
+        "stream": false
+      },
+      {
+        "name": "flintnpowder:antimaterielrifle-3",
+        "stream": false
+      }
+    ]
+  },
+  "amrboltbackward": {
+    "sounds": [
+      {
+        "name": "flintnpowder:antimaterielrifleboltbackward",
+        "stream": false
+      }
+    ]
+  },
+  "amrboltforward": {
+    "sounds": [
+      {
+        "name": "flintnpowder:antimaterielrifleboltforward",
         "stream": false
       }
     ]
@@ -282,6 +306,15 @@
       }
     ]
   },
+  "magazinereload": {
+    "subtitle": "subtitles.magazinereload",
+    "sounds": [
+      {
+        "name": "flintnpowder:magazinereload",
+        "stream": false
+      }
+    ]
+  },
   "rifleboltbackward": {
     "subtitle": "subtitles.rifleboltbackward",
     "sounds": [
@@ -460,6 +493,15 @@
       }
     ]
   },
+  "distantgunshotrapid": {
+    "subtitle": "subtitles.distantgunshotrapid",
+    "sounds": [
+      {
+        "name": "flintnpowder:distantgunshotrapid",
+        "stream": false
+      }
+    ]
+  },
   "distantgunshotheavy": {
     "subtitle": "subtitles.distantgunshotheavy",
     "sounds": [
@@ -499,6 +541,23 @@
       },
       {
         "name": "flintnpowder:autoshotgun3",
+        "stream": false
+      }
+    ]
+  },
+  "assaultrifle": {
+    "subtitle": "subtitles.assaultrifle",
+    "sounds": [
+      {
+        "name": "flintnpowder:assaultrifle-1",
+        "stream": false
+      },
+      {
+        "name": "flintnpowder:assaultrifle-2",
+        "stream": false
+      },
+      {
+        "name": "flintnpowder:assaultrifle-3",
         "stream": false
       }
     ]

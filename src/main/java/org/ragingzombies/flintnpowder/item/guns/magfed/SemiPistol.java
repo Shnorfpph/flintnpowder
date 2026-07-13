@@ -106,6 +106,22 @@ public class SemiPistol extends MagfedBaseEnchantable {
     }
 
     @Override
+    public void onMagExtract(Level pLevel, LivingEntity shooter, ItemStack gun) {
+        pLevel.playSound(null, shooter,
+                ModSounds.PISTOLMAGIN.get(), SoundSource.NEUTRAL, 1.0F, 0.8F);
+
+        super.onMagExtract(pLevel, shooter, gun);
+    }
+
+    @Override
+    public void onMagInsert(Level pLevel, LivingEntity shooter, ItemStack gun) {
+        pLevel.playSound(null, shooter,
+                ModSounds.PISTOLMAGIN.get(), SoundSource.NEUTRAL, 1.0F, 1.0F);
+
+        super.onMagInsert(pLevel, shooter, gun);
+    }
+
+    @Override
     public Rarity getRarity(ItemStack pStack) {
         return Rarity.EPIC;
     }

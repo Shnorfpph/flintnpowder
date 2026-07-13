@@ -64,6 +64,7 @@ public class ModCreativeModTabs {
                         pOutput.accept(ModItemsAmmo.HANDGUNMAG.get());
                         pOutput.accept(ModItemsAmmo.EXTENDEDHANDGUNMAG.get());
                         pOutput.accept(ModItemsAmmo.BATTLERIFLEMAGAZINE.get());
+                        pOutput.accept(ModItemsAmmo.ASSAULTRIFLEMAGAZINE.get());
                         pOutput.accept(ModItemsAmmo.SHOTGUNMAGAZINE.get());
                         pOutput.accept(ModItemsAmmo.SNIPERRIFLEMAGAZINE.get());
                         pOutput.accept(ModItemsAmmo.MACHINEGUNMAG.get());
@@ -95,7 +96,6 @@ public class ModCreativeModTabs {
                         pOutput.accept(ModItemsGuns.FLAMINGHALBERD.get());
                         pOutput.accept(ModItemsGuns.HANDGONNE.get());
                         pOutput.accept(ModItemsGuns.PISTOL.get());
-                        pOutput.accept(ModItemsGuns.BROOMHANDLE.get());
                         pOutput.accept(ModItemsGuns.MUSKET.get());
                         pOutput.accept(ModItemsGuns.BLUNDERBUSS.get());
                         pOutput.accept(ModItemsGuns.ARQUEBUS.get());
@@ -105,6 +105,7 @@ public class ModCreativeModTabs {
                         pOutput.accept(ModItemsGuns.SINGLEACTIONREVOLVER.get());
                         pOutput.accept(ModItemsGuns.TRAPDOORRIFLE.get());
                         pOutput.accept(ModItemsGuns.BREAKACTIONCOACHGUN.get());
+                        pOutput.accept(ModItemsGuns.BROOMHANDLE.get());
                         pOutput.accept(ModItemsGuns.PUMPACTIONSHOTGUN.get());
                         pOutput.accept(ModItemsGuns.BOLTACTIONRIFLE.get());
                         pOutput.accept(ModItemsGuns.SEMIAUTOPISTOL.get());

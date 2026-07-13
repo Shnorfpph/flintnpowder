@@ -40,7 +40,7 @@ import java.util.List;
 public class ClosedBoltBattleRifle extends MagfedBaseEnchantable {
     public ClosedBoltBattleRifle(Properties pProperties) {
         super(pProperties);
-        shootCooldownTicks = 15;
+        shootCooldownTicks = 10;
 
         addCompatibleCaliberTag("brmag");
 
@@ -56,13 +56,14 @@ public class ClosedBoltBattleRifle extends MagfedBaseEnchantable {
 
     public void onMagExtract(Level pLevel, LivingEntity shooter, ItemStack gun) {
         pLevel.playSound(null, shooter,
-                ModSounds.BRMAGOUT.get(), SoundSource.NEUTRAL, 1.0F, 1.0F);
+                ModSounds.BRMAGOUT.get(), SoundSource.NEUTRAL, 1.0F, 0.8F);
 
         setReloadAnimation(gun);
 
         if (shooter instanceof Player ply) {
             setCooldown(ply, gun,  45);
         }
+        super.onMagExtract(pLevel, shooter, gun);
     }
 
     public void onMagInsert(Level pLevel, LivingEntity shooter, ItemStack gun) {
@@ -72,6 +73,7 @@ public class ClosedBoltBattleRifle extends MagfedBaseEnchantable {
         if (shooter instanceof Player ply) {
             setCooldown(ply, gun,  45);
         }
+        super.onMagInsert(pLevel, shooter, gun);
     }
 
     @Override
