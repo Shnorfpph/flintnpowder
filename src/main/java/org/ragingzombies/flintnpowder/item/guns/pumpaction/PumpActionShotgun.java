@@ -175,7 +175,9 @@ public class PumpActionShotgun extends PumpActionBaseEnchantable {
         pLevel.playSound(null, shooter,
                 ModSounds.SHOTGUNRELOAD.get(), SoundSource.NEUTRAL, 5.0F, 1.0F);
 
-        setReloadAnimation(gun);
+        if (gun.getTag().getBoolean("IsUncocked")) {
+            setReloadAnimation(gun);
+        }
 
         if (shooter instanceof Player) {
             setCooldown(shooter, gun, ammoCooldown(shooter, gun));
