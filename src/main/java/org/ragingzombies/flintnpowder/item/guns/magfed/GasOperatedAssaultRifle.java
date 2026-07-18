@@ -152,9 +152,7 @@ public class GasOperatedAssaultRifle extends MagfedBaseEnchantable {
             }
         }
 
-        if (shooter instanceof Player) {
-            setCooldown(shooter, gunStack, shootCooldown(shooter, gunStack));
-        }
+        super.onShoot(rotationX, rotationY, pLevel, shooter, gunStack);
     }
 
     @Override

@@ -72,30 +72,6 @@ public class Arquebus extends MatchlockBaseEnchantable {
         }
     }
 
-    /*
-    @Override
-    public void shoot(Level pLevel, LivingEntity pPlayer, ItemStack gunStack) {
-        super.shoot(pLevel, pPlayer, gunStack);
-
-        gunStack.getTag().putInt("Gunpowder", 0);
-        gunStack.getTag().putBoolean("HasAmmo", false);
-        gunStack.getTag().putBoolean("IsCocked", false);
-        gunStack.getTag().putBoolean("IsStuffed", false);
-        gunStack.getTag().putBoolean("IsIgnited", false);
-
-        pLevel.playSound(null, pPlayer,
-                SoundEvents.TNT_PRIMED, SoundSource.NEUTRAL, 1.0F, 1.0F);
-
-        triggerHooks("onShoot", pPlayer, gunStack);
-
-        ItemStack ammoData = ItemStack.of((CompoundTag) gunStack.getTag().get("AmmoType"));
-
-        BaseAmmo ammo = (BaseAmmo) ammoData.getItem();
-        ammo.onAmmoShot(pPlayer, gunStack, pLevel);
-        setReloadAnimation(gunStack);
-    }
-     */
-
     @Override
     public void onShoot(float rotationX, float rotationY, Level pLevel, LivingEntity shooter, ItemStack gunStack) {
         pLevel.playSound(null, shooter,
@@ -107,9 +83,7 @@ public class Arquebus extends MatchlockBaseEnchantable {
 
         setReloadAnimation(gunStack);
 
-        if (shooter instanceof Player) {
-            setCooldown(shooter, gunStack, shootCooldown(shooter, gunStack));
-        }
+        super.onShoot(rotationX, rotationY, pLevel, shooter, gunStack);
     }
 
     @Override

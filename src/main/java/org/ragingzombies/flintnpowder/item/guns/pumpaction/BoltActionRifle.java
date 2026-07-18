@@ -166,9 +166,7 @@ public class BoltActionRifle extends PumpActionBaseEnchantable {
 
     @Override
     public void onShoot(float rotationX, float rotationY, Level pLevel, LivingEntity shooter, ItemStack gunStack) {
-        if (shooter instanceof Player) {
-            setCooldown(shooter, gunStack, shootCooldown(shooter, gunStack));
-        }
+        super.onShoot(rotationX, rotationY, pLevel, shooter, gunStack);
 
         pLevel.playSound(null, shooter,
                 ModSounds.RIFLESHOOT.get(), SoundSource.NEUTRAL, 4.0F, 1.0F);

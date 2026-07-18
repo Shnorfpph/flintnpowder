@@ -156,9 +156,7 @@ public class SniperRifle extends MagfedBaseEnchantable {
                     ModSounds.SHOTGUNSHOTSILENCED.get(), SoundSource.NEUTRAL, 2.0F, 1.0F);
         }
 
-        if (shooter instanceof Player) {
-            setCooldown(shooter, gunStack, shootCooldown(shooter, gunStack));
-        }
+        super.onShoot(rotationX, rotationY, pLevel, shooter, gunStack);
     }
 
     @Override

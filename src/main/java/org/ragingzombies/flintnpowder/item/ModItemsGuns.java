@@ -40,86 +40,86 @@ public class ModItemsGuns {
             DeferredRegister.create(ForgeRegistries.ITEMS, Flintnpowder.MOD_ID);
 
     public static final RegistryObject<Item> LOGCANNON = ITEMS.register("log_cannon",
-            () -> new LogCannon(new LogCannon.Properties().stacksTo(1)));
+            () -> new LogCannon(new LogCannon.Properties().stacksTo(1).durability(100)));
 
     public static final RegistryObject<Item> MUSKET = ITEMS.register("musket",
-            () -> new Musket(new Musket.Properties().stacksTo(1)));
+            () -> new Musket(new Musket.Properties().stacksTo(1).durability(100)));
     public static final RegistryObject<Item> PISTOL = ITEMS.register("pistol",
-            () -> new Pistol(new Pistol.Properties().stacksTo(1)));
+            () -> new Pistol(new Pistol.Properties().stacksTo(1).durability(100)));
     public static final RegistryObject<Item> BLUNDERBUSS = ITEMS.register("blunderbuss",
-            () -> new Blunderbuss(new Blunderbuss.Properties().stacksTo(1)));
+            () -> new Blunderbuss(new Blunderbuss.Properties().stacksTo(1).durability(100)));
 
     public static final RegistryObject<Item> FLINTER = ITEMS.register("flinter",
-            () -> new Flinter(new Flinter.Properties().stacksTo(1)));
+            () -> new Flinter(new Flinter.Properties().stacksTo(1).durability(100)));
     public static final RegistryObject<Item> VOLLEYGUN = ITEMS.register("volleygun",
-            () -> new Volleygun(new Volleygun.Properties().stacksTo(1)));
+            () -> new Volleygun(new Volleygun.Properties().stacksTo(1).durability(100)));
 
     public static final RegistryObject<Item> ARQUEBUS = ITEMS.register("arquebus",
-            () -> new Arquebus(new Arquebus.Properties().stacksTo(1)));
+            () -> new Arquebus(new Arquebus.Properties().stacksTo(1).durability(100)));
 
     public static final RegistryObject<Item> GREEKFIRE = ITEMS.register("greek_fire",
-            () -> new GreekFire(new GreekFire.Properties().stacksTo(1)));
+            () -> new GreekFire(new GreekFire.Properties().stacksTo(1).durability(100)));
     public static final RegistryObject<Item> FLAMINGHALBERD = ITEMS.register("flaming_halberd",
-            () -> new FlamingHalberd(new FlamingHalberd.Properties().stacksTo(1)));
+            () -> new FlamingHalberd(new FlamingHalberd.Properties().stacksTo(1).durability(100)));
     public static final RegistryObject<Item> HANDGONNE = ITEMS.register("hand_gonne",
-            () -> new Handgonne(new Handgonne.Properties().stacksTo(1)));
+            () -> new Handgonne(new Handgonne.Properties().stacksTo(1).durability(100)));
 
 
     public static final RegistryObject<Item> RIFLE = ITEMS.register("rifle",
-            () -> new Rifle(new Rifle.Properties().stacksTo(1)));
+            () -> new Rifle(new Rifle.Properties().stacksTo(1).durability(100)));
     public static final RegistryObject<Item> BIGGAMEGUN = ITEMS.register("big_game",
-            () -> new BigGameGun(new BigGameGun.Properties().stacksTo(1)));
+            () -> new BigGameGun(new BigGameGun.Properties().stacksTo(1).durability(100)));
     public static final RegistryObject<Item> BRUTTBUSS = ITEMS.register("bruttbuss",
-            () -> new Bruttbuss(new Bruttbuss.Properties().stacksTo(1)));
+            () -> new Bruttbuss(new Bruttbuss.Properties().stacksTo(1).durability(100)));
 
     public static final RegistryObject<Item> BOLTACTIONRIFLE = ITEMS.register("bolt_action_rifle",
-            () -> new BoltActionRifle(new BoltActionRifle.Properties().stacksTo(1)));
+            () -> new BoltActionRifle(new BoltActionRifle.Properties().stacksTo(1).durability(100)));
 
     public static final RegistryObject<Item> SINGLEACTIONREVOLVER = ITEMS.register("single_action_revolver",
-            () -> new SingleActionRevolver(new SingleActionRevolver.Properties().stacksTo(1)));
+            () -> new SingleActionRevolver(new SingleActionRevolver.Properties().stacksTo(1).durability(100)));
     public static final RegistryObject<Item> BREAKACTIONCOACHGUN = ITEMS.register("break_action_coachgun",
-            () -> new BreakActionCoachgun(new BreakActionCoachgun.Properties().stacksTo(1)));
+            () -> new BreakActionCoachgun(new BreakActionCoachgun.Properties().stacksTo(1).durability(100)));
     public static final RegistryObject<Item> TRAPDOORRIFLE = ITEMS.register("trapdoor_rifle",
-            () -> new TrapdoorRifle(new TrapdoorRifle.Properties().stacksTo(1)));
+            () -> new TrapdoorRifle(new TrapdoorRifle.Properties().stacksTo(1).durability(100)));
 
     public static final RegistryObject<Item> PUMPACTIONSHOTGUN = ITEMS.register("shotgun",
-            () -> new PumpActionShotgun(new PumpActionShotgun.Properties().stacksTo(1)));
+            () -> new PumpActionShotgun(new PumpActionShotgun.Properties().stacksTo(1).durability(100)));
     public static final RegistryObject<Item> SNIPERRIFLE = ITEMS.register("antimaterielrifle",
-            () -> new SniperRifle(new SniperRifle.Properties().stacksTo(1)));
+            () -> new SniperRifle(new SniperRifle.Properties().stacksTo(1).durability(100)));
 
 
     public static final RegistryObject<Item> BROOMHANDLE = ITEMS.register("broomhandlepistol",
-            () -> new Broomhandle(new Broomhandle.Properties().stacksTo(1)));
+            () -> new Broomhandle(new Broomhandle.Properties().stacksTo(1).durability(100)));
 
     public static final RegistryObject<Item> SEMIAUTOPISTOL = ITEMS.register("handgun_pistol",
-            () -> new SemiPistol(new SemiPistol.Properties().stacksTo(1)));
+            () -> new SemiPistol(new SemiPistol.Properties().stacksTo(1).durability(100)));
     public static final RegistryObject<Item> OPENBOLTSUBMACHINEGUN = ITEMS.register("open_bolt_smg",
-            () -> new OpenBoltSubmachineGun(new OpenBoltSubmachineGun.Properties().stacksTo(1)));
+            () -> new OpenBoltSubmachineGun(new OpenBoltSubmachineGun.Properties().stacksTo(1).durability(100)));
     public static final RegistryObject<Item> CLOSEDBOLTBATTLERIFLE = ITEMS.register("closed_bolt_mag_rifle",
-            () -> new ClosedBoltBattleRifle(new ClosedBoltBattleRifle.Properties().stacksTo(1)));
+            () -> new ClosedBoltBattleRifle(new ClosedBoltBattleRifle.Properties().stacksTo(1).durability(100)));
     public static final RegistryObject<Item> GASOPERATEDSHOTGUN = ITEMS.register("gas_operated_shotgun",
-            () -> new GasOperatedShotgun(new GasOperatedShotgun.Properties().stacksTo(1)));
+            () -> new GasOperatedShotgun(new GasOperatedShotgun.Properties().stacksTo(1).durability(100)));
     public static final RegistryObject<Item> GASOPERATEDASSAULTRIFLE = ITEMS.register("gas_operated_assault_rifle",
-            () -> new GasOperatedAssaultRifle(new GasOperatedAssaultRifle.Properties().stacksTo(1)));
+            () -> new GasOperatedAssaultRifle(new GasOperatedAssaultRifle.Properties().stacksTo(1).durability(100)));
     public static final RegistryObject<Item> MACHINEGUN = ITEMS.register("machine_gun",
-            () -> new MachineGun(new MachineGun.Properties().stacksTo(1)));
+            () -> new MachineGun(new MachineGun.Properties().stacksTo(1).durability(100)));
 
 
     public static final RegistryObject<Item> MORTAR_MODERN_SIEGE_ENGINE = ITEMS.register("mortar_siege_internal",
-            () -> new MortarModern(new MortarModern.Properties().stacksTo(1)));
+            () -> new MortarModern(new MortarModern.Properties().stacksTo(1).durability(100)));
     public static final RegistryObject<Item> MORTAR_OLD_SIEGE_ENGINE = ITEMS.register("mortar_siege_old_internal",
-            () -> new MortarOld(new MortarOld.Properties().stacksTo(1)));
+            () -> new MortarOld(new MortarOld.Properties().stacksTo(1).durability(100)));
     public static final RegistryObject<Item> CANNON_SIEGE_ENGINE = ITEMS.register("cannon_siege_internal",
-            () -> new CannonInternalStuff(new CannonInternalStuff.Properties().stacksTo(1)));
+            () -> new CannonInternalStuff(new CannonInternalStuff.Properties().stacksTo(1).durability(100)));
 
 
     public static final RegistryObject<Item> MORTAROLD_SPAWNER = ITEMS.register("mortar_old_spawner",
-            () -> new MortarOld_Spawner(new MortarOld_Spawner.Properties().stacksTo(1)));
+            () -> new MortarOld_Spawner(new MortarOld_Spawner.Properties().stacksTo(1).durability(100)));
     public static final RegistryObject<Item> MORTAR_SPAWNER = ITEMS.register("mortar_spawner",
-            () -> new MortarModern_Spawner(new MortarModern_Spawner.Properties().stacksTo(1)));
+            () -> new MortarModern_Spawner(new MortarModern_Spawner.Properties().stacksTo(1).durability(100)));
 
     public static final RegistryObject<Item> CANNON_SPAWNER = ITEMS.register("cannon_spawner",
-            () -> new Cannon_Spawner(new Cannon_Spawner.Properties().stacksTo(1)));
+            () -> new Cannon_Spawner(new Cannon_Spawner.Properties().stacksTo(1).durability(100)));
 
 
 

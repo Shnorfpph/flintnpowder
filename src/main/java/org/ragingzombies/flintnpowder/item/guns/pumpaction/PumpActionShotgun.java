@@ -103,9 +103,7 @@ public class PumpActionShotgun extends PumpActionBaseEnchantable {
     @Override
     public void onShoot(float rotationX, float rotationY, Level pLevel, LivingEntity shooter, ItemStack gunStack) {
 
-        if (shooter instanceof Player) {
-            setCooldown(shooter, gunStack, shootCooldown(shooter, gunStack));
-        }
+        super.onShoot(rotationX, rotationY, pLevel, shooter, gunStack);
 
         if (!isAttachmentValidAndEnabled(gunStack, "silencer")) {
             pLevel.playSound(null, shooter,

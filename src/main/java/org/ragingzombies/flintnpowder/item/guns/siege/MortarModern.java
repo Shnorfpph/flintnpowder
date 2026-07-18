@@ -94,9 +94,7 @@ public class MortarModern extends GunBase {
             }
         }
 
-        if (shooter instanceof Player) {
-            setCooldown(shooter, gunStack, shootCooldown(shooter, gunStack));
-        }
+        super.onShoot(rotationX, rotationY, pLevel, shooter, gunStack);
     }
 
 
