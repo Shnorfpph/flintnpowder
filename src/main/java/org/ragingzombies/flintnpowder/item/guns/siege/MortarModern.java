@@ -20,6 +20,8 @@ package org.ragingzombies.flintnpowder.item.guns.siege;
 
 import com.livelandr.flintcore.core.ammo.BaseAmmo;
 import com.livelandr.flintcore.core.guns.GunBase;
+import com.livelandr.flintcore.core.util.HookContext;
+import com.livelandr.flintcore.core.util.HookSystem;
 import com.livelandr.flintcore.core.util.ServerTickHandler;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
@@ -105,7 +107,15 @@ public class MortarModern extends GunBase {
         ItemStack ammoData = ItemStack.of((CompoundTag) gunStack.getTag().get("AmmoType"));
 
         BaseAmmo ammo = (BaseAmmo) ammoData.getItem();
-        ammo.onAmmoShot(rotationX, rotationY, pPlayer, gunStack, pLevel);
+                if (HookSystem.calculateHookBool(new HookContext.Builder("processShooting")
+                .shooter(pPlayer)
+                .gun(gunStack)
+                .rotationX(rotationX)
+                .rotationY(rotationY)
+                .ammoType(ammo)
+                .build())) {
+           ammo.onAmmoShot(rotationX, rotationY, pPlayer, gunStack, pLevel);
+        }
 
         if (!pLevel.isClientSide()) {
             gunStack.getTag().putBoolean("HasAmmo", false);

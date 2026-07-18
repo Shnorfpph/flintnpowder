@@ -7,6 +7,7 @@ import net.minecraftforge.fml.common.Mod;
 import org.ragingzombies.flintnpowder.Flintnpowder;
 import org.ragingzombies.flintnpowder.entity.client.ModModelLayers;
 import org.ragingzombies.flintnpowder.entity.client.models.CannonModel;
+import org.ragingzombies.flintnpowder.entity.client.models.HyperSkeletonModel;
 import org.ragingzombies.flintnpowder.entity.client.models.MortarModel;
 import org.ragingzombies.flintnpowder.entity.client.models.OldMortarModel;
 
@@ -18,5 +19,6 @@ public class ModEventBusClientEvents {
         event.registerLayerDefinition(ModModelLayers.MORTAR_LAYER, MortarModel::createBodyLayer);
         event.registerLayerDefinition(ModModelLayers.OLDMORTAR_LAYER, OldMortarModel::createBodyLayer);
         event.registerLayerDefinition(ModModelLayers.CANNON_LAYER, CannonModel::createBodyLayer);
+        event.registerLayerDefinition(ModModelLayers.HYPER_SKELETON_LAYER, HyperSkeletonModel::createBodyLayer);
     }
 }

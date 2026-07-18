@@ -139,6 +139,8 @@ public class BoltActionRifle extends PumpActionBaseEnchantable {
         if (shooter instanceof Player) {
             setCooldown(shooter, gun, 20);
         }
+
+        super.OnCockStart(pLevel, shooter, gun, pUsedHand);
     }
 
     @Override
@@ -151,6 +153,8 @@ public class BoltActionRifle extends PumpActionBaseEnchantable {
         if (shooter instanceof Player) {
             setCooldown(shooter, gun, 20);
         }
+
+        super.OnCockEnd(pLevel, shooter, gun, pUsedHand);
     }
 
     @Override
@@ -162,7 +166,6 @@ public class BoltActionRifle extends PumpActionBaseEnchantable {
 
     @Override
     public void onShoot(float rotationX, float rotationY, Level pLevel, LivingEntity shooter, ItemStack gunStack) {
-
         if (shooter instanceof Player) {
             setCooldown(shooter, gunStack, shootCooldown(shooter, gunStack));
         }

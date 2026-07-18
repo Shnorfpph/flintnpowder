@@ -75,6 +75,8 @@ public class PumpActionShotgun extends PumpActionBaseEnchantable {
         if (shooter instanceof Player) {
             setCooldown(shooter, gun, 8);
         }
+
+        super.OnCockStart(pLevel, shooter, gun, pUsedHand);
     }
 
     @Override
@@ -87,6 +89,8 @@ public class PumpActionShotgun extends PumpActionBaseEnchantable {
         if (shooter instanceof Player) {
             setCooldown(shooter, gun, 8);
         }
+
+        super.OnCockEnd(pLevel, shooter, gun, pUsedHand);
     }
 
     @Override
@@ -178,6 +182,8 @@ public class PumpActionShotgun extends PumpActionBaseEnchantable {
         if (gun.getTag().getBoolean("IsUncocked")) {
             setReloadAnimation(gun);
         }
+
+        
 
         if (shooter instanceof Player) {
             setCooldown(shooter, gun, ammoCooldown(shooter, gun));

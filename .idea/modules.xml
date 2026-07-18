@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/1611742777/flintcore.main.iml" filepath="$PROJECT_DIR$/.idea/modules/1611742777/flintcore.main.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/1611742777/flintcore.test.iml" filepath="$PROJECT_DIR$/.idea/modules/1611742777/flintcore.test.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/flintnpowder.main.iml" filepath="$PROJECT_DIR$/.idea/modules/flintnpowder.main.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/flintnpowder.test.iml" filepath="$PROJECT_DIR$/.idea/modules/flintnpowder.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/1857839640/flintcore.main.iml" filepath="$PROJECT_DIR$/.idea/modules/1857839640/flintcore.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/1857839640/flintcore.test.iml" filepath="$PROJECT_DIR$/.idea/modules/1857839640/flintcore.test.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/org.ragingzombies.flintnpowder.main.iml" filepath="$PROJECT_DIR$/.idea/modules/org.ragingzombies.flintnpowder.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/org.ragingzombies.flintnpowder.test.iml" filepath="$PROJECT_DIR$/.idea/modules/org.ragingzombies.flintnpowder.test.iml" />
     </modules>
