@@ -18,6 +18,7 @@
  */
 package org.ragingzombies.flintnpowder.item.attachments;
 
+import com.livelandr.flintcore.core.util.HookSystem;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
@@ -38,18 +39,25 @@ public class Bipod extends AttachmentBase {
         super(pProperties);
         setSlot("underbarrel");
 
-        GunBase.hooks.get("calculateRecoilModifierX").add((shooter, gun, current) -> {
+        HookSystem.addHook(HookSystem.CALCULATE_RECOIL_MODIFIER_X, (context -> {
+            LivingEntity shooter = context.getShooter();
+            ItemStack gun = context.getGun();
+
             if (shooter.isCrouching() && GunBase.getGunBase(gun).isAttachmentSpecific(gun, "underbarrel", ModItemsAttachments.BIPOD.get())) {
                 return 0.025F;
             };
             return 1F;
-        });
-        GunBase.hooks.get("calculateRecoilModifierY").add((shooter, gun, current) -> {
+        }));
+
+        HookSystem.addHook(HookSystem.CALCULATE_RECOIL_MODIFIER_Y, (context -> {
+            LivingEntity shooter = context.getShooter();
+            ItemStack gun = context.getGun();
+
             if (shooter.isCrouching() && GunBase.getGunBase(gun).isAttachmentSpecific(gun, "underbarrel", ModItemsAttachments.BIPOD.get())) {
                 return 0.025F;
             };
             return 1F;
-        });
+        }));
     }
 
     @Override

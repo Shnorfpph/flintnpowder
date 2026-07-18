@@ -70,6 +70,7 @@ public class LogCannon extends GunBase {
 
     @Override
     public void onShoot(float rotationX, float rotationY, Level pLevel, LivingEntity shooter, ItemStack gunStack) {
+        super.onShoot(rotationX, rotationY, pLevel, shooter, gunStack);
         pLevel.playSound(null, shooter,
                 SoundEvents.GENERIC_EXPLODE, SoundSource.NEUTRAL, 5.0F, 1.5F);
         pLevel.playSound(null, shooter,
@@ -94,11 +95,9 @@ public class LogCannon extends GunBase {
             }
         }
 
-        gunStack.shrink(1);
+        super.onShoot(rotationX, rotationY, pLevel, shooter, gunStack);
 
-        if (shooter instanceof Player) {
-            setCooldown(shooter, gunStack, shootCooldown(shooter, gunStack));
-        }
+        gunStack.shrink(1);
     }
 
 
@@ -110,7 +109,7 @@ public class LogCannon extends GunBase {
         setAimAnimation(gun);
 
         if (pPlayer instanceof Player) {
-            ((Player) pPlayer).getCooldowns().addCooldown(this, 20);
+            setCooldown(pPlayer, gun, 20);
         }
 
         Random generator = new Random();
@@ -119,7 +118,6 @@ public class LogCannon extends GunBase {
 
     @Override
     public void shoot(Level pLevel, LivingEntity pPlayer, ItemStack gunStack) {
-
         GunBase gun = (GunBase) gunStack.getItem();
 
         TheRockProjectile proj = new TheRockProjectile(pLevel, pPlayer);
@@ -136,6 +134,7 @@ public class LogCannon extends GunBase {
 
         pLevel.addFreshEntity(proj);
 
+        super.shoot(pLevel, pPlayer, gunStack);
     }
 
     @Override

@@ -117,7 +117,6 @@ public class ClosedBoltBattleRifle extends MagfedBaseEnchantable {
 
     @Override
     public void onShoot(float rotationX, float rotationY, Level pLevel, LivingEntity shooter, ItemStack gunStack) {
-
         pLevel.playSound(null, shooter,
                 ModSounds.BRFIRE.get(), SoundSource.NEUTRAL, 5.0F, 1.0F);
         pLevel.playSound(null, shooter,
@@ -142,9 +141,7 @@ public class ClosedBoltBattleRifle extends MagfedBaseEnchantable {
             }
         }
 
-        if (shooter instanceof Player) {
-            setCooldown(shooter, gunStack, shootCooldown(shooter, gunStack));
-        }
+        super.onShoot(rotationX, rotationY, pLevel, shooter, gunStack);
     }
 
     @Override

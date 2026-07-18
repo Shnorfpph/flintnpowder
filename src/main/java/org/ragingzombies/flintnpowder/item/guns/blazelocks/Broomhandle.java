@@ -146,9 +146,8 @@ public class Broomhandle extends BlazelockBaseEnchantable {
             }
         }
 
-        if (shooter instanceof Player) {
-            setCooldown(shooter, gunStack, shootCooldownTicks);
-        }
+
+        super.onShoot(rotationX, rotationY, pLevel, shooter, gunStack);
     }
 
     @Override

@@ -73,7 +73,7 @@ public class Flinter extends FlintlockBaseEnchantable {
                 ModSounds.FLINTSTRIKE.get(), SoundSource.NEUTRAL, 1.0F, 1.0F);
 
         if (pPlayer instanceof Player) {
-            ((Player) pPlayer).getCooldowns().addCooldown(this, 20);
+            setCooldown(pPlayer, gun, 20);
         }
 
         Random generator = new Random();

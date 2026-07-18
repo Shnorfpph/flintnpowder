@@ -7,10 +7,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import org.ragingzombies.flintnpowder.Flintnpowder;
-import org.ragingzombies.flintnpowder.entity.custom.CannonEntity;
-import org.ragingzombies.flintnpowder.entity.custom.MortarEntity;
-import org.ragingzombies.flintnpowder.entity.custom.OldMortarEntity;
-import org.ragingzombies.flintnpowder.entity.custom.SmokeEntity;
+import org.ragingzombies.flintnpowder.entity.custom.*;
 
 public class ModEntities {
     public static final DeferredRegister<EntityType<?>> ENTITY_TYPES =
@@ -35,6 +32,10 @@ public class ModEntities {
             ENTITY_TYPES.register("smoke_gas", () -> EntityType.Builder.of(SmokeEntity::new, MobCategory.MISC)
                     .sized(0.95F, 0.95F)
                     .build("smoke_gas"));
+
+    public static final RegistryObject<EntityType<HyperSkeletonEntity>> HYPER_SKELETON =
+            ENTITY_TYPES.register("hyper_skelet", () -> EntityType.Builder.of(HyperSkeletonEntity::new, MobCategory.MONSTER)
+                    .build("hyper_skelet"));
 
 
 

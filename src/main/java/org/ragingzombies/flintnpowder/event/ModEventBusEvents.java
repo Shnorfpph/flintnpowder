@@ -7,6 +7,7 @@ import net.minecraftforge.fml.common.Mod;
 import org.ragingzombies.flintnpowder.Flintnpowder;
 import org.ragingzombies.flintnpowder.entity.ModEntities;
 import org.ragingzombies.flintnpowder.entity.custom.CannonEntity;
+import org.ragingzombies.flintnpowder.entity.custom.HyperSkeletonEntity;
 import org.ragingzombies.flintnpowder.entity.custom.MortarEntity;
 import org.ragingzombies.flintnpowder.entity.custom.OldMortarEntity;
 
@@ -17,5 +18,6 @@ public class ModEventBusEvents {
         event.put(ModEntities.MORTAR.get(), MortarEntity.createAttributes().build() );
         event.put(ModEntities.OLDMORTAR.get(), OldMortarEntity.createAttributes().build() );
         event.put(ModEntities.CANNON.get(), CannonEntity.createAttributes().build() );
+        event.put(ModEntities.HYPER_SKELETON.get(), HyperSkeletonEntity.createAttributes().build() );
     }
 }
