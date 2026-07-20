@@ -26,6 +26,7 @@ import net.minecraft.world.phys.Vec3;
 import com.livelandr.flintcore.core.ammo.BaseAmmo;
 import com.livelandr.flintcore.core.guns.GunBase;
 import com.livelandr.flintcore.core.util.CameraWork;
+import org.ragingzombies.flintnpowder.item.ammo.projectiles.ModProjectiles;
 import org.ragingzombies.flintnpowder.item.ammo.projectiles.SteelRoundshotProjectile;
 
 import java.util.Random;
@@ -43,10 +44,11 @@ public class SteelRoundshot extends BaseAmmo {
 
     @Override
     public void onAmmoShot(float xRotation, float yRotation, LivingEntity shooter, ItemStack gun, Level level) {
-        SteelRoundshotProjectile proj = new SteelRoundshotProjectile(level, shooter);
+        SteelRoundshotProjectile proj = new SteelRoundshotProjectile(ModProjectiles.STEELROUNDSHOTPROJECTILE.get(), shooter, level);
 
-        proj.damage = this.damage * ((GunBase) gun.getItem()).damageModifier(shooter, gun);
+        proj.setDamage(this.damage * ((GunBase) gun.getItem()).damageModifier(shooter, gun));
         proj.setOwner(shooter);
+        proj.moveTo(shooter.getX(), shooter.getEyeY()-0.1, shooter.getZ(), shooter.getXRot(), shooter.getYRot());
         Vec3 eyePos = shooter.getEyePosition();
         Vec3 lookVec = shooter.getLookAngle();
 
@@ -59,6 +61,6 @@ public class SteelRoundshot extends BaseAmmo {
             OffsetEntityCamera(shooter, (-15 + (angleX - 2)) * ((GunBase) gun.getItem()).recoilModifierX(shooter, gun), (angleX - 2) * ((GunBase) gun.getItem()).recoilModifierY(shooter, gun));
         }
 
-        level.addFreshEntity(proj);
+        if (!level.isClientSide()) level.addFreshEntity(proj);
     }
 }

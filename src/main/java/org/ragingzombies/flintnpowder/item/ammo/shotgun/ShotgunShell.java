@@ -55,11 +55,12 @@ public class ShotgunShell extends BaseAmmo {
             BuckshotProjectile proj = new BuckshotProjectile(level, shooter);
 
             proj.setOwner(shooter);
+        proj.moveTo(shooter.getX(), shooter.getEyeY()-0.1, shooter.getZ(), shooter.getXRot(), shooter.getYRot());
             proj.shootFromRotation(shooter, CameraWork.getPlayerViewX(shooter) + (float)(Math.cos(angle)*radius),
                     CameraWork.getPlayerViewY(shooter) + (float)(Math.sin(angle)*radius), 0.0F, 5F,2 * ((GunBase) gun.getItem()).accuracyModifier(shooter, gun));
-            proj.SetDamage(this.damage * ((GunBase) gun.getItem()).damageModifier(shooter, gun));
+            proj.setDamage(this.damage * ((GunBase) gun.getItem()).damageModifier(shooter, gun));
 
-            level.addFreshEntity(proj);
+            if (!level.isClientSide()) level.addFreshEntity(proj);
         }
 
 

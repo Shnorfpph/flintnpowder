@@ -50,6 +50,7 @@ public class SniperSubsonicRound extends BaseAmmo {
 
         proj.damage = this.damage * ((GunBase) gun.getItem()).damageModifier(shooter, gun);
         proj.setOwner(shooter);
+        proj.moveTo(shooter.getX(), shooter.getEyeY()-0.1, shooter.getZ(), shooter.getXRot(), shooter.getYRot());
 
         proj.shootFromRotation(shooter,xRotation, yRotation, 0.0F, 25F, 0.5F * ((GunBase) gun.getItem()).accuracyModifier(shooter, gun));
 
@@ -61,7 +62,7 @@ public class SniperSubsonicRound extends BaseAmmo {
             OffsetEntityCamera(shooter, (-13 + (angleX - 2)) * ((GunBase) gun.getItem()).recoilModifierX(shooter, gun), (angleX - 2) * ((GunBase) gun.getItem()).recoilModifierY(shooter, gun));
         }
 
-        level.addFreshEntity(proj);
+        if (!level.isClientSide()) level.addFreshEntity(proj);
     }
 
     @Override

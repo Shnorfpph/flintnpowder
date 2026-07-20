@@ -26,6 +26,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import org.ragingzombies.flintnpowder.item.ammo.projectiles.CastIronCannonballProjectile;
 import org.ragingzombies.flintnpowder.item.ammo.projectiles.HeavyCastIronRoundshotProjectile;
+import org.ragingzombies.flintnpowder.item.ammo.projectiles.ModProjectiles;
 
 import java.util.Random;
 
@@ -40,11 +41,12 @@ public class CastIronCannonball extends BaseAmmo {
 
     @Override
     public void onAmmoShot(float xRotation, float yRotation, LivingEntity shooter, ItemStack gun, Level level) {
-        CastIronCannonballProjectile proj = new CastIronCannonballProjectile(level, shooter);
+        CastIronCannonballProjectile proj = new CastIronCannonballProjectile(ModProjectiles.CASTIRONCANNONBALL.get(), shooter, level);
         proj.setOwner(shooter);
+        proj.moveTo(shooter.getX(), shooter.getEyeY()-0.1, shooter.getZ(), shooter.getXRot(), shooter.getYRot());
 
         proj.shootFromRotation(shooter,xRotation, yRotation, 0.0F, 6.5F, 2F * ((GunBase) gun.getItem()).accuracyModifier(shooter, gun));
 
-        level.addFreshEntity(proj);
+        if (!level.isClientSide()) level.addFreshEntity(proj);
     }
 }

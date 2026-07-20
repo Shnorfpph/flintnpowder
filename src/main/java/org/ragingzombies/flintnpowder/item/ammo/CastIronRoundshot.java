@@ -26,6 +26,7 @@ import com.livelandr.flintcore.core.ammo.BaseAmmo;
 import com.livelandr.flintcore.core.guns.GunBase;
 import com.livelandr.flintcore.core.util.CameraWork;
 import org.ragingzombies.flintnpowder.item.ammo.projectiles.CastIronRoundshotProjectile;
+import org.ragingzombies.flintnpowder.item.ammo.projectiles.ModProjectiles;
 
 import java.util.Random;
 
@@ -43,10 +44,11 @@ public class CastIronRoundshot extends BaseAmmo {
 
     @Override
     public void onAmmoShot(float xRotation, float yRotation, LivingEntity shooter, ItemStack gun, Level level) {
-        CastIronRoundshotProjectile proj = new CastIronRoundshotProjectile(level, shooter);
+        CastIronRoundshotProjectile proj = new CastIronRoundshotProjectile(ModProjectiles.CASTIRONROUNDSHOTPROJECTILE.get(), shooter, level);
 
-        proj.damage = this.damage * ((GunBase) gun.getItem()).damageModifier(shooter, gun);
+        proj.setDamage(this.damage * ((GunBase) gun.getItem()).damageModifier(shooter, gun));
         proj.setOwner(shooter);
+        proj.moveTo(shooter.getX(), shooter.getEyeY()-0.1, shooter.getZ(), shooter.getXRot(), shooter.getYRot());
 
         proj.shootFromRotation(shooter,xRotation, yRotation, 0.0F, 10F, 4F * ((GunBase) gun.getItem()).accuracyModifier(shooter, gun));
 
@@ -58,6 +60,6 @@ public class CastIronRoundshot extends BaseAmmo {
             OffsetEntityCamera(shooter, (-15 + (angleX - 2)) * ((GunBase) gun.getItem()).recoilModifierX(shooter, gun), (angleX - 2) * ((GunBase) gun.getItem()).recoilModifierY(shooter, gun));
         }
 
-        level.addFreshEntity(proj);
+        if (!level.isClientSide()) level.addFreshEntity(proj);
     }
 }

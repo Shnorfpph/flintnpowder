@@ -149,6 +149,7 @@ public class MortarModern extends GunBase {
 
                 secondItemStack.shrink(1);
                 onAmmo(pLevel, pPlayer, gunStack, secondItemStack, pUsedHand);
+((BaseAmmo) secondItemStack.getItem()).onAmmoInsert(pPlayer, gunStack, secondItemStack);
 
                 ServerTickHandler.createTask(10, () -> {
                     if (gunStack == null || pPlayer == null) return;

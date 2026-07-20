@@ -37,9 +37,10 @@ public class SteelCannonball extends BaseAmmo {
     public void onAmmoShot(float xRotation, float yRotation, LivingEntity shooter, ItemStack gun, Level level) {
         SteelCannonballProjectile proj = new SteelCannonballProjectile(level, shooter);
         proj.setOwner(shooter);
+        proj.moveTo(shooter.getX(), shooter.getEyeY()-0.1, shooter.getZ(), shooter.getXRot(), shooter.getYRot());
 
         proj.shootFromRotation(shooter,xRotation, yRotation, 0.0F, 6.5F, 2F * ((GunBase) gun.getItem()).accuracyModifier(shooter, gun));
 
-        level.addFreshEntity(proj);
+        if (!level.isClientSide()) level.addFreshEntity(proj);
     }
 }

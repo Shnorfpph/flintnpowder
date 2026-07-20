@@ -49,9 +49,10 @@ public class HEShell extends BaseAmmo {
         HEShellProjectile proj = new HEShellProjectile(level, shooter);
 
         proj.setOwner(shooter);
+        proj.moveTo(shooter.getX(), shooter.getEyeY()-0.1, shooter.getZ(), shooter.getXRot(), shooter.getYRot());
         proj.shootFromRotation(shooter, xRotation, yRotation, 0.0F, 4F, 0);
 
-        level.addFreshEntity(proj);
+        if (!level.isClientSide()) level.addFreshEntity(proj);
     }
 
     @Override
