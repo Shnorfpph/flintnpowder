@@ -16,7 +16,7 @@
  * You should have received a copy of the GNU Lesser General Public License
  * along with this program. If not, see <https://www.gnu.org/licenses/>.
  */
-package org.ragingzombies.flintnpowder.item.guns.flintlocks;
+package org.ragingzombies.flintnpowder.item.guns.matchlocks;
 
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
@@ -40,7 +40,6 @@ import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.common.util.Lazy;
 import org.ragingzombies.flintnpowder.core_modified.guns.FlintlockBaseEnchantable;
-import org.ragingzombies.flintnpowder.core_modified.guns.MatchlockBaseEnchantable;
 import org.ragingzombies.flintnpowder.sound.ModSounds;
 
 import javax.annotation.Nullable;

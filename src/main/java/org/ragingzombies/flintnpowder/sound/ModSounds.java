@@ -34,6 +34,7 @@ public class ModSounds {
     public static final RegistryObject<SoundEvent> RAMROD = registerSoundEvents("ramrod");
     public static final RegistryObject<SoundEvent> GUNSWING = registerSoundEvents("gunswing");
     public static final RegistryObject<SoundEvent> MUSKETFIRE = registerSoundEvents("musketfire");
+    public static final RegistryObject<SoundEvent> BLUNDERBUSS = registerSoundEvents("blunderbuss");
     public static final RegistryObject<SoundEvent> BULLETHIT = registerSoundEvents("bullethit");
     public static final RegistryObject<SoundEvent> MAGAZINERELOAD = registerSoundEvents("magazinereload");
 
@@ -56,6 +57,7 @@ public class ModSounds {
     public static final RegistryObject<SoundEvent> BRMAGOUT = registerSoundEvents("riflemagout");
     public static final RegistryObject<SoundEvent> BRFIRE = registerSoundEvents("battlerifle");
 
+    public static final RegistryObject<SoundEvent> SMGSHOOT = registerSoundEvents("smgfire");
     public static final RegistryObject<SoundEvent> PISTOLSHOOT = registerSoundEvents("pistol");
     public static final RegistryObject<SoundEvent> PISTOLDISTANTSHOOT = registerSoundEvents("distantpistolshot");
     public static final RegistryObject<SoundEvent> PISTOLCOCKBACKWARD = registerSoundEvents("pistolcockbackward");
@@ -65,7 +67,8 @@ public class ModSounds {
     public static final RegistryObject<SoundEvent> ANTIMATERIELRIFLE = registerSoundEvents("antimaterielrifle");
     public static final RegistryObject<SoundEvent> AMRBOLTBACKWARD = registerSoundEvents("amrboltbackward");
     public static final RegistryObject<SoundEvent> AMRBOLTFORWARD = registerSoundEvents("amrboltforward");
-
+    public static final RegistryObject<SoundEvent> AMRMAGIN = registerSoundEvents("antimaterielriflemagin");
+    public static final RegistryObject<SoundEvent> AMRMAGOUT = registerSoundEvents("antimaterielriflemagout");
 
     public static final RegistryObject<SoundEvent> GUNSHOTDISTANT = registerSoundEvents("distantgunshot");
     public static final RegistryObject<SoundEvent> GUNSHOTDISTANTRAPID = registerSoundEvents("distantgunshotrapid");

@@ -53,7 +53,7 @@ public class MachineGun extends MagfedBaseEnchantable {
     @Override
     public void onSlideStart(Level pLevel, LivingEntity shooter, ItemStack gun) {
         pLevel.playSound(null, shooter,
-                ModSounds.PISTOLCOCKBACKWARD.get(), SoundSource.NEUTRAL, 1.0F, 1.0F);
+                ModSounds.BRBOLTBACK.get(), SoundSource.NEUTRAL, 1.0F, 1.0F);
 
         super.onSlideStart(pLevel, shooter, gun);
     }
@@ -61,7 +61,7 @@ public class MachineGun extends MagfedBaseEnchantable {
     @Override
     public void onSlideEnd(Level pLevel, LivingEntity shooter, ItemStack gun) {
         pLevel.playSound(null, shooter,
-                ModSounds.PISTOLCOCKFORWARD.get(), SoundSource.NEUTRAL, 1.0F, 1.0F);
+                ModSounds.BRBOLTFORW.get(), SoundSource.NEUTRAL, 1.0F, 1.0F);
 
         super.onSlideEnd(pLevel, shooter, gun);
     }

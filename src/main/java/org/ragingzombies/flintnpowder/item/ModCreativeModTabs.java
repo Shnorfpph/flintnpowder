@@ -95,10 +95,11 @@ public class ModCreativeModTabs {
                         pOutput.accept(ModItemsGuns.GREEKFIRE.get());
                         pOutput.accept(ModItemsGuns.FLAMINGHALBERD.get());
                         pOutput.accept(ModItemsGuns.HANDGONNE.get());
+                        pOutput.accept(ModItemsGuns.ARQUEBUS.get());
+                        pOutput.accept(ModItemsGuns.DONDERBUSS.get());
                         pOutput.accept(ModItemsGuns.PISTOL.get());
                         pOutput.accept(ModItemsGuns.MUSKET.get());
                         pOutput.accept(ModItemsGuns.BLUNDERBUSS.get());
-                        pOutput.accept(ModItemsGuns.ARQUEBUS.get());
                         pOutput.accept(ModItemsGuns.RIFLE.get());
                         pOutput.accept(ModItemsGuns.BIGGAMEGUN.get());
                         pOutput.accept(ModItemsGuns.BRUTTBUSS.get());

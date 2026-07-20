@@ -111,7 +111,7 @@ public class MortarModern extends GunBase {
                 .rotationX(rotationX)
                 .rotationY(rotationY)
                 .ammoType(ammo)
-                .build())) {
+                .build(), 1)) {
            ammo.onAmmoShot(rotationX, rotationY, pPlayer, gunStack, pLevel);
         }
 

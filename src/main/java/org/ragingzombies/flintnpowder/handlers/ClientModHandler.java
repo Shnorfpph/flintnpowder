@@ -95,6 +95,30 @@ public class ClientModHandler {
                     return GunBase.getGunBase(stack).isAttachmentSpecific(stack, "underbarrel", ModItemsAttachments.BAYONET.get()) ? 1.0F : 0.0F;
                 }
         );
+        // Flinter
+        ItemProperties.register(
+                ModItemsGuns.FLINTER.get(),
+                fromNamespaceAndPath(MOD_ID, "flinter_ready"),
+                (stack, level, entity, seed) -> {
+                    return stack.getOrCreateTag().getBoolean("onStuff") ? 1.0F : 0.0F;
+                }
+        );
+        // Arquebus
+        ItemProperties.register(
+                ModItemsGuns.FLINTER.get(),
+                fromNamespaceAndPath(MOD_ID, "arquebus_ready"),
+                (stack, level, entity, seed) -> {
+                    return stack.getOrCreateTag().getBoolean("onStuff") ? 1.0F : 0.0F;
+                }
+        );
+        // Donderbuss
+        ItemProperties.register(
+                ModItemsGuns.DONDERBUSS.get(),
+                fromNamespaceAndPath(MOD_ID, "donderbuss_ready"),
+                (stack, level, entity, seed) -> {
+                    return stack.getOrCreateTag().getBoolean("onStuff") ? 1.0F : 0.0F;
+                }
+        );
         // Bolt Action Rifle
         ItemProperties.register(
                 ModItemsGuns.BOLTACTIONRIFLE.get(),
@@ -149,6 +173,21 @@ public class ClientModHandler {
                     return stack.getOrCreateTag().getBoolean("ShootReady") ? 1.0F : 0.0F;
                 }
         );
+        // Single action revolver
+        ItemProperties.register(
+                ModItemsGuns.SINGLEACTIONREVOLVER.get(),
+                fromNamespaceAndPath(MOD_ID, "singleactionrevolver_opened"),
+                (stack, level, entity, seed) -> {
+                    return stack.getOrCreateTag().getBoolean("ChamberOpen") ? 1.0F : 0.0F;
+                }
+        );
+        ItemProperties.register(
+                ModItemsGuns.SINGLEACTIONREVOLVER.get(),
+                fromNamespaceAndPath(MOD_ID, "singleactionrevolver_primed"),
+                (stack, level, entity, seed) -> {
+                    return stack.getOrCreateTag().getBoolean("ShootReady") ? 1.0F : 0.0F;
+                }
+        );
         // Pistol
         ItemProperties.register(
                 ModItemsGuns.PISTOL.get(),
@@ -165,7 +204,15 @@ public class ClientModHandler {
                     return stack.getOrCreateTag().getBoolean("SlideCocked") ? 1.0F : 0.0F;
                 }
         );
-        // Open Bolt
+        // "Broom handle" pistol
+        ItemProperties.register(
+                ModItemsGuns.BROOMHANDLE.get(),
+                fromNamespaceAndPath(MOD_ID, "broomhandlepistol_reloading"),
+                (stack, level, entity, seed) -> {
+                    return stack.getOrCreateTag().getBoolean("ChamberOpen") ? 1.0F : 0.0F;
+                }
+        );
+        // Open Bolt Submachine gun
         ItemProperties.register(
                 ModItemsGuns.OPENBOLTSUBMACHINEGUN.get(),
                 fromNamespaceAndPath(MOD_ID, "open_bolt_smg_magless"),
@@ -249,12 +296,19 @@ public class ClientModHandler {
                     return stack.getOrCreateTag().getBoolean("SlideCocked") ? 1.0F : 0.0F;
                 }
         );
-        // Sniper
+        // Anti materiel rifle
         ItemProperties.register(
                 ModItemsGuns.SNIPERRIFLE.get(),
-                fromNamespaceAndPath(MOD_ID, "have_mag"),
+                fromNamespaceAndPath(MOD_ID, "unloaded"),
                 (stack, level, entity, seed) -> {
-                    return stack.getOrCreateTag().getBoolean("HaveMag") ? 1.0F : 0.0F;
+                    return stack.getOrCreateTag().getBoolean("HaveMag") ? 0.0F : 1.0F;
+                }
+        );
+        ItemProperties.register(
+                ModItemsGuns.SNIPERRIFLE.get(),
+                fromNamespaceAndPath(MOD_ID, "reloading"),
+                (stack, level, entity, seed) -> {
+                    return stack.getOrCreateTag().getBoolean("SlideCocked") ? 1.0F : 0.0F;
                 }
         );
         // Machine Gun

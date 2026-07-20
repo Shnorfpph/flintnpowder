@@ -24,7 +24,7 @@
         },
         "thirdperson_lefthand": {
             "rotation": [ 0, 90, -45 ],
-            "translation": [ 0, 2.75, 1 ],
+            "translation": [ 0, 2.75, -2.75 ],
             "scale": [ 1.7, 1.7, 1 ]
         },
         "firstperson_righthand": {
@@ -43,7 +43,7 @@
     "gui": {
       "parent": "item/handheld",
       "textures": {
-        "layer0": "flintnpowder:item/antimaterielrifle_0"
+        "layer0": "flintnpowder:item/antimaterielriflegui"
       },
       "gui_light": "front"
     }
@@ -51,7 +51,13 @@
   "overrides": [
     {
       "predicate": {
-        "flintnpowder:have_mag": 1
+        "flintnpowder:unloaded": 1
+      },
+      "model": "flintnpowder:item/antimaterielrifle_0"
+    },
+    {
+      "predicate": {
+        "flintnpowder:reloading": 1
       },
       "model": "flintnpowder:item/antimaterielrifle_1"
     }

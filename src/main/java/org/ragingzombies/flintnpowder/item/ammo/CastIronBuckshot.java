@@ -41,7 +41,7 @@ public class CastIronBuckshot extends BaseAmmo {
         super(pProperties);
         this.damage = 6F;
         this.customDescription = true;
-
+        this.tier = 1;
         addRequiredTag("buckshot");
     }
 

@@ -43,7 +43,7 @@ public class Rifle extends FlintlockBaseEnchantable {
         gunpowderCooldownTicks = 20;
         ramrodCooldownTicks = 60;
 
-        this.weaponTier = 2;
+        this.weaponTier = 3;
 
         addCompatibleCaliberTag("roundshot");
 

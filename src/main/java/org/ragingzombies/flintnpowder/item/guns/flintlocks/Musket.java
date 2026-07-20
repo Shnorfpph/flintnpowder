@@ -21,6 +21,7 @@ package org.ragingzombies.flintnpowder.item.guns.flintlocks;
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
 import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.item.Items;
 import net.minecraftforge.common.util.Lazy;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.chat.Component;
@@ -132,6 +133,19 @@ public class Musket extends FlintlockBaseEnchantable {
         if (shooter instanceof Player ply) {
             setCooldown(ply, gun,  ramrodCooldown(ply, gun));
         }
+    }
+
+    @Override
+    public boolean allowPressingTrigger(Level pLevel, LivingEntity pPlayer, ItemStack gun, InteractionHand pUsedHand) {
+        ItemStack secondItemStack;
+        if (pUsedHand == InteractionHand.MAIN_HAND)
+            secondItemStack = pPlayer.getItemInHand(InteractionHand.OFF_HAND);
+        else
+            secondItemStack = pPlayer.getItemInHand(InteractionHand.MAIN_HAND);
+
+        if (secondItemStack.is(Items.AIR)) return true;
+
+        return false;
     }
 
     @Override

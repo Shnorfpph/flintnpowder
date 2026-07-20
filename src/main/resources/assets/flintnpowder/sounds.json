@@ -31,6 +31,22 @@
       }
     ]
   },
+  "antimaterielriflemagin": {
+    "sounds": [
+      {
+        "name": "flintnpowder:antimaterielriflemagin",
+        "stream": false
+      }
+    ]
+  },
+  "antimaterielriflemagout": {
+    "sounds": [
+      {
+        "name": "flintnpowder:antimaterielriflemagout",
+        "stream": false
+      }
+    ]
+  },
   "mortar_fire": {
     "sounds": [
       {

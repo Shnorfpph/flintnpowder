@@ -83,7 +83,7 @@ public class OpenBoltSubmachineGun extends MagfedBaseEnchantable {
 
         if (!isAttachmentValidAndEnabled(gunStack, "silencer")) {
             pLevel.playSound(null, shooter,
-                    ModSounds.PISTOLSHOOT.get(), SoundSource.NEUTRAL, 3.0F, 1.0F);
+                    ModSounds.SMGSHOOT.get(), SoundSource.NEUTRAL, 3.0F, 1.0F);
             pLevel.playSound(null, shooter,
                     ModSounds.PISTOLDISTANTSHOOT.get(), SoundSource.NEUTRAL, 9.0F, 1.0F);
         } else {
