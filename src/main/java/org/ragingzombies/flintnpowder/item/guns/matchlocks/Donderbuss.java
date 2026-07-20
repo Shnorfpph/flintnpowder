@@ -16,12 +16,9 @@
  * You should have received a copy of the GNU Lesser General Public License
  * along with this program. If not, see <https://www.gnu.org/licenses/>.
  */
-package org.ragingzombies.flintnpowder.item.guns.flintlocks;
+package org.ragingzombies.flintnpowder.item.guns.matchlocks;
 
-import com.livelandr.flintcore.core.guns.MatchlockBase;
-import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
-import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.LivingEntity;
@@ -30,18 +27,15 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
-import com.livelandr.flintcore.core.ammo.BaseAmmo;
-import org.ragingzombies.flintnpowder.core_modified.guns.FlintlockBaseEnchantable;
 import org.ragingzombies.flintnpowder.core_modified.guns.MatchlockBaseEnchantable;
-import org.ragingzombies.flintnpowder.handlers.ServerTickHandler;
 import org.ragingzombies.flintnpowder.sound.ModSounds;
 
 import javax.annotation.Nullable;
 import java.util.List;
 
-public class Arquebus extends MatchlockBaseEnchantable {
+public class Donderbuss extends MatchlockBaseEnchantable {
 
-    public Arquebus(Properties pProperties) {
+    public Donderbuss(Properties pProperties) {
         super(pProperties);
 
         shootCooldownTicks = 30;
@@ -50,7 +44,11 @@ public class Arquebus extends MatchlockBaseEnchantable {
 
         noCock = true;
 
-        addCompatibleCaliberTag("roundshot");
+        this.showTier = true;
+        this.weaponTier = 1;
+
+        addCompatibleCaliberTag("buckshot");
+        addCompatibleCaliberTag("rock");
 
         addAttachmentSlot("optic");
     }
@@ -75,15 +73,26 @@ public class Arquebus extends MatchlockBaseEnchantable {
     @Override
     public void onShoot(float rotationX, float rotationY, Level pLevel, LivingEntity shooter, ItemStack gunStack) {
         pLevel.playSound(null, shooter,
-                ModSounds.FLINTSTRIKE.get(), SoundSource.NEUTRAL, 1.0F, 1.0F);
+                ModSounds.BLUNDERBUSS.get(), SoundSource.NEUTRAL, 3.0F, 1.0F);
         pLevel.playSound(null, shooter,
-                ModSounds.MUSKETFIRE.get(), SoundSource.NEUTRAL, 3.0F, 1.0F);
-        pLevel.playSound(null, shooter,
-                ModSounds.GUNSHOTDISTANT.get(), SoundSource.NEUTRAL, 9.0F, 1.0F);
+                ModSounds.GUNSHOTDISTANTHEAVY.get(), SoundSource.NEUTRAL, 9.0F, 1.0F);
 
         setReloadAnimation(gunStack);
 
         super.onShoot(rotationX, rotationY, pLevel, shooter, gunStack);
+    }
+
+    @Override
+    public boolean allowPressingTrigger(Level pLevel, LivingEntity pPlayer, ItemStack gun, InteractionHand pUsedHand) {
+        ItemStack secondItemStack;
+        if (pUsedHand == InteractionHand.MAIN_HAND)
+            secondItemStack = pPlayer.getItemInHand(InteractionHand.OFF_HAND);
+        else
+            secondItemStack = pPlayer.getItemInHand(InteractionHand.MAIN_HAND);
+
+        if (secondItemStack.is(Items.AIR)) return true;
+
+        return false;
     }
 
     @Override

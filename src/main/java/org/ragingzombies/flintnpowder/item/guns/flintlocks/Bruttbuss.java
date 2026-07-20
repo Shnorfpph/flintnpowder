@@ -78,7 +78,7 @@ public class Bruttbuss extends FlintlockBaseEnchantable {
         pLevel.playSound(null, shooter,
                 ModSounds.FLINTSTRIKE.get(), SoundSource.NEUTRAL, 1.0F, 1.0F);
         pLevel.playSound(null, shooter,
-                ModSounds.RIFLESHOOT.get(), SoundSource.NEUTRAL, 3.0F, 1.0F);
+                ModSounds.BLUNDERBUSS.get(), SoundSource.NEUTRAL, 3.0F, 0.8F);
         pLevel.playSound(null, shooter,
                 ModSounds.GUNSHOTDISTANT.get(), SoundSource.NEUTRAL, 9.0F, 1.0F);
 

@@ -43,7 +43,6 @@ public class GasOperatedAssaultRifle extends MagfedBaseEnchantable {
         shootCooldownTicks = 25;
 
         addCompatibleCaliberTag("armag");
-
         addAttachmentSlot("optic");
         addCompatibleAttachmentTag("sniper");
     }

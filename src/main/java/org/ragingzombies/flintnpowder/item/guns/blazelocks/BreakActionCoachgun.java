@@ -78,9 +78,6 @@ public class BreakActionCoachgun extends BlazelockBaseEnchantable {
     @Override
     public void onShoot(float rotationX, float rotationY, Level pLevel, LivingEntity shooter, ItemStack gunStack) {
         pLevel.playSound(null, shooter,
-                ModSounds.FLINTPRIME.get(), SoundSource.NEUTRAL, 0.15F, 1.0F);
-
-        pLevel.playSound(null, shooter,
                  ModSounds.SHOTGUNSHOT.get(), SoundSource.NEUTRAL, 4.0F, 1.0F);
 
 
@@ -90,9 +87,9 @@ public class BreakActionCoachgun extends BlazelockBaseEnchantable {
             //Second index is your particle count. DO. NOT. TOUCH. pParticleCount.
             //I'm dead serious. I know it might be weird that the particle count is not the actual particle count, but just trust the process and don't touch it.
             //Thank you.
-            for (int index0 = 0; index0 < 25; index0++) {
-                double speed = 0.15;
-                double spread = 0.32;
+            for (int index0 = 0; index0 < 5; index0++) {
+                double speed = 0.25;
+                double spread = 0.12;
 
                 sLevel.sendParticles(
                         ParticleTypes.FLAME,
@@ -104,9 +101,9 @@ public class BreakActionCoachgun extends BlazelockBaseEnchantable {
                         1.0
                 );
             }
-            for (int index1 = 0; index1 < 15; index1++) {
-                double speed = 0.22;
-                double spread = 0.28;
+            for (int index1 = 0; index1 < 8; index1++) {
+                double speed = 0.12;
+                double spread = 0.18;
 
                 sLevel.sendParticles(
                         ParticleTypes.LARGE_SMOKE,

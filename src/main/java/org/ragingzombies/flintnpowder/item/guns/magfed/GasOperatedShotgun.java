@@ -122,9 +122,9 @@ public class GasOperatedShotgun extends MagfedBaseEnchantable {
     public void onShoot(float rotationX, float rotationY, Level pLevel, LivingEntity shooter, ItemStack gunStack) {
 
         pLevel.playSound(null, shooter,
-                ModSounds.BRFIRE.get(), SoundSource.NEUTRAL, 5.0F, 1.0F);
+                ModSounds.SHOTGUNSHOT.get(), SoundSource.NEUTRAL, 5.0F, 1.0F);
         pLevel.playSound(null, shooter,
-                ModSounds.GUNSHOTDISTANT.get(), SoundSource.NEUTRAL, 9.0F, 1.0F);
+                ModSounds.GUNSHOTDISTANTHEAVY.get(), SoundSource.NEUTRAL, 9.0F, 1.0F);
 
         // Particles
         if (!pLevel.isClientSide()) {

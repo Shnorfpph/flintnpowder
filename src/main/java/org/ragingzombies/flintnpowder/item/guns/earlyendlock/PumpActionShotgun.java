@@ -16,7 +16,7 @@
  * You should have received a copy of the GNU Lesser General Public License
  * along with this program. If not, see <https://www.gnu.org/licenses/>.
  */
-package org.ragingzombies.flintnpowder.item.guns.pumpaction;
+package org.ragingzombies.flintnpowder.item.guns.earlyendlock;
 
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.chat.Component;

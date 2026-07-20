@@ -113,9 +113,9 @@ public class CannonInternalStuff extends FlintlockBaseEnchantable {
                         1.0
                 );
             }
-            for (int index1 = 0; index1 < 15; index1++) {
+            for (int index1 = 0; index1 < 45; index1++) {
                 double speed = 0.22;
-                double spread = 0.28;
+                double spread = 0.19;
 
                 sLevel.sendParticles(
                         ParticleTypes.LARGE_SMOKE,

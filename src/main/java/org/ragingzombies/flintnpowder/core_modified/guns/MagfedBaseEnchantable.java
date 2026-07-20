@@ -78,7 +78,7 @@ public class MagfedBaseEnchantable extends MagfedBase {
     @Override
     public int shootCooldown(LivingEntity ply, ItemStack gun) {
         int amoLevel = EnchantmentHelper.getItemEnchantmentLevel(ModEnchantments.TRIGGER_FINGER.get(), gun);
-        return shootCooldownTicks - (int) (shootCooldownTicks/4F) * amoLevel;
+        return shootCooldownTicks - (int)((shootCooldownTicks/4F) * amoLevel);
     }
 
     @Override

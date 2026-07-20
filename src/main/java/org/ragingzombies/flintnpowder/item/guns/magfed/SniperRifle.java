@@ -60,7 +60,7 @@ public class SniperRifle extends MagfedBaseEnchantable {
 
     public void onMagExtract(Level pLevel, LivingEntity shooter, ItemStack gun) {
         pLevel.playSound(null, shooter,
-                ModSounds.BRMAGOUT.get(), SoundSource.NEUTRAL, 1.0F, 1.0F);
+                ModSounds.AMRMAGOUT.get(), SoundSource.NEUTRAL, 1.0F, 1.0F);
 
         setReloadAnimation(gun);
 
@@ -71,7 +71,7 @@ public class SniperRifle extends MagfedBaseEnchantable {
 
     public void onMagInsert(Level pLevel, LivingEntity shooter, ItemStack gun) {
         pLevel.playSound(null, shooter,
-                ModSounds.BRMAGOUT.get(), SoundSource.NEUTRAL, 1.0F, 1.0F);
+                ModSounds.AMRMAGIN.get(), SoundSource.NEUTRAL, 1.0F, 1.0F);
 
         if (shooter instanceof Player ply) {
             setCooldown(ply, gun,  35);

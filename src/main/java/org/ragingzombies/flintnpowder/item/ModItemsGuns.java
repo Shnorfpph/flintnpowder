@@ -25,13 +25,13 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import org.ragingzombies.flintnpowder.Flintnpowder;
 import org.ragingzombies.flintnpowder.item.guns.blazelocks.BreakActionCoachgun;
-import org.ragingzombies.flintnpowder.item.guns.blazelocks.Broomhandle;
+import org.ragingzombies.flintnpowder.item.guns.earlyendlock.Broomhandle;
 import org.ragingzombies.flintnpowder.item.guns.blazelocks.TrapdoorRifle;
 import org.ragingzombies.flintnpowder.item.guns.flintlocks.*;
+import org.ragingzombies.flintnpowder.item.guns.matchlocks.*;
 import org.ragingzombies.flintnpowder.item.guns.magfed.*;
 import org.ragingzombies.flintnpowder.item.guns.other.LogCannon;
-import org.ragingzombies.flintnpowder.item.guns.pumpaction.BoltActionRifle;
-import org.ragingzombies.flintnpowder.item.guns.pumpaction.PumpActionShotgun;
+import org.ragingzombies.flintnpowder.item.guns.earlyendlock.*;
 import org.ragingzombies.flintnpowder.item.guns.blazelocks.SingleActionRevolver;
 import org.ragingzombies.flintnpowder.item.guns.siege.*;
 
@@ -56,6 +56,8 @@ public class ModItemsGuns {
 
     public static final RegistryObject<Item> ARQUEBUS = ITEMS.register("arquebus",
             () -> new Arquebus(new Arquebus.Properties().stacksTo(1).durability(100)));
+    public static final RegistryObject<Item> DONDERBUSS = ITEMS.register("donderbuss",
+            () -> new Donderbuss(new Donderbuss.Properties().stacksTo(1).durability(100)));
 
     public static final RegistryObject<Item> GREEKFIRE = ITEMS.register("greek_fire",
             () -> new GreekFire(new GreekFire.Properties().stacksTo(1).durability(100)));

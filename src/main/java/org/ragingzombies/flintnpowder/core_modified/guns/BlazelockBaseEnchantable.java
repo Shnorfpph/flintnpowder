@@ -81,30 +81,6 @@ public class BlazelockBaseEnchantable extends BlazelockBase {
     }
 
     @Override
-    public void onCocking(Level pLevel, LivingEntity shooter, ItemStack gun) {
-        pLevel.playSound(null, shooter,
-                ModSounds.GUNSWING.get(), SoundSource.NEUTRAL, 1.0F, 1.0F);
-
-        super.onCocking(pLevel, shooter, gun);
-    }
-
-    @Override
-    public void onChamberOpen(Level pLevel, LivingEntity shooter, ItemStack gun) {
-        pLevel.playSound(null, shooter,
-                ModSounds.GUNSWING.get(), SoundSource.NEUTRAL, 1.0F, 1.0F);
-
-        super.onChamberOpen(pLevel, shooter, gun);
-    }
-
-    @Override
-    public void onChamberClose(Level pLevel, LivingEntity shooter, ItemStack gun) {
-        pLevel.playSound(null, shooter,
-                ModSounds.GUNSWING.get(), SoundSource.NEUTRAL, 1.0F, 1.0F);
-
-        super.onChamberClose(pLevel, shooter, gun);
-    }
-
-    @Override
     public void onAmmoInsert(Level pLevel, LivingEntity shooter, ItemStack gun, InteractionHand pUsedHand) {
         pLevel.playSound(null, shooter,
                 SoundEvents.ITEM_PICKUP, SoundSource.NEUTRAL, 1.0F, 1.0F);

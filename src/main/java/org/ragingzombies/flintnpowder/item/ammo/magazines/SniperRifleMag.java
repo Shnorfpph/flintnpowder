@@ -18,7 +18,12 @@
  */
 package org.ragingzombies.flintnpowder.item.ammo.magazines;
 
+import net.minecraft.sounds.SoundSource;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
 import org.ragingzombies.flintnpowder.core_modified.BaseMagazineEnchantable;
+import org.ragingzombies.flintnpowder.sound.ModSounds;
 
 public class SniperRifleMag extends BaseMagazineEnchantable {
 
@@ -29,5 +34,14 @@ public class SniperRifleMag extends BaseMagazineEnchantable {
         this.requiredMagazineTags.add("snipermag");
 
         this.allowedCalibersTags.add("50bmg");
+    }
+    @Override
+    public void onAmmoInsert(LivingEntity ply, ItemStack mag) {
+        ply.level().playSound(null, ply,
+                ModSounds.MAGAZINERELOAD.get(), SoundSource.NEUTRAL, 1.0F, 0.6F);
+
+        if (ply instanceof Player p) {
+            p.getCooldowns().addCooldown(mag.getItem(), 8);
+        }
     }
 }

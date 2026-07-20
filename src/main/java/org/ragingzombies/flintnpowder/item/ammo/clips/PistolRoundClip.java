@@ -32,7 +32,7 @@ public class PistolRoundClip extends BaseAmmo {
     ItemStack dummy = ItemStack.EMPTY;
     public PistolRoundClip(Properties pProperties) {
         super(pProperties);
-        damage = 6;
+        damage = 19;
 
         addRequiredTag("9mmclip");
     }
