@@ -51,6 +51,7 @@ public class FoolsGoldRoundshot extends BaseAmmo {
 
         proj.damage = this.damage * ((GunBase) gun.getItem()).damageModifier(shooter, gun);
         proj.setOwner(shooter);
+        proj.moveTo(shooter.getX(), shooter.getEyeY()-0.1, shooter.getZ(), shooter.getXRot(), shooter.getYRot());
 
         proj.shootFromRotation(shooter,xRotation, yRotation, 0.0F, 5F, 2F * ((GunBase) gun.getItem()).accuracyModifier(shooter, gun));
 

@@ -48,6 +48,7 @@ public class SteelRoundshot extends BaseAmmo {
 
         proj.setDamage(this.damage * ((GunBase) gun.getItem()).damageModifier(shooter, gun));
         proj.setOwner(shooter);
+        proj.moveTo(shooter.getX(), shooter.getEyeY()-0.1, shooter.getZ(), shooter.getXRot(), shooter.getYRot());
         Vec3 eyePos = shooter.getEyePosition();
         Vec3 lookVec = shooter.getLookAngle();
 

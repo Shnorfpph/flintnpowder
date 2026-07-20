@@ -66,6 +66,7 @@ public class FlamingGrapeshot extends BaseAmmo {
              FlamingBuckshotProjectile proj = new FlamingBuckshotProjectile(level, shooter);
 
              proj.setOwner(shooter);
+        proj.moveTo(shooter.getX(), shooter.getEyeY()-0.1, shooter.getZ(), shooter.getXRot(), shooter.getYRot());
              proj.setDamage(this.damage * ((GunBase) gun.getItem()).damageModifier(shooter, gun));
 
              proj.shootFromRotation(shooter, CameraWork.getPlayerViewX(shooter) + (float)(Math.cos(angle)*radius),

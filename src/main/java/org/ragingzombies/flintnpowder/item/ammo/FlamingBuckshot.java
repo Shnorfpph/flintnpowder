@@ -55,6 +55,7 @@ public class FlamingBuckshot extends BaseAmmo {
             FlamingBuckshotProjectile proj = new FlamingBuckshotProjectile(level, shooter);
 
             proj.setOwner(shooter);
+        proj.moveTo(shooter.getX(), shooter.getEyeY()-0.1, shooter.getZ(), shooter.getXRot(), shooter.getYRot());
             proj.shootFromRotation(shooter, CameraWork.getPlayerViewX(shooter) + (float)(Math.cos(angle)*radius),
                     CameraWork.getPlayerViewY(shooter) + (float)(Math.sin(angle)*radius), 0.0F, 5F,1.25F * ((GunBase) gun.getItem()).accuracyModifier(shooter, gun));
             proj.setDamage(this.damage * ((GunBase) gun.getItem()).damageModifier(shooter, gun));
